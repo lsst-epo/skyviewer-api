@@ -2,8 +2,6 @@ FROM php:7.2-fpm-alpine3.11
 
 LABEL maintainer="erosas@lsst.org"
 
-ENV COMPOSER_NO_INTERACTION=1
-
 USER root
 
 RUN set -ex \
@@ -45,14 +43,13 @@ RUN set -ex \
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-# Assign installation env vars
-ARG ACTION
-ENV ACTION=$ACTION
-
 RUN apk add gnu-libiconv --update-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/community/ --allow-untrusted
 ENV LD_PRELOAD /usr/lib/preloadable_libiconv.so php
 
 COPY ./config-env/php.ini /usr/local/etc/php/
+
+COPY ./db/skyviewer.sql /var/www/db/
+RUN chown -R www-data:www-data /var/www/db 
 
 COPY scripts/ /scripts/
 RUN chown -R www-data:www-data /scripts \

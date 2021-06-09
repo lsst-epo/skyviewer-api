@@ -1,16 +1,33 @@
 #!/bin/bash
+declare sql_file
 
-set -e
+# Saved DB credentials
+echo *:*:*:$DB_USER:$DB_PASSWORD >~/.pgpass
+chmod 600 ~/.pgpass
 
-cd /var/www/html
+cd /var/www/db
 
-if [ "$ACTION" == "install" ] 
-then
-    echo "Installing Craft CMS!"
-    composer create-project craftcms/craft /var/www/html/craftcms
-else
-    echo "Skipping Craft CMS installation step."
+sql_file=$(find . -name "*.sql" -printf "%t %p\n" | sort -n | rev | cut -d' ' -f 1 | rev | tail -n1)
+
+if [[ "$sql_file" ]]; then
+    echo "Database dump found: ${sql_file}"
+
+    while ! pg_isready -h $DB_SERVER; do
+        h2 "Waiting for PostreSQL server"
+        sleep 1
+    done
+
+    echo "Importing database"
+    #comment out below line to prevent db from being recreated each: docker-compose up
+    cat "$sql_file" | psql -h $DB_SERVER -d $DB_SERVER -U $DB_USER
+    
+    echo "Removing SQL dump file now that DB has been restored."
+    rm $sql_file
+    echo "Removed."
+
+
 fi
+echo "Done importing DB!"
 
 # Start php-fpm
 exec "$@"

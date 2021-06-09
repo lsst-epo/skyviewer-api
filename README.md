@@ -6,16 +6,15 @@ The CMS backend that will serve up data/content to the Skyviewer UI/client.
 
 1. Build the docker image:
 
-```docker build -t epo/craft_cms_starter . --build-arg ACTION=install```
-
-You do not need to include `--build-arg ACTION=install` in future builds, it is only required to download/install Craft CMS.
+```docker build -t epo/skyviewer_api .``
 
 2. Bring the docker-compose up:
 
 ```docker-compose up```
 
-3. Go to http://localhost:9900/admin
-4. Proceed with installation
+3. Go to http://localhost:9900/admin to test that it loads, if it does return here
+
+4. In a code editor, go into /scripts/run.sh and comment out line 22 as future runs will fail because the DB already exists
 
 This will ensure that the start project will work on your machine.
 
