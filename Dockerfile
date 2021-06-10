@@ -60,7 +60,7 @@ RUN mkdir logs
 RUN chown -R www-data:www-data .    
 
 RUN chown -R www-data:www-data /var/www/html/
-USER www-data
+#USER www-data
 
 VOLUME [ "/var/www/html" ]
 

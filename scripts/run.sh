@@ -18,8 +18,9 @@ if [[ "$sql_file" ]]; then
     done
 
     echo "Importing database"
-    #comment out below line to prevent db from being recreated each: docker-compose up
-    cat "$sql_file" | psql -h $DB_SERVER -d $DB_SERVER -U $DB_USER
+    echo "create database skyviewer;" > createDB.sql
+    cat createDB.sql | psql -h $DB_SERVER -d $DB_SERVER -U $DB_USER
+    cat "$sql_file" | psql -h $DB_SERVER -d skyviewer -U $DB_USER
     
     echo "Removing SQL dump file now that DB has been restored."
     rm $sql_file
