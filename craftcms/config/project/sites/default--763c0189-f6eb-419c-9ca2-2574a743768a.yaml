@@ -1,0 +1,9 @@
+baseUrl: $PRIMARY_SITE_URL
+enabled: true
+handle: default
+hasUrls: true
+language: en-US
+name: 'Skyviewer English'
+primary: true
+siteGroup: c1f0a2ee-3b87-486c-96ed-7e2d25fc952f # Skyviewer API
+sortOrder: 1

@@ -1,0 +1,62 @@
+fieldLayouts:
+  88f13df1-be43-4126-b9ff-75c00eccfde6:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\TitleField
+            warning: null
+            width: 100
+          -
+            fieldUid: fe3ef1fd-33fa-4aeb-9ed2-9e74f6694377 # URL
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 68674953-a9fc-439e-8ee2-e6a9bb70dafc # Description
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+handle: hipsCatalogs
+name: 'HiPS Catalogs'
+siteSettings:
+  763c0189-f6eb-419c-9ca2-2574a743768a: # Skyviewer English
+    hasUrls: true
+    template: null
+    uriFormat: 'hips-catalogs/{slug}'
+  a6b28fea-2f0c-49a2-b82c-fd16c51d9511: # Skyviewer Español
+    hasUrls: true
+    template: null
+    uriFormat: 'hips-catalogs/{slug}'
+structure:
+  maxLevels: null
+  uid: c5f91141-fb7a-4467-8e9d-d1f025206c1b
