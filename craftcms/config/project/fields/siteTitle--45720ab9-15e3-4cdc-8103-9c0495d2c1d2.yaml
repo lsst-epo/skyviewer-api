@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: 4accd3e5-dd7d-4464-9f19-db2009adda71 # Globals
+handle: siteTitle
+instructions: ''
+name: 'Site Title'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: ''
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\PlainText
