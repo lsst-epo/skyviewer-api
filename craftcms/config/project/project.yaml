@@ -1,0 +1,17 @@
+dateModified: 1623371043
+email:
+  fromEmail: erosas@lsst.org
+  fromName: 'Skyviewer API'
+  transportType: craft\mail\transportadapters\Sendmail
+system:
+  edition: pro
+  live: true
+  name: 'Skyviewer API'
+  schemaVersion: 3.6.8
+  timeZone: America/Los_Angeles
+users:
+  allowPublicRegistration: false
+  defaultGroup: null
+  photoSubpath: null
+  photoVolumeUid: null
+  requireEmailVerification: true

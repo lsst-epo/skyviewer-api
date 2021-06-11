@@ -1,0 +1,4 @@
+isPublic: true
+name: 'Public Schema'
+scope:
+  - 'categorygroups.43c5d827-8706-4863-a676-17bf911ce931:read' # HiPS Catalogs

@@ -1,0 +1,31 @@
+enableVersioning: true
+handle: catalog
+name: Catalog
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  763c0189-f6eb-419c-9ca2-2574a743768a: # Skyviewer English
+    enabledByDefault: true
+    hasUrls: true
+    template: null
+    uriFormat: 'catalog/{slug}'
+  a6b28fea-2f0c-49a2-b82c-fd16c51d9511: # Skyviewer Español
+    enabledByDefault: true
+    hasUrls: true
+    template: null
+    uriFormat: 'catalog/{slug}'
+structure:
+  maxLevels: null
+  uid: ae4c1bfa-0825-4ccf-b090-4c79bed024bb
+type: structure
