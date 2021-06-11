@@ -1,4 +1,7 @@
 isPublic: true
 name: 'Public Schema'
 scope:
+  - 'sections.32b433c2-8fa2-439b-9678-d48e4f929b88:read' # Catalog
+  - 'entrytypes.9d2a5fce-1549-4e9f-8205-f1527f5064b2:read' # Catalog
+  - 'globalsets.ea689411-d03e-48f0-8841-3318c457eee1:read' # Site Info
   - 'categorygroups.43c5d827-8706-4863-a676-17bf911ce931:read' # HiPS Catalogs
