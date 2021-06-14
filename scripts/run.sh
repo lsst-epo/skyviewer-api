@@ -56,5 +56,10 @@ done
 
 echo '✅  All dependencies successfully installed.'
 
+echo 'Applying project config file changes.'
+./craft project-config/apply
+echo '✅  All project config file changes applied.'
+
+
 # Start php-fpm
 exec "$@"
