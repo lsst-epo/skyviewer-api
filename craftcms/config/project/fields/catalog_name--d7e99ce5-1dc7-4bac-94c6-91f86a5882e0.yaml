@@ -1,0 +1,79 @@
+contentColumnType: text
+fieldGroup: a3b0cf34-24af-41fe-8047-b1e5b65d5bd0 # Catalog
+handle: catalog_name
+instructions: 'Celestial body type as it correlates to the UI dropdown'
+name: Name
+searchable: false
+settings:
+  multi: true
+  optgroups: true
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - star
+        -
+          - value
+          - star
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - galaxy
+        -
+          - value
+          - galaxy
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - nebula
+        -
+          - value
+          - nebula
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - transient
+        -
+          - value
+          - transient
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - goal
+        -
+          - value
+          - goal
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - landmark
+        -
+          - value
+          - landmark
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\MultiSelect

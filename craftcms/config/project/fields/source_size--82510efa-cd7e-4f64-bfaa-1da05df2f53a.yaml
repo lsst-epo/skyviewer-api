@@ -1,0 +1,19 @@
+contentColumnType: integer(10)
+fieldGroup: a3b0cf34-24af-41fe-8047-b1e5b65d5bd0 # Catalog
+handle: source_size
+instructions: 'How big the marker icons will appear on the page'
+name: 'Source Size'
+searchable: false
+settings:
+  decimals: 0
+  defaultValue: '20'
+  max: null
+  min: '0'
+  prefix: null
+  previewCurrency: ''
+  previewFormat: none
+  size: null
+  suffix: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Number
