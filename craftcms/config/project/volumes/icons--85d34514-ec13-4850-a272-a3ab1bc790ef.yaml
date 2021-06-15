@@ -32,9 +32,9 @@ handle: icons
 hasUrls: true
 name: Icons
 settings:
-  path: /var/www/html/craftcms/web/assets/icons
+  path: '@webroot/assets/icons'
 sortOrder: 0
 titleTranslationKeyFormat: null
 titleTranslationMethod: site
 type: craft\volumes\Local
-url: /assets/icons
+url: /icons

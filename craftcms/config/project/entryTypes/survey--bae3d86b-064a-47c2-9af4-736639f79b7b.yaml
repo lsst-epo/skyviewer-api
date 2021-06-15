@@ -1,5 +1,5 @@
 fieldLayouts:
-  88f13df1-be43-4126-b9ff-75c00eccfde6:
+  a590a1dc-4372-4d00-9cf8-267c5e5e93f1:
     tabs:
       -
         elements:
@@ -23,20 +23,20 @@ fieldLayouts:
             step: null
             tip: null
             title: null
-            type: craft\fieldlayoutelements\TitleField
-            warning: null
-            width: 100
-          -
-            fieldUid: d7e99ce5-1dc7-4bac-94c6-91f86a5882e0 # Variety
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
+            type: craft\fieldlayoutelements\EntryTitleField
             warning: null
             width: 100
           -
             fieldUid: fe3ef1fd-33fa-4aeb-9ed2-9e74f6694377 # Path
+            instructions: ''
+            label: ''
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: b3f50442-f90e-42e6-986e-b2426abedaca # Target
             instructions: null
             label: null
             required: false
@@ -45,7 +45,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 68674953-a9fc-439e-8ee2-e6a9bb70dafc
+            fieldUid: 0732995e-10da-4be7-944b-51b1135d12eb # Field of Vision (FOV) Minimum Value
             instructions: null
             label: null
             required: false
@@ -54,7 +54,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 7e00543c-2735-49a3-96f0-d39d5d7333fe # Icon
+            fieldUid: 455216e8-f949-4521-911f-d50895102cd4 # Field of Vision (FOV) Maximum Value
             instructions: null
             label: null
             required: false
@@ -63,7 +63,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 82510efa-cd7e-4f64-bfaa-1da05df2f53a # Source Size
+            fieldUid: a0521bda-0df4-4937-9d6e-1534dfb98b58 # Field of Vision (FOV) Initial Value
             instructions: null
             label: null
             required: false
@@ -73,17 +73,11 @@ fieldLayouts:
             width: 100
         name: Content
         sortOrder: 1
-handle: hipsCatalogs
-name: 'HiPS Catalogs'
-siteSettings:
-  763c0189-f6eb-419c-9ca2-2574a743768a: # EN
-    hasUrls: true
-    template: null
-    uriFormat: 'hips-catalogs/{slug}'
-  a6b28fea-2f0c-49a2-b82c-fd16c51d9511: # ES
-    hasUrls: true
-    template: null
-    uriFormat: 'hips-catalogs/{slug}'
-structure:
-  maxLevels: null
-  uid: c5f91141-fb7a-4467-8e9d-d1f025206c1b
+handle: survey
+hasTitleField: true
+name: Survey
+section: 02e3155f-23cf-4f36-a734-a3f447d04e85 # Survey
+sortOrder: 1
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

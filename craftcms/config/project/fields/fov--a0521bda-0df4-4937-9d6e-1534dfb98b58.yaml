@@ -1,0 +1,19 @@
+contentColumnType: integer(10)
+fieldGroup: 0ecf9feb-ab77-470b-a2de-eb396a3a4682 # Survey
+handle: fov
+instructions: 'An integer indicating the initial Zoom level'
+name: 'Field of Vision (FOV) Initial Value'
+searchable: false
+settings:
+  decimals: 0
+  defaultValue: null
+  max: null
+  min: '0'
+  prefix: null
+  previewCurrency: ''
+  previewFormat: decimal
+  size: null
+  suffix: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Number
