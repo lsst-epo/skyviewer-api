@@ -1,8 +1,8 @@
 contentColumnType: string(255)
 fieldGroup: a3b0cf34-24af-41fe-8047-b1e5b65d5bd0 # Catalog
-handle: endpoint
+handle: path
 instructions: ''
-name: URL
+name: Path
 searchable: false
 settings:
   maxLength: '255'
