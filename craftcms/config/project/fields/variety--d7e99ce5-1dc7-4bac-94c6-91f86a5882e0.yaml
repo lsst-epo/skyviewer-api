@@ -1,0 +1,78 @@
+contentColumnType: string
+fieldGroup: a3b0cf34-24af-41fe-8047-b1e5b65d5bd0 # Catalog
+handle: variety
+instructions: ''
+name: Variety
+searchable: false
+settings:
+  optgroups: true
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - Stars
+        -
+          - value
+          - star
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Galaxies
+        -
+          - value
+          - galaxy
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Nebulas
+        -
+          - value
+          - nebula
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Transients
+        -
+          - value
+          - transient
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Goals
+        -
+          - value
+          - goal
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Landmarks
+        -
+          - value
+          - landmark
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown
