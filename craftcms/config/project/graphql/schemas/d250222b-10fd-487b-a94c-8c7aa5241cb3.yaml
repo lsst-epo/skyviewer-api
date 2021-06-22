@@ -1,9 +1,17 @@
 isPublic: true
 name: 'Public Schema'
 scope:
-  - 'sections.32b433c2-8fa2-439b-9678-d48e4f929b88:read' # Catalog
+  - 'sections.b22ca822-e7e2-4f8c-8be5-d3b0fcab1c9f:read' # Tours
+  - 'entrytypes.52d4af2b-ae9b-4f2f-a90b-5c4b5ce23eb9:read' # Tour
+  - 'sections.32b433c2-8fa2-439b-9678-d48e4f929b88:read' # Catalogs
   - 'entrytypes.9d2a5fce-1549-4e9f-8205-f1527f5064b2:read' # Catalog
-  - 'sections.02e3155f-23cf-4f36-a734-a3f447d04e85:read' # Survey
+  - 'sections.02e3155f-23cf-4f36-a734-a3f447d04e85:read' # Surveys
   - 'entrytypes.bae3d86b-064a-47c2-9af4-736639f79b7b:read' # Survey
+  - 'sections.240e4c6e-98e3-4186-8dd5-6a421d11e732:read'
+  - 'entrytypes.7bdc8427-a1e4-4e91-bd2d-6df37ecc598b:read'
+  - 'sections.38d911f8-ac18-4678-a8f8-72e96daf0732:read'
+  - 'entrytypes.16b35bd6-a6c2-4aa6-94f7-7fcb7521a858:read'
+  - 'sections.4a76eb6e-e209-42df-8ef6-43f1e5f7f745:read' # Points of Interest
+  - 'entrytypes.72ffe34e-f0b2-437e-beaa-d69b3fa947fb:read' # Point of Interest
   - 'globalsets.ea689411-d03e-48f0-8841-3318c457eee1:read' # Site Info
   - 'categorygroups.43c5d827-8706-4863-a676-17bf911ce931:read' # HiPS Catalogs

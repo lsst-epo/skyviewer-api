@@ -1,0 +1,49 @@
+field: 008cb5a3-a777-476f-8410-4f2bf13ac492 # Intro Content Blocks
+fieldLayouts:
+  0fc0ae09-e999-401a-94f3-c849d44a6fc0:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 6f7c799f-429a-486c-bde4-a5bd5ece3a78 # Body
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  6f7c799f-429a-486c-bde4-a5bd5ece3a78: # Body
+    contentColumnType: text
+    fieldGroup: null
+    handle: body
+    instructions: ''
+    name: Body
+    searchable: false
+    settings:
+      availableTransforms: '*'
+      availableVolumes: ''
+      cleanupHtml: true
+      columnType: text
+      configSelectionMode: choose
+      defaultTransform: ''
+      manualConfig: ''
+      purifierConfig: ''
+      purifyHtml: '1'
+      redactorConfig: ''
+      removeEmptyTags: '1'
+      removeInlineStyles: '1'
+      removeNbsp: '1'
+      showHtmlButtonForNonAdmins: ''
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      uiMode: enlarged
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\redactor\Field
+handle: introBlock
+name: 'Intro Content Block'
+sortOrder: 1

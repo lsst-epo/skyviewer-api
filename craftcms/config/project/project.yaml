@@ -1,8 +1,13 @@
-dateModified: 1623864348
+dateModified: 1624397746
 email:
   fromEmail: erosas@lsst.org
   fromName: 'Skyviewer API'
   transportType: craft\mail\transportadapters\Sendmail
+plugins:
+  redactor:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.3.0
 system:
   edition: pro
   live: true

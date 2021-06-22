@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: 7d09d2f0-5c11-4a45-a805-a6d39128319e # Common
+handle: heading
+instructions: ''
+name: Heading
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: ''
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

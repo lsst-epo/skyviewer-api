@@ -67,7 +67,7 @@ fieldLayouts:
 handle: catalog
 hasTitleField: true
 name: Catalog
-section: 32b433c2-8fa2-439b-9678-d48e4f929b88 # Catalog
+section: 32b433c2-8fa2-439b-9678-d48e4f929b88 # Catalogs
 sortOrder: 1
 titleFormat: null
 titleTranslationKeyFormat: null
