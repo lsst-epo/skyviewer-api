@@ -1,6 +1,6 @@
 enableVersioning: true
-handle: catalog
-name: Catalog
+handle: surveys
+name: Surveys
 previewTargets:
   -
     __assoc__:
@@ -19,13 +19,13 @@ siteSettings:
     enabledByDefault: true
     hasUrls: true
     template: null
-    uriFormat: 'catalog/{slug}'
+    uriFormat: 'explorer/{slug}'
   a6b28fea-2f0c-49a2-b82c-fd16c51d9511: # ES
     enabledByDefault: true
     hasUrls: true
     template: null
-    uriFormat: 'catalog/{slug}'
+    uriFormat: 'explorer/{slug}'
 structure:
   maxLevels: null
-  uid: ae4c1bfa-0825-4ccf-b090-4c79bed024bb
+  uid: 505d6993-ce17-4b37-aa55-28a180963d52
 type: structure

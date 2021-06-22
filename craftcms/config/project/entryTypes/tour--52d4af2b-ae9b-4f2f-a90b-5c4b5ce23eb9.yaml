@@ -1,0 +1,149 @@
+fieldLayouts:
+  05e3e818-d66c-4f2d-99ef-52fe1ee8904e:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\EntryTitleField
+            warning: null
+            width: 100
+          -
+            fieldUid: 2c43566d-87e9-47af-b1e3-87577b58f06f # Variety
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 93cdcbba-f59d-41f1-ac65-5d9b0f83ef62 # Duration
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: d4c658d8-0938-43f0-9ce0-0515d09ca162 # Complexity
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 7f01b564-7d49-4139-be9d-07d369fd3408 # Thumbnail Image
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 3c645133-6daf-4632-a842-13662885ad1b # Background Image
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+      -
+        elements:
+          -
+            fieldUid: a715351e-d465-4446-81f8-c9a15b3d1298 # Intro Heading
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 31806af1-7467-49ea-9638-01ecf1c546cd # Intro Subheading
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 008cb5a3-a777-476f-8410-4f2bf13ac492 # Intro Content Blocks
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Intro
+        sortOrder: 2
+      -
+        elements:
+          -
+            fieldUid: 18a685a4-2ce7-4ae8-b717-0154cff390c1 # Fun Facts Heading
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 04fc1a9d-6240-4e69-ad81-2e02190a7e8d # Fun Facts Content Blocks
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Facts
+        sortOrder: 3
+      -
+        elements:
+          -
+            fieldUid: 8fd439fe-660f-4cac-8ddf-b71b8ad6276f # Tour POIs
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: POI
+        sortOrder: 4
+handle: tour
+hasTitleField: true
+name: Tour
+section: b22ca822-e7e2-4f8c-8be5-d3b0fcab1c9f # Tours
+sortOrder: 1
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

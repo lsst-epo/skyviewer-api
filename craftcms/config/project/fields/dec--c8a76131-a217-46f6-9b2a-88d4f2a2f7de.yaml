@@ -1,8 +1,8 @@
 contentColumnType: integer(10)
-fieldGroup: 7d09d2f0-5c11-4a45-a805-a6d39128319e # Common
-handle: fov
-instructions: 'An integer indicating the initial Zoom level'
-name: 'Field of Vision (FOV) Initial Value'
+fieldGroup: 8d6803f5-ca34-46d8-a8d5-869896e34b65 # Tour
+handle: dec
+instructions: Declination
+name: Dec
 searchable: false
 settings:
   decimals: 0

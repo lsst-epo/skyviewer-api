@@ -1,0 +1,19 @@
+contentColumnType: smallint(1)
+fieldGroup: 8d6803f5-ca34-46d8-a8d5-869896e34b65 # Tour
+handle: complexity
+instructions: 'Between 1 - 5 where 1 - 2 is "Easy", 3 - 4 is "Medium", and 5 is "Hard"'
+name: Complexity
+searchable: false
+settings:
+  decimals: 0
+  defaultValue: null
+  max: '5'
+  min: '1'
+  prefix: null
+  previewCurrency: ''
+  previewFormat: decimal
+  size: null
+  suffix: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Number

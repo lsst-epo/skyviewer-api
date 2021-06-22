@@ -1,6 +1,6 @@
 enableVersioning: true
-handle: survey
-name: Survey
+handle: pois
+name: 'Points of Interest'
 previewTargets:
   -
     __assoc__:
@@ -19,13 +19,13 @@ siteSettings:
     enabledByDefault: true
     hasUrls: true
     template: null
-    uriFormat: 'explorer/{slug}'
+    uriFormat: 'tour-point-of-interest/{slug}'
   a6b28fea-2f0c-49a2-b82c-fd16c51d9511: # ES
     enabledByDefault: true
     hasUrls: true
     template: null
-    uriFormat: 'explorer/{slug}'
+    uriFormat: 'tour-point-of-interest/{slug}'
 structure:
   maxLevels: null
-  uid: 505d6993-ce17-4b37-aa55-28a180963d52
+  uid: 9c20a2ce-242e-46ab-919e-7f35c842c8f6
 type: structure

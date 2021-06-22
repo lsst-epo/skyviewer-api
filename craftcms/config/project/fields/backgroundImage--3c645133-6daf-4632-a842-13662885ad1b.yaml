@@ -1,0 +1,31 @@
+contentColumnType: string
+fieldGroup: 8d6803f5-ca34-46d8-a8d5-869896e34b65 # Tour
+handle: backgroundImage
+instructions: ''
+name: 'Background Image'
+searchable: false
+settings:
+  allowSelfRelations: false
+  allowUploads: true
+  allowedKinds: null
+  defaultUploadLocationSource: 'volume:77fd2a32-cdf7-4a77-8648-d79616eed462' # Astro Tour Images
+  defaultUploadLocationSubpath: /web/assets/astro-tours
+  limit: '1'
+  localizeRelations: false
+  previewMode: thumbs
+  restrictFiles: ''
+  selectionLabel: ''
+  showSiteMenu: false
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: false
+  singleUploadLocationSource: 'volume:85d34514-ec13-4850-a272-a3ab1bc790ef' # Icons
+  singleUploadLocationSubpath: ''
+  source: null
+  sources: '*'
+  targetSiteId: null
+  useSingleFolder: false
+  validateRelatedElements: false
+  viewMode: large
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Assets

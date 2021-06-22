@@ -1,5 +1,5 @@
 fieldLayouts:
-  a590a1dc-4372-4d00-9cf8-267c5e5e93f1:
+  a9a4a2f3-3bfb-49fb-9a49-646f6c67f300:
     tabs:
       -
         elements:
@@ -27,16 +27,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: fe3ef1fd-33fa-4aeb-9ed2-9e74f6694377 # Path
-            instructions: ''
-            label: ''
-            required: '1'
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 100
-          -
-            fieldUid: b3f50442-f90e-42e6-986e-b2426abedaca # Target
+            fieldUid: cd879179-0c4d-47a3-90e9-61fdb3516cc4 # Image
             instructions: null
             label: null
             required: false
@@ -45,7 +36,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 0732995e-10da-4be7-944b-51b1135d12eb # Field of Vision (FOV) Minimum Value
+            fieldUid: 8a653768-6c25-44d4-815e-182cd324b043 # Ra
             instructions: null
             label: null
             required: false
@@ -54,7 +45,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 455216e8-f949-4521-911f-d50895102cd4 # Field of Vision (FOV) Maximum Value
+            fieldUid: c8a76131-a217-46f6-9b2a-88d4f2a2f7de # Dec
             instructions: null
             label: null
             required: false
@@ -73,10 +64,10 @@ fieldLayouts:
             width: 100
         name: Content
         sortOrder: 1
-handle: survey
+handle: poi
 hasTitleField: true
-name: Survey
-section: 02e3155f-23cf-4f36-a734-a3f447d04e85 # Surveys
+name: 'Point of Interest'
+section: 4a76eb6e-e209-42df-8ef6-43f1e5f7f745 # Points of Interest
 sortOrder: 1
 titleFormat: null
 titleTranslationKeyFormat: null
