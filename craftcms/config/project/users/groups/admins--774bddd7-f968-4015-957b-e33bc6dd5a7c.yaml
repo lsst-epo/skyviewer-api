@@ -1,0 +1,94 @@
+description: ''
+handle: admins
+name: Admins
+permissions:
+  - accesssitewhensystemisoff
+  - accesscpwhensystemisoff
+  - performupdates
+  - accesscp
+  - customizesources
+  - registerusers
+  - moderateusers
+  - assignuserpermissions
+  - assignusergroups
+  - administrateusers
+  - impersonateusers
+  - editusers
+  - deleteusers
+  - 'editsite:763c0189-f6eb-419c-9ca2-2574a743768a'
+  - 'editsite:a6b28fea-2f0c-49a2-b82c-fd16c51d9511'
+  - 'createentries:32b433c2-8fa2-439b-9678-d48e4f929b88' # Catalogs
+  - 'publishentries:32b433c2-8fa2-439b-9678-d48e4f929b88' # Catalogs
+  - 'deleteentries:32b433c2-8fa2-439b-9678-d48e4f929b88' # Catalogs
+  - 'publishpeerentries:32b433c2-8fa2-439b-9678-d48e4f929b88' # Catalogs
+  - 'deletepeerentries:32b433c2-8fa2-439b-9678-d48e4f929b88' # Catalogs
+  - 'editpeerentries:32b433c2-8fa2-439b-9678-d48e4f929b88' # Catalogs
+  - 'publishpeerentrydrafts:32b433c2-8fa2-439b-9678-d48e4f929b88' # Catalogs
+  - 'deletepeerentrydrafts:32b433c2-8fa2-439b-9678-d48e4f929b88' # Catalogs
+  - 'editpeerentrydrafts:32b433c2-8fa2-439b-9678-d48e4f929b88' # Catalogs
+  - 'editentries:32b433c2-8fa2-439b-9678-d48e4f929b88' # Catalogs
+  - 'createentries:4a76eb6e-e209-42df-8ef6-43f1e5f7f745' # Points of Interest
+  - 'publishentries:4a76eb6e-e209-42df-8ef6-43f1e5f7f745' # Points of Interest
+  - 'deleteentries:4a76eb6e-e209-42df-8ef6-43f1e5f7f745' # Points of Interest
+  - 'publishpeerentries:4a76eb6e-e209-42df-8ef6-43f1e5f7f745' # Points of Interest
+  - 'deletepeerentries:4a76eb6e-e209-42df-8ef6-43f1e5f7f745' # Points of Interest
+  - 'editpeerentries:4a76eb6e-e209-42df-8ef6-43f1e5f7f745' # Points of Interest
+  - 'publishpeerentrydrafts:4a76eb6e-e209-42df-8ef6-43f1e5f7f745' # Points of Interest
+  - 'deletepeerentrydrafts:4a76eb6e-e209-42df-8ef6-43f1e5f7f745' # Points of Interest
+  - 'editpeerentrydrafts:4a76eb6e-e209-42df-8ef6-43f1e5f7f745' # Points of Interest
+  - 'editentries:4a76eb6e-e209-42df-8ef6-43f1e5f7f745' # Points of Interest
+  - 'createentries:02e3155f-23cf-4f36-a734-a3f447d04e85' # Surveys
+  - 'publishentries:02e3155f-23cf-4f36-a734-a3f447d04e85' # Surveys
+  - 'deleteentries:02e3155f-23cf-4f36-a734-a3f447d04e85' # Surveys
+  - 'publishpeerentries:02e3155f-23cf-4f36-a734-a3f447d04e85' # Surveys
+  - 'deletepeerentries:02e3155f-23cf-4f36-a734-a3f447d04e85' # Surveys
+  - 'editpeerentries:02e3155f-23cf-4f36-a734-a3f447d04e85' # Surveys
+  - 'publishpeerentrydrafts:02e3155f-23cf-4f36-a734-a3f447d04e85' # Surveys
+  - 'deletepeerentrydrafts:02e3155f-23cf-4f36-a734-a3f447d04e85' # Surveys
+  - 'editpeerentrydrafts:02e3155f-23cf-4f36-a734-a3f447d04e85' # Surveys
+  - 'editentries:02e3155f-23cf-4f36-a734-a3f447d04e85' # Surveys
+  - 'createentries:b22ca822-e7e2-4f8c-8be5-d3b0fcab1c9f' # Tours
+  - 'publishentries:b22ca822-e7e2-4f8c-8be5-d3b0fcab1c9f' # Tours
+  - 'deleteentries:b22ca822-e7e2-4f8c-8be5-d3b0fcab1c9f' # Tours
+  - 'publishpeerentries:b22ca822-e7e2-4f8c-8be5-d3b0fcab1c9f' # Tours
+  - 'deletepeerentries:b22ca822-e7e2-4f8c-8be5-d3b0fcab1c9f' # Tours
+  - 'editpeerentries:b22ca822-e7e2-4f8c-8be5-d3b0fcab1c9f' # Tours
+  - 'publishpeerentrydrafts:b22ca822-e7e2-4f8c-8be5-d3b0fcab1c9f' # Tours
+  - 'deletepeerentrydrafts:b22ca822-e7e2-4f8c-8be5-d3b0fcab1c9f' # Tours
+  - 'editpeerentrydrafts:b22ca822-e7e2-4f8c-8be5-d3b0fcab1c9f' # Tours
+  - 'editentries:b22ca822-e7e2-4f8c-8be5-d3b0fcab1c9f' # Tours
+  - 'editglobalset:ea689411-d03e-48f0-8841-3318c457eee1' # Site Info
+  - 'editcategories:43c5d827-8706-4863-a676-17bf911ce931' # HiPS Catalogs
+  - 'saveassetinvolume:85d34514-ec13-4850-a272-a3ab1bc790ef' # Icons
+  - 'createfoldersinvolume:85d34514-ec13-4850-a272-a3ab1bc790ef' # Icons
+  - 'deletefilesandfoldersinvolume:85d34514-ec13-4850-a272-a3ab1bc790ef' # Icons
+  - 'replacefilesinvolume:85d34514-ec13-4850-a272-a3ab1bc790ef' # Icons
+  - 'editimagesinvolume:85d34514-ec13-4850-a272-a3ab1bc790ef' # Icons
+  - 'editpeerfilesinvolume:85d34514-ec13-4850-a272-a3ab1bc790ef' # Icons
+  - 'replacepeerfilesinvolume:85d34514-ec13-4850-a272-a3ab1bc790ef' # Icons
+  - 'deletepeerfilesinvolume:85d34514-ec13-4850-a272-a3ab1bc790ef' # Icons
+  - 'editpeerimagesinvolume:85d34514-ec13-4850-a272-a3ab1bc790ef' # Icons
+  - 'viewpeerfilesinvolume:85d34514-ec13-4850-a272-a3ab1bc790ef' # Icons
+  - 'viewvolume:85d34514-ec13-4850-a272-a3ab1bc790ef' # Icons
+  - 'saveassetinvolume:77fd2a32-cdf7-4a77-8648-d79616eed462' # Astro Tour Images
+  - 'createfoldersinvolume:77fd2a32-cdf7-4a77-8648-d79616eed462' # Astro Tour Images
+  - 'deletefilesandfoldersinvolume:77fd2a32-cdf7-4a77-8648-d79616eed462' # Astro Tour Images
+  - 'replacefilesinvolume:77fd2a32-cdf7-4a77-8648-d79616eed462' # Astro Tour Images
+  - 'editimagesinvolume:77fd2a32-cdf7-4a77-8648-d79616eed462' # Astro Tour Images
+  - 'editpeerfilesinvolume:77fd2a32-cdf7-4a77-8648-d79616eed462' # Astro Tour Images
+  - 'replacepeerfilesinvolume:77fd2a32-cdf7-4a77-8648-d79616eed462' # Astro Tour Images
+  - 'deletepeerfilesinvolume:77fd2a32-cdf7-4a77-8648-d79616eed462' # Astro Tour Images
+  - 'editpeerimagesinvolume:77fd2a32-cdf7-4a77-8648-d79616eed462' # Astro Tour Images
+  - 'viewpeerfilesinvolume:77fd2a32-cdf7-4a77-8648-d79616eed462' # Astro Tour Images
+  - 'viewvolume:77fd2a32-cdf7-4a77-8648-d79616eed462' # Astro Tour Images
+  - 'utility:updates'
+  - 'utility:system-report'
+  - 'utility:php-info'
+  - 'utility:system-messages'
+  - 'utility:asset-indexes'
+  - 'utility:queue-manager'
+  - 'utility:clear-caches'
+  - 'utility:deprecation-errors'
+  - 'utility:db-backup'
+  - 'utility:find-replace'
+  - 'utility:migrations'
