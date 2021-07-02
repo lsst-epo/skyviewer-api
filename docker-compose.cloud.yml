@@ -1,0 +1,33 @@
+# docker-compose.yml
+version: '2.2'
+
+services:
+  nginx:
+    image: nginx:alpine
+    ports:
+      - 9900:81
+    depends_on:
+      - skyviewer_api
+    volumes_from:
+      - skyviewer_api
+    volumes:
+      - ./config-env/default.conf:/etc/nginx/conf.d/default.conf # nginx configuration (see below)
+
+  skyviewer_api:
+    image: epo/skyviewer_api:latest
+    volumes:
+      - ./:/var/www/html/
+    environment:
+      
+      DB_DSN: pgsql:host=<GCP host IP address>;dbname=skyviewer
+      DB_SERVER: <GCP host IP address>
+      DB_NAME: skyviewer
+      DB_USER: skyviewer
+      DB_PASSWORD: <DB password>
+      DB_DATABASE: skyviewer
+      DB_SCHEMA: public
+      DB_DRIVER: pgsql
+      DB_PORT: 5432
+
+volumes:
+  driver: 

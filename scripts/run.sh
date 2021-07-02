@@ -13,14 +13,14 @@ if [[ "$sql_file" ]]; then
     echo "Database dump found: ${sql_file}"
 
     while ! pg_isready -h $DB_SERVER; do
-        h2 "Waiting for PostreSQL server"
+        echo "Waiting for PostreSQL server"
         sleep 1
     done
 
-    echo "Importing database"
-    echo "create database skyviewer;" > createDB.sql
-    cat createDB.sql | psql -h $DB_SERVER -d $DB_SERVER -U $DB_USER
-    cat "$sql_file" | psql -h $DB_SERVER -d skyviewer -U $DB_USER
+    #echo "Importing database"
+    #echo "create database skyviewer;" > createDB.sql
+    #cat createDB.sql | psql -h $DB_SERVER -d $DB_SERVER -U $DB_USER
+    #cat "$sql_file" | psql -h $DB_SERVER -d skyviewer -U $DB_USER
     
     echo "Removing SQL dump file now that DB has been restored."
     rm $sql_file
