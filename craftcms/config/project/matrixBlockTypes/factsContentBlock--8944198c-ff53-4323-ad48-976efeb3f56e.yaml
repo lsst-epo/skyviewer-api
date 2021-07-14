@@ -22,7 +22,7 @@ fields:
     handle: body
     instructions: ''
     name: Body
-    searchable: false
+    searchable: true
     settings:
       availableTransforms: '*'
       availableVolumes: ''

@@ -22,18 +22,49 @@ fieldLayouts:
             type: craft\fieldlayoutelements\CustomField
             warning: null
             width: 100
+          -
+            fieldUid: 1f5ddbcd-4f3f-495c-95d9-dcd6af9e3f6f # Astro Object
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
         name: Content
         sortOrder: 1
 fields:
+  1f5ddbcd-4f3f-495c-95d9-dcd6af9e3f6f: # Astro Object
+    contentColumnType: string
+    fieldGroup: null
+    handle: astroObject
+    instructions: ''
+    name: 'Astro Object'
+    searchable: true
+    settings:
+      allowSelfRelations: true
+      limit: ''
+      localizeRelations: false
+      selectionLabel: ''
+      showSiteMenu: false
+      source: null
+      sources:
+        - 'section:e2eb2e80-8e02-4a68-aa81-3d488f80543d' # Astro Object
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Entries
   9d28ee9c-bac6-404e-a24f-afde8a75ad1b: # Point of Interest
     contentColumnType: string
     fieldGroup: null
     handle: poi
     instructions: ''
     name: 'Point of Interest'
-    searchable: false
+    searchable: true
     settings:
-      allowSelfRelations: false
+      allowSelfRelations: true
       limit: '1'
       localizeRelations: false
       selectionLabel: ''
@@ -53,7 +84,7 @@ fields:
     handle: description
     instructions: ''
     name: Description
-    searchable: false
+    searchable: true
     settings:
       availableTransforms: '*'
       availableVolumes: ''

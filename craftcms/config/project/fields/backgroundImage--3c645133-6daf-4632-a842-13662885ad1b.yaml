@@ -3,7 +3,7 @@ fieldGroup: 8d6803f5-ca34-46d8-a8d5-869896e34b65 # Tour
 handle: backgroundImage
 instructions: ''
 name: 'Background Image'
-searchable: false
+searchable: true
 settings:
   allowSelfRelations: false
   allowUploads: true
