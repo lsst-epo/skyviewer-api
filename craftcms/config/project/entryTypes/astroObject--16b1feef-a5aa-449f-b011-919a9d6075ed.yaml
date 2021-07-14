@@ -1,5 +1,5 @@
 fieldLayouts:
-  88f13df1-be43-4126-b9ff-75c00eccfde6:
+  1172933d-d14c-443e-a972-e0e3dae6d4f7:
     tabs:
       -
         elements:
@@ -23,11 +23,11 @@ fieldLayouts:
             step: null
             tip: null
             title: null
-            type: craft\fieldlayoutelements\TitleField
+            type: craft\fieldlayoutelements\EntryTitleField
             warning: null
             width: 100
           -
-            fieldUid: d7e99ce5-1dc7-4bac-94c6-91f86a5882e0 # Variety
+            fieldUid: 8a653768-6c25-44d4-815e-182cd324b043 # Ra
             instructions: null
             label: null
             required: false
@@ -36,7 +36,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: fe3ef1fd-33fa-4aeb-9ed2-9e74f6694377 # Path
+            fieldUid: c8a76131-a217-46f6-9b2a-88d4f2a2f7de # Dec
             instructions: null
             label: null
             required: false
@@ -45,7 +45,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 68674953-a9fc-439e-8ee2-e6a9bb70dafc
+            fieldUid: cd879179-0c4d-47a3-90e9-61fdb3516cc4 # Image
             instructions: null
             label: null
             required: false
@@ -54,16 +54,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 7e00543c-2735-49a3-96f0-d39d5d7333fe # Icon
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 100
-          -
-            fieldUid: 82510efa-cd7e-4f64-bfaa-1da05df2f53a # Source Size
+            fieldUid: e76c2c25-ca53-4f4c-bd93-a5af52ebb72c # Characteristics
             instructions: null
             label: null
             required: false
@@ -73,17 +64,11 @@ fieldLayouts:
             width: 100
         name: Content
         sortOrder: 1
-handle: hipsCatalogs
-name: 'HiPS Catalogs'
-siteSettings:
-  763c0189-f6eb-419c-9ca2-2574a743768a:
-    hasUrls: true
-    template: null
-    uriFormat: 'hips-catalogs/{slug}'
-  a6b28fea-2f0c-49a2-b82c-fd16c51d9511:
-    hasUrls: true
-    template: null
-    uriFormat: 'hips-catalogs/{slug}'
-structure:
-  maxLevels: null
-  uid: c5f91141-fb7a-4467-8e9d-d1f025206c1b
+handle: astroObject
+hasTitleField: true
+name: 'Astro Object'
+section: e2eb2e80-8e02-4a68-aa81-3d488f80543d # Astro Object
+sortOrder: 1
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

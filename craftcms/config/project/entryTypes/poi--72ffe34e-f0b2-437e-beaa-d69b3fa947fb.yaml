@@ -27,25 +27,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: cd879179-0c4d-47a3-90e9-61fdb3516cc4 # Image
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 100
-          -
-            fieldUid: 8a653768-6c25-44d4-815e-182cd324b043 # Ra
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 100
-          -
-            fieldUid: c8a76131-a217-46f6-9b2a-88d4f2a2f7de # Dec
+            fieldUid: 5244042f-c1bd-4262-8aa8-4cb92e5f2ea4 # Description
             instructions: null
             label: null
             required: false
@@ -64,6 +46,19 @@ fieldLayouts:
             width: 100
         name: Content
         sortOrder: 1
+      -
+        elements:
+          -
+            fieldUid: e4521605-ff3a-4876-8c3c-cde0ffe5deaa # Astro Objects
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: 'Astro Object'
+        sortOrder: 2
 handle: poi
 hasTitleField: true
 name: 'Point of Interest'

@@ -1,6 +1,6 @@
 enableVersioning: true
-handle: tours
-name: Tours
+handle: astroObjects
+name: 'Astro Object'
 previewTargets:
   -
     __assoc__:
@@ -19,13 +19,13 @@ siteSettings:
     enabledByDefault: true
     hasUrls: true
     template: null
-    uriFormat: 'tour/{slug}'
+    uriFormat: 'astro-object/{slug}'
   a6b28fea-2f0c-49a2-b82c-fd16c51d9511:
     enabledByDefault: true
     hasUrls: true
     template: null
-    uriFormat: 'tour/{slug}'
+    uriFormat: 'astro-object/{slug}'
 structure:
   maxLevels: null
-  uid: 2529bf86-1708-4969-b27e-0df6979598b4
+  uid: 84555b8e-d323-4457-8ba6-645d9ec367fc
 type: structure

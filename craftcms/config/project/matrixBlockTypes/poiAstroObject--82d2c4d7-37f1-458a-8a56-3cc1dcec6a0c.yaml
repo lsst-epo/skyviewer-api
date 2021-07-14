@@ -1,0 +1,43 @@
+field: b67e6d47-49f6-4385-85c7-ada70ffcf67e # POI Astro Object
+fieldLayouts:
+  ca79027c-e444-43f4-ac18-1a49f21083c6:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 84e9fa1d-8aed-40e1-a0e9-cb13152ea782 # Astro Object
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  84e9fa1d-8aed-40e1-a0e9-cb13152ea782: # Astro Object
+    contentColumnType: string
+    fieldGroup: null
+    handle: astroObject
+    instructions: ''
+    name: 'Astro Object'
+    searchable: true
+    settings:
+      allowSelfRelations: false
+      limit: '1'
+      localizeRelations: false
+      selectionLabel: ''
+      showSiteMenu: false
+      source: null
+      sources:
+        - 'section:e2eb2e80-8e02-4a68-aa81-3d488f80543d' # Astro Object
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Entries
+handle: poiAstroObject
+name: poiAstroObject
+sortOrder: 1

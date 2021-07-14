@@ -1,8 +1,8 @@
 contentColumnType: string
 fieldGroup: 8d6803f5-ca34-46d8-a8d5-869896e34b65 # Tour
-handle: pois
+handle: astroObjects
 instructions: ''
-name: 'Points of Interest'
+name: 'Astro Objects'
 searchable: true
 settings:
   allowSelfRelations: false
@@ -12,7 +12,7 @@ settings:
   showSiteMenu: false
   source: null
   sources:
-    - 'section:4a76eb6e-e209-42df-8ef6-43f1e5f7f745' # Points of Interest
+    - 'section:e2eb2e80-8e02-4a68-aa81-3d488f80543d' # Astro Object
   targetSiteId: null
   validateRelatedElements: false
   viewMode: null
