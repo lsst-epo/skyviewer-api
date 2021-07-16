@@ -14,7 +14,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 9d28ee9c-bac6-404e-a24f-afde8a75ad1b # Point of Interest
+            fieldUid: d6f8219d-2a83-4ee6-967e-10720dec037b # FOV
             instructions: null
             label: null
             required: false
@@ -23,7 +23,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 1f5ddbcd-4f3f-495c-95d9-dcd6af9e3f6f # Astro Object
+            fieldUid: 4a676166-cd4f-4c4e-a7ee-afca5c68fc2d # astroObject
             instructions: null
             label: null
             required: false
@@ -34,16 +34,16 @@ fieldLayouts:
         name: Content
         sortOrder: 1
 fields:
-  1f5ddbcd-4f3f-495c-95d9-dcd6af9e3f6f: # Astro Object
+  4a676166-cd4f-4c4e-a7ee-afca5c68fc2d: # astroObject
     contentColumnType: string
     fieldGroup: null
     handle: astroObject
     instructions: ''
-    name: 'Astro Object'
-    searchable: true
+    name: astroObject
+    searchable: false
     settings:
-      allowSelfRelations: true
-      limit: ''
+      allowSelfRelations: false
+      limit: '1'
       localizeRelations: false
       selectionLabel: ''
       showSiteMenu: false
@@ -56,28 +56,26 @@ fields:
     translationKeyFormat: null
     translationMethod: site
     type: craft\fields\Entries
-  9d28ee9c-bac6-404e-a24f-afde8a75ad1b: # Point of Interest
-    contentColumnType: string
+  d6f8219d-2a83-4ee6-967e-10720dec037b: # FOV
+    contentColumnType: integer(10)
     fieldGroup: null
-    handle: poi
+    handle: fov
     instructions: ''
-    name: 'Point of Interest'
-    searchable: true
+    name: FOV
+    searchable: false
     settings:
-      allowSelfRelations: true
-      limit: '1'
-      localizeRelations: false
-      selectionLabel: ''
-      showSiteMenu: false
-      source: null
-      sources:
-        - 'section:4a76eb6e-e209-42df-8ef6-43f1e5f7f745' # Points of Interest
-      targetSiteId: null
-      validateRelatedElements: false
-      viewMode: null
+      decimals: 0
+      defaultValue: '20'
+      max: null
+      min: '0'
+      prefix: null
+      previewCurrency: ''
+      previewFormat: decimal
+      size: null
+      suffix: null
     translationKeyFormat: null
-    translationMethod: site
-    type: craft\fields\Entries
+    translationMethod: none
+    type: craft\fields\Number
   fe1835fb-8bd0-4e5a-b637-0e94330568ac: # Description
     contentColumnType: text
     fieldGroup: null

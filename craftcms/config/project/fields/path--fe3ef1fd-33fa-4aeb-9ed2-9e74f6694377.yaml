@@ -3,7 +3,7 @@ fieldGroup: 7d09d2f0-5c11-4a45-a805-a6d39128319e # Common
 handle: path
 instructions: ''
 name: Path
-searchable: false
+searchable: true
 settings:
   maxLength: '255'
   placeholder: null
