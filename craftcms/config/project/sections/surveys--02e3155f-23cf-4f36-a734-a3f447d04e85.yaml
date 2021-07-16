@@ -15,12 +15,12 @@ previewTargets:
         - '1'
 propagationMethod: all
 siteSettings:
-  763c0189-f6eb-419c-9ca2-2574a743768a:
+  763c0189-f6eb-419c-9ca2-2574a743768a: # EN
     enabledByDefault: true
     hasUrls: true
     template: null
     uriFormat: 'explorer/{slug}'
-  a6b28fea-2f0c-49a2-b82c-fd16c51d9511:
+  a6b28fea-2f0c-49a2-b82c-fd16c51d9511: # ES
     enabledByDefault: true
     hasUrls: true
     template: null

@@ -12,7 +12,7 @@ settings:
   showSiteMenu: false
   source: null
   sources:
-    - 'section:4a76eb6e-e209-42df-8ef6-43f1e5f7f745' # Points of Interest
+    - 'section:4a76eb6e-e209-42df-8ef6-43f1e5f7f745'
   targetSiteId: null
   validateRelatedElements: false
   viewMode: null
