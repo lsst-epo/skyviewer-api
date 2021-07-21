@@ -5,30 +5,17 @@ instructions: ''
 name: Variety
 searchable: true
 settings:
-  optgroups: true
-  options:
-    -
-      __assoc__:
-        -
-          - label
-          - Tour
-        -
-          - value
-          - tour
-        -
-          - default
-          - ''
-    -
-      __assoc__:
-        -
-          - label
-          - Hall-of-Fame
-        -
-          - value
-          - hallOfFame
-        -
-          - default
-          - ''
+  allowSelfRelations: false
+  limit: '1'
+  localizeRelations: false
+  selectionLabel: ''
+  showSiteMenu: false
+  source: null
+  sources:
+    - 'section:58abf7ce-cf60-425f-9a8c-5f7d8c5b0cdc' # Guided Experiences
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
 translationKeyFormat: null
-translationMethod: none
-type: craft\fields\Dropdown
+translationMethod: site
+type: craft\fields\Entries
