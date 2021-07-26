@@ -1,0 +1,51 @@
+FROM gcr.io/google-appengine/php72
+LABEL maintainer="erosas@lsst.org"
+
+USER root
+
+RUN apt-get update -y && \ 
+    apt-get -y upgrade  && \
+    apt-get install -y --no-install-recommends \
+    libfreetype6-dev \
+    libpng-dev \
+    libjpeg-turbo8-dev \
+    libpng-dev \
+    libxml2-dev \
+    autoconf \
+    g++ \
+    imagemagick \
+    libtool \
+    make \
+    libpcre3-dev \
+    postgresql \
+    bash \
+    jq \
+    git \
+    findutils \
+    gzip \
+    vim \
+    supervisor \
+    locate \
+    php-gd \
+    php-imagick  
+
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+COPY ./config-env/php.ini /opt/php72/lib/conf.d
+
+# For DB propogation:
+# COPY ./db/skyviewer.sql /var/www/db/
+# RUN chown -R www-data:www-data /var/www/db 
+
+COPY . /app
+RUN chown -R www-data:www-data /app/scripts \
+    && chmod -R +x /app/scripts
+
+RUN chown -R www-data:www-data /app/
+
+RUN /app/scripts/cloud-run.sh
+
+EXPOSE 8080
+
+WORKDIR /app
+RUN composer install
