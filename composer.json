@@ -1,0 +1,9 @@
+{
+    "_readme": [
+        "This readme is for cloud environment configuration, specifically to ensure PHP extensions are enabled"
+    ],
+    "require": {
+        "ext-gd": "*",
+        "ext-imagick": "*"
+    }
+}
