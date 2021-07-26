@@ -8,8 +8,8 @@ settings:
   allowSelfRelations: false
   allowUploads: true
   allowedKinds: null
-  defaultUploadLocationSource: 'volume:77fd2a32-cdf7-4a77-8648-d79616eed462' # Astro Tour Images
-  defaultUploadLocationSubpath: /web/assets/astro-tours
+  defaultUploadLocationSource: 'volume:a469a047-d19a-421e-97f8-c58f1bda27d7' # Tour Images
+  defaultUploadLocationSubpath: ''
   limit: '1'
   localizeRelations: false
   previewMode: thumbs

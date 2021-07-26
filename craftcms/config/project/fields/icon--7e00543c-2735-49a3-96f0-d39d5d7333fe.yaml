@@ -9,7 +9,7 @@ settings:
   allowUploads: true
   allowedKinds: null
   defaultUploadLocationSource: 'volume:85d34514-ec13-4850-a272-a3ab1bc790ef' # Icons
-  defaultUploadLocationSubpath: /web/assets/icons
+  defaultUploadLocationSubpath: ''
   limit: '1'
   localizeRelations: false
   previewMode: thumbs

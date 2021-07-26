@@ -1,6 +1,6 @@
 enableVersioning: true
-handle: pois
-name: 'Points of Interest'
+handle: guidedExperiences
+name: 'Guided Experiences'
 previewTargets:
   -
     __assoc__:
@@ -15,17 +15,17 @@ previewTargets:
         - '1'
 propagationMethod: all
 siteSettings:
-  763c0189-f6eb-419c-9ca2-2574a743768a:
+  763c0189-f6eb-419c-9ca2-2574a743768a: # EN
     enabledByDefault: true
     hasUrls: true
     template: null
-    uriFormat: 'tour-point-of-interest/{slug}'
-  a6b28fea-2f0c-49a2-b82c-fd16c51d9511:
+    uriFormat: 'guided-experiences/{slug}'
+  a6b28fea-2f0c-49a2-b82c-fd16c51d9511: # ES
     enabledByDefault: true
     hasUrls: true
     template: null
-    uriFormat: 'tour-point-of-interest/{slug}'
+    uriFormat: 'guided-experiences/{slug}'
 structure:
   maxLevels: null
-  uid: 9c20a2ce-242e-46ab-919e-7f35c842c8f6
+  uid: b559a732-7379-480d-8e97-658fec4a0b3d
 type: structure

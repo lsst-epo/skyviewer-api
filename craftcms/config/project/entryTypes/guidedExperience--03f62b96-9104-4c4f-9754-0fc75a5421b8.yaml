@@ -1,5 +1,5 @@
 fieldLayouts:
-  a9a4a2f3-3bfb-49fb-9a49-646f6c67f300:
+  89a174f2-4090-484d-bb45-2ad094211820:
     tabs:
       -
         elements:
@@ -27,7 +27,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 5244042f-c1bd-4262-8aa8-4cb92e5f2ea4 # Description
+            fieldUid: 5fefc9c3-999f-4d02-988d-5a1738812936 # Variety Name
             instructions: null
             label: null
             required: false
@@ -36,7 +36,16 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: a0521bda-0df4-4937-9d6e-1534dfb98b58 # Field of Vision (FOV) Initial Value
+            fieldUid: 36cb7208-d072-48ac-af5e-c034035afdfd # Variety Handle
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 7f01b564-7d49-4139-be9d-07d369fd3408 # Thumbnail Image
             instructions: null
             label: null
             required: false
@@ -46,24 +55,11 @@ fieldLayouts:
             width: 100
         name: Content
         sortOrder: 1
-      -
-        elements:
-          -
-            fieldUid: e4521605-ff3a-4876-8c3c-cde0ffe5deaa # Astro Objects
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 100
-        name: 'Astro Object'
-        sortOrder: 2
-handle: poi
-hasTitleField: true
-name: 'Point of Interest'
-section: 4a76eb6e-e209-42df-8ef6-43f1e5f7f745 # Points of Interest
-sortOrder: 1
-titleFormat: null
+handle: guidedExperience
+hasTitleField: false
+name: 'Guided Experience (Tour Variety)'
+section: 58abf7ce-cf60-425f-9a8c-5f7d8c5b0cdc # Guided Experiences
+sortOrder: 2
+titleFormat: '{varietyName}'
 titleTranslationKeyFormat: null
 titleTranslationMethod: site
