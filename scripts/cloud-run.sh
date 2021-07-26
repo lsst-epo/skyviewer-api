@@ -34,7 +34,7 @@
 # echo "Done importing DB!"
 #########################################################################################################
 
- cd /var/www/html/craftcms
+ cd /app/craftcms
 
 echo 'Installing composer dependencies.'
 composer install
@@ -58,11 +58,15 @@ for package in ${dependencies}; do
     fi
 done
 
+echo "Ensuring storage and web(project) directories are writable"
+cd /app/craftcms
+chmod -R 755 ./storage
+chmod -R 755 ./web
+
 echo '✅  All dependencies successfully installed.'
 
 echo 'Applying project config file changes.'
 ./craft project-config/apply
 echo '✅  All project config file changes applied.'
 
-# Start php-fpm
-exec "$@"
+cd /app/craftcms/
