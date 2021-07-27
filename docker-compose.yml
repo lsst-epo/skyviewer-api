@@ -19,17 +19,6 @@ services:
       - postgres
     volumes:
       - ./:/var/www/html/
-    environment:
-      
-      DB_DSN: pgsql:host=postgres;dbname=skyviewer
-      DB_SERVER: postgres
-      DB_NAME: skyviewer
-      DB_USER: skyviewer
-      DB_PASSWORD: zkyvi3w3r
-      DB_DATABASE: skyviewer
-      DB_SCHEMA: public
-      DB_DRIVER: pgsql
-      DB_PORT: 5432
 
   postgres:
     image: postgres:11-alpine

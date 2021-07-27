@@ -13,6 +13,9 @@
 .git
 .gitignore
 
+# GCP Scripts
+/scripts/env-create/
+
 # PHP Composer dependencies:
 /vendor/
 /craftcms/vendor/

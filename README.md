@@ -6,15 +6,17 @@ The CMS backend that will serve up data/content to the Skyviewer UI/client.
 
 These steps assume you have created a local instance of the Skyviewer Craft CMS database. Ensure that your database credentials, etc. match what is in docker-compose.yml
 
-1. Build the docker image:
+1. Rename /craftcms/.env.local to /craftcms/.env
+
+2. Build the docker image:
 
 ```docker build -t epo/skyviewer_api .```
 
-2. Bring the docker-compose up:
+3. Bring the docker-compose up:
 
 ```docker-compose up```
 
-7. Go to http://localhost:9900/admin to test that it loads
+4. Go to http://localhost:9900/admin to test that it loads
 
 This will ensure that the skyviewer-api project will run on your machine.
 
@@ -24,15 +26,15 @@ Ignore Dockerfile.cloud - it is for deployment to Google Cloud Platform.
 
 1. Ask a backend dev to whitelist your public IP address so that the cloud DB will accept traffic from your machine.
 
-2. Build the docker image:
+2. Follow the instructions in the readme in /scripts/env-create/ for generating a new .env file
+
+3. Build the docker image:
 
 ```docker build -t epo/skyviewer_api .```
 
 3. Rename the file ```docker-compose.yml``` to ```docker-compose.local.yml```
 
 4. Rename the file ```docker-compose.cloud.yml``` to ```docker-compose.yml```
-
-4. Get the GCP DB host IP address and DB password from a backend dev and swap out the carroted values in the ```skyviewer_api``` environment section (ensure < > carrots are removed when you replace the values)
 
 5. Bring the docker-compose up:
 
