@@ -27,34 +27,16 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: d7e99ce5-1dc7-4bac-94c6-91f86a5882e0 # Variety
+            fieldUid: fe3ef1fd-33fa-4aeb-9ed2-9e74f6694377 # Path
             instructions: null
             label: null
             required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 100
-          -
-            fieldUid: fe3ef1fd-33fa-4aeb-9ed2-9e74f6694377 # Path
-            instructions: ''
-            label: ''
-            required: '1'
             tip: null
             type: craft\fieldlayoutelements\CustomField
             warning: null
             width: 100
           -
             fieldUid: 7e00543c-2735-49a3-96f0-d39d5d7333fe # Icon
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 100
-          -
-            fieldUid: 82510efa-cd7e-4f64-bfaa-1da05df2f53a # Source Size
             instructions: null
             label: null
             required: false
