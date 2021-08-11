@@ -5,8 +5,8 @@ scope:
   - 'entrytypes.16b1feef-a5aa-449f-b011-919a9d6075ed:read' # Astro Object
   - 'sections.32b433c2-8fa2-439b-9678-d48e4f929b88:read' # Catalogs
   - 'entrytypes.9d2a5fce-1549-4e9f-8205-f1527f5064b2:read' # Catalog
-  - 'sections.58abf7ce-cf60-425f-9a8c-5f7d8c5b0cdc:read' # Guided Experiences
-  - 'entrytypes.03f62b96-9104-4c4f-9754-0fc75a5421b8:read' # Guided Experience (Tour Variety)
+  - 'sections.58abf7ce-cf60-425f-9a8c-5f7d8c5b0cdc:read'
+  - 'entrytypes.03f62b96-9104-4c4f-9754-0fc75a5421b8:read'
   - 'sections.02e3155f-23cf-4f36-a734-a3f447d04e85:read' # Surveys
   - 'entrytypes.bae3d86b-064a-47c2-9af4-736639f79b7b:read' # Survey
   - 'sections.b22ca822-e7e2-4f8c-8be5-d3b0fcab1c9f:read' # Tours
@@ -14,4 +14,5 @@ scope:
   - 'volumes.a469a047-d19a-421e-97f8-c58f1bda27d7:read' # Tour Images
   - 'volumes.85d34514-ec13-4850-a272-a3ab1bc790ef:read' # Icons
   - 'globalsets.ea689411-d03e-48f0-8841-3318c457eee1:read' # Site Info
-  - 'categorygroups.43c5d827-8706-4863-a676-17bf911ce931:read' # HiPS Catalogs
+  - 'categorygroups.40780a9f-1ee7-4c59-aaaf-159094330220:read' # Tour Theme
+  - 'categorygroups.aa3e2ce5-e67a-4378-8a44-c660690cbcc3:read' # Tour Variety

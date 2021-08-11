@@ -1,8 +1,8 @@
 contentColumnType: string
 fieldGroup: 8d6803f5-ca34-46d8-a8d5-869896e34b65 # Tour
-handle: tourVariety
+handle: tourTheme
 instructions: ''
-name: Variety
+name: 'Tour Theme'
 searchable: true
 settings:
   allowLimit: false
@@ -13,7 +13,7 @@ settings:
   localizeRelations: false
   selectionLabel: ''
   showSiteMenu: false
-  source: 'group:aa3e2ce5-e67a-4378-8a44-c660690cbcc3' # Tour Variety
+  source: 'group:40780a9f-1ee7-4c59-aaaf-159094330220' # Tour Theme
   sources: '*'
   targetSiteId: null
   validateRelatedElements: false
