@@ -1,5 +1,5 @@
 fieldLayouts:
-  88f13df1-be43-4126-b9ff-75c00eccfde6:
+  1bd45809-7be7-4083-bdbc-bceb5876fdc8:
     tabs:
       -
         elements:
@@ -27,7 +27,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: d7e99ce5-1dc7-4bac-94c6-91f86a5882e0 # Variety
+            fieldUid: 36cb7208-d072-48ac-af5e-c034035afdfd # Variety Handle
             instructions: null
             label: null
             required: false
@@ -36,34 +36,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: fe3ef1fd-33fa-4aeb-9ed2-9e74f6694377 # Path
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 100
-          -
-            fieldUid: 68674953-a9fc-439e-8ee2-e6a9bb70dafc
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 100
-          -
-            fieldUid: 7e00543c-2735-49a3-96f0-d39d5d7333fe # Icon
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 100
-          -
-            fieldUid: 82510efa-cd7e-4f64-bfaa-1da05df2f53a # Source Size
+            fieldUid: 7f01b564-7d49-4139-be9d-07d369fd3408 # Thumbnail Image
             instructions: null
             label: null
             required: false
@@ -73,17 +46,17 @@ fieldLayouts:
             width: 100
         name: Content
         sortOrder: 1
-handle: hipsCatalogs
-name: 'HiPS Catalogs'
+handle: tourVariety
+name: 'Tour Variety'
 siteSettings:
   763c0189-f6eb-419c-9ca2-2574a743768a: # EN
     hasUrls: true
     template: null
-    uriFormat: 'hips-catalogs/{slug}'
+    uriFormat: 'tour-variety/{slug}'
   a6b28fea-2f0c-49a2-b82c-fd16c51d9511: # ES
     hasUrls: true
     template: null
-    uriFormat: 'hips-catalogs/{slug}'
+    uriFormat: 'tour-variety/{slug}'
 structure:
-  maxLevels: null
-  uid: c5f91141-fb7a-4467-8e9d-d1f025206c1b
+  maxLevels: 1
+  uid: 8df90f53-f24a-42e0-81aa-44869bab2bd1
