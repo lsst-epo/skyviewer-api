@@ -5,6 +5,7 @@ on:
       - EPO-5131
 jobs:
   deploy_this_noise:
+    runs-on: ubuntu-latest
     env:
       DB_SERVER: ${{ secrets.CLOUD_SQL_PRIVATE_IP }}
       DB_USER: ${{ secrets.CLOUD_SQL_USER }}
