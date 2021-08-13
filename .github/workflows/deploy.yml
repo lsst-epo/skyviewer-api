@@ -14,6 +14,6 @@ jobs:
     steps:
       - uses: google-github-actions/deploy-appengine@v0.4.0
         with:
-          deliverables: app.yaml
+          deliverables: ../../app.yaml
           project_id: skyviewer
           credentials: ${{ secrets.GAE_SA }}
