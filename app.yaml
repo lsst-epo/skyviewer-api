@@ -2,7 +2,7 @@ runtime: custom
 env: flex
 
 runtime_config:
-    document_root: craftcms/web/
+    document_root: /app/craftcms/web/
 
 vm_health_check:
  enable_health_check: False
@@ -17,11 +17,7 @@ beta_settings:
   cloud_sql_instances: skyviewer:us-west1:skyviewer=tcp:5432
 
 env_variables:
-    DB_DSN: pgsql:host=<GCP Cloud SQL IP>;dbname=skyviewer
-    DB_SERVER: <GCP Cloud SQL IP>
     DB_NAME: skyviewer
-    DB_USER: skyviewer
-    DB_PASSWORD: <Cloud SQL Password>
     DB_DATABASE: skyviewer
     DB_SCHEMA: public
     DB_DRIVER: pgsql

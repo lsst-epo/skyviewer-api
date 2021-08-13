@@ -1,0 +1,12 @@
+on:
+  push:
+  - name: Deploy to App Engine
+    uses: google-github-actions/deploy-appengine@v0.4.0
+    env:
+      DB_SERVER: ${{ secrets.CLOUD_SQL_PRIVATE_IP }}
+      DB_USER: ${{ secrets.CLOUD_SQL_USER }}
+      DB_PASSWORD: ${{ secrets.CLOUD_SQL_PASS }}
+      DB_DSN: pgsql:host=${{ secrets.CLOUD_SQL_PRIVATE_IP }};dbname=skyviewer
+    with:
+        project_id: skyviewer
+        credentials: ${{ secrets.GAE_SA }}

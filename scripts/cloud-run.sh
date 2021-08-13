@@ -54,7 +54,7 @@ for package in ${dependencies}; do
 
     if [ "$isCraftPlugin" = true ]; then
         handle=$(cat vendor/$vendor/$packageName/composer.json | jq -r '.extra.handle')
-        ./craft install/plugin $handle
+        ./craft plugin/install $handle
     fi
 done
 

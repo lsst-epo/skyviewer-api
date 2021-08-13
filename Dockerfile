@@ -1,69 +1,53 @@
-FROM php:7.2-fpm-alpine3.11
-
+FROM gcr.io/google-appengine/php72
 LABEL maintainer="erosas@lsst.org"
 
 USER root
 
-RUN set -ex \
-    && apk add --update --no-cache \
-    freetype \
-    libpng \
-    libjpeg-turbo \
-    freetype-dev \
+RUN apt-get update -y && \ 
+    apt-get -y upgrade  && \
+    apt-get install -y --no-install-recommends \
+    libfreetype6-dev \
     libpng-dev \
-    libjpeg-turbo-dev \
+    libjpeg-turbo8-dev \
+    libpng-dev \
     libxml2-dev \
     autoconf \
     g++ \
     imagemagick \
-    imagemagick-dev \
     libtool \
     make \
-    pcre-dev \
-    postgresql-dev \
+    libpcre3-dev \
     postgresql \
-    libintl \
-    icu \
-    icu-dev \
     bash \
     jq \
     git \
     findutils \
     gzip \
     vim \
-    && docker-php-ext-configure gd \
-    --with-freetype-dir=/usr/include/ \
-    --with-png-dir=/usr/include/ \
-    --with-jpeg-dir=/usr/include/ \
-    && docker-php-ext-install bcmath mbstring iconv gd soap zip intl pdo_pgsql \
-    && pecl install imagick redis \
-    && docker-php-ext-enable imagick redis \
-    && rm -rf /tmp/pear \
-    && apk del freetype-dev libpng-dev libjpeg-turbo-dev autoconf g++ libtool make pcre-dev
+    supervisor \
+    locate \
+    php-gd \
+    php-imagick  
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-RUN apk add gnu-libiconv --update-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/community/ --allow-untrusted
-ENV LD_PRELOAD /usr/lib/preloadable_libiconv.so php
+COPY ./config-env/php.ini /opt/php72/lib/conf.d
 
-COPY ./config-env/php.ini /usr/local/etc/php/
+# For DB propogation:
+# COPY ./db/skyviewer.sql /var/www/db/
+# RUN chown -R www-data:www-data /var/www/db 
 
-COPY ./db/skyviewer.sql /var/www/db/
-RUN chown -R www-data:www-data /var/www/db 
+COPY . /app
+RUN chown -R www-data:www-data /app/scripts \
+    && chmod -R +x /app/scripts
 
-COPY scripts/ /scripts/
-RUN chown -R www-data:www-data /scripts \
-    && chmod -R +x /scripts
 
-WORKDIR /var/www/html
-RUN mkdir logs
-RUN chown -R www-data:www-data .    
 
-RUN chown -R www-data:www-data /var/www/html/
-#USER www-data
+RUN /app/scripts/cloud-run.sh
 
-VOLUME [ "/var/www/html" ]
+RUN chown -R www-data:www-data /app/
 
-ENTRYPOINT [ "/scripts/run.sh" ]
+EXPOSE 8080
 
-CMD [ "docker-php-entrypoint", "php-fpm"]
+WORKDIR /app
+RUN composer install
