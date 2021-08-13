@@ -2,7 +2,7 @@ on:
   push:
     branches:
       - EPO-5131
-step:
+job:
 - name: Deploy to App Engine
   uses: google-github-actions/deploy-appengine@v0.4.0
   env:
