@@ -1,0 +1,32 @@
+contentColumnType: string
+fieldGroup: 7d09d2f0-5c11-4a45-a805-a6d39128319e # Common
+handle: astroImage
+instructions: ''
+name: Image
+searchable: false
+settings:
+  allowSelfRelations: false
+  allowUploads: true
+  allowedKinds: null
+  defaultUploadLocationSource: 'volume:860a3a7b-7ed5-4997-9a40-0d00e58b77d0' # Astro Images
+  defaultUploadLocationSubpath: ''
+  limit: ''
+  localizeRelations: false
+  previewMode: full
+  restrictFiles: ''
+  selectionLabel: ''
+  showSiteMenu: false
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: false
+  singleUploadLocationSource: 'volume:85d34514-ec13-4850-a272-a3ab1bc790ef' # Icons
+  singleUploadLocationSubpath: ''
+  source: null
+  sources:
+    - 'volume:860a3a7b-7ed5-4997-9a40-0d00e58b77d0' # Astro Images
+  targetSiteId: null
+  useSingleFolder: false
+  validateRelatedElements: false
+  viewMode: list
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Assets
