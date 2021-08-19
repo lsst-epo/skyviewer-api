@@ -19,4 +19,5 @@ jobs:
         uses: google-github-actions/deploy-appengine@main
         with:
           deliverables: /
+          project_id: skyviewer
           credentials: ${{ secrets.GAE_SA }}
