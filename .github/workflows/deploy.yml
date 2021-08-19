@@ -20,4 +20,4 @@ jobs:
         with:
           deliverables: /
           project_id: skyviewer
-          credentials: ${{ secrets.GAE_SA }}
+          credentials: ${{ secrets.GAE_SAz }}
