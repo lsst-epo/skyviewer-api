@@ -1,0 +1,49 @@
+fieldLayouts:
+  f69d7e12-9845-48c1-8dd1-59b7d13fef81:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\AssetTitleField
+            warning: null
+            width: 100
+          -
+            fieldUid: 5ef8f422-6773-4891-99b9-f56cdb8bced4 # Alternate Text
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+handle: astroImages
+hasUrls: true
+name: 'Astro Images'
+settings:
+  path: '@webroot/assets/astroImages'
+sortOrder: 0
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+type: craft\volumes\Local
+url: /astroImages
