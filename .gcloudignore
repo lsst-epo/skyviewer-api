@@ -16,4 +16,4 @@
 # PHP Composer dependencies:
 /vendor/
 /craftcms/vendor/
-/scripts/env-create/
+#/scripts/env-create/

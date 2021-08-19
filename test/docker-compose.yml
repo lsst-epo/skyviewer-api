@@ -19,11 +19,11 @@ services:
       - ./:/var/www/html/
     environment:
       
-      DB_DSN: pgsql:host=<GCP host IP address>;dbname=skyviewer
-      DB_SERVER: <GCP host IP address>
+      DB_DSN: pgsql:host=34.82.114.29;dbname=skyviewer
+      DB_SERVER: 34.82.114.29
       DB_NAME: skyviewer
       DB_USER: skyviewer
-      DB_PASSWORD: <DB password>
+      DB_PASSWORD: skyviewer
       DB_DATABASE: skyviewer
       DB_SCHEMA: public
       DB_DRIVER: pgsql

@@ -18,6 +18,6 @@ jobs:
       - name: Deploy to App Engine
         uses: google-github-actions/deploy-appengine@main
         with:
-          deliverables: app.yaml
+          deliverables: test/app.yaml
           project_id: skyviewer
           credentials: ${{ secrets.GAE_SA }}
