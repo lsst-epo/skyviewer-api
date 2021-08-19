@@ -12,6 +12,9 @@ jobs:
       DB_PASSWORD: ${{ secrets.CLOUD_SQL_PASS }}
       DB_DSN: pgsql:host=${{ secrets.CLOUD_SQL_PRIVATE_IP }};dbname=skyviewer
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
       - name: Deploy to App Engine
         uses: google-github-actions/deploy-appengine@main
         with:
