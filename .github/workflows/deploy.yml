@@ -6,9 +6,6 @@ on:
 jobs:
   deploy_this_noise:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./
     env:
       DB_SERVER: ${{ secrets.CLOUD_SQL_PRIVATE_IP }}
       DB_USER: ${{ secrets.CLOUD_SQL_USER }}
