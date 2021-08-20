@@ -41,6 +41,10 @@ COPY . /app
 RUN chown -R www-data:www-data /app/scripts \
     && chmod -R +x /app/scripts
 
+ENV DB_SERVER $I_DB_SERVER
+ENV DB_USER $I_DB_USER
+ENV DB_PASSWORD $I_DB_PASSWORD
+ENV DB_DSN $I_DB_DSN
 
 
 RUN /app/scripts/cloud-run.sh

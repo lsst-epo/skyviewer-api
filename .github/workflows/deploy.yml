@@ -13,10 +13,11 @@ jobs:
       - name: Deploy to App Engine
         uses: google-github-actions/deploy-appengine@main
         env:
-          DB_SERVER: ${{ secrets.CLOUD_SQL_PRIVATE_IP }}
-          DB_USER: ${{ secrets.CLOUD_SQL_DB_USER }}
-          DB_PASSWORD: ${{ secrets.CLOUD_SQL_DB_PASS }}
-          DB_DSN: ${{ secrets.CLOUD_SQL_DB_HOST }}
+          I_DB_SERVER: ${{ secrets.CLOUD_SQL_PRIVATE_IP }}
+          I_DB_USER: ${{ secrets.CLOUD_SQL_DB_USER }}
+          I_DB_PASSWORD: ${{ secrets.CLOUD_SQL_DB_PASS }}
+          I_DB_DSN: ${{ secrets.CLOUD_SQL_DB_HOST }}
+          I_ERIC: rosas
         with:
           deliverables: test/app.yaml
           project_id: skyviewer
