@@ -10,6 +10,8 @@ define('CRAFT_VENDOR_PATH', CRAFT_BASE_PATH . '/vendor');
 // Load Composer's autoloader
 require_once CRAFT_VENDOR_PATH . '/autoload.php';
 
+require("./secrets.php");
+
 // Load dotenv?
 if (class_exists('Dotenv\Dotenv') && file_exists(CRAFT_BASE_PATH . '/.env')) {
     Dotenv\Dotenv::create(CRAFT_BASE_PATH)->load();
