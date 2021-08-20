@@ -10,7 +10,7 @@ jobs:
       DB_SERVER: ${{ secrets.CLOUD_SQL_PRIVATE_IP }}
       DB_USER: ${{ secrets.CLOUD_SQL_DB_USER }}
       DB_PASSWORD: ${{ secrets.CLOUD_SQL_DB_PASS }}
-      DB_DSN: pgsql:host=${{ secrets.CLOUD_SQL_PRIVATE_IP }};dbname=skyviewer
+      DB_DSN: ${{ secrets.CLOUD_SQL_DB_HOST }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
