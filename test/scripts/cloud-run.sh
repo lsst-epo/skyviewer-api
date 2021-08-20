@@ -60,6 +60,7 @@ done
 
 echo "Ensuring storage and web(project) directories are writable"
 cd /app/craftcms
+mkdir -p ./storage
 chmod -R 755 ./storage
 chmod -R 755 ./web
 
