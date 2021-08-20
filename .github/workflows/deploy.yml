@@ -6,17 +6,17 @@ on:
 jobs:
   deploy_this_noise:
     runs-on: ubuntu-latest
-    env:
-      DB_SERVER: ${{ secrets.CLOUD_SQL_PRIVATE_IP }}
-      DB_USER: ${{ secrets.CLOUD_SQL_DB_USER }}
-      DB_PASSWORD: ${{ secrets.CLOUD_SQL_DB_PASS }}
-      DB_DSN: ${{ secrets.CLOUD_SQL_DB_HOST }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
 
       - name: Deploy to App Engine
         uses: google-github-actions/deploy-appengine@main
+        env:
+          DB_SERVER: ${{ secrets.CLOUD_SQL_PRIVATE_IP }}
+          DB_USER: ${{ secrets.CLOUD_SQL_DB_USER }}
+          DB_PASSWORD: ${{ secrets.CLOUD_SQL_DB_PASS }}
+          DB_DSN: ${{ secrets.CLOUD_SQL_DB_HOST }}
         with:
           deliverables: test/app.yaml
           project_id: skyviewer
