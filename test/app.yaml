@@ -1,5 +1,5 @@
 runtime: custom
-service: skyviewer-github-test-v3
+service: skyviewer-github-test-v4
 env: flex
 
 runtime_config:
