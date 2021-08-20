@@ -22,7 +22,6 @@ services:
     #     - "./skyviewer-api.json:/var/secrets/creds.json"
     craft:
         build: ./
-        image: gcr.io/cloud-native-hpc/skyviewer-api
         depends_on:
         - db
         # - sqlproxy
