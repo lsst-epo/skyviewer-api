@@ -1,7 +1,7 @@
 {
   "require": {
-    "craftcms/cms": "3.6.16",
-    "craftcms/redactor": "^2.8",
+    "craftcms/cms": "3.7.10",
+    "craftcms/redactor": "2.8.8",
     "google/cloud-storage": "^1.24",
     "vlucas/phpdotenv": "^3.4.0"
   },
