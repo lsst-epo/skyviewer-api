@@ -45,3 +45,11 @@ This will ensure that the skyviewer-api project will run on your machine and be 
 ## Volume
 
 The `docker-compose.yml` mounts the root project folder as a volume for the Craft and Nginx containers. This means that you will be able to make changes to the files within the /craftcms folder and the changes will be instantly reflected in the running container. However, this also means that the containers are no longer ephemeral - which is the intent.
+
+To access a container while it's running:
+
+`docker container ls` to view the running containers and their IDs
+
+under `CONTAINER ID` column, copy the ID associated with the `skyviewer_api` image
+
+then `docker exec -it <container ID> /bin/bash`
