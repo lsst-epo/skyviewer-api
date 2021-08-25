@@ -1,8 +1,85 @@
-dateModified: 1629226918
+dateModified: 1629914918
 email:
   fromEmail: erosas@lsst.org
   fromName: 'Skyviewer API'
   transportType: craft\mail\transportadapters\Sendmail
+meta:
+  __names__:
+    0ecf9feb-ab77-470b-a2de-eb396a3a4682: Survey # Survey
+    1f5ddbcd-4f3f-495c-95d9-dcd6af9e3f6f: 'Astro Object' # Astro Object
+    2c43566d-87e9-47af-b1e3-87577b58f06f: Variety # Variety
+    02e3155f-23cf-4f36-a734-a3f447d04e85: Surveys # Surveys
+    3c645133-6daf-4632-a842-13662885ad1b: 'Background Image' # Background Image
+    4a676166-cd4f-4c4e-a7ee-afca5c68fc2d: astroObject # astroObject
+    4accd3e5-dd7d-4464-9f19-db2009adda71: Globals # Globals
+    4b8d140e-8cb8-489e-9a89-0c30c4717e30: 'Tour Theme' # Tour Theme
+    04fc1a9d-6240-4e69-ad81-2e02190a7e8d: 'Fun Facts Content Blocks' # Fun Facts Content Blocks
+    5ef8f422-6773-4891-99b9-f56cdb8bced4: 'Alternate Text' # Alternate Text
+    5fefc9c3-999f-4d02-988d-5a1738812936: 'Variety Name' # Variety Name
+    6ae58874-f4e1-4216-82c0-7af4094fdc0c: Subheading # Subheading
+    6bca6d0b-7e18-41d5-a7c2-2c684e9af3a5: 'Site Image' # Site Image
+    6f7c799f-429a-486c-bde4-a5bd5ece3a78: Body # Body
+    7d09d2f0-5c11-4a45-a805-a6d39128319e: Common # Common
+    7e00543c-2735-49a3-96f0-d39d5d7333fe: Icon # Icon
+    7f01b564-7d49-4139-be9d-07d369fd3408: 'Thumbnail Image' # Thumbnail Image
+    8a653768-6c25-44d4-815e-182cd324b043: Ra # Ra
+    008cb5a3-a777-476f-8410-4f2bf13ac492: 'Intro Content Blocks' # Intro Content Blocks
+    8d6803f5-ca34-46d8-a8d5-869896e34b65: Tour # Tour
+    8fd439fe-660f-4cac-8ddf-b71b8ad6276f: 'Tour POIs' # Tour POIs
+    9d2a5fce-1549-4e9f-8205-f1527f5064b2: Catalog # Catalog
+    9d28ee9c-bac6-404e-a24f-afde8a75ad1b: 'Point of Interest' # Point of Interest
+    16b1feef-a5aa-449f-b011-919a9d6075ed: 'Astro Object' # Astro Object
+    18a685a4-2ce7-4ae8-b717-0154cff390c1: 'Fun Facts Heading' # Fun Facts Heading
+    25d2c2a6-169a-461c-b67d-54294c7d22d7: 'Object Id' # Object Id
+    32b433c2-8fa2-439b-9678-d48e4f929b88: Catalogs # Catalogs
+    36cb7208-d072-48ac-af5e-c034035afdfd: 'Variety Handle' # Variety Handle
+    42fe85e3-1e91-4f99-9751-ed6ed734f7aa: 'Test Google Cloud Storage' # Test Google Cloud Storage
+    48d995fe-6d24-48f6-904a-c54f64964387: 'Intro Content Block' # Intro Content Block
+    52d4af2b-ae9b-4f2f-a90b-5c4b5ce23eb9: Tour # Tour
+    62b4e157-411a-433c-bdc0-dcd42a2d7ca4: 'Points of Interest' # Points of Interest
+    82d2c4d7-37f1-458a-8a56-3cc1dcec6a0c: poiAstroObject # poiAstroObject
+    84e9fa1d-8aed-40e1-a0e9-cb13152ea782: 'Astro Object' # Astro Object
+    85d34514-ec13-4850-a272-a3ab1bc790ef: Icons # Icons
+    93cdcbba-f59d-41f1-ac65-5d9b0f83ef62: Duration # Duration
+    763c0189-f6eb-419c-9ca2-2574a743768a: EN # EN
+    774bddd7-f968-4015-957b-e33bc6dd5a7c: Admins # Admins
+    860a3a7b-7ed5-4997-9a40-0d00e58b77d0: 'Astro Images' # Astro Images
+    31806af1-7467-49ea-9638-01ecf1c546cd: 'Intro Subheading' # Intro Subheading
+    40780a9f-1ee7-4c59-aaaf-159094330220: 'Tour Theme' # Tour Theme
+    45720ab9-15e3-4cdc-8103-9c0495d2c1d2: 'Site Title' # Site Title
+    82510efa-cd7e-4f64-bfaa-1da05df2f53a: 'Source Size' # Source Size
+    455216e8-f949-4521-911f-d50895102cd4: 'Field of Vision (FOV) Maximum Value' # Field of Vision (FOV) Maximum Value
+    0732995e-10da-4be7-944b-51b1135d12eb: 'Field of Vision (FOV) Minimum Value' # Field of Vision (FOV) Minimum Value
+    5244042f-c1bd-4262-8aa8-4cb92e5f2ea4: Description # Description
+    8944198c-ff53-4323-ad48-976efeb3f56e: 'Facts Content Block' # Facts Content Block
+    99900237-7b20-49d9-ae09-b70c06489be7: Heading # Heading
+    a0521bda-0df4-4937-9d6e-1534dfb98b58: 'Field of Vision (FOV) Initial Value' # Field of Vision (FOV) Initial Value
+    a3b0cf34-24af-41fe-8047-b1e5b65d5bd0: Catalog # Catalog
+    a6b28fea-2f0c-49a2-b82c-fd16c51d9511: ES # ES
+    a8b34826-6a25-4e0a-b5dc-7e9820257899: 'Tour POI' # Tour POI
+    a469a047-d19a-421e-97f8-c58f1bda27d7: 'Tour Images' # Tour Images
+    a715351e-d465-4446-81f8-c9a15b3d1298: 'Intro Heading' # Intro Heading
+    aa3e2ce5-e67a-4378-8a44-c660690cbcc3: 'Tour Variety' # Tour Variety
+    b3f50442-f90e-42e6-986e-b2426abedaca: Target # Target
+    b22ca822-e7e2-4f8c-8be5-d3b0fcab1c9f: Tours # Tours
+    b67e6d47-49f6-4385-85c7-ada70ffcf67e: 'POI Astro Object' # POI Astro Object
+    bae3d86b-064a-47c2-9af4-736639f79b7b: Survey # Survey
+    c1f0a2ee-3b87-486c-96ed-7e2d25fc952f: 'Skyviewer API' # Skyviewer API
+    c8a76131-a217-46f6-9b2a-88d4f2a2f7de: Dec # Dec
+    ccd123b4-00ff-4cdb-87e0-20be70c5f8f3: Body # Body
+    cd879179-0c4d-47a3-90e9-61fdb3516cc4: Image # Image
+    d2cd37c9-0e8a-4bbb-aff0-13584d58279b: 'Site Description' # Site Description
+    d4c658d8-0938-43f0-9ce0-0515d09ca162: Complexity # Complexity
+    d6f8219d-2a83-4ee6-967e-10720dec037b: FOV # FOV
+    d7e99ce5-1dc7-4bac-94c6-91f86a5882e0: Variety # Variety
+    d250222b-10fd-487b-a94c-8c7aa5241cb3: 'Public Schema' # Public Schema
+    e2eb2e80-8e02-4a68-aa81-3d488f80543d: 'Astro Object' # Astro Object
+    e76c2c25-ca53-4f4c-bd93-a5af52ebb72c: Characteristics # Characteristics
+    e4521605-ff3a-4876-8c3c-cde0ffe5deaa: 'Astro Objects' # Astro Objects
+    ea689411-d03e-48f0-8841-3318c457eee1: 'Site Info' # Site Info
+    fe3ef1fd-33fa-4aeb-9ed2-9e74f6694377: Path # Path
+    fe74f2bf-6416-4c77-a05d-1ef924e575a8: Image # Image
+    fe1835fb-8bd0-4e5a-b637-0e94330568ac: Description # Description
 plugins:
   redactor:
     edition: standard
@@ -12,5 +89,5 @@ system:
   edition: pro
   live: true
   name: 'Skyviewer API'
-  schemaVersion: 3.6.8
+  schemaVersion: 3.7.7
   timeZone: America/Los_Angeles
