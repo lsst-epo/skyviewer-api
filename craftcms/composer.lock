@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0f4645e6347314546b1dd77999e5e58f",
+    "content-hash": "04505ab236b2e754c973b4da6717c0f5",
     "packages": [
         {
             "name": "cebe/markdown",
@@ -836,6 +836,38 @@
             ],
             "description": "An SVG sanitizer for PHP",
             "time": "2021-08-09T23:46:54+00:00"
+        },
+        {
+            "name": "ether/logs",
+            "version": "3.0.4",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ethercreative/logs/zipball/f1bae26f356d7f36a5d12febd39bda1d421fffd0",
+                "reference": "f1bae26f356d7f36a5d12febd39bda1d421fffd0",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.0.0-RC1"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "handle": "logs",
+                "name": "Logs",
+                "developer": "Ether Creative",
+                "developerUrl": "https://ethercreative.co.uk",
+                "class": "ether\\logs\\Logs",
+                "schemaVersion": "3.0.0"
+            },
+            "autoload": {
+                "psr-4": {
+                    "ether\\logs\\": "src/"
+                }
+            },
+            "description": "Access logs from the CP",
+            "support": {
+                "issues": "https://github.com/ethercreative/logs"
+            },
+            "time": "2021-07-09T11:07:11+00:00"
         },
         {
             "name": "ezyang/htmlpurifier",
@@ -2482,6 +2514,52 @@
                 "source": "https://github.com/rize/UriTemplate/tree/0.3.3"
             },
             "time": "2021-02-22T15:03:38+00:00"
+        },
+        {
+            "name": "rosas/nested-entries-graphql-queries",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "../custom-plugins/nested-entry-graphql-queries",
+                "reference": "aa1cf2e9da37bee9191beec56ea8ee16b6926d99"
+            },
+            "require": {
+                "craftcms/cms": "^3.1.0"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Nested Entries GraphQL Queries",
+                "handle": "nested-entries-graphql-queries"
+            },
+            "autoload": {
+                "psr-4": {
+                    "rosas\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Eric Rosas",
+                    "homepage": "https://github.com/lsst-epo/"
+                }
+            ],
+            "description": "Perform queries that match on entries-as-fields and return the whole entry.",
+            "keywords": [
+                "entries",
+                "entry-as-field",
+                "graphql"
+            ],
+            "support": {
+                "email": "erosas@lsst.org",
+                "issues": "https://github.com/developer/repo/issues?state=open",
+                "source": "https://github.com/developer/repo",
+                "docs": "https://github.com/developer/repo/blob/master/README.md"
+            },
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "seld/cli-prompt",
@@ -4845,9 +4923,11 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "stable",
-    "stability-flags": [],
-    "prefer-stable": false,
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "rosas/nested-entries-graphql-queries": 20
+    },
+    "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
