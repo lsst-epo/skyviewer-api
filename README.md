@@ -14,7 +14,7 @@ These steps assume you have created a local instance of the Skyviewer Craft CMS 
 
 ```docker-compose up```
 
-7. Go to http://localhost:9900/admin to test that it loads
+7. Go to <http://localhost:9900/admin> to test that it loads
 
 This will ensure that the skyviewer-api project will run on your machine.
 
@@ -38,7 +38,7 @@ Ignore Dockerfile.cloud - it is for deployment to Google Cloud Platform.
 
 ```docker-compose up```
 
-6. Go to http://localhost:9900/admin to test that it loads
+6. Go to <http://localhost:9900/admin> to test that it loads
 
 This will ensure that the skyviewer-api project will run on your machine and be able to access the cloud database.
 
@@ -71,3 +71,10 @@ This image accepts application configuration in the form of an ```.env``` file i
 | `MEMCACHED_PORT` | `11211` | The port to connect to memcached on. *Only used if `ENABLE_MEMCACHED` is `true`.* |
 | `PRIMARY_SITE_URL` | N/A | The base URL of the application. |
 | `SECURITY_KEY` | N/A | The application security key. |
+To access a container while it's running:
+
+`docker container ls` to view the running containers and their IDs
+
+under `CONTAINER ID` column, copy the ID associated with the `skyviewer_api` image
+
+then `docker exec -it <container ID> /bin/bash`

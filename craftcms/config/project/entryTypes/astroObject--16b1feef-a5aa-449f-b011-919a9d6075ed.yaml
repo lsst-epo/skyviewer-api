@@ -27,7 +27,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 25d2c2a6-169a-461c-b67d-54294c7d22d7 # HiPS ID
+            fieldUid: 25d2c2a6-169a-461c-b67d-54294c7d22d7 # Object Id
             instructions: null
             label: null
             required: false
@@ -54,7 +54,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: cd879179-0c4d-47a3-90e9-61fdb3516cc4 # Image
+            fieldUid: fe74f2bf-6416-4c77-a05d-1ef924e575a8 # Image
             instructions: null
             label: null
             required: false
