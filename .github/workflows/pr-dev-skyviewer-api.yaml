@@ -1,0 +1,62 @@
+  # Builds, pushes, and deploys the Skyviewer API container
+name: 'Build and deploy branch-tagged Skyviewer API in Dev'
+
+on:
+  pull_request:
+    types:
+      - 'opened'
+    branches:
+      - 'develop'
+    paths:
+      - 'Dockerfile'
+      - 'craftcms/**'
+
+jobs:
+  build-push-deploy:
+    name: 'Build, Publish, and Deploy'
+    runs-on: ubuntu-latest
+
+    # Checkout the repository to the GitHub Actions runner
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    # gcloud CLI setup
+    - name: Login to GCP
+      uses: google-github-actions/setup-gcloud@master
+      with:
+        service_account_key: ${{ secrets.SA_DEV_KEY }}
+        project_id: ${{ secrets.SV_PROJ_NAME }}
+        export_default_credentials: true
+
+     # Configure Docker to use the gcloud command-line tool as a credential
+      # helper for authentication
+    - run: |-
+        gcloud --quiet auth configure-docker
+
+    # Build the Docker image
+    - name: Build Docker image
+      run: |-
+        docker build \
+          --tag "gcr.io/${{ secrets.SV_PROJ_NAME }}/skyviewer-api:${{ github.sha }}" .
+
+    # Push the Docker image to Google Container Registry
+    - name: Publish image to GCR
+      run: |-
+        docker push "gcr.io/${{ secrets.SV_PROJ_NAME }}/skyviewer-api:${{ github.sha }}"
+
+    # Deploy to Cloud Run.
+    - name: Deploy a tagged version to Cloud Run without redirecting traffic
+      id: deploy
+      uses: google-github-actions/deploy-cloudrun@main
+      with:
+        service: skyviewer-api
+        image: gcr.io/${{ secrets.SV_PROJ_NAME }}/skyviewer-api:${{ github.sha }}    
+        credentials: ${{ secrets.GCP_SA_KEY }}
+        no_traffic: true
+        tag: ${{ github.head_ref }}
+        region: us-central1
+      
+    # Echo the tagged revision URL
+    - name: Output URL
+      run: echo "${{ steps.deploy.outputs.url }}"
