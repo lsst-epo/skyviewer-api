@@ -72,7 +72,7 @@
 FROM composer:2 as vendor
 COPY craftcms/composer.json composer.json
 COPY craftcms/composer.lock composer.lock
-COPY custom-plugins/ to custom-plugins/
+COPY custom-plugins/ custom-plugins/
 RUN composer install --ignore-platform-reqs --no-interaction --prefer-dist
 
 # Runtime container
