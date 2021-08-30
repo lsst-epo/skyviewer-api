@@ -71,3 +71,11 @@ This image accepts application configuration in the form of an ```.env``` file i
 | `MEMCACHED_PORT` | `11211` | The port to connect to memcached on. *Only used if `ENABLE_MEMCACHED` is `true`.* |
 | `PRIMARY_SITE_URL` | N/A | The base URL of the application. |
 | `SECURITY_KEY` | N/A | The application security key. |
+=======
+To access a container while it's running:
+
+`docker container ls` to view the running containers and their IDs
+
+under `CONTAINER ID` column, copy the ID associated with the `skyviewer_api` image
+
+then `docker exec -it <container ID> /bin/bash`

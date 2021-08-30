@@ -25,3 +25,4 @@ fieldLayouts:
         sortOrder: 1
 handle: siteInfo
 name: 'Site Info'
+sortOrder: 1
