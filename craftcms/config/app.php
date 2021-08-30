@@ -24,5 +24,24 @@ return [
     'modules' => [
         'my-module' => \modules\Module::class,
     ],
+    'components' => [
+        'cache' => [
+            'class' => yii\caching\MemCache::class,
+            'useMemcached' => App::env('ENABLE_MEMCACHED') ?: false,
+            'defaultDuration' => 86400,
+            'servers' => [
+                [
+                    'host' => App::env('MEMCACHED_IP'),
+                    'persistent' => true,
+                    'port' => App::env('MEMCACHED_PORT') ?: '11211',
+                    'retryInterval' => 15,
+                    'status' => true,
+                    'timeout' => 15,
+                    'weight' => 1,
+                ],
+            ],
+            'keyPrefix' => App::env('APP_ID') ?: 'CraftCMS',
+        ],
+    ],
     //'bootstrap' => ['my-module'],
 ];
