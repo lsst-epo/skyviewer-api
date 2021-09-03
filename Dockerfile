@@ -1,4 +1,4 @@
-# composer dependencies
+# Composer dependencies
 FROM composer:2 as vendor
 COPY craftcms/composer.json composer.json
 COPY craftcms/composer.lock composer.lock
