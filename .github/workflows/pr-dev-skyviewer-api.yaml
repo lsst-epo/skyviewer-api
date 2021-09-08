@@ -7,6 +7,7 @@ on:
       - 'opened'
       - 'synchronize'
       - 'reopened'
+      - 'closed'
     branches:
       - 'develop'
     paths:
@@ -17,11 +18,16 @@ jobs:
   build-push-deploy:
     name: 'Build, Publish, and Deploy'
     runs-on: ubuntu-latest
+    if: ${{ github.event.action != 'closed'}}
 
     # Checkout the repository to the GitHub Actions runner
     steps:
     - name: Checkout
       uses: actions/checkout@v2
+
+    - name: Print GitHub event action
+      run: |
+        echo "${{ github.event.action }}"
 
     # gcloud CLI setup
     - name: Login to GCP
@@ -62,3 +68,22 @@ jobs:
     # Echo the tagged revision URL
     - name: Output URL
       run: echo "${{ steps.deploy.outputs.url }}"
+
+
+  remove-tag:
+    name: 'Remove branch tag'
+    runs-on: ubuntu-latest
+    if: ${{ github.event.action == 'closed'}}
+
+    steps:
+      # gcloud CLI setup
+    - name: Login to GCP
+      uses: google-github-actions/setup-gcloud@master
+      with:
+        service_account_key: ${{ secrets.DEV_SA_KEY }}
+        project_id: ${{ secrets.SV_PROJ_NAME }}
+        export_default_credentials: true
+
+      # Remove the branch tag when the PR is closed
+    - name: Remove branch tag
+      run: gcloud run services update-traffic skyviewer-api --remove-tags=${{ github.head_ref }} --region=us-central1
