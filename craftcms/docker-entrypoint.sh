@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-# Install craft plugins
+# Install Craft plugins
 
 dependencies=$(cat composer.json |
     jq '.require' |
