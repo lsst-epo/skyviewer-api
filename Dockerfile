@@ -1,14 +1,14 @@
-# Composer dependencies
+# Stage 1 - Install Composer depedencies
 FROM composer:2 as vendor
 COPY craftcms/composer.json composer.json
 COPY craftcms/composer.lock composer.lock
 COPY custom-plugins/ ../custom-plugins/
 RUN composer install --ignore-platform-reqs --no-interaction --prefer-dist
 
-# Runtime container
+# Stage 2 - Runtime container
 FROM php:apache
 
-# Install dependencies
+# Install PHP/Apache dependencies
 USER root 
 RUN apt-get update && apt-get -qq install libpq-dev libmagickwand-dev libzip-dev libmemcached-dev jq libonig-dev
 RUN pecl install imagick memcached && \
@@ -40,7 +40,7 @@ RUN a2enmod remoteip \
 WORKDIR /var/www/html
 COPY --chown=www-data:www-data craftcms/ ./
 COPY --from=vendor --chown=www-data:www-data /app/vendor /var/www/html/vendor
-COPY custom-plugins/ /custom-plugins
+COPY --chown=www-data:www-data custom-plugins/ /custom-plugins
 RUN [ -d /var/www/html/storage ] || mkdir /var/www/html/storage \
     && chown www-data:www-data /var/www/html/storage && chmod u+w /var/www/html/storage
 
