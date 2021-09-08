@@ -5,26 +5,26 @@ services:
         image: memcached
         ports:
         - "11211:11211"
-    db:
-        build: ./db
-        ports:
-        - "5432:5432"
-        environment: 
-        - POSTGRES_USER=skyviewer
-        - POSTGRES_DB=postgres
-        - POSTGRES_PASSWORD=zkyvi3w3r
-    # sqlproxy:
-    #     image: gcr.io/cloudsql-docker/gce-proxy:1.19.1
+    # db:
+    #     build: ./db
     #     ports:
     #     - "5432:5432"
-    #     command: /cloud_sql_proxy -instances=skyviewer:us-west1:skyviewer=tcp:0.0.0.0:5432 -credential_file=/var/secrets/creds.json
-    #     volumes:
-    #     - "./skyviewer-api.json:/var/secrets/creds.json"
+    #     environment: 
+    #     - POSTGRES_USER=skyviewer
+    #     - POSTGRES_DB=postgres
+    #     - POSTGRES_PASSWORD=zkyvi3w3r
+    sqlproxy:
+        image: gcr.io/cloudsql-docker/gce-proxy:1.19.1
+        ports:
+        - "5432:5432"
+        command: /cloud_sql_proxy -instances=skyviewer:us-west1:skyviewer=tcp:0.0.0.0:5432 -credential_file=/var/secrets/creds.json
+        volumes:
+        - "./skyviewer-api.json:/var/secrets/creds.json"
     craft:
         build: ./
         depends_on:
-        - db
-        # - sqlproxy
+        # - db
+        - sqlproxy
         ports:
         - "8080:8080"
         volumes:
