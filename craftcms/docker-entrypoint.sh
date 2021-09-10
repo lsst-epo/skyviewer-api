@@ -23,4 +23,4 @@ for package in ${dependencies}; do
 done
 
 # https://docs.docker.com/engine/reference/builder/#exec-form-entrypoint-example
-bash "$@"
+exec "$@"
