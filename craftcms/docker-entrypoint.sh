@@ -23,4 +23,8 @@ for package in ${dependencies}; do
 done
 
 # https://docs.docker.com/engine/reference/builder/#exec-form-entrypoint-example
-exec "$@"
+if [ $# -gt 0 ]; then
+    exec "$@"
+else
+    bash -c "/usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf"
+fi

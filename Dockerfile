@@ -45,5 +45,3 @@ RUN chown -R www-data:www-data /var/www /run /var/lib/nginx /var/log/nginx
 USER www-data
 
 ENTRYPOINT ["./docker-entrypoint.sh"]
-
-CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
