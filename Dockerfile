@@ -27,7 +27,7 @@ ENV CRAFT_STREAM_LOG true
 COPY config/nginx.conf /etc/nginx/nginx.conf
 
 # Configure PHP-FPM
-COPY config/fpm-pool.conf /etc/php8/php-fpm.d/www.conf
+COPY config/fpm-pool.conf /usr/local/etc/php-fpm.d/zz-docker.conf
 
 # Configure supervisor
 COPY config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
