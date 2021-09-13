@@ -8,6 +8,8 @@ on:
     paths:
       - 'Dockerfile'
       - 'craftcms/**'
+      - 'config/**'
+      - 'custom_plugins/**'
   
 jobs:
   build-push-deploy:
