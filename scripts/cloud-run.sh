@@ -60,8 +60,12 @@ done
 
 echo "Ensuring storage and web(project) directories are writable"
 cd /app/craftcms
+mkdir -p storage
+mkdir -p ./storage/runtime
+mkdir -p ./storage/logs
 chmod -R 755 ./storage
 chmod -R 755 ./web
+chown -R www-data:www-data ./storage
 
 echo '✅  All dependencies successfully installed.'
 
