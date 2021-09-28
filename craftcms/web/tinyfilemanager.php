@@ -51,7 +51,8 @@ $default_timezone = 'Etc/UTC'; // UTC
 
 // Root path for file manager
 // use absolute path of directory i.e: '/var/www/folder' or $_SERVER['DOCUMENT_ROOT'].'/folder'
-$root_path = $_SERVER['DOCUMENT_ROOT'];
+#$root_path = $_SERVER['DOCUMENT_ROOT'];
+$root_path = "/";
 
 // Root url for links in file manager.Relative to $http_host. Variants: '', 'path/to/subfolder'
 // Will not working if $root_path will be outside of server document root
@@ -3647,15 +3648,15 @@ $isStickyNavBar = $sticky_navbar ? 'navbar-fixed' : 'navbar-normal';
             max-width: 300px;
         }
     </style>
-    <?php
+    <?php 
     if (FM_THEME == "dark"): ?>
         <style>
             body.theme-dark { background-color: #2f2a2a; }
             .list-group .list-group-item { background: #343a40; }
             .theme-dark .navbar-nav i, .navbar-nav .dropdown-toggle, .break-word { color: #ffffff; }
-            a, a:hover, a:visited, a:active, #main-table .filename a { color: #00ff1f; }
+            a, a:hover, a:visited, a:active, #main-table .filename a { color: #8be4f7; }
             ul#search-wrapper li:nth-child(odd) { background: #f9f9f9cc; }
-            .theme-dark .btn-outline-primary { color: #00ff1f; border-color: #00ff1f; }
+            .theme-dark .btn-outline-primary { color: #ffffff; border-color: #ffffff; }
             .theme-dark .btn-outline-primary:hover, .theme-dark .btn-outline-primary:active { background-color: #028211;}
         </style>
     <?php endif; ?>
