@@ -23,6 +23,8 @@ RUN sed -ri -e 's/memory_limit = 128M/memory_limit = 256M/' $PHP_INI_DIR/php.ini
 # Tell CraftCMS to stream logs to stdout/stderr. https://craftcms.com/docs/3.x/config/#craft-stream-log
 ENV CRAFT_STREAM_LOG true
 
+ENV ENVIRONMENT dev
+
 # Configure Nginx
 COPY config/nginx.conf /etc/nginx/nginx.conf
 
