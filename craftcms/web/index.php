@@ -13,7 +13,6 @@ require_once CRAFT_VENDOR_PATH . '/autoload.php';
 
 // Load dotenv?
 if (class_exists('Dotenv\Dotenv') && file_exists(SECRETS_DIR . '/.env')) {
-    print('Test');
     Dotenv\Dotenv::create(SECRETS_DIR)->load();
 }
 
