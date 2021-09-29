@@ -39,6 +39,12 @@ return [
         'aliases' => [
             '@webBaseUrl' => App::env('WEB_BASE_URL')
         ],
+
+        // Configured in nginx config for local dev, and needs to be configured in nginx
+        // on staging / production, too. It's not easy to get Craft to serve CORS headers
+        // for both GraphQL and non-Graphql requests (eg, the contact form), so we went
+        // with this approach.
+        'allowedGraphqlOrigins' => false
     ],
 
     // Dev environment settings
