@@ -3,7 +3,7 @@ FROM composer:2 as vendor
 COPY craftcms/composer.json composer.json
 COPY craftcms/composer.lock composer.lock
 COPY custom-plugins/ ../custom-plugins/
-RUN composer install --ignore-platform-reqs --no-interaction --prefer-dist
+RUN composer install --ignore-platform-reqs --no-interaction --prefer-dist --classmap-authoritative
 
 # Runtime container
 FROM gcr.io/skyviewer/craft-base-image:latest
