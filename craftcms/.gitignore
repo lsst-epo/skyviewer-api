@@ -1,4 +1,23 @@
-/.env
-/.idea
+# Assets
+/public/assets/*
+/web/assets/*
+
+# IMAGER TRANSFORMS
+/public/imager/*
+/web/imager/*
+
+# CRAFT STORAGE
+/craft/storage/*
+/storage/*
+
+# Dependencies
 /vendor
+
+# Miscellenious
 .DS_Store
+/log
+/logs/*
+/tmp
+
+# Environment config
+.env
