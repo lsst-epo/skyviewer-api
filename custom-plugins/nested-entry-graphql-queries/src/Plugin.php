@@ -19,8 +19,9 @@ class Plugin extends \craft\base\Plugin {
         parent::init();
         self::$plugin = $this;
 
-        $this->registerQuery();
         $this->registerArgumentHandler();
+        $this->registerQuery();
+        
     }
 
     protected function createSettingsModel() {
@@ -39,7 +40,7 @@ class Plugin extends \craft\base\Plugin {
 
     protected function settingsHtml() {
         return \Craft::$app->getView()->renderTemplate(
-            'rosas-first-plugin/settings',
+            'nested-entries-graphql-queries/settings',
             [ 'settings' => $this->getSettings() ]
         );
     }
@@ -49,7 +50,7 @@ class Plugin extends \craft\base\Plugin {
             Gql::class,
             Gql::EVENT_REGISTER_GQL_QUERIES,
             function(RegisterGqlQueriesEvent $event) {                
-                $event->queries = array_merge($event->queries, EntryAsField::getQueries());
+                $event->queries['nestedEntries'] = EntryAsField::getQueries();
             }
         );
     }

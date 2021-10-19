@@ -12,9 +12,6 @@ use GraphQL\Type\Definition\Type;
 
 class EntryAsField extends \craft\gql\base\Query
 {
-    /**
-     * @inheritdoc
-     */
     public static function getQueries($checkToken = true): array
     {
         if ($checkToken && !GqlHelper::canQueryEntries()) {
@@ -22,14 +19,13 @@ class EntryAsField extends \craft\gql\base\Query
         }
 
         return [
-            'nestedEntries' => [
+            //'nestedEntries' => [
                 'type' => Type::listOf(EntryInterface::getType()),
                 'args' => EntryAsFieldArguments::getArguments(),
-                //'args' => EntryArguments::getArguments(),
                 'resolve' => EntryResolver::class . '::resolve',
                 'description' => 'This query is used to query for entries.',
                 'complexity' => GqlHelper::relatedArgumentComplexity(),
-            ]
+            //]
         ];
     }
 }
