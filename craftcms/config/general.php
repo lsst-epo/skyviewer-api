@@ -37,7 +37,8 @@ return [
         'headlessMode' => true,
 
         'aliases' => [
-            '@webBaseUrl' => App::env('WEB_BASE_URL')
+            '@webBaseUrl' => App::env('WEB_BASE_URL'),
+            '@iconBucketUrl' => App::env('GCS_ASSET_BUCKET')
         ],
 
         // Configured in nginx config for local dev, and needs to be configured in nginx
