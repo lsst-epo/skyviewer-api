@@ -1,4 +1,12 @@
-logs/*
-!logs/.gitkeep
 .DS_Store
 vendor/
+.env
+
+# IDEs
+/.idea
+
+# Miscellaneous
+.DS_Store
+/log
+/logs
+/ignore

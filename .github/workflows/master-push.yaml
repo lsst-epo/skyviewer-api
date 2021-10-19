@@ -4,7 +4,7 @@ name: 'Build and deploy Skyviewer API to Google Cloud Run in Dev'
 on:
   push:
     branches:
-      - 'develop'
+      - 'master'
   
 jobs:
   build-push-deploy:
@@ -20,25 +20,24 @@ jobs:
     - name: Login to GCP
       uses: google-github-actions/setup-gcloud@master
       with:
-        service_account_key: ${{ secrets.DEV_SA_KEY }}
-        project_id: ${{ secrets.SV_PROJ_NAME }}
+        service_account_key: ${{ secrets.SKYVIEWER_INT_SERVICE_ACCOUNT }}
+        project_id: epo-integration-0e42
         export_default_credentials: true
 
      # Configure Docker to use the gcloud command-line tool as a credential
       # helper for authentication
     - run: gcloud --quiet auth configure-docker
-    - run: gcloud auth list
 
     # Build the Docker image
     - name: Build Docker image
       run: |-
         docker build . \
-          --tag "gcr.io/${{ secrets.SV_PROJ_NAME }}/skyviewer-api:${{ github.sha }}"
+          --tag "gcr.io/epo-integration-0e42/skyviewer-api:${{ github.sha }}"
 
     # Push the Docker image to Google Container Registry
     - name: Publish image to GCR
       run: |-
-        docker push "gcr.io/${{ secrets.SV_PROJ_NAME }}/skyviewer-api:${{ github.sha }}"
+        docker push "gcr.io/epo-integration-0e42/skyviewer-api:${{ github.sha }}"
 
     # Deploy to Cloud Run.
     - name: Deploy to Cloud Run
@@ -46,7 +45,7 @@ jobs:
       uses: google-github-actions/deploy-cloudrun@main
       with:
         service: skyviewer-api
-        image: gcr.io/${{ secrets.SV_PROJ_NAME }}/skyviewer-api:${{ github.sha }}    
+        image: gcr.io/epo-integration-0e42/skyviewer-api:${{ github.sha }}    
         credentials: ${{ secrets.GCP_SA_KEY }}
         region: us-central1
 

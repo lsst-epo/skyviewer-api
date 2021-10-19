@@ -28,7 +28,7 @@ return [
         'securityKey' => App::env('SECURITY_KEY'),
 
         // Temp fix for login bug:
-        'requireUserAgentAndIpForSession' => false,
+        //'requireUserAgentAndIpForSession' => false,
 
         // Whether to save the project config out to config/project.yaml
         // (see https://docs.craftcms.com/v3/project-config.html)
@@ -37,8 +37,15 @@ return [
         'headlessMode' => true,
 
         'aliases' => [
-            '@webBaseUrl' => App::env('WEB_BASE_URL')
+            '@webBaseUrl' => App::env('WEB_BASE_URL'),
+            '@iconBucketUrl' => App::env('GCS_ASSET_BUCKET')
         ],
+
+        // Configured in nginx config for local dev, and needs to be configured in nginx
+        // on staging / production, too. It's not easy to get Craft to serve CORS headers
+        // for both GraphQL and non-Graphql requests (eg, the contact form), so we went
+        // with this approach.
+        'allowedGraphqlOrigins' => false
     ],
 
     // Dev environment settings
