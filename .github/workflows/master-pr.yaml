@@ -1,5 +1,5 @@
   # Builds, pushes, and deploys the Skyviewer API container
-name: 'Deploy to Integration'
+name: 'Deploy PR Preview to Integration'
 
 on:
   pull_request:
