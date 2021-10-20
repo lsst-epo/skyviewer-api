@@ -1,5 +1,5 @@
   # Builds, pushes, and deploys the Skyviewer API container
-name: 'Build and deploy branch-tagged Skyviewer API in Dev'
+name: 'Deploy to Integration'
 
 on:
   pull_request:
@@ -83,4 +83,8 @@ jobs:
 
       # Remove the branch tag when the PR is closed
     - name: Remove branch tag
-      run: gcloud run services update-traffic skyviewer-api --remove-tags=${{ github.head_ref }} --region=us-central1
+      run: |-
+        gcloud run services update-traffic skyviewer-api \
+        --platform managed \
+        --service-account project-service-account@epo-integration-0e42.iam.gserviceaccount.com
+        --region us-central1
