@@ -5,30 +5,49 @@ services:
         image: memcached
         ports:
         - "11211:11211"
-    db:
-        build: ./db
-        ports:
-        - "5432:5432"
-        environment: 
-        - POSTGRES_USER=skyviewer
-        - POSTGRES_DB=postgres
-        - POSTGRES_PASSWORD=zkyvi3w3r
-    # sqlproxy:
-    #     image: gcr.io/cloudsql-docker/gce-proxy:1.19.1
+    # db:
+    #     build: ./db
     #     ports:
     #     - "5432:5432"
-    #     command: /cloud_sql_proxy -instances=skyviewer:us-west1:skyviewer=tcp:0.0.0.0:5432 -credential_file=/var/secrets/creds.json
-    #     volumes:
-    #     - "./skyviewer-api.json:/var/secrets/creds.json"
+    #     environment: 
+    #     - POSTGRES_USER=skyviewer
+    #     - POSTGRES_DB=postgres
+    #     - POSTGRES_PASSWORD=zkyvi3w3r
+    sqlproxy:
+        image: google/cloud-sdk
+        ports:
+        - "5432:5432"
+        command: |
+            gcloud compute ssh db-client-1 --project=skyviewer --zone=us-central1-a -- -t -L 0.0.0.0:5432:10.109.178.5:5432 
+        volumes:
+        - "~/.config/gcloud:/root/.config/gcloud"
     craft:
         build: ./
         depends_on:
-        - db
-        # - sqlproxy
+        - cache
+        # - db
+        - sqlproxy
         ports:
         - "8080:8080"
         volumes:
-        - ".env:/var/secrets/.env"
+        - "./craftcms/web:/var/www/html/web"
         environment:
         - PORT=8080
+        - APP_ID=CraftCMS--d337aaa2-c2ae-4cfb-9b3d-fe0c268ff065
+        - CP_TRIGGER=admin
+        - DB_DRIVER=pgsql
+        - DB_SERVER=sqlproxy
+        - DB_PORT=5432
+        - DB_DATABASE=skyviewer
+        - DB_USER=skyviewer
+        - DB_PASSWORD
+        - DB_SCHEMA=public
+        - ENABLE_MEMCACHED=true
+        - ENVIRONMENT=dev
+        - GCP_PROJECT_ID=skyviewer
+        - GCS_ASSET_BUCKET=https://storage.googleapis.com/craft-test-erosas
+        - MEMCACHED_IP=cache
+        - MEMCACHED_PORT=11211
+        - PRIMARY_SITE_URL=http://localhost:8080
+        - SECURITY_KEY
         restart: always
