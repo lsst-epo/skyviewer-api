@@ -62,10 +62,18 @@ jobs:
         tag: ${{ github.head_ref }}
         region: us-central1
       
-    # Echo the tagged revision URL
-    - name: Output URL
-      run: echo "${{ steps.deploy.outputs.url }}"
+   # Get the tagged revision URL   
+    - name: Get the version URL
+      id: get_version
+      run: echo "version_url={{ steps.deploy.outputs.url }}" >> $GITHUB_ENV
 
+    - name: Post the URL to the PR
+      uses: peter-evans/create-or-update-comment@v1
+      with:
+        issue-number: ${{ github.event.pull_request.number }}
+        body: |
+          A preview of this PR will be available at ${{ env.version_url }} until the request is closed.
+        reactions: '+1'
 
   remove-tag:
     name: 'Remove branch tag'
