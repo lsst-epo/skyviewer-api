@@ -67,7 +67,7 @@ jobs:
       with:
         issue-number: ${{ github.event.pull_request.number }}
         body: |
-          A preview of this PR will be available at {{ steps.deploy.outputs.url }} until the request is closed.
+          A preview of this PR will be available at ${{ steps.deploy.outputs.url }} until the request is closed.
         reactions: '+1'
 
 
