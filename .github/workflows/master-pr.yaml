@@ -57,7 +57,7 @@ jobs:
       with:
         service: skyviewer-api
         image: gcr.io/epo-integration-0e42/skyviewer-api:${{ github.sha }}    
-        credentials: ${{ secrets.GCP_SA_KEY }}
+        credentials: ${{ secrets.SKYVIEWER_INT_SERVICE_ACCOUNT }}
         no_traffic: true
         tag: ${{ github.head_ref }}
         region: us-central1
