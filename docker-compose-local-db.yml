@@ -5,19 +5,19 @@ services:
         image: memcached
         ports:
         - "11211:11211"
-    sqlproxy:
-        image: google/cloud-sdk
+    db:
+        build: ./local-db
         ports:
         - "5432:5432"
-        command: |
-            gcloud compute ssh db-client-1 --project=skyviewer --zone=us-central1-a -- -t -L 0.0.0.0:5432:10.109.178.5:5432 
-        volumes:
-        - "~/.config/gcloud:/root/.config/gcloud"
+        environment: 
+        - POSTGRES_USER=skyviewer
+        - POSTGRES_DB=postgres
+        - POSTGRES_PASSWORD=zkyvi3w3r
     craft:
         build: ./
         depends_on:
         - cache
-        - sqlproxy
+        - db
         ports:
         - "8080:8080"
         volumes:
@@ -27,11 +27,11 @@ services:
         - APP_ID=CraftCMS--d337aaa2-c2ae-4cfb-9b3d-fe0c268ff065
         - CP_TRIGGER=admin
         - DB_DRIVER=pgsql
-        - DB_SERVER=sqlproxy
+        - DB_SERVER=db
         - DB_PORT=5432
         - DB_DATABASE=skyviewer
         - DB_USER=skyviewer
-        - DB_PASSWORD
+        - DB_PASSWORD=zkyvi3w3r
         - DB_SCHEMA=public
         - ENABLE_MEMCACHED=true
         - ENVIRONMENT=dev
@@ -40,5 +40,5 @@ services:
         - MEMCACHED_IP=cache
         - MEMCACHED_PORT=11211
         - PRIMARY_SITE_URL=http://localhost:8080
-        - SECURITY_KEY
+        - SECURITY_KEY=abcdef0123456789
         restart: always

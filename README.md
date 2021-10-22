@@ -4,6 +4,11 @@ The CMS backend that will serve up data/content to the Skyviewer UI/client.
 
 ## Running locally with Docker Compose
 
+For local development, you can choose to either connect to the development database running in Google Cloud Platform,
+or a local database.
+
+### Cloud SQL Dev DB
+
 These steps assume that you already have [Docker](https://docs.docker.com/get-docker/),
 [Docker Compose](https://docs.docker.com/compose/install/),
 and the [Google Cloud SDK](https://cloud.google.com/sdk/docs/install) already installed and setup.
@@ -35,7 +40,19 @@ available if needed.
 
 This will ensure that the skyviewer-api project will run on your machine.
 
-## Volume
+### Local Dev DB
+
+The local development DB will be created from the `local-db/skyviewer.sql` on the initial container image build. Thereafter, any updates made will persist only as long as the containter is not deleted (e.g. `docker delete` or `docker-compose down`).
+
+1. Bring the docker-compose up. _Note that without the_ `-f docker-compose-local-db.yml` _option you will connect to the Cloud SQL database instead of a local DB_:
+
+    ```bash
+    docker-compose -f docker-compose-local-db.yml up
+    ```
+
+2. Go to <http://localhost:8080/admin> to test that it loads
+
+### Volume
 
 The `docker-compose.yml` mounts the CraftCMS `web` folder as a volume for the Craft and Nginx container. This means that you will be able to make changes to the files within the `/craftcms/web` folder and the changes will be instantly reflected in the running container. However, this also means that the containers are no longer ephemeral - which is the intent.
 
@@ -64,7 +81,7 @@ This image accepts application configuration in the form of an ```.env``` file i
 | `MEMCACHED_PORT` | `11211` | The port to connect to memcached on. *Only used if `ENABLE_MEMCACHED` is `true`.* |
 | `PRIMARY_SITE_URL` | N/A | The base URL of the application. |
 | `SECURITY_KEY` | N/A | The application security key. |
-=======
+
 To access a container while it's running:
 
 `docker container ls` to view the running containers and their IDs
