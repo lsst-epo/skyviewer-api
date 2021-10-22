@@ -23,6 +23,13 @@ available if needed.
     export $(gcloud secrets versions access latest --secret=skyviewer-api-env-dev --project=skyviewer | grep SECURITY_KEY)
     ```
 
+=======
+1. Set the database password as an environment variable called `DB_PASSWORD`:
+
+    ```bash
+    export DB_PASSWORD=<password>
+    ```
+    
 2. Bring the docker-compose up:
 
    Note that it make take 1 or 2 restarts of the craft container before the SSH tunnel is up and Craft is able to launch. The Craft container is configured to auto-restart if the initial database connection fails.
