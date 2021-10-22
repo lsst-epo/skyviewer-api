@@ -10,6 +10,21 @@ and the [Google Cloud SDK](https://cloud.google.com/sdk/docs/install) already in
 
 By default this will use an SSH tunnel to connect to the Cloud SQL development database instance.
 
+__One-time Setup__: In order to download container images from GCR you will need to configure the Docker
+daemon to authenticate to GCR. The easiest way to do this is to run `gcloud auth configure-docker`. However,
+there are other [authentication methods](https://cloud.google.com/container-registry/docs/advanced-authentication)
+available if needed.
+
+1. Set the secure config vars. You will need access to view secrets in the `Skyviewer` GCP project:
+
+    ```bash
+    export $(gcloud secrets versions access latest --secret=skyviewer-api-env-dev --project=skyviewer | grep DB_PASSWORD)
+
+    export $(gcloud secrets versions access latest --secret=skyviewer-api-env-dev --project=skyviewer | grep SECURITY_KEY)
+    ```
+
+=======
+
 1. Set the database password as an environment variable called `DB_PASSWORD`:
 
     ```bash
