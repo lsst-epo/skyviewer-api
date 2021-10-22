@@ -1,5 +1,5 @@
 # Builds, pushes, and deploys the Skyviewer API container
-name: 'Build and deploy Skyviewer API to Google Cloud Run in Dev'
+name: 'Build and deploy Skyviewer API to Google Cloud Run in Integration'
 
 on:
   push:
