@@ -5,8 +5,9 @@
 -- Dumped from database version 13.4
 -- Dumped by pg_dump version 13.2
 
--- Started on 2021-10-27 15:02:29 MST
-
+-- Started on 2021-10-27 16:06:43 MST
+CREATE DATABASE skyviewer;
+\c skyviewer
 SET statement_timeout = 0;
 SET lock_timeout = 0;
 SET idle_in_transaction_session_timeout = 0;
@@ -19,9 +20,2985 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 --
+-- TOC entry 3 (class 2615 OID 2200)
+-- Name: public; Type: SCHEMA; Schema: -; Owner: -
+--
+
+--CREATE SCHEMA public;
+
+
+--
+-- TOC entry 4691 (class 0 OID 0)
+-- Dependencies: 3
+-- Name: SCHEMA public; Type: COMMENT; Schema: -; Owner: -
+--
+
+--COMMENT ON SCHEMA public IS 'standard public schema';
+
+
+SET default_table_access_method = heap;
+
+--
+-- TOC entry 323 (class 1259 OID 17993)
+-- Name: announcements; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.announcements (
+    id integer NOT NULL,
+    "userId" integer NOT NULL,
+    "pluginId" integer,
+    heading character varying(255) NOT NULL,
+    body text NOT NULL,
+    unread boolean DEFAULT true NOT NULL,
+    "dateRead" timestamp(0) without time zone,
+    "dateCreated" timestamp(0) without time zone NOT NULL
+);
+
+
+--
+-- TOC entry 322 (class 1259 OID 17991)
+-- Name: announcements_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.announcements_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- TOC entry 4692 (class 0 OID 0)
+-- Dependencies: 322
+-- Name: announcements_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.announcements_id_seq OWNED BY public.announcements.id;
+
+
+--
+-- TOC entry 200 (class 1259 OID 16444)
+-- Name: assetindexdata; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.assetindexdata (
+    id integer NOT NULL,
+    "sessionId" character varying(36) DEFAULT ''::character varying NOT NULL,
+    "volumeId" integer NOT NULL,
+    uri text,
+    size bigint,
+    "timestamp" timestamp(0) without time zone,
+    "recordId" integer,
+    "inProgress" boolean DEFAULT false,
+    completed boolean DEFAULT false,
+    "dateCreated" timestamp(0) without time zone NOT NULL,
+    "dateUpdated" timestamp(0) without time zone NOT NULL,
+    uid character(36) DEFAULT '0'::bpchar NOT NULL
+);
+
+
+--
+-- TOC entry 201 (class 1259 OID 16454)
+-- Name: assetindexdata_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.assetindexdata_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- TOC entry 4693 (class 0 OID 0)
+-- Dependencies: 201
+-- Name: assetindexdata_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.assetindexdata_id_seq OWNED BY public.assetindexdata.id;
+
+
+--
+-- TOC entry 202 (class 1259 OID 16456)
+-- Name: assets; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.assets (
+    id integer NOT NULL,
+    "volumeId" integer,
+    "folderId" integer NOT NULL,
+    "uploaderId" integer,
+    filename character varying(255) NOT NULL,
+    kind character varying(50) DEFAULT 'unknown'::character varying NOT NULL,
+    width integer,
+    height integer,
+    size bigint,
+    "focalPoint" character varying(13) DEFAULT NULL::character varying,
+    "deletedWithVolume" boolean,
+    "keptFile" boolean,
+    "dateModified" timestamp(0) without time zone,
+    "dateCreated" timestamp(0) without time zone NOT NULL,
+    "dateUpdated" timestamp(0) without time zone NOT NULL,
+    uid character(36) DEFAULT '0'::bpchar NOT NULL
+);
+
+
+--
+-- TOC entry 203 (class 1259 OID 16462)
+-- Name: assettransformindex; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.assettransformindex (
+    id integer NOT NULL,
+    "assetId" integer NOT NULL,
+    filename character varying(255),
+    format character varying(255),
+    location character varying(255) NOT NULL,
+    "volumeId" integer,
+    "fileExists" boolean DEFAULT false NOT NULL,
+    "inProgress" boolean DEFAULT false NOT NULL,
+    error boolean DEFAULT false NOT NULL,
+    "dateIndexed" timestamp(0) without time zone,
+    "dateCreated" timestamp(0) without time zone NOT NULL,
+    "dateUpdated" timestamp(0) without time zone NOT NULL,
+    uid character(36) DEFAULT '0'::bpchar NOT NULL
+);
+
+
+--
+-- TOC entry 204 (class 1259 OID 16472)
+-- Name: assettransformindex_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.assettransformindex_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- TOC entry 4694 (class 0 OID 0)
+-- Dependencies: 204
+-- Name: assettransformindex_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.assettransformindex_id_seq OWNED BY public.assettransformindex.id;
+
+
+--
+-- TOC entry 205 (class 1259 OID 16474)
+-- Name: assettransforms; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.assettransforms (
+    id integer NOT NULL,
+    name character varying(255) NOT NULL,
+    handle character varying(255) NOT NULL,
+    mode character varying(255) DEFAULT 'crop'::character varying NOT NULL,
+    "position" character varying(255) DEFAULT 'center-center'::character varying NOT NULL,
+    width integer,
+    height integer,
+    format character varying(255),
+    quality integer,
+    interlace character varying(255) DEFAULT 'none'::character varying NOT NULL,
+    "dimensionChangeTime" timestamp(0) without time zone,
+    "dateCreated" timestamp(0) without time zone NOT NULL,
+    "dateUpdated" timestamp(0) without time zone NOT NULL,
+    uid character(36) DEFAULT '0'::bpchar NOT NULL,
+    CONSTRAINT assettransforms_interlace_check CHECK (((interlace)::text = ANY (ARRAY[('none'::character varying)::text, ('line'::character varying)::text, ('plane'::character varying)::text, ('partition'::character varying)::text]))),
+    CONSTRAINT assettransforms_mode_check CHECK (((mode)::text = ANY (ARRAY[('stretch'::character varying)::text, ('fit'::character varying)::text, ('crop'::character varying)::text]))),
+    CONSTRAINT assettransforms_position_check CHECK ((("position")::text = ANY (ARRAY[('top-left'::character varying)::text, ('top-center'::character varying)::text, ('top-right'::character varying)::text, ('center-left'::character varying)::text, ('center-center'::character varying)::text, ('center-right'::character varying)::text, ('bottom-left'::character varying)::text, ('bottom-center'::character varying)::text, ('bottom-right'::character varying)::text])))
+);
+
+
+--
+-- TOC entry 206 (class 1259 OID 16487)
+-- Name: assettransforms_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.assettransforms_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- TOC entry 4695 (class 0 OID 0)
+-- Dependencies: 206
+-- Name: assettransforms_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.assettransforms_id_seq OWNED BY public.assettransforms.id;
+
+
+--
+-- TOC entry 207 (class 1259 OID 16489)
+-- Name: categories; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.categories (
+    id integer NOT NULL,
+    "groupId" integer NOT NULL,
+    "parentId" integer,
+    "deletedWithGroup" boolean,
+    "dateCreated" timestamp(0) without time zone NOT NULL,
+    "dateUpdated" timestamp(0) without time zone NOT NULL,
+    uid character(36) DEFAULT '0'::bpchar NOT NULL
+);
+
+
+--
+-- TOC entry 208 (class 1259 OID 16493)
+-- Name: categorygroups; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.categorygroups (
+    id integer NOT NULL,
+    "structureId" integer NOT NULL,
+    "fieldLayoutId" integer,
+    name character varying(255) NOT NULL,
+    handle character varying(255) NOT NULL,
+    "dateCreated" timestamp(0) without time zone NOT NULL,
+    "dateUpdated" timestamp(0) without time zone NOT NULL,
+    "dateDeleted" timestamp(0) without time zone DEFAULT NULL::timestamp without time zone,
+    uid character(36) DEFAULT '0'::bpchar NOT NULL,
+    "defaultPlacement" character varying(255) DEFAULT 'end'::character varying NOT NULL,
+    CONSTRAINT "categorygroups_defaultPlacement_check" CHECK ((("defaultPlacement")::text = ANY ((ARRAY['beginning'::character varying, 'end'::character varying])::text[])))
+);
+
+
+--
+-- TOC entry 209 (class 1259 OID 16501)
+-- Name: categorygroups_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.categorygroups_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- TOC entry 4696 (class 0 OID 0)
+-- Dependencies: 209
+-- Name: categorygroups_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.categorygroups_id_seq OWNED BY public.categorygroups.id;
+
+
+--
+-- TOC entry 210 (class 1259 OID 16503)
+-- Name: categorygroups_sites; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.categorygroups_sites (
+    id integer NOT NULL,
+    "groupId" integer NOT NULL,
+    "siteId" integer NOT NULL,
+    "hasUrls" boolean DEFAULT true NOT NULL,
+    "uriFormat" text,
+    template character varying(500),
+    "dateCreated" timestamp(0) without time zone NOT NULL,
+    "dateUpdated" timestamp(0) without time zone NOT NULL,
+    uid character(36) DEFAULT '0'::bpchar NOT NULL
+);
+
+
+--
+-- TOC entry 211 (class 1259 OID 16511)
+-- Name: categorygroups_sites_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.categorygroups_sites_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- TOC entry 4697 (class 0 OID 0)
+-- Dependencies: 211
+-- Name: categorygroups_sites_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.categorygroups_sites_id_seq OWNED BY public.categorygroups_sites.id;
+
+
+--
+-- TOC entry 212 (class 1259 OID 16513)
+-- Name: changedattributes; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.changedattributes (
+    "elementId" integer NOT NULL,
+    "siteId" integer NOT NULL,
+    attribute character varying(255) NOT NULL,
+    "dateUpdated" timestamp(0) without time zone NOT NULL,
+    propagated boolean NOT NULL,
+    "userId" integer
+);
+
+
+--
+-- TOC entry 213 (class 1259 OID 16516)
+-- Name: changedfields; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.changedfields (
+    "elementId" integer NOT NULL,
+    "siteId" integer NOT NULL,
+    "fieldId" integer NOT NULL,
+    "dateUpdated" timestamp(0) without time zone NOT NULL,
+    propagated boolean NOT NULL,
+    "userId" integer
+);
+
+
+--
+-- TOC entry 214 (class 1259 OID 16519)
+-- Name: content; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.content (
+    id integer NOT NULL,
+    "elementId" integer NOT NULL,
+    "siteId" integer NOT NULL,
+    title character varying(255),
+    "dateCreated" timestamp(0) without time zone NOT NULL,
+    "dateUpdated" timestamp(0) without time zone NOT NULL,
+    uid character(36) DEFAULT '0'::bpchar NOT NULL,
+    field_path character varying(255),
+    "field_siteDescription" text,
+    "field_siteTitle" text,
+    "field_catalogVariety" character varying(255),
+    "field_sourceSize" integer,
+    field_target text,
+    field_fov integer,
+    "field_fovMin" integer,
+    "field_fovMax" integer,
+    field_heading text,
+    field_subheading text,
+    field_duration integer,
+    field_complexity smallint,
+    field_description text,
+    field_ra integer,
+    field_dec integer,
+    "field_factsHeading" text,
+    "field_introHeading" text,
+    "field_introSubheading" text,
+    field_characteristics text,
+    "field_altText" text,
+    "field_astroObjectId" text,
+    "field_varietyHandle" text,
+    "field_varietyName" text
+);
+
+
+--
+-- TOC entry 215 (class 1259 OID 16526)
+-- Name: content_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.content_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- TOC entry 4698 (class 0 OID 0)
+-- Dependencies: 215
+-- Name: content_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.content_id_seq OWNED BY public.content.id;
+
+
+--
+-- TOC entry 216 (class 1259 OID 16528)
+-- Name: craftidtokens; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.craftidtokens (
+    id integer NOT NULL,
+    "userId" integer NOT NULL,
+    "accessToken" text NOT NULL,
+    "expiryDate" timestamp(0) without time zone,
+    "dateCreated" timestamp(0) without time zone NOT NULL,
+    "dateUpdated" timestamp(0) without time zone NOT NULL,
+    uid character(36) DEFAULT '0'::bpchar NOT NULL
+);
+
+
+--
+-- TOC entry 217 (class 1259 OID 16535)
+-- Name: craftidtokens_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.craftidtokens_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- TOC entry 4699 (class 0 OID 0)
+-- Dependencies: 217
+-- Name: craftidtokens_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.craftidtokens_id_seq OWNED BY public.craftidtokens.id;
+
+
+--
+-- TOC entry 218 (class 1259 OID 16537)
+-- Name: deprecationerrors; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.deprecationerrors (
+    id integer NOT NULL,
+    key character varying(255) NOT NULL,
+    fingerprint character varying(255) NOT NULL,
+    "lastOccurrence" timestamp(0) without time zone NOT NULL,
+    file character varying(255) NOT NULL,
+    line smallint,
+    message text,
+    traces text,
+    "dateCreated" timestamp(0) without time zone NOT NULL,
+    "dateUpdated" timestamp(0) without time zone NOT NULL,
+    uid character(36) DEFAULT '0'::bpchar NOT NULL
+);
+
+
+--
+-- TOC entry 219 (class 1259 OID 16544)
+-- Name: deprecationerrors_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.deprecationerrors_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- TOC entry 4700 (class 0 OID 0)
+-- Dependencies: 219
+-- Name: deprecationerrors_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.deprecationerrors_id_seq OWNED BY public.deprecationerrors.id;
+
+
+--
+-- TOC entry 220 (class 1259 OID 16546)
+-- Name: drafts; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.drafts (
+    id integer NOT NULL,
+    "sourceId" integer,
+    "creatorId" integer,
+    name character varying(255) NOT NULL,
+    notes text,
+    "trackChanges" boolean DEFAULT false NOT NULL,
+    "dateLastMerged" timestamp(0) without time zone,
+    saved boolean DEFAULT true NOT NULL,
+    provisional boolean DEFAULT false NOT NULL
+);
+
+
+--
+-- TOC entry 221 (class 1259 OID 16554)
+-- Name: drafts_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.drafts_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- TOC entry 4701 (class 0 OID 0)
+-- Dependencies: 221
+-- Name: drafts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.drafts_id_seq OWNED BY public.drafts.id;
+
+
+--
+-- TOC entry 222 (class 1259 OID 16556)
+-- Name: elementindexsettings; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.elementindexsettings (
+    id integer NOT NULL,
+    type character varying(255) NOT NULL,
+    settings text,
+    "dateCreated" timestamp(0) without time zone NOT NULL,
+    "dateUpdated" timestamp(0) without time zone NOT NULL,
+    uid character(36) DEFAULT '0'::bpchar NOT NULL
+);
+
+
+--
+-- TOC entry 223 (class 1259 OID 16563)
+-- Name: elementindexsettings_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.elementindexsettings_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- TOC entry 4702 (class 0 OID 0)
+-- Dependencies: 223
+-- Name: elementindexsettings_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.elementindexsettings_id_seq OWNED BY public.elementindexsettings.id;
+
+
+--
+-- TOC entry 224 (class 1259 OID 16565)
+-- Name: elements; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.elements (
+    id integer NOT NULL,
+    "draftId" integer,
+    "revisionId" integer,
+    "fieldLayoutId" integer,
+    type character varying(255) NOT NULL,
+    enabled boolean DEFAULT true NOT NULL,
+    archived boolean DEFAULT false NOT NULL,
+    "dateCreated" timestamp(0) without time zone NOT NULL,
+    "dateUpdated" timestamp(0) without time zone NOT NULL,
+    "dateDeleted" timestamp(0) without time zone DEFAULT NULL::timestamp without time zone,
+    uid character(36) DEFAULT '0'::bpchar NOT NULL,
+    "canonicalId" integer,
+    "dateLastMerged" timestamp(0) without time zone
+);
+
+
+--
+-- TOC entry 225 (class 1259 OID 16572)
+-- Name: elements_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.elements_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- TOC entry 4703 (class 0 OID 0)
+-- Dependencies: 225
+-- Name: elements_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.elements_id_seq OWNED BY public.elements.id;
+
+
+--
+-- TOC entry 226 (class 1259 OID 16574)
+-- Name: elements_sites; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.elements_sites (
+    id integer NOT NULL,
+    "elementId" integer NOT NULL,
+    "siteId" integer NOT NULL,
+    slug character varying(255),
+    uri character varying(255),
+    enabled boolean DEFAULT true NOT NULL,
+    "dateCreated" timestamp(0) without time zone NOT NULL,
+    "dateUpdated" timestamp(0) without time zone NOT NULL,
+    uid character(36) DEFAULT '0'::bpchar NOT NULL
+);
+
+
+--
+-- TOC entry 227 (class 1259 OID 16582)
+-- Name: elements_sites_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.elements_sites_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- TOC entry 4704 (class 0 OID 0)
+-- Dependencies: 227
+-- Name: elements_sites_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.elements_sites_id_seq OWNED BY public.elements_sites.id;
+
+
+--
+-- TOC entry 228 (class 1259 OID 16584)
+-- Name: entries; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.entries (
+    id integer NOT NULL,
+    "sectionId" integer NOT NULL,
+    "parentId" integer,
+    "typeId" integer NOT NULL,
+    "authorId" integer,
+    "postDate" timestamp(0) without time zone,
+    "expiryDate" timestamp(0) without time zone,
+    "deletedWithEntryType" boolean,
+    "dateCreated" timestamp(0) without time zone NOT NULL,
+    "dateUpdated" timestamp(0) without time zone NOT NULL,
+    uid character(36) DEFAULT '0'::bpchar NOT NULL
+);
+
+
+--
+-- TOC entry 229 (class 1259 OID 16588)
+-- Name: entrytypes; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.entrytypes (
+    id integer NOT NULL,
+    "sectionId" integer NOT NULL,
+    "fieldLayoutId" integer,
+    name character varying(255) NOT NULL,
+    handle character varying(255) NOT NULL,
+    "hasTitleField" boolean DEFAULT true NOT NULL,
+    "titleTranslationMethod" character varying(255) DEFAULT 'site'::character varying NOT NULL,
+    "titleTranslationKeyFormat" text,
+    "titleFormat" character varying(255),
+    "sortOrder" smallint,
+    "dateCreated" timestamp(0) without time zone NOT NULL,
+    "dateUpdated" timestamp(0) without time zone NOT NULL,
+    "dateDeleted" timestamp(0) without time zone DEFAULT NULL::timestamp without time zone,
+    uid character(36) DEFAULT '0'::bpchar NOT NULL
+);
+
+
+--
+-- TOC entry 230 (class 1259 OID 16598)
+-- Name: entrytypes_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.entrytypes_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- TOC entry 4705 (class 0 OID 0)
+-- Dependencies: 230
+-- Name: entrytypes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.entrytypes_id_seq OWNED BY public.entrytypes.id;
+
+
+--
+-- TOC entry 231 (class 1259 OID 16600)
+-- Name: fieldgroups; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.fieldgroups (
+    id integer NOT NULL,
+    name character varying(255) NOT NULL,
+    "dateCreated" timestamp(0) without time zone NOT NULL,
+    "dateUpdated" timestamp(0) without time zone NOT NULL,
+    "dateDeleted" timestamp(0) without time zone DEFAULT NULL::timestamp without time zone,
+    uid character(36) DEFAULT '0'::bpchar NOT NULL
+);
+
+
+--
+-- TOC entry 232 (class 1259 OID 16605)
+-- Name: fieldgroups_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.fieldgroups_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- TOC entry 4706 (class 0 OID 0)
+-- Dependencies: 232
+-- Name: fieldgroups_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.fieldgroups_id_seq OWNED BY public.fieldgroups.id;
+
+
+--
+-- TOC entry 233 (class 1259 OID 16607)
+-- Name: fieldlayoutfields; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.fieldlayoutfields (
+    id integer NOT NULL,
+    "layoutId" integer NOT NULL,
+    "tabId" integer NOT NULL,
+    "fieldId" integer NOT NULL,
+    required boolean DEFAULT false NOT NULL,
+    "sortOrder" smallint,
+    "dateCreated" timestamp(0) without time zone NOT NULL,
+    "dateUpdated" timestamp(0) without time zone NOT NULL,
+    uid character(36) DEFAULT '0'::bpchar NOT NULL
+);
+
+
+--
+-- TOC entry 234 (class 1259 OID 16612)
+-- Name: fieldlayoutfields_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.fieldlayoutfields_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- TOC entry 4707 (class 0 OID 0)
+-- Dependencies: 234
+-- Name: fieldlayoutfields_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.fieldlayoutfields_id_seq OWNED BY public.fieldlayoutfields.id;
+
+
+--
+-- TOC entry 235 (class 1259 OID 16614)
+-- Name: fieldlayouts; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.fieldlayouts (
+    id integer NOT NULL,
+    type character varying(255) NOT NULL,
+    "dateCreated" timestamp(0) without time zone NOT NULL,
+    "dateUpdated" timestamp(0) without time zone NOT NULL,
+    "dateDeleted" timestamp(0) without time zone DEFAULT NULL::timestamp without time zone,
+    uid character(36) DEFAULT '0'::bpchar NOT NULL
+);
+
+
+--
+-- TOC entry 236 (class 1259 OID 16619)
+-- Name: fieldlayouts_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.fieldlayouts_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- TOC entry 4708 (class 0 OID 0)
+-- Dependencies: 236
+-- Name: fieldlayouts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.fieldlayouts_id_seq OWNED BY public.fieldlayouts.id;
+
+
+--
+-- TOC entry 237 (class 1259 OID 16621)
+-- Name: fieldlayouttabs; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.fieldlayouttabs (
+    id integer NOT NULL,
+    "layoutId" integer NOT NULL,
+    name character varying(255) NOT NULL,
+    elements text,
+    "sortOrder" smallint,
+    "dateCreated" timestamp(0) without time zone NOT NULL,
+    "dateUpdated" timestamp(0) without time zone NOT NULL,
+    uid character(36) DEFAULT '0'::bpchar NOT NULL
+);
+
+
+--
+-- TOC entry 238 (class 1259 OID 16628)
+-- Name: fieldlayouttabs_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.fieldlayouttabs_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- TOC entry 4709 (class 0 OID 0)
+-- Dependencies: 238
+-- Name: fieldlayouttabs_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.fieldlayouttabs_id_seq OWNED BY public.fieldlayouttabs.id;
+
+
+--
+-- TOC entry 239 (class 1259 OID 16630)
+-- Name: fields; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.fields (
+    id integer NOT NULL,
+    "groupId" integer,
+    name character varying(255) NOT NULL,
+    handle character varying(64) NOT NULL,
+    context character varying(255) DEFAULT 'global'::character varying NOT NULL,
+    instructions text,
+    searchable boolean DEFAULT true NOT NULL,
+    "translationMethod" character varying(255) DEFAULT 'none'::character varying NOT NULL,
+    "translationKeyFormat" text,
+    type character varying(255) NOT NULL,
+    settings text,
+    "dateCreated" timestamp(0) without time zone NOT NULL,
+    "dateUpdated" timestamp(0) without time zone NOT NULL,
+    uid character(36) DEFAULT '0'::bpchar NOT NULL,
+    "columnSuffix" character(8)
+);
+
+
+--
+-- TOC entry 240 (class 1259 OID 16640)
+-- Name: fields_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.fields_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- TOC entry 4710 (class 0 OID 0)
+-- Dependencies: 240
+-- Name: fields_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.fields_id_seq OWNED BY public.fields.id;
+
+
+--
+-- TOC entry 241 (class 1259 OID 16642)
+-- Name: globalsets; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.globalsets (
+    id integer NOT NULL,
+    name character varying(255) NOT NULL,
+    handle character varying(255) NOT NULL,
+    "fieldLayoutId" integer,
+    "dateCreated" timestamp(0) without time zone NOT NULL,
+    "dateUpdated" timestamp(0) without time zone NOT NULL,
+    uid character(36) DEFAULT '0'::bpchar NOT NULL,
+    "sortOrder" smallint
+);
+
+
+--
+-- TOC entry 242 (class 1259 OID 16649)
+-- Name: globalsets_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.globalsets_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- TOC entry 4711 (class 0 OID 0)
+-- Dependencies: 242
+-- Name: globalsets_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.globalsets_id_seq OWNED BY public.globalsets.id;
+
+
+--
+-- TOC entry 243 (class 1259 OID 16651)
+-- Name: gqlschemas; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.gqlschemas (
+    id integer NOT NULL,
+    name character varying(255) NOT NULL,
+    scope text,
+    "isPublic" boolean DEFAULT false NOT NULL,
+    "dateCreated" timestamp(0) without time zone NOT NULL,
+    "dateUpdated" timestamp(0) without time zone NOT NULL,
+    uid character(36) DEFAULT '0'::bpchar NOT NULL
+);
+
+
+--
+-- TOC entry 244 (class 1259 OID 16659)
+-- Name: gqlschemas_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.gqlschemas_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- TOC entry 4712 (class 0 OID 0)
+-- Dependencies: 244
+-- Name: gqlschemas_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.gqlschemas_id_seq OWNED BY public.gqlschemas.id;
+
+
+--
+-- TOC entry 245 (class 1259 OID 16661)
+-- Name: gqltokens; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.gqltokens (
+    id integer NOT NULL,
+    name character varying(255) NOT NULL,
+    "accessToken" character varying(255) NOT NULL,
+    enabled boolean DEFAULT true NOT NULL,
+    "expiryDate" timestamp(0) without time zone,
+    "lastUsed" timestamp(0) without time zone,
+    "schemaId" integer,
+    "dateCreated" timestamp(0) without time zone NOT NULL,
+    "dateUpdated" timestamp(0) without time zone NOT NULL,
+    uid character(36) DEFAULT '0'::bpchar NOT NULL
+);
+
+
+--
+-- TOC entry 246 (class 1259 OID 16669)
+-- Name: gqltokens_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.gqltokens_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- TOC entry 4713 (class 0 OID 0)
+-- Dependencies: 246
+-- Name: gqltokens_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.gqltokens_id_seq OWNED BY public.gqltokens.id;
+
+
+--
+-- TOC entry 247 (class 1259 OID 16671)
+-- Name: info; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.info (
+    id integer NOT NULL,
+    version character varying(50) NOT NULL,
+    "schemaVersion" character varying(15) NOT NULL,
+    maintenance boolean DEFAULT false NOT NULL,
+    "configVersion" character(12) DEFAULT '000000000000'::bpchar NOT NULL,
+    "fieldVersion" character(12) DEFAULT '000000000000'::bpchar NOT NULL,
+    "dateCreated" timestamp(0) without time zone NOT NULL,
+    "dateUpdated" timestamp(0) without time zone NOT NULL,
+    uid character(36) DEFAULT '0'::bpchar NOT NULL
+);
+
+
+--
+-- TOC entry 248 (class 1259 OID 16678)
+-- Name: info_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.info_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- TOC entry 4714 (class 0 OID 0)
+-- Dependencies: 248
+-- Name: info_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.info_id_seq OWNED BY public.info.id;
+
+
+--
+-- TOC entry 249 (class 1259 OID 16680)
+-- Name: matrixblocks; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.matrixblocks (
+    id integer NOT NULL,
+    "ownerId" integer NOT NULL,
+    "fieldId" integer NOT NULL,
+    "typeId" integer NOT NULL,
+    "sortOrder" smallint,
+    "deletedWithOwner" boolean,
+    "dateCreated" timestamp(0) without time zone NOT NULL,
+    "dateUpdated" timestamp(0) without time zone NOT NULL,
+    uid character(36) DEFAULT '0'::bpchar NOT NULL
+);
+
+
+--
+-- TOC entry 250 (class 1259 OID 16684)
+-- Name: matrixblocktypes; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.matrixblocktypes (
+    id integer NOT NULL,
+    "fieldId" integer NOT NULL,
+    "fieldLayoutId" integer,
+    name character varying(255) NOT NULL,
+    handle character varying(255) NOT NULL,
+    "sortOrder" smallint,
+    "dateCreated" timestamp(0) without time zone NOT NULL,
+    "dateUpdated" timestamp(0) without time zone NOT NULL,
+    uid character(36) DEFAULT '0'::bpchar NOT NULL
+);
+
+
+--
+-- TOC entry 251 (class 1259 OID 16691)
+-- Name: matrixblocktypes_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.matrixblocktypes_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- TOC entry 4715 (class 0 OID 0)
+-- Dependencies: 251
+-- Name: matrixblocktypes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.matrixblocktypes_id_seq OWNED BY public.matrixblocktypes.id;
+
+
+--
+-- TOC entry 252 (class 1259 OID 16693)
+-- Name: matrixcontent_factscontentblocks; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.matrixcontent_factscontentblocks (
+    id integer NOT NULL,
+    "elementId" integer NOT NULL,
+    "siteId" integer NOT NULL,
+    "dateCreated" timestamp(0) without time zone NOT NULL,
+    "dateUpdated" timestamp(0) without time zone NOT NULL,
+    uid character(36) DEFAULT '0'::bpchar NOT NULL,
+    "field_factsContentBlock_body" text
+);
+
+
+--
+-- TOC entry 253 (class 1259 OID 16700)
+-- Name: matrixcontent_factscontentblocks_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.matrixcontent_factscontentblocks_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- TOC entry 4716 (class 0 OID 0)
+-- Dependencies: 253
+-- Name: matrixcontent_factscontentblocks_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.matrixcontent_factscontentblocks_id_seq OWNED BY public.matrixcontent_factscontentblocks.id;
+
+
+--
+-- TOC entry 254 (class 1259 OID 16702)
+-- Name: matrixcontent_introcontentblocks; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.matrixcontent_introcontentblocks (
+    id integer NOT NULL,
+    "elementId" integer NOT NULL,
+    "siteId" integer NOT NULL,
+    "dateCreated" timestamp(0) without time zone NOT NULL,
+    "dateUpdated" timestamp(0) without time zone NOT NULL,
+    uid character(36) DEFAULT '0'::bpchar NOT NULL,
+    "field_introBlock_body" text
+);
+
+
+--
+-- TOC entry 255 (class 1259 OID 16709)
+-- Name: matrixcontent_introcontentblocks_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.matrixcontent_introcontentblocks_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- TOC entry 4717 (class 0 OID 0)
+-- Dependencies: 255
+-- Name: matrixcontent_introcontentblocks_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.matrixcontent_introcontentblocks_id_seq OWNED BY public.matrixcontent_introcontentblocks.id;
+
+
+--
+-- TOC entry 256 (class 1259 OID 16711)
+-- Name: matrixcontent_poiastroobject; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.matrixcontent_poiastroobject (
+    id integer NOT NULL,
+    "elementId" integer NOT NULL,
+    "siteId" integer NOT NULL,
+    "dateCreated" timestamp(0) without time zone NOT NULL,
+    "dateUpdated" timestamp(0) without time zone NOT NULL,
+    uid character(36) DEFAULT '0'::bpchar NOT NULL
+);
+
+
+--
+-- TOC entry 257 (class 1259 OID 16715)
+-- Name: matrixcontent_poiastroobject_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.matrixcontent_poiastroobject_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- TOC entry 4718 (class 0 OID 0)
+-- Dependencies: 257
+-- Name: matrixcontent_poiastroobject_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.matrixcontent_poiastroobject_id_seq OWNED BY public.matrixcontent_poiastroobject.id;
+
+
+--
+-- TOC entry 258 (class 1259 OID 16717)
+-- Name: matrixcontent_tourpois; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.matrixcontent_tourpois (
+    id integer NOT NULL,
+    "elementId" integer NOT NULL,
+    "siteId" integer NOT NULL,
+    "dateCreated" timestamp(0) without time zone NOT NULL,
+    "dateUpdated" timestamp(0) without time zone NOT NULL,
+    uid character(36) DEFAULT '0'::bpchar NOT NULL,
+    "field_tourPoi_description" text,
+    "field_tourPoi_fov" integer
+);
+
+
+--
+-- TOC entry 259 (class 1259 OID 16724)
+-- Name: matrixcontent_tourpois_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.matrixcontent_tourpois_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- TOC entry 4719 (class 0 OID 0)
+-- Dependencies: 259
+-- Name: matrixcontent_tourpois_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.matrixcontent_tourpois_id_seq OWNED BY public.matrixcontent_tourpois.id;
+
+
+--
+-- TOC entry 260 (class 1259 OID 16726)
+-- Name: migrations; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.migrations (
+    id integer NOT NULL,
+    track character varying(255) NOT NULL,
+    name character varying(255) NOT NULL,
+    "applyTime" timestamp(0) without time zone NOT NULL,
+    "dateCreated" timestamp(0) without time zone NOT NULL,
+    "dateUpdated" timestamp(0) without time zone NOT NULL,
+    uid character(36) DEFAULT '0'::bpchar NOT NULL
+);
+
+
+--
+-- TOC entry 261 (class 1259 OID 16733)
+-- Name: migrations_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.migrations_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- TOC entry 4720 (class 0 OID 0)
+-- Dependencies: 261
+-- Name: migrations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.migrations_id_seq OWNED BY public.migrations.id;
+
+
+--
+-- TOC entry 262 (class 1259 OID 16735)
+-- Name: plugins; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.plugins (
+    id integer NOT NULL,
+    handle character varying(255) NOT NULL,
+    version character varying(255) NOT NULL,
+    "schemaVersion" character varying(255) NOT NULL,
+    "licenseKeyStatus" character varying(255) DEFAULT 'unknown'::character varying NOT NULL,
+    "licensedEdition" character varying(255),
+    "installDate" timestamp(0) without time zone NOT NULL,
+    "dateCreated" timestamp(0) without time zone NOT NULL,
+    "dateUpdated" timestamp(0) without time zone NOT NULL,
+    uid character(36) DEFAULT '0'::bpchar NOT NULL,
+    CONSTRAINT "plugins_licenseKeyStatus_check" CHECK ((("licenseKeyStatus")::text = ANY (ARRAY[('valid'::character varying)::text, ('trial'::character varying)::text, ('invalid'::character varying)::text, ('mismatched'::character varying)::text, ('astray'::character varying)::text, ('unknown'::character varying)::text])))
+);
+
+
+--
+-- TOC entry 263 (class 1259 OID 16744)
+-- Name: plugins_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.plugins_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- TOC entry 4721 (class 0 OID 0)
+-- Dependencies: 263
+-- Name: plugins_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.plugins_id_seq OWNED BY public.plugins.id;
+
+
+--
+-- TOC entry 264 (class 1259 OID 16746)
+-- Name: projectconfig; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.projectconfig (
+    path character varying(255) NOT NULL,
+    value text NOT NULL
+);
+
+
+--
+-- TOC entry 265 (class 1259 OID 16756)
+-- Name: queue; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.queue (
+    id integer NOT NULL,
+    channel character varying(255) DEFAULT 'queue'::character varying NOT NULL,
+    job bytea NOT NULL,
+    description text,
+    "timePushed" integer NOT NULL,
+    ttr integer NOT NULL,
+    delay integer DEFAULT 0 NOT NULL,
+    priority integer DEFAULT 1024 NOT NULL,
+    "dateReserved" timestamp(0) without time zone,
+    "timeUpdated" integer,
+    progress smallint DEFAULT 0 NOT NULL,
+    "progressLabel" character varying(255),
+    attempt integer,
+    fail boolean DEFAULT false,
+    "dateFailed" timestamp(0) without time zone,
+    error text
+);
+
+
+--
+-- TOC entry 266 (class 1259 OID 16767)
+-- Name: queue_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.queue_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- TOC entry 4722 (class 0 OID 0)
+-- Dependencies: 266
+-- Name: queue_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.queue_id_seq OWNED BY public.queue.id;
+
+
+--
+-- TOC entry 267 (class 1259 OID 16769)
+-- Name: relations; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.relations (
+    id integer NOT NULL,
+    "fieldId" integer NOT NULL,
+    "sourceId" integer NOT NULL,
+    "sourceSiteId" integer,
+    "targetId" integer NOT NULL,
+    "sortOrder" smallint,
+    "dateCreated" timestamp(0) without time zone NOT NULL,
+    "dateUpdated" timestamp(0) without time zone NOT NULL,
+    uid character(36) DEFAULT '0'::bpchar NOT NULL
+);
+
+
+--
+-- TOC entry 268 (class 1259 OID 16773)
+-- Name: relations_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.relations_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- TOC entry 4723 (class 0 OID 0)
+-- Dependencies: 268
+-- Name: relations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.relations_id_seq OWNED BY public.relations.id;
+
+
+--
+-- TOC entry 269 (class 1259 OID 16775)
+-- Name: resourcepaths; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.resourcepaths (
+    hash character varying(255) NOT NULL,
+    path character varying(255) NOT NULL
+);
+
+
+--
+-- TOC entry 270 (class 1259 OID 16781)
+-- Name: revisions; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.revisions (
+    id integer NOT NULL,
+    "sourceId" integer NOT NULL,
+    "creatorId" integer,
+    num integer NOT NULL,
+    notes text
+);
+
+
+--
+-- TOC entry 271 (class 1259 OID 16787)
+-- Name: revisions_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.revisions_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- TOC entry 4724 (class 0 OID 0)
+-- Dependencies: 271
+-- Name: revisions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.revisions_id_seq OWNED BY public.revisions.id;
+
+
+--
+-- TOC entry 272 (class 1259 OID 16789)
+-- Name: searchindex; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.searchindex (
+    "elementId" integer NOT NULL,
+    attribute character varying(25) NOT NULL,
+    "fieldId" integer NOT NULL,
+    "siteId" integer NOT NULL,
+    keywords text NOT NULL,
+    keywords_vector tsvector NOT NULL
+);
+
+
+--
+-- TOC entry 273 (class 1259 OID 16795)
+-- Name: sections; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.sections (
+    id integer NOT NULL,
+    "structureId" integer,
+    name character varying(255) NOT NULL,
+    handle character varying(255) NOT NULL,
+    type character varying(255) DEFAULT 'channel'::character varying NOT NULL,
+    "enableVersioning" boolean DEFAULT false NOT NULL,
+    "propagationMethod" character varying(255) DEFAULT 'all'::character varying NOT NULL,
+    "previewTargets" text,
+    "dateCreated" timestamp(0) without time zone NOT NULL,
+    "dateUpdated" timestamp(0) without time zone NOT NULL,
+    "dateDeleted" timestamp(0) without time zone DEFAULT NULL::timestamp without time zone,
+    uid character(36) DEFAULT '0'::bpchar NOT NULL,
+    "defaultPlacement" character varying(255) DEFAULT 'end'::character varying NOT NULL,
+    CONSTRAINT "sections_defaultPlacement_check" CHECK ((("defaultPlacement")::text = ANY ((ARRAY['beginning'::character varying, 'end'::character varying])::text[]))),
+    CONSTRAINT sections_type_check CHECK (((type)::text = ANY (ARRAY[('single'::character varying)::text, ('channel'::character varying)::text, ('structure'::character varying)::text])))
+);
+
+
+--
+-- TOC entry 274 (class 1259 OID 16807)
+-- Name: sections_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.sections_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- TOC entry 4725 (class 0 OID 0)
+-- Dependencies: 274
+-- Name: sections_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.sections_id_seq OWNED BY public.sections.id;
+
+
+--
+-- TOC entry 275 (class 1259 OID 16809)
+-- Name: sections_sites; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.sections_sites (
+    id integer NOT NULL,
+    "sectionId" integer NOT NULL,
+    "siteId" integer NOT NULL,
+    "hasUrls" boolean DEFAULT true NOT NULL,
+    "uriFormat" text,
+    template character varying(500),
+    "enabledByDefault" boolean DEFAULT true NOT NULL,
+    "dateCreated" timestamp(0) without time zone NOT NULL,
+    "dateUpdated" timestamp(0) without time zone NOT NULL,
+    uid character(36) DEFAULT '0'::bpchar NOT NULL
+);
+
+
+--
+-- TOC entry 276 (class 1259 OID 16818)
+-- Name: sections_sites_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.sections_sites_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- TOC entry 4726 (class 0 OID 0)
+-- Dependencies: 276
+-- Name: sections_sites_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.sections_sites_id_seq OWNED BY public.sections_sites.id;
+
+
+--
+-- TOC entry 277 (class 1259 OID 16820)
+-- Name: sequences; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.sequences (
+    name character varying(255) NOT NULL,
+    next integer DEFAULT 1 NOT NULL
+);
+
+
+--
+-- TOC entry 278 (class 1259 OID 16824)
+-- Name: sessions; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.sessions (
+    id integer NOT NULL,
+    "userId" integer NOT NULL,
+    token character(100) NOT NULL,
+    "dateCreated" timestamp(0) without time zone NOT NULL,
+    "dateUpdated" timestamp(0) without time zone NOT NULL,
+    uid character(36) DEFAULT '0'::bpchar NOT NULL
+);
+
+
+--
+-- TOC entry 279 (class 1259 OID 16828)
+-- Name: sessions_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.sessions_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- TOC entry 4727 (class 0 OID 0)
+-- Dependencies: 279
+-- Name: sessions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.sessions_id_seq OWNED BY public.sessions.id;
+
+
+--
+-- TOC entry 280 (class 1259 OID 16830)
+-- Name: shunnedmessages; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.shunnedmessages (
+    id integer NOT NULL,
+    "userId" integer NOT NULL,
+    message character varying(255) NOT NULL,
+    "expiryDate" timestamp(0) without time zone,
+    "dateCreated" timestamp(0) without time zone NOT NULL,
+    "dateUpdated" timestamp(0) without time zone NOT NULL,
+    uid character(36) DEFAULT '0'::bpchar NOT NULL
+);
+
+
+--
+-- TOC entry 281 (class 1259 OID 16834)
+-- Name: shunnedmessages_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.shunnedmessages_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- TOC entry 4728 (class 0 OID 0)
+-- Dependencies: 281
+-- Name: shunnedmessages_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.shunnedmessages_id_seq OWNED BY public.shunnedmessages.id;
+
+
+--
+-- TOC entry 282 (class 1259 OID 16836)
+-- Name: sitegroups; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.sitegroups (
+    id integer NOT NULL,
+    name character varying(255) NOT NULL,
+    "dateCreated" timestamp(0) without time zone NOT NULL,
+    "dateUpdated" timestamp(0) without time zone NOT NULL,
+    "dateDeleted" timestamp(0) without time zone DEFAULT NULL::timestamp without time zone,
+    uid character(36) DEFAULT '0'::bpchar NOT NULL
+);
+
+
+--
+-- TOC entry 283 (class 1259 OID 16841)
+-- Name: sitegroups_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.sitegroups_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- TOC entry 4729 (class 0 OID 0)
+-- Dependencies: 283
+-- Name: sitegroups_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.sitegroups_id_seq OWNED BY public.sitegroups.id;
+
+
+--
+-- TOC entry 284 (class 1259 OID 16843)
+-- Name: sites; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.sites (
+    id integer NOT NULL,
+    "groupId" integer NOT NULL,
+    "primary" boolean NOT NULL,
+    enabled boolean DEFAULT true NOT NULL,
+    name character varying(255) NOT NULL,
+    handle character varying(255) NOT NULL,
+    language character varying(12) NOT NULL,
+    "hasUrls" boolean DEFAULT false NOT NULL,
+    "baseUrl" character varying(255),
+    "sortOrder" smallint,
+    "dateCreated" timestamp(0) without time zone NOT NULL,
+    "dateUpdated" timestamp(0) without time zone NOT NULL,
+    "dateDeleted" timestamp(0) without time zone DEFAULT NULL::timestamp without time zone,
+    uid character(36) DEFAULT '0'::bpchar NOT NULL
+);
+
+
+--
+-- TOC entry 285 (class 1259 OID 16853)
+-- Name: sites_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.sites_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- TOC entry 4730 (class 0 OID 0)
+-- Dependencies: 285
+-- Name: sites_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.sites_id_seq OWNED BY public.sites.id;
+
+
+--
+-- TOC entry 286 (class 1259 OID 16855)
+-- Name: structureelements; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.structureelements (
+    id integer NOT NULL,
+    "structureId" integer NOT NULL,
+    "elementId" integer,
+    root integer,
+    lft integer NOT NULL,
+    rgt integer NOT NULL,
+    level smallint NOT NULL,
+    "dateCreated" timestamp(0) without time zone NOT NULL,
+    "dateUpdated" timestamp(0) without time zone NOT NULL,
+    uid character(36) DEFAULT '0'::bpchar NOT NULL
+);
+
+
+--
+-- TOC entry 287 (class 1259 OID 16859)
+-- Name: structureelements_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.structureelements_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- TOC entry 4731 (class 0 OID 0)
+-- Dependencies: 287
+-- Name: structureelements_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.structureelements_id_seq OWNED BY public.structureelements.id;
+
+
+--
+-- TOC entry 288 (class 1259 OID 16861)
+-- Name: structures; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.structures (
+    id integer NOT NULL,
+    "maxLevels" smallint,
+    "dateCreated" timestamp(0) without time zone NOT NULL,
+    "dateUpdated" timestamp(0) without time zone NOT NULL,
+    "dateDeleted" timestamp(0) without time zone DEFAULT NULL::timestamp without time zone,
+    uid character(36) DEFAULT '0'::bpchar NOT NULL
+);
+
+
+--
+-- TOC entry 289 (class 1259 OID 16866)
+-- Name: structures_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.structures_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- TOC entry 4732 (class 0 OID 0)
+-- Dependencies: 289
+-- Name: structures_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.structures_id_seq OWNED BY public.structures.id;
+
+
+--
+-- TOC entry 290 (class 1259 OID 16868)
+-- Name: systemmessages; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.systemmessages (
+    id integer NOT NULL,
+    language character varying(255) NOT NULL,
+    key character varying(255) NOT NULL,
+    subject text NOT NULL,
+    body text NOT NULL,
+    "dateCreated" timestamp(0) without time zone NOT NULL,
+    "dateUpdated" timestamp(0) without time zone NOT NULL,
+    uid character(36) DEFAULT '0'::bpchar NOT NULL
+);
+
+
+--
+-- TOC entry 291 (class 1259 OID 16875)
+-- Name: systemmessages_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.systemmessages_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- TOC entry 4733 (class 0 OID 0)
+-- Dependencies: 291
+-- Name: systemmessages_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.systemmessages_id_seq OWNED BY public.systemmessages.id;
+
+
+--
+-- TOC entry 292 (class 1259 OID 16877)
+-- Name: taggroups; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.taggroups (
+    id integer NOT NULL,
+    name character varying(255) NOT NULL,
+    handle character varying(255) NOT NULL,
+    "fieldLayoutId" integer,
+    "dateCreated" timestamp(0) without time zone NOT NULL,
+    "dateUpdated" timestamp(0) without time zone NOT NULL,
+    "dateDeleted" timestamp(0) without time zone DEFAULT NULL::timestamp without time zone,
+    uid character(36) DEFAULT '0'::bpchar NOT NULL
+);
+
+
+--
+-- TOC entry 293 (class 1259 OID 16885)
+-- Name: taggroups_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.taggroups_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- TOC entry 4734 (class 0 OID 0)
+-- Dependencies: 293
+-- Name: taggroups_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.taggroups_id_seq OWNED BY public.taggroups.id;
+
+
+--
+-- TOC entry 294 (class 1259 OID 16887)
+-- Name: tags; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.tags (
+    id integer NOT NULL,
+    "groupId" integer NOT NULL,
+    "deletedWithGroup" boolean,
+    "dateCreated" timestamp(0) without time zone NOT NULL,
+    "dateUpdated" timestamp(0) without time zone NOT NULL,
+    uid character(36) DEFAULT '0'::bpchar NOT NULL
+);
+
+
+--
+-- TOC entry 295 (class 1259 OID 16891)
+-- Name: templatecacheelements; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.templatecacheelements (
+    id integer NOT NULL,
+    "cacheId" integer NOT NULL,
+    "elementId" integer NOT NULL
+);
+
+
+--
+-- TOC entry 296 (class 1259 OID 16894)
+-- Name: templatecacheelements_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.templatecacheelements_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- TOC entry 4735 (class 0 OID 0)
+-- Dependencies: 296
+-- Name: templatecacheelements_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.templatecacheelements_id_seq OWNED BY public.templatecacheelements.id;
+
+
+--
+-- TOC entry 297 (class 1259 OID 16896)
+-- Name: templatecachequeries; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.templatecachequeries (
+    id integer NOT NULL,
+    "cacheId" integer NOT NULL,
+    type character varying(255) NOT NULL,
+    query text NOT NULL
+);
+
+
+--
+-- TOC entry 298 (class 1259 OID 16902)
+-- Name: templatecachequeries_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.templatecachequeries_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- TOC entry 4736 (class 0 OID 0)
+-- Dependencies: 298
+-- Name: templatecachequeries_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.templatecachequeries_id_seq OWNED BY public.templatecachequeries.id;
+
+
+--
+-- TOC entry 299 (class 1259 OID 16904)
+-- Name: templatecaches; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.templatecaches (
+    id integer NOT NULL,
+    "siteId" integer NOT NULL,
+    "cacheKey" character varying(255) NOT NULL,
+    path character varying(255),
+    "expiryDate" timestamp(0) without time zone NOT NULL,
+    body text NOT NULL
+);
+
+
+--
+-- TOC entry 300 (class 1259 OID 16910)
+-- Name: templatecaches_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.templatecaches_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- TOC entry 4737 (class 0 OID 0)
+-- Dependencies: 300
+-- Name: templatecaches_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.templatecaches_id_seq OWNED BY public.templatecaches.id;
+
+
+--
+-- TOC entry 301 (class 1259 OID 16912)
+-- Name: tokens; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.tokens (
+    id integer NOT NULL,
+    token character(32) NOT NULL,
+    route text,
+    "usageLimit" smallint,
+    "usageCount" smallint,
+    "expiryDate" timestamp(0) without time zone NOT NULL,
+    "dateCreated" timestamp(0) without time zone NOT NULL,
+    "dateUpdated" timestamp(0) without time zone NOT NULL,
+    uid character(36) DEFAULT '0'::bpchar NOT NULL
+);
+
+
+--
+-- TOC entry 302 (class 1259 OID 16919)
+-- Name: tokens_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.tokens_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- TOC entry 4738 (class 0 OID 0)
+-- Dependencies: 302
+-- Name: tokens_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.tokens_id_seq OWNED BY public.tokens.id;
+
+
+--
+-- TOC entry 303 (class 1259 OID 16921)
+-- Name: usergroups; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.usergroups (
+    id integer NOT NULL,
+    name character varying(255) NOT NULL,
+    handle character varying(255) NOT NULL,
+    description text,
+    "dateCreated" timestamp(0) without time zone NOT NULL,
+    "dateUpdated" timestamp(0) without time zone NOT NULL,
+    uid character(36) DEFAULT '0'::bpchar NOT NULL
+);
+
+
+--
+-- TOC entry 304 (class 1259 OID 16928)
+-- Name: usergroups_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.usergroups_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- TOC entry 4739 (class 0 OID 0)
+-- Dependencies: 304
+-- Name: usergroups_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.usergroups_id_seq OWNED BY public.usergroups.id;
+
+
+--
+-- TOC entry 305 (class 1259 OID 16930)
+-- Name: usergroups_users; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.usergroups_users (
+    id integer NOT NULL,
+    "groupId" integer NOT NULL,
+    "userId" integer NOT NULL,
+    "dateCreated" timestamp(0) without time zone NOT NULL,
+    "dateUpdated" timestamp(0) without time zone NOT NULL,
+    uid character(36) DEFAULT '0'::bpchar NOT NULL
+);
+
+
+--
+-- TOC entry 306 (class 1259 OID 16934)
+-- Name: usergroups_users_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.usergroups_users_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- TOC entry 4740 (class 0 OID 0)
+-- Dependencies: 306
+-- Name: usergroups_users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.usergroups_users_id_seq OWNED BY public.usergroups_users.id;
+
+
+--
+-- TOC entry 307 (class 1259 OID 16936)
+-- Name: userpermissions; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.userpermissions (
+    id integer NOT NULL,
+    name character varying(255) NOT NULL,
+    "dateCreated" timestamp(0) without time zone NOT NULL,
+    "dateUpdated" timestamp(0) without time zone NOT NULL,
+    uid character(36) DEFAULT '0'::bpchar NOT NULL
+);
+
+
+--
+-- TOC entry 308 (class 1259 OID 16940)
+-- Name: userpermissions_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.userpermissions_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- TOC entry 4741 (class 0 OID 0)
+-- Dependencies: 308
+-- Name: userpermissions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.userpermissions_id_seq OWNED BY public.userpermissions.id;
+
+
+--
+-- TOC entry 309 (class 1259 OID 16942)
+-- Name: userpermissions_usergroups; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.userpermissions_usergroups (
+    id integer NOT NULL,
+    "permissionId" integer NOT NULL,
+    "groupId" integer NOT NULL,
+    "dateCreated" timestamp(0) without time zone NOT NULL,
+    "dateUpdated" timestamp(0) without time zone NOT NULL,
+    uid character(36) DEFAULT '0'::bpchar NOT NULL
+);
+
+
+--
+-- TOC entry 310 (class 1259 OID 16946)
+-- Name: userpermissions_usergroups_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.userpermissions_usergroups_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- TOC entry 4742 (class 0 OID 0)
+-- Dependencies: 310
+-- Name: userpermissions_usergroups_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.userpermissions_usergroups_id_seq OWNED BY public.userpermissions_usergroups.id;
+
+
+--
+-- TOC entry 311 (class 1259 OID 16948)
+-- Name: userpermissions_users; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.userpermissions_users (
+    id integer NOT NULL,
+    "permissionId" integer NOT NULL,
+    "userId" integer NOT NULL,
+    "dateCreated" timestamp(0) without time zone NOT NULL,
+    "dateUpdated" timestamp(0) without time zone NOT NULL,
+    uid character(36) DEFAULT '0'::bpchar NOT NULL
+);
+
+
+--
+-- TOC entry 312 (class 1259 OID 16952)
+-- Name: userpermissions_users_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.userpermissions_users_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- TOC entry 4743 (class 0 OID 0)
+-- Dependencies: 312
+-- Name: userpermissions_users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.userpermissions_users_id_seq OWNED BY public.userpermissions_users.id;
+
+
+--
+-- TOC entry 313 (class 1259 OID 16954)
+-- Name: userpreferences; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.userpreferences (
+    "userId" integer NOT NULL,
+    preferences text
+);
+
+
+--
+-- TOC entry 314 (class 1259 OID 16960)
+-- Name: userpreferences_userId_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public."userpreferences_userId_seq"
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- TOC entry 4744 (class 0 OID 0)
+-- Dependencies: 314
+-- Name: userpreferences_userId_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public."userpreferences_userId_seq" OWNED BY public.userpreferences."userId";
+
+
+--
+-- TOC entry 315 (class 1259 OID 16962)
+-- Name: users; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.users (
+    id integer NOT NULL,
+    username character varying(100) NOT NULL,
+    "photoId" integer,
+    "firstName" character varying(100),
+    "lastName" character varying(100),
+    email character varying(255) NOT NULL,
+    password character varying(255),
+    admin boolean DEFAULT false NOT NULL,
+    locked boolean DEFAULT false NOT NULL,
+    suspended boolean DEFAULT false NOT NULL,
+    pending boolean DEFAULT false NOT NULL,
+    "lastLoginDate" timestamp(0) without time zone,
+    "lastLoginAttemptIp" character varying(45),
+    "invalidLoginWindowStart" timestamp(0) without time zone,
+    "invalidLoginCount" smallint,
+    "lastInvalidLoginDate" timestamp(0) without time zone,
+    "lockoutDate" timestamp(0) without time zone,
+    "hasDashboard" boolean DEFAULT false NOT NULL,
+    "verificationCode" character varying(255),
+    "verificationCodeIssuedDate" timestamp(0) without time zone,
+    "unverifiedEmail" character varying(255),
+    "passwordResetRequired" boolean DEFAULT false NOT NULL,
+    "lastPasswordChangeDate" timestamp(0) without time zone,
+    "dateCreated" timestamp(0) without time zone NOT NULL,
+    "dateUpdated" timestamp(0) without time zone NOT NULL,
+    uid character(36) DEFAULT '0'::bpchar NOT NULL
+);
+
+
+--
+-- TOC entry 316 (class 1259 OID 16975)
+-- Name: volumefolders; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.volumefolders (
+    id integer NOT NULL,
+    "parentId" integer,
+    "volumeId" integer,
+    name character varying(255) NOT NULL,
+    path character varying(255),
+    "dateCreated" timestamp(0) without time zone NOT NULL,
+    "dateUpdated" timestamp(0) without time zone NOT NULL,
+    uid character(36) DEFAULT '0'::bpchar NOT NULL
+);
+
+
+--
+-- TOC entry 317 (class 1259 OID 16982)
+-- Name: volumefolders_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.volumefolders_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- TOC entry 4745 (class 0 OID 0)
+-- Dependencies: 317
+-- Name: volumefolders_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.volumefolders_id_seq OWNED BY public.volumefolders.id;
+
+
+--
+-- TOC entry 318 (class 1259 OID 16984)
+-- Name: volumes; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.volumes (
+    id integer NOT NULL,
+    "fieldLayoutId" integer,
+    name character varying(255) NOT NULL,
+    handle character varying(255) NOT NULL,
+    type character varying(255) NOT NULL,
+    "hasUrls" boolean DEFAULT true NOT NULL,
+    url character varying(255),
+    "titleTranslationMethod" character varying(255) DEFAULT 'site'::character varying NOT NULL,
+    "titleTranslationKeyFormat" text,
+    settings text,
+    "sortOrder" smallint,
+    "dateCreated" timestamp(0) without time zone NOT NULL,
+    "dateUpdated" timestamp(0) without time zone NOT NULL,
+    "dateDeleted" timestamp(0) without time zone DEFAULT NULL::timestamp without time zone,
+    uid character(36) DEFAULT '0'::bpchar NOT NULL
+);
+
+
+--
+-- TOC entry 319 (class 1259 OID 16994)
+-- Name: volumes_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.volumes_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- TOC entry 4746 (class 0 OID 0)
+-- Dependencies: 319
+-- Name: volumes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.volumes_id_seq OWNED BY public.volumes.id;
+
+
+--
+-- TOC entry 320 (class 1259 OID 16996)
+-- Name: widgets; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.widgets (
+    id integer NOT NULL,
+    "userId" integer NOT NULL,
+    type character varying(255) NOT NULL,
+    "sortOrder" smallint,
+    colspan smallint,
+    settings text,
+    enabled boolean DEFAULT true NOT NULL,
+    "dateCreated" timestamp(0) without time zone NOT NULL,
+    "dateUpdated" timestamp(0) without time zone NOT NULL,
+    uid character(36) DEFAULT '0'::bpchar NOT NULL
+);
+
+
+--
+-- TOC entry 321 (class 1259 OID 17004)
+-- Name: widgets_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.widgets_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- TOC entry 4747 (class 0 OID 0)
+-- Dependencies: 321
+-- Name: widgets_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.widgets_id_seq OWNED BY public.widgets.id;
+
+
+--
+-- TOC entry 4051 (class 2604 OID 17996)
+-- Name: announcements id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.announcements ALTER COLUMN id SET DEFAULT nextval('public.announcements_id_seq'::regclass);
+
+
+--
+-- TOC entry 3874 (class 2604 OID 17006)
+-- Name: assetindexdata id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.assetindexdata ALTER COLUMN id SET DEFAULT nextval('public.assetindexdata_id_seq'::regclass);
+
+
+--
+-- TOC entry 3882 (class 2604 OID 17007)
+-- Name: assettransformindex id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.assettransformindex ALTER COLUMN id SET DEFAULT nextval('public.assettransformindex_id_seq'::regclass);
+
+
+--
+-- TOC entry 3887 (class 2604 OID 17008)
+-- Name: assettransforms id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.assettransforms ALTER COLUMN id SET DEFAULT nextval('public.assettransforms_id_seq'::regclass);
+
+
+--
+-- TOC entry 3894 (class 2604 OID 17009)
+-- Name: categorygroups id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.categorygroups ALTER COLUMN id SET DEFAULT nextval('public.categorygroups_id_seq'::regclass);
+
+
+--
+-- TOC entry 3899 (class 2604 OID 17010)
+-- Name: categorygroups_sites id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.categorygroups_sites ALTER COLUMN id SET DEFAULT nextval('public.categorygroups_sites_id_seq'::regclass);
+
+
+--
+-- TOC entry 3901 (class 2604 OID 17011)
+-- Name: content id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.content ALTER COLUMN id SET DEFAULT nextval('public.content_id_seq'::regclass);
+
+
+--
+-- TOC entry 3903 (class 2604 OID 17012)
+-- Name: craftidtokens id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.craftidtokens ALTER COLUMN id SET DEFAULT nextval('public.craftidtokens_id_seq'::regclass);
+
+
+--
+-- TOC entry 3905 (class 2604 OID 17013)
+-- Name: deprecationerrors id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.deprecationerrors ALTER COLUMN id SET DEFAULT nextval('public.deprecationerrors_id_seq'::regclass);
+
+
+--
+-- TOC entry 3908 (class 2604 OID 17014)
+-- Name: drafts id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.drafts ALTER COLUMN id SET DEFAULT nextval('public.drafts_id_seq'::regclass);
+
+
+--
+-- TOC entry 3911 (class 2604 OID 17015)
+-- Name: elementindexsettings id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.elementindexsettings ALTER COLUMN id SET DEFAULT nextval('public.elementindexsettings_id_seq'::regclass);
+
+
+--
+-- TOC entry 3916 (class 2604 OID 17016)
+-- Name: elements id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.elements ALTER COLUMN id SET DEFAULT nextval('public.elements_id_seq'::regclass);
+
+
+--
+-- TOC entry 3919 (class 2604 OID 17017)
+-- Name: elements_sites id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.elements_sites ALTER COLUMN id SET DEFAULT nextval('public.elements_sites_id_seq'::regclass);
+
+
+--
+-- TOC entry 3925 (class 2604 OID 17018)
+-- Name: entrytypes id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.entrytypes ALTER COLUMN id SET DEFAULT nextval('public.entrytypes_id_seq'::regclass);
+
+
+--
+-- TOC entry 3928 (class 2604 OID 17019)
+-- Name: fieldgroups id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.fieldgroups ALTER COLUMN id SET DEFAULT nextval('public.fieldgroups_id_seq'::regclass);
+
+
+--
+-- TOC entry 3931 (class 2604 OID 17020)
+-- Name: fieldlayoutfields id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.fieldlayoutfields ALTER COLUMN id SET DEFAULT nextval('public.fieldlayoutfields_id_seq'::regclass);
+
+
+--
+-- TOC entry 3934 (class 2604 OID 17021)
+-- Name: fieldlayouts id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.fieldlayouts ALTER COLUMN id SET DEFAULT nextval('public.fieldlayouts_id_seq'::regclass);
+
+
+--
+-- TOC entry 3936 (class 2604 OID 17022)
+-- Name: fieldlayouttabs id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.fieldlayouttabs ALTER COLUMN id SET DEFAULT nextval('public.fieldlayouttabs_id_seq'::regclass);
+
+
+--
+-- TOC entry 3941 (class 2604 OID 17023)
+-- Name: fields id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.fields ALTER COLUMN id SET DEFAULT nextval('public.fields_id_seq'::regclass);
+
+
+--
+-- TOC entry 3943 (class 2604 OID 17024)
+-- Name: globalsets id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.globalsets ALTER COLUMN id SET DEFAULT nextval('public.globalsets_id_seq'::regclass);
+
+
+--
+-- TOC entry 3946 (class 2604 OID 17025)
+-- Name: gqlschemas id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.gqlschemas ALTER COLUMN id SET DEFAULT nextval('public.gqlschemas_id_seq'::regclass);
+
+
+--
+-- TOC entry 3949 (class 2604 OID 17026)
+-- Name: gqltokens id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.gqltokens ALTER COLUMN id SET DEFAULT nextval('public.gqltokens_id_seq'::regclass);
+
+
+--
+-- TOC entry 3954 (class 2604 OID 17027)
+-- Name: info id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.info ALTER COLUMN id SET DEFAULT nextval('public.info_id_seq'::regclass);
+
+
+--
+-- TOC entry 3957 (class 2604 OID 17028)
+-- Name: matrixblocktypes id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.matrixblocktypes ALTER COLUMN id SET DEFAULT nextval('public.matrixblocktypes_id_seq'::regclass);
+
+
+--
+-- TOC entry 3959 (class 2604 OID 17029)
+-- Name: matrixcontent_factscontentblocks id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.matrixcontent_factscontentblocks ALTER COLUMN id SET DEFAULT nextval('public.matrixcontent_factscontentblocks_id_seq'::regclass);
+
+
+--
+-- TOC entry 3961 (class 2604 OID 17030)
+-- Name: matrixcontent_introcontentblocks id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.matrixcontent_introcontentblocks ALTER COLUMN id SET DEFAULT nextval('public.matrixcontent_introcontentblocks_id_seq'::regclass);
+
+
+--
+-- TOC entry 3963 (class 2604 OID 17031)
+-- Name: matrixcontent_poiastroobject id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.matrixcontent_poiastroobject ALTER COLUMN id SET DEFAULT nextval('public.matrixcontent_poiastroobject_id_seq'::regclass);
+
+
+--
+-- TOC entry 3965 (class 2604 OID 17032)
+-- Name: matrixcontent_tourpois id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.matrixcontent_tourpois ALTER COLUMN id SET DEFAULT nextval('public.matrixcontent_tourpois_id_seq'::regclass);
+
+
+--
+-- TOC entry 3967 (class 2604 OID 17033)
+-- Name: migrations id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.migrations ALTER COLUMN id SET DEFAULT nextval('public.migrations_id_seq'::regclass);
+
+
+--
+-- TOC entry 3970 (class 2604 OID 17034)
+-- Name: plugins id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.plugins ALTER COLUMN id SET DEFAULT nextval('public.plugins_id_seq'::regclass);
+
+
+--
+-- TOC entry 3977 (class 2604 OID 17035)
+-- Name: queue id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.queue ALTER COLUMN id SET DEFAULT nextval('public.queue_id_seq'::regclass);
+
+
+--
+-- TOC entry 3979 (class 2604 OID 17036)
+-- Name: relations id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.relations ALTER COLUMN id SET DEFAULT nextval('public.relations_id_seq'::regclass);
+
+
+--
+-- TOC entry 3980 (class 2604 OID 17037)
+-- Name: revisions id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.revisions ALTER COLUMN id SET DEFAULT nextval('public.revisions_id_seq'::regclass);
+
+
+--
+-- TOC entry 3986 (class 2604 OID 17038)
+-- Name: sections id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sections ALTER COLUMN id SET DEFAULT nextval('public.sections_id_seq'::regclass);
+
+
+--
+-- TOC entry 3993 (class 2604 OID 17039)
+-- Name: sections_sites id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sections_sites ALTER COLUMN id SET DEFAULT nextval('public.sections_sites_id_seq'::regclass);
+
+
+--
+-- TOC entry 3996 (class 2604 OID 17040)
+-- Name: sessions id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sessions ALTER COLUMN id SET DEFAULT nextval('public.sessions_id_seq'::regclass);
+
+
+--
+-- TOC entry 3998 (class 2604 OID 17041)
+-- Name: shunnedmessages id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.shunnedmessages ALTER COLUMN id SET DEFAULT nextval('public.shunnedmessages_id_seq'::regclass);
+
+
+--
+-- TOC entry 4001 (class 2604 OID 17042)
+-- Name: sitegroups id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sitegroups ALTER COLUMN id SET DEFAULT nextval('public.sitegroups_id_seq'::regclass);
+
+
+--
+-- TOC entry 4006 (class 2604 OID 17043)
+-- Name: sites id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sites ALTER COLUMN id SET DEFAULT nextval('public.sites_id_seq'::regclass);
+
+
+--
+-- TOC entry 4008 (class 2604 OID 17044)
+-- Name: structureelements id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.structureelements ALTER COLUMN id SET DEFAULT nextval('public.structureelements_id_seq'::regclass);
+
+
+--
+-- TOC entry 4011 (class 2604 OID 17045)
+-- Name: structures id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.structures ALTER COLUMN id SET DEFAULT nextval('public.structures_id_seq'::regclass);
+
+
+--
+-- TOC entry 4013 (class 2604 OID 17046)
+-- Name: systemmessages id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.systemmessages ALTER COLUMN id SET DEFAULT nextval('public.systemmessages_id_seq'::regclass);
+
+
+--
+-- TOC entry 4016 (class 2604 OID 17047)
+-- Name: taggroups id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.taggroups ALTER COLUMN id SET DEFAULT nextval('public.taggroups_id_seq'::regclass);
+
+
+--
+-- TOC entry 4018 (class 2604 OID 17048)
+-- Name: templatecacheelements id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.templatecacheelements ALTER COLUMN id SET DEFAULT nextval('public.templatecacheelements_id_seq'::regclass);
+
+
+--
+-- TOC entry 4019 (class 2604 OID 17049)
+-- Name: templatecachequeries id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.templatecachequeries ALTER COLUMN id SET DEFAULT nextval('public.templatecachequeries_id_seq'::regclass);
+
+
+--
+-- TOC entry 4020 (class 2604 OID 17050)
+-- Name: templatecaches id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.templatecaches ALTER COLUMN id SET DEFAULT nextval('public.templatecaches_id_seq'::regclass);
+
+
+--
+-- TOC entry 4022 (class 2604 OID 17051)
+-- Name: tokens id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.tokens ALTER COLUMN id SET DEFAULT nextval('public.tokens_id_seq'::regclass);
+
+
+--
+-- TOC entry 4024 (class 2604 OID 17052)
+-- Name: usergroups id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.usergroups ALTER COLUMN id SET DEFAULT nextval('public.usergroups_id_seq'::regclass);
+
+
+--
+-- TOC entry 4026 (class 2604 OID 17053)
+-- Name: usergroups_users id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.usergroups_users ALTER COLUMN id SET DEFAULT nextval('public.usergroups_users_id_seq'::regclass);
+
+
+--
+-- TOC entry 4028 (class 2604 OID 17054)
+-- Name: userpermissions id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.userpermissions ALTER COLUMN id SET DEFAULT nextval('public.userpermissions_id_seq'::regclass);
+
+
+--
+-- TOC entry 4030 (class 2604 OID 17055)
+-- Name: userpermissions_usergroups id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.userpermissions_usergroups ALTER COLUMN id SET DEFAULT nextval('public.userpermissions_usergroups_id_seq'::regclass);
+
+
+--
+-- TOC entry 4032 (class 2604 OID 17056)
+-- Name: userpermissions_users id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.userpermissions_users ALTER COLUMN id SET DEFAULT nextval('public.userpermissions_users_id_seq'::regclass);
+
+
+--
+-- TOC entry 4033 (class 2604 OID 17057)
+-- Name: userpreferences userId; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.userpreferences ALTER COLUMN "userId" SET DEFAULT nextval('public."userpreferences_userId_seq"'::regclass);
+
+
+--
+-- TOC entry 4042 (class 2604 OID 17058)
+-- Name: volumefolders id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.volumefolders ALTER COLUMN id SET DEFAULT nextval('public.volumefolders_id_seq'::regclass);
+
+
+--
+-- TOC entry 4047 (class 2604 OID 17059)
+-- Name: volumes id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.volumes ALTER COLUMN id SET DEFAULT nextval('public.volumes_id_seq'::regclass);
+
+
+--
+-- TOC entry 4050 (class 2604 OID 17060)
+-- Name: widgets id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.widgets ALTER COLUMN id SET DEFAULT nextval('public.widgets_id_seq'::regclass);
+
+
+--
 -- TOC entry 4685 (class 0 OID 17993)
 -- Dependencies: 323
--- Data for Name: announcements; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: announcements; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.announcements (id, "userId", "pluginId", heading, body, unread, "dateRead", "dateCreated") FROM stdin;
@@ -35,7 +3012,7 @@ COPY public.announcements (id, "userId", "pluginId", heading, body, unread, "dat
 --
 -- TOC entry 4562 (class 0 OID 16444)
 -- Dependencies: 200
--- Data for Name: assetindexdata; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: assetindexdata; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.assetindexdata (id, "sessionId", "volumeId", uri, size, "timestamp", "recordId", "inProgress", completed, "dateCreated", "dateUpdated", uid) FROM stdin;
@@ -45,7 +3022,7 @@ COPY public.assetindexdata (id, "sessionId", "volumeId", uri, size, "timestamp",
 --
 -- TOC entry 4564 (class 0 OID 16456)
 -- Dependencies: 202
--- Data for Name: assets; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: assets; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.assets (id, "volumeId", "folderId", "uploaderId", filename, kind, width, height, size, "focalPoint", "deletedWithVolume", "keptFile", "dateModified", "dateCreated", "dateUpdated", uid) FROM stdin;
@@ -122,7 +3099,7 @@ COPY public.assets (id, "volumeId", "folderId", "uploaderId", filename, kind, wi
 --
 -- TOC entry 4565 (class 0 OID 16462)
 -- Dependencies: 203
--- Data for Name: assettransformindex; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: assettransformindex; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.assettransformindex (id, "assetId", filename, format, location, "volumeId", "fileExists", "inProgress", error, "dateIndexed", "dateCreated", "dateUpdated", uid) FROM stdin;
@@ -144,7 +3121,7 @@ COPY public.assettransformindex (id, "assetId", filename, format, location, "vol
 --
 -- TOC entry 4567 (class 0 OID 16474)
 -- Dependencies: 205
--- Data for Name: assettransforms; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: assettransforms; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.assettransforms (id, name, handle, mode, "position", width, height, format, quality, interlace, "dimensionChangeTime", "dateCreated", "dateUpdated", uid) FROM stdin;
@@ -154,7 +3131,7 @@ COPY public.assettransforms (id, name, handle, mode, "position", width, height, 
 --
 -- TOC entry 4569 (class 0 OID 16489)
 -- Dependencies: 207
--- Data for Name: categories; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: categories; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.categories (id, "groupId", "parentId", "deletedWithGroup", "dateCreated", "dateUpdated", uid) FROM stdin;
@@ -172,7 +3149,7 @@ COPY public.categories (id, "groupId", "parentId", "deletedWithGroup", "dateCrea
 --
 -- TOC entry 4570 (class 0 OID 16493)
 -- Dependencies: 208
--- Data for Name: categorygroups; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: categorygroups; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.categorygroups (id, "structureId", "fieldLayoutId", name, handle, "dateCreated", "dateUpdated", "dateDeleted", uid, "defaultPlacement") FROM stdin;
@@ -185,7 +3162,7 @@ COPY public.categorygroups (id, "structureId", "fieldLayoutId", name, handle, "d
 --
 -- TOC entry 4572 (class 0 OID 16503)
 -- Dependencies: 210
--- Data for Name: categorygroups_sites; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: categorygroups_sites; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.categorygroups_sites (id, "groupId", "siteId", "hasUrls", "uriFormat", template, "dateCreated", "dateUpdated", uid) FROM stdin;
@@ -201,7 +3178,7 @@ COPY public.categorygroups_sites (id, "groupId", "siteId", "hasUrls", "uriFormat
 --
 -- TOC entry 4574 (class 0 OID 16513)
 -- Dependencies: 212
--- Data for Name: changedattributes; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: changedattributes; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.changedattributes ("elementId", "siteId", attribute, "dateUpdated", propagated, "userId") FROM stdin;
@@ -265,7 +3242,7 @@ COPY public.changedattributes ("elementId", "siteId", attribute, "dateUpdated", 
 --
 -- TOC entry 4575 (class 0 OID 16516)
 -- Dependencies: 213
--- Data for Name: changedfields; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: changedfields; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.changedfields ("elementId", "siteId", "fieldId", "dateUpdated", propagated, "userId") FROM stdin;
@@ -491,7 +3468,7 @@ COPY public.changedfields ("elementId", "siteId", "fieldId", "dateUpdated", prop
 --
 -- TOC entry 4576 (class 0 OID 16519)
 -- Dependencies: 214
--- Data for Name: content; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: content; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.content (id, "elementId", "siteId", title, "dateCreated", "dateUpdated", uid, field_path, "field_siteDescription", "field_siteTitle", "field_catalogVariety", "field_sourceSize", field_target, field_fov, "field_fovMin", "field_fovMax", field_heading, field_subheading, field_duration, field_complexity, field_description, field_ra, field_dec, "field_factsHeading", "field_introHeading", "field_introSubheading", field_characteristics, "field_altText", "field_astroObjectId", "field_varietyHandle", "field_varietyName") FROM stdin;
@@ -974,7 +3951,7 @@ COPY public.content (id, "elementId", "siteId", title, "dateCreated", "dateUpdat
 --
 -- TOC entry 4578 (class 0 OID 16528)
 -- Dependencies: 216
--- Data for Name: craftidtokens; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: craftidtokens; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.craftidtokens (id, "userId", "accessToken", "expiryDate", "dateCreated", "dateUpdated", uid) FROM stdin;
@@ -984,7 +3961,7 @@ COPY public.craftidtokens (id, "userId", "accessToken", "expiryDate", "dateCreat
 --
 -- TOC entry 4580 (class 0 OID 16537)
 -- Dependencies: 218
--- Data for Name: deprecationerrors; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: deprecationerrors; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.deprecationerrors (id, key, fingerprint, "lastOccurrence", file, line, message, traces, "dateCreated", "dateUpdated", uid) FROM stdin;
@@ -994,7 +3971,7 @@ COPY public.deprecationerrors (id, key, fingerprint, "lastOccurrence", file, lin
 --
 -- TOC entry 4582 (class 0 OID 16546)
 -- Dependencies: 220
--- Data for Name: drafts; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: drafts; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.drafts (id, "sourceId", "creatorId", name, notes, "trackChanges", "dateLastMerged", saved, provisional) FROM stdin;
@@ -1017,7 +3994,7 @@ COPY public.drafts (id, "sourceId", "creatorId", name, notes, "trackChanges", "d
 --
 -- TOC entry 4584 (class 0 OID 16556)
 -- Dependencies: 222
--- Data for Name: elementindexsettings; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: elementindexsettings; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.elementindexsettings (id, type, settings, "dateCreated", "dateUpdated", uid) FROM stdin;
@@ -1027,7 +4004,7 @@ COPY public.elementindexsettings (id, type, settings, "dateCreated", "dateUpdate
 --
 -- TOC entry 4586 (class 0 OID 16565)
 -- Dependencies: 224
--- Data for Name: elements; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: elements; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.elements (id, "draftId", "revisionId", "fieldLayoutId", type, enabled, archived, "dateCreated", "dateUpdated", "dateDeleted", uid, "canonicalId", "dateLastMerged") FROM stdin;
@@ -1404,7 +4381,7 @@ COPY public.elements (id, "draftId", "revisionId", "fieldLayoutId", type, enable
 --
 -- TOC entry 4588 (class 0 OID 16574)
 -- Dependencies: 226
--- Data for Name: elements_sites; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: elements_sites; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.elements_sites (id, "elementId", "siteId", slug, uri, enabled, "dateCreated", "dateUpdated", uid) FROM stdin;
@@ -2139,7 +5116,7 @@ COPY public.elements_sites (id, "elementId", "siteId", slug, uri, enabled, "date
 --
 -- TOC entry 4590 (class 0 OID 16584)
 -- Dependencies: 228
--- Data for Name: entries; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: entries; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.entries (id, "sectionId", "parentId", "typeId", "authorId", "postDate", "expiryDate", "deletedWithEntryType", "dateCreated", "dateUpdated", uid) FROM stdin;
@@ -2306,7 +5283,7 @@ COPY public.entries (id, "sectionId", "parentId", "typeId", "authorId", "postDat
 --
 -- TOC entry 4591 (class 0 OID 16588)
 -- Dependencies: 229
--- Data for Name: entrytypes; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: entrytypes; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.entrytypes (id, "sectionId", "fieldLayoutId", name, handle, "hasTitleField", "titleTranslationMethod", "titleTranslationKeyFormat", "titleFormat", "sortOrder", "dateCreated", "dateUpdated", "dateDeleted", uid) FROM stdin;
@@ -2325,7 +5302,7 @@ COPY public.entrytypes (id, "sectionId", "fieldLayoutId", name, handle, "hasTitl
 --
 -- TOC entry 4593 (class 0 OID 16600)
 -- Dependencies: 231
--- Data for Name: fieldgroups; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: fieldgroups; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.fieldgroups (id, name, "dateCreated", "dateUpdated", "dateDeleted", uid) FROM stdin;
@@ -2340,7 +5317,7 @@ COPY public.fieldgroups (id, name, "dateCreated", "dateUpdated", "dateDeleted", 
 --
 -- TOC entry 4595 (class 0 OID 16607)
 -- Dependencies: 233
--- Data for Name: fieldlayoutfields; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: fieldlayoutfields; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.fieldlayoutfields (id, "layoutId", "tabId", "fieldId", required, "sortOrder", "dateCreated", "dateUpdated", uid) FROM stdin;
@@ -2405,7 +5382,7 @@ COPY public.fieldlayoutfields (id, "layoutId", "tabId", "fieldId", required, "so
 --
 -- TOC entry 4597 (class 0 OID 16614)
 -- Dependencies: 235
--- Data for Name: fieldlayouts; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: fieldlayouts; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.fieldlayouts (id, type, "dateCreated", "dateUpdated", "dateDeleted", uid) FROM stdin;
@@ -2437,7 +5414,7 @@ COPY public.fieldlayouts (id, type, "dateCreated", "dateUpdated", "dateDeleted",
 --
 -- TOC entry 4599 (class 0 OID 16621)
 -- Dependencies: 237
--- Data for Name: fieldlayouttabs; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: fieldlayouttabs; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.fieldlayouttabs (id, "layoutId", name, elements, "sortOrder", "dateCreated", "dateUpdated", uid) FROM stdin;
@@ -2473,7 +5450,7 @@ COPY public.fieldlayouttabs (id, "layoutId", name, elements, "sortOrder", "dateC
 --
 -- TOC entry 4601 (class 0 OID 16630)
 -- Dependencies: 239
--- Data for Name: fields; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: fields; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.fields (id, "groupId", name, handle, context, instructions, searchable, "translationMethod", "translationKeyFormat", type, settings, "dateCreated", "dateUpdated", uid, "columnSuffix") FROM stdin;
@@ -2527,7 +5504,7 @@ COPY public.fields (id, "groupId", name, handle, context, instructions, searchab
 --
 -- TOC entry 4603 (class 0 OID 16642)
 -- Dependencies: 241
--- Data for Name: globalsets; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: globalsets; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.globalsets (id, name, handle, "fieldLayoutId", "dateCreated", "dateUpdated", uid, "sortOrder") FROM stdin;
@@ -2538,7 +5515,7 @@ COPY public.globalsets (id, name, handle, "fieldLayoutId", "dateCreated", "dateU
 --
 -- TOC entry 4605 (class 0 OID 16651)
 -- Dependencies: 243
--- Data for Name: gqlschemas; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: gqlschemas; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.gqlschemas (id, name, scope, "isPublic", "dateCreated", "dateUpdated", uid) FROM stdin;
@@ -2549,7 +5526,7 @@ COPY public.gqlschemas (id, name, scope, "isPublic", "dateCreated", "dateUpdated
 --
 -- TOC entry 4607 (class 0 OID 16661)
 -- Dependencies: 245
--- Data for Name: gqltokens; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: gqltokens; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.gqltokens (id, name, "accessToken", enabled, "expiryDate", "lastUsed", "schemaId", "dateCreated", "dateUpdated", uid) FROM stdin;
@@ -2560,7 +5537,7 @@ COPY public.gqltokens (id, name, "accessToken", enabled, "expiryDate", "lastUsed
 --
 -- TOC entry 4609 (class 0 OID 16671)
 -- Dependencies: 247
--- Data for Name: info; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: info; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.info (id, version, "schemaVersion", maintenance, "configVersion", "fieldVersion", "dateCreated", "dateUpdated", uid) FROM stdin;
@@ -2571,7 +5548,7 @@ COPY public.info (id, version, "schemaVersion", maintenance, "configVersion", "f
 --
 -- TOC entry 4611 (class 0 OID 16680)
 -- Dependencies: 249
--- Data for Name: matrixblocks; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: matrixblocks; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.matrixblocks (id, "ownerId", "fieldId", "typeId", "sortOrder", "deletedWithOwner", "dateCreated", "dateUpdated", uid) FROM stdin;
@@ -2703,7 +5680,7 @@ COPY public.matrixblocks (id, "ownerId", "fieldId", "typeId", "sortOrder", "dele
 --
 -- TOC entry 4612 (class 0 OID 16684)
 -- Dependencies: 250
--- Data for Name: matrixblocktypes; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: matrixblocktypes; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.matrixblocktypes (id, "fieldId", "fieldLayoutId", name, handle, "sortOrder", "dateCreated", "dateUpdated", uid) FROM stdin;
@@ -2717,7 +5694,7 @@ COPY public.matrixblocktypes (id, "fieldId", "fieldLayoutId", name, handle, "sor
 --
 -- TOC entry 4614 (class 0 OID 16693)
 -- Dependencies: 252
--- Data for Name: matrixcontent_factscontentblocks; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: matrixcontent_factscontentblocks; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.matrixcontent_factscontentblocks (id, "elementId", "siteId", "dateCreated", "dateUpdated", uid, "field_factsContentBlock_body") FROM stdin;
@@ -2801,7 +5778,7 @@ COPY public.matrixcontent_factscontentblocks (id, "elementId", "siteId", "dateCr
 --
 -- TOC entry 4616 (class 0 OID 16702)
 -- Dependencies: 254
--- Data for Name: matrixcontent_introcontentblocks; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: matrixcontent_introcontentblocks; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.matrixcontent_introcontentblocks (id, "elementId", "siteId", "dateCreated", "dateUpdated", uid, "field_introBlock_body") FROM stdin;
@@ -2911,7 +5888,7 @@ COPY public.matrixcontent_introcontentblocks (id, "elementId", "siteId", "dateCr
 --
 -- TOC entry 4618 (class 0 OID 16711)
 -- Dependencies: 256
--- Data for Name: matrixcontent_poiastroobject; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: matrixcontent_poiastroobject; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.matrixcontent_poiastroobject (id, "elementId", "siteId", "dateCreated", "dateUpdated", uid) FROM stdin;
@@ -2921,7 +5898,7 @@ COPY public.matrixcontent_poiastroobject (id, "elementId", "siteId", "dateCreate
 --
 -- TOC entry 4620 (class 0 OID 16717)
 -- Dependencies: 258
--- Data for Name: matrixcontent_tourpois; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: matrixcontent_tourpois; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.matrixcontent_tourpois (id, "elementId", "siteId", "dateCreated", "dateUpdated", uid, "field_tourPoi_description", "field_tourPoi_fov") FROM stdin;
@@ -3009,7 +5986,7 @@ COPY public.matrixcontent_tourpois (id, "elementId", "siteId", "dateCreated", "d
 --
 -- TOC entry 4622 (class 0 OID 16726)
 -- Dependencies: 260
--- Data for Name: migrations; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: migrations; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.migrations (id, track, name, "applyTime", "dateCreated", "dateUpdated", uid) FROM stdin;
@@ -3216,21 +6193,21 @@ COPY public.migrations (id, track, name, "applyTime", "dateCreated", "dateUpdate
 --
 -- TOC entry 4624 (class 0 OID 16735)
 -- Dependencies: 262
--- Data for Name: plugins; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: plugins; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.plugins (id, handle, version, "schemaVersion", "licenseKeyStatus", "licensedEdition", "installDate", "dateCreated", "dateUpdated", uid) FROM stdin;
-8	google-cloud	1.4.1	1.1	unknown	\N	2021-10-22 19:45:24	2021-10-22 19:45:24	2021-10-27 21:53:55	4c7c2a3c-a63c-437a-acc5-5743190792fe
-4	logs	3.0.4	3.0.0	unknown	\N	2021-09-08 19:59:58	2021-09-08 19:59:58	2021-10-27 21:53:57	0f75a2c1-4429-4100-b50c-ae246a557d40
-7	nested-entries-graphql-queries	dev-develop	1.0.0	unknown	\N	2021-10-20 22:10:56	2021-10-20 22:10:56	2021-10-27 21:53:57	ef140772-43a6-4140-bc85-2dc23c8edbe4
-1	redactor	2.8.8	2.3.0	unknown	\N	2021-06-21 22:25:29	2021-06-21 22:25:29	2021-10-27 21:53:57	1f823e62-7517-4ad7-8689-03ea02dee47a
+4	logs	3.0.4	3.0.0	unknown	\N	2021-09-08 19:59:58	2021-09-08 19:59:58	2021-10-27 22:10:06	0f75a2c1-4429-4100-b50c-ae246a557d40
+7	nested-entries-graphql-queries	dev-develop	1.0.0	unknown	\N	2021-10-20 22:10:56	2021-10-20 22:10:56	2021-10-27 22:10:06	ef140772-43a6-4140-bc85-2dc23c8edbe4
+1	redactor	2.8.8	2.3.0	unknown	\N	2021-06-21 22:25:29	2021-06-21 22:25:29	2021-10-27 22:10:06	1f823e62-7517-4ad7-8689-03ea02dee47a
+8	google-cloud	1.4.1	1.1	unknown	\N	2021-10-22 19:45:24	2021-10-22 19:45:24	2021-10-27 22:10:05	4c7c2a3c-a63c-437a-acc5-5743190792fe
 \.
 
 
 --
 -- TOC entry 4626 (class 0 OID 16746)
 -- Dependencies: 264
--- Data for Name: projectconfig; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: projectconfig; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.projectconfig (path, value) FROM stdin;
@@ -4999,7 +7976,7 @@ fields.4b8d140e-8cb8-489e-9a89-0c30c4717e30.settings.targetSiteId	null
 --
 -- TOC entry 4627 (class 0 OID 16756)
 -- Dependencies: 265
--- Data for Name: queue; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: queue; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.queue (id, channel, job, description, "timePushed", ttr, delay, priority, "dateReserved", "timeUpdated", progress, "progressLabel", attempt, fail, "dateFailed", error) FROM stdin;
@@ -5009,7 +7986,7 @@ COPY public.queue (id, channel, job, description, "timePushed", ttr, delay, prio
 --
 -- TOC entry 4629 (class 0 OID 16769)
 -- Dependencies: 267
--- Data for Name: relations; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: relations; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.relations (id, "fieldId", "sourceId", "sourceSiteId", "targetId", "sortOrder", "dateCreated", "dateUpdated", uid) FROM stdin;
@@ -5232,7 +8209,7 @@ COPY public.relations (id, "fieldId", "sourceId", "sourceSiteId", "targetId", "s
 --
 -- TOC entry 4631 (class 0 OID 16775)
 -- Dependencies: 269
--- Data for Name: resourcepaths; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: resourcepaths; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.resourcepaths (hash, path) FROM stdin;
@@ -5757,17 +8734,16 @@ a605fd72	@craft/web/assets/updateswidget/dist
 3363dbf	@app/web/assets/utilities/dist
 bdbdfe13	@app/web/assets/updates/dist
 1dd21596	@app/web/assets/userpermissions/dist
-cddaa7a	@app/web/assets/updateswidget/dist
 179d23e8	@craft/web/assets/feed/dist
 c2290fb2	@lib/prismjs
-fa130e2e	@lib/garnishjs
+cddaa7a	@app/web/assets/updateswidget/dist
 9afbcb6	@craft/web/assets/login/dist
 60f7a6e1	@app/web/assets/plugins/dist
 56318427	@app/web/assets/feed/dist
 ec2781d5	@app/web/assets/dashboard/dist
-4ba1057e	@bower/jquery/dist
 1b363d9	@craft/web/assets/utilities/dist
 f3da4ea4	@app/web/assets/updates/dist
+2b14dae7	@app/web/assets/login/dist
 834ae72f	@app/web/assets/utilities/dist
 6ede0523	@craft/web/assets/dashboard/dist
 c0af053b	@lib/jquery-touch-events
@@ -5778,32 +8754,33 @@ cba25fbc	@lib/d3
 5a2ef203	@lib/velocity
 663de89f	@lib/element-resize-detector
 d36f0ef6	@app/web/assets/dbbackup/dist
-148769a6	@lib/jquery-ui
-cc8143d5	@app/web/assets/editentry/dist
-3267e814	@app/web/assets/recententries/dist
 2f2acf99	@app/web/assets/cp/dist
-1e5029ef	@lib/axios
-2b14dae7	@app/web/assets/login/dist
+cc8143d5	@app/web/assets/editentry/dist
+148769a6	@lib/jquery-ui
 46095deb	@lib/jquery.payment
+c70b39f9	@lib/picturefill
+9375147d	@lib/selectize
+dfe33807	@lib/fileupload
 1c88f845	@app/web/assets/updater/dist
 b19eaacb	@craft/web/assets/recententries/dist
-955a3134	@craft/web/assets/cp/dist
-c9ae19a8	@lib/d3
-c70b39f9	@lib/picturefill
+3267e814	@app/web/assets/recententries/dist
+991950f7	@lib/xregexp
 ab639d3a	@craft/redactor/assets/redactor-plugins/dist/fullscreen
 c3a361e1	@app/web/assets/matrix/dist
-9375147d	@lib/selectize
+ef55da10	@lib/fabric
 4d518d08	@app/web/assets/utilities/dist
 33bb8a9a	@lib/vue
-dfe33807	@lib/fileupload
+d3400710	@lib/iframe-resizer
 341282b2	@app/web/assets/pluginstore/dist
 208ea961	@craft/web/assets/login/dist
-991950f7	@lib/xregexp
-ef55da10	@lib/fabric
+1e5029ef	@lib/axios
+4ba1057e	@bower/jquery/dist
+c9ae19a8	@lib/d3
+955a3134	@craft/web/assets/cp/dist
 6431ae8b	@lib/element-resize-detector
-d3400710	@lib/iframe-resizer
-28881eac	@craft/web/assets/craftsupport/dist
 24f06bb	@app/web/assets/craftsupport/dist
+28881eac	@craft/web/assets/craftsupport/dist
+fa130e2e	@lib/garnishjs
 a6e60882	@lib/timepicker
 \.
 
@@ -5811,7 +8788,7 @@ a6e60882	@lib/timepicker
 --
 -- TOC entry 4632 (class 0 OID 16781)
 -- Dependencies: 270
--- Data for Name: revisions; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: revisions; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.revisions (id, "sourceId", "creatorId", num, notes) FROM stdin;
@@ -5941,7 +8918,7 @@ COPY public.revisions (id, "sourceId", "creatorId", num, notes) FROM stdin;
 --
 -- TOC entry 4634 (class 0 OID 16789)
 -- Dependencies: 272
--- Data for Name: searchindex; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: searchindex; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.searchindex ("elementId", attribute, "fieldId", "siteId", keywords, keywords_vector) FROM stdin;
@@ -7375,7 +10352,7 @@ COPY public.searchindex ("elementId", attribute, "fieldId", "siteId", keywords, 
 --
 -- TOC entry 4635 (class 0 OID 16795)
 -- Dependencies: 273
--- Data for Name: sections; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: sections; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.sections (id, "structureId", name, handle, type, "enableVersioning", "propagationMethod", "previewTargets", "dateCreated", "dateUpdated", "dateDeleted", uid, "defaultPlacement") FROM stdin;
@@ -7393,7 +10370,7 @@ COPY public.sections (id, "structureId", name, handle, type, "enableVersioning",
 --
 -- TOC entry 4637 (class 0 OID 16809)
 -- Dependencies: 275
--- Data for Name: sections_sites; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: sections_sites; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.sections_sites (id, "sectionId", "siteId", "hasUrls", "uriFormat", template, "enabledByDefault", "dateCreated", "dateUpdated", uid) FROM stdin;
@@ -7419,7 +10396,7 @@ COPY public.sections_sites (id, "sectionId", "siteId", "hasUrls", "uriFormat", t
 --
 -- TOC entry 4639 (class 0 OID 16820)
 -- Dependencies: 277
--- Data for Name: sequences; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: sequences; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.sequences (name, next) FROM stdin;
@@ -7429,7 +10406,7 @@ COPY public.sequences (name, next) FROM stdin;
 --
 -- TOC entry 4640 (class 0 OID 16824)
 -- Dependencies: 278
--- Data for Name: sessions; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: sessions; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.sessions (id, "userId", token, "dateCreated", "dateUpdated", uid) FROM stdin;
@@ -7677,6 +10654,7 @@ COPY public.sessions (id, "userId", token, "dateCreated", "dateUpdated", uid) FR
 335	1	JRNM8RdmRFCYJ7GiamaHZ_rkkok65FWt24xMTBGfTSw7wlquGFHwiKAUD_oHXxmyj0Yo6L9LUTT1C74IPN9PpTP2gqG-Lw5-ond3	2021-10-27 21:52:50	2021-10-27 21:54:02	a7012468-413c-49c5-8b43-90bfd40e8090
 324	1	M8WkwBmuU-JlMdcJK7HujE_83Wsk2iwQS9PbxoKyCi_duUe2w37OIXZdpm_rnNgAY8XJyTRmhIHfoXILR_c6u8gUUxK8bhqkXdCS	2021-10-26 17:35:36	2021-10-26 17:35:36	42120c4a-1466-4922-a2a5-3c0fda60564c
 325	1	qG7ZRop25jx_4_kKqvNI8KJhE6ItWBS0huEbJY8BVGnrnG-7X7xWU2s-S5A_wFgPDpMLpr38U_zizp0XGC-Xun66RVe1nAZ9jhIm	2021-10-26 17:36:40	2021-10-26 17:36:40	1716831a-9644-4190-ad79-c6aebbf826f4
+336	1	lWTlBaTyz6Wme0uqHge0Ex0qrxTsJU0zaNk3p2Sf-H2dtx4XqOa8xfNrKnSnACsuIHF1OELaNgCpFrzoyPLfHN_VIwZyBaIbT2Mw	2021-10-27 22:08:10	2021-10-27 22:10:30	c20b5ba5-3c8f-416a-ac40-ac79a5e516be
 326	1	E7UL7NI_svQx4FVb-YlkS4bNlKa4cFakkZ5vN4WFWq42Lq0OeacWDTFEQp-mCLLFYAHjzDs-lJIS98Y4ck3vz4b0nFvyEdb64ooK	2021-10-26 17:38:09	2021-10-26 17:38:09	0b2f899b-fedb-4369-8d8f-67fe3aeadb63
 322	1	nMhuG0msQnFYA4IDeZYvW8_EMjJBHCpo3Ue4n_C78Qgcfkgp56zkgYckFV08IBSiD4lJkOvtOrGoM9NVloSiQi7GIc9Da858Ez8a	2021-10-26 17:28:15	2021-10-26 17:29:27	03bf5678-566d-411b-ab39-39646ecb3cd3
 327	1	fmpNiadV0S24ZCH0DEz7TpGjVR5V-Vnx6RMoy0B2bUX21g9Ha2cAM2hD4n5kpoXOGznKRNmyWW_SXH4sZmeUfn7F6qRcSPDgESa7	2021-10-26 17:39:13	2021-10-26 17:39:13	f5b04806-ea50-429e-a25b-ae38a484c449
@@ -7693,7 +10671,7 @@ COPY public.sessions (id, "userId", token, "dateCreated", "dateUpdated", uid) FR
 --
 -- TOC entry 4642 (class 0 OID 16830)
 -- Dependencies: 280
--- Data for Name: shunnedmessages; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: shunnedmessages; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.shunnedmessages (id, "userId", message, "expiryDate", "dateCreated", "dateUpdated", uid) FROM stdin;
@@ -7703,7 +10681,7 @@ COPY public.shunnedmessages (id, "userId", message, "expiryDate", "dateCreated",
 --
 -- TOC entry 4644 (class 0 OID 16836)
 -- Dependencies: 282
--- Data for Name: sitegroups; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: sitegroups; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.sitegroups (id, name, "dateCreated", "dateUpdated", "dateDeleted", uid) FROM stdin;
@@ -7714,7 +10692,7 @@ COPY public.sitegroups (id, name, "dateCreated", "dateUpdated", "dateDeleted", u
 --
 -- TOC entry 4646 (class 0 OID 16843)
 -- Dependencies: 284
--- Data for Name: sites; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: sites; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.sites (id, "groupId", "primary", enabled, name, handle, language, "hasUrls", "baseUrl", "sortOrder", "dateCreated", "dateUpdated", "dateDeleted", uid) FROM stdin;
@@ -7726,7 +10704,7 @@ COPY public.sites (id, "groupId", "primary", enabled, name, handle, language, "h
 --
 -- TOC entry 4648 (class 0 OID 16855)
 -- Dependencies: 286
--- Data for Name: structureelements; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: structureelements; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.structureelements (id, "structureId", "elementId", root, lft, rgt, level, "dateCreated", "dateUpdated", uid) FROM stdin;
@@ -7898,7 +10876,7 @@ COPY public.structureelements (id, "structureId", "elementId", root, lft, rgt, l
 --
 -- TOC entry 4650 (class 0 OID 16861)
 -- Dependencies: 288
--- Data for Name: structures; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: structures; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.structures (id, "maxLevels", "dateCreated", "dateUpdated", "dateDeleted", uid) FROM stdin;
@@ -7919,7 +10897,7 @@ COPY public.structures (id, "maxLevels", "dateCreated", "dateUpdated", "dateDele
 --
 -- TOC entry 4652 (class 0 OID 16868)
 -- Dependencies: 290
--- Data for Name: systemmessages; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: systemmessages; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.systemmessages (id, language, key, subject, body, "dateCreated", "dateUpdated", uid) FROM stdin;
@@ -7929,7 +10907,7 @@ COPY public.systemmessages (id, language, key, subject, body, "dateCreated", "da
 --
 -- TOC entry 4654 (class 0 OID 16877)
 -- Dependencies: 292
--- Data for Name: taggroups; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: taggroups; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.taggroups (id, name, handle, "fieldLayoutId", "dateCreated", "dateUpdated", "dateDeleted", uid) FROM stdin;
@@ -7939,7 +10917,7 @@ COPY public.taggroups (id, name, handle, "fieldLayoutId", "dateCreated", "dateUp
 --
 -- TOC entry 4656 (class 0 OID 16887)
 -- Dependencies: 294
--- Data for Name: tags; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: tags; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.tags (id, "groupId", "deletedWithGroup", "dateCreated", "dateUpdated", uid) FROM stdin;
@@ -7949,7 +10927,7 @@ COPY public.tags (id, "groupId", "deletedWithGroup", "dateCreated", "dateUpdated
 --
 -- TOC entry 4657 (class 0 OID 16891)
 -- Dependencies: 295
--- Data for Name: templatecacheelements; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: templatecacheelements; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.templatecacheelements (id, "cacheId", "elementId") FROM stdin;
@@ -7959,7 +10937,7 @@ COPY public.templatecacheelements (id, "cacheId", "elementId") FROM stdin;
 --
 -- TOC entry 4659 (class 0 OID 16896)
 -- Dependencies: 297
--- Data for Name: templatecachequeries; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: templatecachequeries; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.templatecachequeries (id, "cacheId", type, query) FROM stdin;
@@ -7969,7 +10947,7 @@ COPY public.templatecachequeries (id, "cacheId", type, query) FROM stdin;
 --
 -- TOC entry 4661 (class 0 OID 16904)
 -- Dependencies: 299
--- Data for Name: templatecaches; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: templatecaches; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.templatecaches (id, "siteId", "cacheKey", path, "expiryDate", body) FROM stdin;
@@ -7979,7 +10957,7 @@ COPY public.templatecaches (id, "siteId", "cacheKey", path, "expiryDate", body) 
 --
 -- TOC entry 4663 (class 0 OID 16912)
 -- Dependencies: 301
--- Data for Name: tokens; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: tokens; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.tokens (id, token, route, "usageLimit", "usageCount", "expiryDate", "dateCreated", "dateUpdated", uid) FROM stdin;
@@ -7990,7 +10968,7 @@ COPY public.tokens (id, token, route, "usageLimit", "usageCount", "expiryDate", 
 --
 -- TOC entry 4665 (class 0 OID 16921)
 -- Dependencies: 303
--- Data for Name: usergroups; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: usergroups; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.usergroups (id, name, handle, description, "dateCreated", "dateUpdated", uid) FROM stdin;
@@ -8000,7 +10978,7 @@ COPY public.usergroups (id, name, handle, description, "dateCreated", "dateUpdat
 --
 -- TOC entry 4667 (class 0 OID 16930)
 -- Dependencies: 305
--- Data for Name: usergroups_users; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: usergroups_users; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.usergroups_users (id, "groupId", "userId", "dateCreated", "dateUpdated", uid) FROM stdin;
@@ -8010,7 +10988,7 @@ COPY public.usergroups_users (id, "groupId", "userId", "dateCreated", "dateUpdat
 --
 -- TOC entry 4669 (class 0 OID 16936)
 -- Dependencies: 307
--- Data for Name: userpermissions; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: userpermissions; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.userpermissions (id, name, "dateCreated", "dateUpdated", uid) FROM stdin;
@@ -8110,7 +11088,7 @@ COPY public.userpermissions (id, name, "dateCreated", "dateUpdated", uid) FROM s
 --
 -- TOC entry 4671 (class 0 OID 16942)
 -- Dependencies: 309
--- Data for Name: userpermissions_usergroups; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: userpermissions_usergroups; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.userpermissions_usergroups (id, "permissionId", "groupId", "dateCreated", "dateUpdated", uid) FROM stdin;
@@ -8120,7 +11098,7 @@ COPY public.userpermissions_usergroups (id, "permissionId", "groupId", "dateCrea
 --
 -- TOC entry 4673 (class 0 OID 16948)
 -- Dependencies: 311
--- Data for Name: userpermissions_users; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: userpermissions_users; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.userpermissions_users (id, "permissionId", "userId", "dateCreated", "dateUpdated", uid) FROM stdin;
@@ -8130,7 +11108,7 @@ COPY public.userpermissions_users (id, "permissionId", "userId", "dateCreated", 
 --
 -- TOC entry 4675 (class 0 OID 16954)
 -- Dependencies: 313
--- Data for Name: userpreferences; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: userpreferences; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.userpreferences ("userId", preferences) FROM stdin;
@@ -8146,14 +11124,14 @@ COPY public.userpreferences ("userId", preferences) FROM stdin;
 --
 -- TOC entry 4677 (class 0 OID 16962)
 -- Dependencies: 315
--- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.users (id, username, "photoId", "firstName", "lastName", email, password, admin, locked, suspended, pending, "lastLoginDate", "lastLoginAttemptIp", "invalidLoginWindowStart", "invalidLoginCount", "lastInvalidLoginDate", "lockoutDate", "hasDashboard", "verificationCode", "verificationCodeIssuedDate", "unverifiedEmail", "passwordResetRequired", "lastPasswordChangeDate", "dateCreated", "dateUpdated", uid) FROM stdin;
 78	erosas	\N	Eric	Rosas	ericdrosas@gmail.com	\N	f	f	f	t	\N	\N	\N	\N	\N	\N	f	$2y$13$PpdVH7TZFCjI7q5lOTzjxuD/P6jtCIWbR9owhiTL4UZVfMSn484/6	2021-06-28 17:39:28	ericdrosas@gmail.com	f	\N	2021-06-28 17:39:27	2021-06-28 17:39:28	dc60b03c-4ed9-4777-bcb0-6d92d0af8bc4
 79	testtest	\N	Testy	McTesterson	test@test.com	\N	f	f	f	t	\N	\N	\N	\N	\N	\N	f	\N	\N	\N	f	\N	2021-06-28 17:41:30	2021-06-28 17:41:30	e9b80e96-7635-49a6-8c17-d2fae403a4c3
 80	alsoadmin	\N	also	admin	also@admin.com	\N	t	f	f	t	\N	\N	\N	\N	\N	\N	f	\N	\N	\N	f	\N	2021-06-28 17:42:18	2021-06-28 17:42:18	d1cd31fd-451c-4347-adb8-97e7603fcb19
-1	admin	\N	\N	\N	erosas@lsst.org	$2y$13$kWYreAF/KSf6akVAJsZhnuRBQ1Iu2/yOGwQC/Qw/tSmfYRa9PM.5a	t	f	f	f	2021-10-27 21:52:51	\N	\N	\N	2021-10-26 17:01:52	\N	t	$2y$13$PBkSBOcNfYw.lBlkOOYU9eQ.Szrpj6FffOQBzHdeylwIQe5bg1VLa	2021-07-23 22:27:56	\N	f	2021-05-19 21:09:34	2021-05-19 21:09:34	2021-10-27 21:52:52	2300d535-6e4f-4040-a28b-e024deda748c
+1	admin	\N	\N	\N	erosas@lsst.org	$2y$13$kWYreAF/KSf6akVAJsZhnuRBQ1Iu2/yOGwQC/Qw/tSmfYRa9PM.5a	t	f	f	f	2021-10-27 22:08:11	\N	\N	\N	2021-10-26 17:01:52	\N	t	$2y$13$PBkSBOcNfYw.lBlkOOYU9eQ.Szrpj6FffOQBzHdeylwIQe5bg1VLa	2021-07-23 22:27:56	\N	f	2021-05-19 21:09:34	2021-05-19 21:09:34	2021-10-27 22:08:13	2300d535-6e4f-4040-a28b-e024deda748c
 113	cloud	\N	madeThis	inTheCloud	1@1.1	\N	f	f	f	t	\N	\N	\N	\N	\N	\N	f	\N	\N	\N	f	\N	2021-07-26 17:36:47	2021-07-26 17:36:47	3afec3ad-8ee5-4545-9a2f-d6c297e96083
 112	duder	\N	The	Dude	123@321.123	$2y$13$E6rBcpIahjAtJw5dA3yL4.KeWuEOSQrL9A8euqqYzPvL0HCrFIaVe	t	f	f	f	2021-07-26 21:49:57	\N	\N	\N	\N	\N	t	\N	\N	\N	f	2021-07-26 16:51:45	2021-07-26 16:36:02	2021-07-26 21:49:57	3c84c678-5eb1-4f79-a247-01ea465f9362
 \.
@@ -8162,7 +11140,7 @@ COPY public.users (id, username, "photoId", "firstName", "lastName", email, pass
 --
 -- TOC entry 4678 (class 0 OID 16975)
 -- Dependencies: 316
--- Data for Name: volumefolders; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: volumefolders; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.volumefolders (id, "parentId", "volumeId", name, path, "dateCreated", "dateUpdated", uid) FROM stdin;
@@ -8182,7 +11160,7 @@ COPY public.volumefolders (id, "parentId", "volumeId", name, path, "dateCreated"
 --
 -- TOC entry 4680 (class 0 OID 16984)
 -- Dependencies: 318
--- Data for Name: volumes; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: volumes; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.volumes (id, "fieldLayoutId", name, handle, type, "hasUrls", url, "titleTranslationMethod", "titleTranslationKeyFormat", settings, "sortOrder", "dateCreated", "dateUpdated", "dateDeleted", uid) FROM stdin;
@@ -8197,7 +11175,7 @@ COPY public.volumes (id, "fieldLayoutId", name, handle, type, "hasUrls", url, "t
 --
 -- TOC entry 4682 (class 0 OID 16996)
 -- Dependencies: 320
--- Data for Name: widgets; Type: TABLE DATA; Schema: public; Owner: skyviewer
+-- Data for Name: widgets; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.widgets (id, "userId", type, "sortOrder", colspan, settings, enabled, "dateCreated", "dateUpdated", uid) FROM stdin;
@@ -8213,510 +11191,3161 @@ COPY public.widgets (id, "userId", type, "sortOrder", colspan, settings, enabled
 
 
 --
--- TOC entry 4749 (class 0 OID 0)
+-- TOC entry 4748 (class 0 OID 0)
 -- Dependencies: 322
--- Name: announcements_id_seq; Type: SEQUENCE SET; Schema: public; Owner: skyviewer
+-- Name: announcements_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.announcements_id_seq', 4, true);
 
 
 --
--- TOC entry 4750 (class 0 OID 0)
+-- TOC entry 4749 (class 0 OID 0)
 -- Dependencies: 201
--- Name: assetindexdata_id_seq; Type: SEQUENCE SET; Schema: public; Owner: skyviewer
+-- Name: assetindexdata_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.assetindexdata_id_seq', 1, false);
 
 
 --
--- TOC entry 4751 (class 0 OID 0)
+-- TOC entry 4750 (class 0 OID 0)
 -- Dependencies: 204
--- Name: assettransformindex_id_seq; Type: SEQUENCE SET; Schema: public; Owner: skyviewer
+-- Name: assettransformindex_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.assettransformindex_id_seq', 123, true);
 
 
 --
--- TOC entry 4752 (class 0 OID 0)
+-- TOC entry 4751 (class 0 OID 0)
 -- Dependencies: 206
--- Name: assettransforms_id_seq; Type: SEQUENCE SET; Schema: public; Owner: skyviewer
+-- Name: assettransforms_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.assettransforms_id_seq', 1, false);
 
 
 --
--- TOC entry 4753 (class 0 OID 0)
+-- TOC entry 4752 (class 0 OID 0)
 -- Dependencies: 209
--- Name: categorygroups_id_seq; Type: SEQUENCE SET; Schema: public; Owner: skyviewer
+-- Name: categorygroups_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.categorygroups_id_seq', 3, true);
 
 
 --
--- TOC entry 4754 (class 0 OID 0)
+-- TOC entry 4753 (class 0 OID 0)
 -- Dependencies: 211
--- Name: categorygroups_sites_id_seq; Type: SEQUENCE SET; Schema: public; Owner: skyviewer
+-- Name: categorygroups_sites_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.categorygroups_sites_id_seq', 6, true);
 
 
 --
--- TOC entry 4755 (class 0 OID 0)
+-- TOC entry 4754 (class 0 OID 0)
 -- Dependencies: 215
--- Name: content_id_seq; Type: SEQUENCE SET; Schema: public; Owner: skyviewer
+-- Name: content_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.content_id_seq', 575, true);
 
 
 --
--- TOC entry 4756 (class 0 OID 0)
+-- TOC entry 4755 (class 0 OID 0)
 -- Dependencies: 217
--- Name: craftidtokens_id_seq; Type: SEQUENCE SET; Schema: public; Owner: skyviewer
+-- Name: craftidtokens_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.craftidtokens_id_seq', 1, false);
 
 
 --
--- TOC entry 4757 (class 0 OID 0)
+-- TOC entry 4756 (class 0 OID 0)
 -- Dependencies: 219
--- Name: deprecationerrors_id_seq; Type: SEQUENCE SET; Schema: public; Owner: skyviewer
+-- Name: deprecationerrors_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.deprecationerrors_id_seq', 1, false);
 
 
 --
--- TOC entry 4758 (class 0 OID 0)
+-- TOC entry 4757 (class 0 OID 0)
 -- Dependencies: 221
--- Name: drafts_id_seq; Type: SEQUENCE SET; Schema: public; Owner: skyviewer
+-- Name: drafts_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.drafts_id_seq', 68, true);
 
 
 --
--- TOC entry 4759 (class 0 OID 0)
+-- TOC entry 4758 (class 0 OID 0)
 -- Dependencies: 223
--- Name: elementindexsettings_id_seq; Type: SEQUENCE SET; Schema: public; Owner: skyviewer
+-- Name: elementindexsettings_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.elementindexsettings_id_seq', 1, false);
 
 
 --
--- TOC entry 4760 (class 0 OID 0)
+-- TOC entry 4759 (class 0 OID 0)
 -- Dependencies: 225
--- Name: elements_id_seq; Type: SEQUENCE SET; Schema: public; Owner: skyviewer
+-- Name: elements_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.elements_id_seq', 445, true);
 
 
 --
--- TOC entry 4761 (class 0 OID 0)
+-- TOC entry 4760 (class 0 OID 0)
 -- Dependencies: 227
--- Name: elements_sites_id_seq; Type: SEQUENCE SET; Schema: public; Owner: skyviewer
+-- Name: elements_sites_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.elements_sites_id_seq', 881, true);
 
 
 --
--- TOC entry 4762 (class 0 OID 0)
+-- TOC entry 4761 (class 0 OID 0)
 -- Dependencies: 230
--- Name: entrytypes_id_seq; Type: SEQUENCE SET; Schema: public; Owner: skyviewer
+-- Name: entrytypes_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.entrytypes_id_seq', 9, true);
 
 
 --
--- TOC entry 4763 (class 0 OID 0)
+-- TOC entry 4762 (class 0 OID 0)
 -- Dependencies: 232
--- Name: fieldgroups_id_seq; Type: SEQUENCE SET; Schema: public; Owner: skyviewer
+-- Name: fieldgroups_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.fieldgroups_id_seq', 5, true);
 
 
 --
--- TOC entry 4764 (class 0 OID 0)
+-- TOC entry 4763 (class 0 OID 0)
 -- Dependencies: 234
--- Name: fieldlayoutfields_id_seq; Type: SEQUENCE SET; Schema: public; Owner: skyviewer
+-- Name: fieldlayoutfields_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.fieldlayoutfields_id_seq', 321, true);
 
 
 --
--- TOC entry 4765 (class 0 OID 0)
+-- TOC entry 4764 (class 0 OID 0)
 -- Dependencies: 236
--- Name: fieldlayouts_id_seq; Type: SEQUENCE SET; Schema: public; Owner: skyviewer
+-- Name: fieldlayouts_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.fieldlayouts_id_seq', 22, true);
 
 
 --
--- TOC entry 4766 (class 0 OID 0)
+-- TOC entry 4765 (class 0 OID 0)
 -- Dependencies: 238
--- Name: fieldlayouttabs_id_seq; Type: SEQUENCE SET; Schema: public; Owner: skyviewer
+-- Name: fieldlayouttabs_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.fieldlayouttabs_id_seq', 147, true);
 
 
 --
--- TOC entry 4767 (class 0 OID 0)
+-- TOC entry 4766 (class 0 OID 0)
 -- Dependencies: 240
--- Name: fields_id_seq; Type: SEQUENCE SET; Schema: public; Owner: skyviewer
+-- Name: fields_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.fields_id_seq', 56, true);
 
 
 --
--- TOC entry 4768 (class 0 OID 0)
+-- TOC entry 4767 (class 0 OID 0)
 -- Dependencies: 242
--- Name: globalsets_id_seq; Type: SEQUENCE SET; Schema: public; Owner: skyviewer
+-- Name: globalsets_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.globalsets_id_seq', 1, false);
 
 
 --
--- TOC entry 4769 (class 0 OID 0)
+-- TOC entry 4768 (class 0 OID 0)
 -- Dependencies: 244
--- Name: gqlschemas_id_seq; Type: SEQUENCE SET; Schema: public; Owner: skyviewer
+-- Name: gqlschemas_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.gqlschemas_id_seq', 1, true);
 
 
 --
--- TOC entry 4770 (class 0 OID 0)
+-- TOC entry 4769 (class 0 OID 0)
 -- Dependencies: 246
--- Name: gqltokens_id_seq; Type: SEQUENCE SET; Schema: public; Owner: skyviewer
+-- Name: gqltokens_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.gqltokens_id_seq', 1, true);
 
 
 --
--- TOC entry 4771 (class 0 OID 0)
+-- TOC entry 4770 (class 0 OID 0)
 -- Dependencies: 248
--- Name: info_id_seq; Type: SEQUENCE SET; Schema: public; Owner: skyviewer
+-- Name: info_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.info_id_seq', 1, false);
 
 
 --
--- TOC entry 4772 (class 0 OID 0)
+-- TOC entry 4771 (class 0 OID 0)
 -- Dependencies: 251
--- Name: matrixblocktypes_id_seq; Type: SEQUENCE SET; Schema: public; Owner: skyviewer
+-- Name: matrixblocktypes_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.matrixblocktypes_id_seq', 4, true);
 
 
 --
--- TOC entry 4773 (class 0 OID 0)
+-- TOC entry 4772 (class 0 OID 0)
 -- Dependencies: 253
--- Name: matrixcontent_factscontentblocks_id_seq; Type: SEQUENCE SET; Schema: public; Owner: skyviewer
+-- Name: matrixcontent_factscontentblocks_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.matrixcontent_factscontentblocks_id_seq', 92, true);
 
 
 --
--- TOC entry 4774 (class 0 OID 0)
+-- TOC entry 4773 (class 0 OID 0)
 -- Dependencies: 255
--- Name: matrixcontent_introcontentblocks_id_seq; Type: SEQUENCE SET; Schema: public; Owner: skyviewer
+-- Name: matrixcontent_introcontentblocks_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.matrixcontent_introcontentblocks_id_seq', 118, true);
 
 
 --
--- TOC entry 4775 (class 0 OID 0)
+-- TOC entry 4774 (class 0 OID 0)
 -- Dependencies: 257
--- Name: matrixcontent_poiastroobject_id_seq; Type: SEQUENCE SET; Schema: public; Owner: skyviewer
+-- Name: matrixcontent_poiastroobject_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.matrixcontent_poiastroobject_id_seq', 1, false);
 
 
 --
--- TOC entry 4776 (class 0 OID 0)
+-- TOC entry 4775 (class 0 OID 0)
 -- Dependencies: 259
--- Name: matrixcontent_tourpois_id_seq; Type: SEQUENCE SET; Schema: public; Owner: skyviewer
+-- Name: matrixcontent_tourpois_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.matrixcontent_tourpois_id_seq', 96, true);
 
 
 --
--- TOC entry 4777 (class 0 OID 0)
+-- TOC entry 4776 (class 0 OID 0)
 -- Dependencies: 261
--- Name: migrations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: skyviewer
+-- Name: migrations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.migrations_id_seq', 201, true);
 
 
 --
--- TOC entry 4778 (class 0 OID 0)
+-- TOC entry 4777 (class 0 OID 0)
 -- Dependencies: 263
--- Name: plugins_id_seq; Type: SEQUENCE SET; Schema: public; Owner: skyviewer
+-- Name: plugins_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.plugins_id_seq', 8, true);
 
 
 --
--- TOC entry 4779 (class 0 OID 0)
+-- TOC entry 4778 (class 0 OID 0)
 -- Dependencies: 266
--- Name: queue_id_seq; Type: SEQUENCE SET; Schema: public; Owner: skyviewer
+-- Name: queue_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.queue_id_seq', 2073, true);
 
 
 --
--- TOC entry 4780 (class 0 OID 0)
+-- TOC entry 4779 (class 0 OID 0)
 -- Dependencies: 268
--- Name: relations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: skyviewer
+-- Name: relations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.relations_id_seq', 359, true);
 
 
 --
--- TOC entry 4781 (class 0 OID 0)
+-- TOC entry 4780 (class 0 OID 0)
 -- Dependencies: 271
--- Name: revisions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: skyviewer
+-- Name: revisions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.revisions_id_seq', 120, true);
 
 
 --
--- TOC entry 4782 (class 0 OID 0)
+-- TOC entry 4781 (class 0 OID 0)
 -- Dependencies: 274
--- Name: sections_id_seq; Type: SEQUENCE SET; Schema: public; Owner: skyviewer
+-- Name: sections_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.sections_id_seq', 8, true);
 
 
 --
--- TOC entry 4783 (class 0 OID 0)
+-- TOC entry 4782 (class 0 OID 0)
 -- Dependencies: 276
--- Name: sections_sites_id_seq; Type: SEQUENCE SET; Schema: public; Owner: skyviewer
+-- Name: sections_sites_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.sections_sites_id_seq', 16, true);
 
 
 --
--- TOC entry 4784 (class 0 OID 0)
+-- TOC entry 4783 (class 0 OID 0)
 -- Dependencies: 279
--- Name: sessions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: skyviewer
+-- Name: sessions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.sessions_id_seq', 335, true);
+SELECT pg_catalog.setval('public.sessions_id_seq', 336, true);
 
 
 --
--- TOC entry 4785 (class 0 OID 0)
+-- TOC entry 4784 (class 0 OID 0)
 -- Dependencies: 281
--- Name: shunnedmessages_id_seq; Type: SEQUENCE SET; Schema: public; Owner: skyviewer
+-- Name: shunnedmessages_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.shunnedmessages_id_seq', 1, false);
 
 
 --
--- TOC entry 4786 (class 0 OID 0)
+-- TOC entry 4785 (class 0 OID 0)
 -- Dependencies: 283
--- Name: sitegroups_id_seq; Type: SEQUENCE SET; Schema: public; Owner: skyviewer
+-- Name: sitegroups_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.sitegroups_id_seq', 1, true);
 
 
 --
--- TOC entry 4787 (class 0 OID 0)
+-- TOC entry 4786 (class 0 OID 0)
 -- Dependencies: 285
--- Name: sites_id_seq; Type: SEQUENCE SET; Schema: public; Owner: skyviewer
+-- Name: sites_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.sites_id_seq', 2, true);
 
 
 --
--- TOC entry 4788 (class 0 OID 0)
+-- TOC entry 4787 (class 0 OID 0)
 -- Dependencies: 287
--- Name: structureelements_id_seq; Type: SEQUENCE SET; Schema: public; Owner: skyviewer
+-- Name: structureelements_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.structureelements_id_seq', 225, true);
 
 
 --
--- TOC entry 4789 (class 0 OID 0)
+-- TOC entry 4788 (class 0 OID 0)
 -- Dependencies: 289
--- Name: structures_id_seq; Type: SEQUENCE SET; Schema: public; Owner: skyviewer
+-- Name: structures_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.structures_id_seq', 11, true);
 
 
 --
--- TOC entry 4790 (class 0 OID 0)
+-- TOC entry 4789 (class 0 OID 0)
 -- Dependencies: 291
--- Name: systemmessages_id_seq; Type: SEQUENCE SET; Schema: public; Owner: skyviewer
+-- Name: systemmessages_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.systemmessages_id_seq', 1, false);
 
 
 --
--- TOC entry 4791 (class 0 OID 0)
+-- TOC entry 4790 (class 0 OID 0)
 -- Dependencies: 293
--- Name: taggroups_id_seq; Type: SEQUENCE SET; Schema: public; Owner: skyviewer
+-- Name: taggroups_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.taggroups_id_seq', 1, false);
 
 
 --
--- TOC entry 4792 (class 0 OID 0)
+-- TOC entry 4791 (class 0 OID 0)
 -- Dependencies: 296
--- Name: templatecacheelements_id_seq; Type: SEQUENCE SET; Schema: public; Owner: skyviewer
+-- Name: templatecacheelements_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.templatecacheelements_id_seq', 1, false);
 
 
 --
--- TOC entry 4793 (class 0 OID 0)
+-- TOC entry 4792 (class 0 OID 0)
 -- Dependencies: 298
--- Name: templatecachequeries_id_seq; Type: SEQUENCE SET; Schema: public; Owner: skyviewer
+-- Name: templatecachequeries_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.templatecachequeries_id_seq', 1, false);
 
 
 --
--- TOC entry 4794 (class 0 OID 0)
+-- TOC entry 4793 (class 0 OID 0)
 -- Dependencies: 300
--- Name: templatecaches_id_seq; Type: SEQUENCE SET; Schema: public; Owner: skyviewer
+-- Name: templatecaches_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.templatecaches_id_seq', 1, false);
 
 
 --
--- TOC entry 4795 (class 0 OID 0)
+-- TOC entry 4794 (class 0 OID 0)
 -- Dependencies: 302
--- Name: tokens_id_seq; Type: SEQUENCE SET; Schema: public; Owner: skyviewer
+-- Name: tokens_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.tokens_id_seq', 1, true);
 
 
 --
--- TOC entry 4796 (class 0 OID 0)
+-- TOC entry 4795 (class 0 OID 0)
 -- Dependencies: 304
--- Name: usergroups_id_seq; Type: SEQUENCE SET; Schema: public; Owner: skyviewer
+-- Name: usergroups_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.usergroups_id_seq', 2, true);
 
 
 --
--- TOC entry 4797 (class 0 OID 0)
+-- TOC entry 4796 (class 0 OID 0)
 -- Dependencies: 306
--- Name: usergroups_users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: skyviewer
+-- Name: usergroups_users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.usergroups_users_id_seq', 1, true);
 
 
 --
--- TOC entry 4798 (class 0 OID 0)
+-- TOC entry 4797 (class 0 OID 0)
 -- Dependencies: 308
--- Name: userpermissions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: skyviewer
+-- Name: userpermissions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.userpermissions_id_seq', 90, true);
 
 
 --
--- TOC entry 4799 (class 0 OID 0)
+-- TOC entry 4798 (class 0 OID 0)
 -- Dependencies: 310
--- Name: userpermissions_usergroups_id_seq; Type: SEQUENCE SET; Schema: public; Owner: skyviewer
+-- Name: userpermissions_usergroups_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.userpermissions_usergroups_id_seq', 180, true);
 
 
 --
--- TOC entry 4800 (class 0 OID 0)
+-- TOC entry 4799 (class 0 OID 0)
 -- Dependencies: 312
--- Name: userpermissions_users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: skyviewer
+-- Name: userpermissions_users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.userpermissions_users_id_seq', 1, false);
 
 
 --
--- TOC entry 4801 (class 0 OID 0)
+-- TOC entry 4800 (class 0 OID 0)
 -- Dependencies: 314
--- Name: userpreferences_userId_seq; Type: SEQUENCE SET; Schema: public; Owner: skyviewer
+-- Name: userpreferences_userId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public."userpreferences_userId_seq"', 1, false);
 
 
 --
--- TOC entry 4802 (class 0 OID 0)
+-- TOC entry 4801 (class 0 OID 0)
 -- Dependencies: 317
--- Name: volumefolders_id_seq; Type: SEQUENCE SET; Schema: public; Owner: skyviewer
+-- Name: volumefolders_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.volumefolders_id_seq', 16, true);
 
 
 --
--- TOC entry 4803 (class 0 OID 0)
+-- TOC entry 4802 (class 0 OID 0)
 -- Dependencies: 319
--- Name: volumes_id_seq; Type: SEQUENCE SET; Schema: public; Owner: skyviewer
+-- Name: volumes_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.volumes_id_seq', 5, true);
 
 
 --
--- TOC entry 4804 (class 0 OID 0)
+-- TOC entry 4803 (class 0 OID 0)
 -- Dependencies: 321
--- Name: widgets_id_seq; Type: SEQUENCE SET; Schema: public; Owner: skyviewer
+-- Name: widgets_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.widgets_id_seq', 8, true);
 
 
--- Completed on 2021-10-27 15:03:58 MST
+--
+-- TOC entry 4334 (class 2606 OID 18002)
+-- Name: announcements announcements_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.announcements
+    ADD CONSTRAINT announcements_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4054 (class 2606 OID 17062)
+-- Name: assetindexdata assetindexdata_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.assetindexdata
+    ADD CONSTRAINT assetindexdata_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4058 (class 2606 OID 17064)
+-- Name: assets assets_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.assets
+    ADD CONSTRAINT assets_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4063 (class 2606 OID 17066)
+-- Name: assettransformindex assettransformindex_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.assettransformindex
+    ADD CONSTRAINT assettransformindex_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4066 (class 2606 OID 17068)
+-- Name: assettransforms assettransforms_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.assettransforms
+    ADD CONSTRAINT assettransforms_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4070 (class 2606 OID 17070)
+-- Name: categories categories_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.categories
+    ADD CONSTRAINT categories_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4073 (class 2606 OID 17072)
+-- Name: categorygroups categorygroups_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.categorygroups
+    ADD CONSTRAINT categorygroups_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4080 (class 2606 OID 17074)
+-- Name: categorygroups_sites categorygroups_sites_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.categorygroups_sites
+    ADD CONSTRAINT categorygroups_sites_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4084 (class 2606 OID 17076)
+-- Name: changedattributes changedattributes_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.changedattributes
+    ADD CONSTRAINT changedattributes_pkey PRIMARY KEY ("elementId", "siteId", attribute);
+
+
+--
+-- TOC entry 4087 (class 2606 OID 17078)
+-- Name: changedfields changedfields_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.changedfields
+    ADD CONSTRAINT changedfields_pkey PRIMARY KEY ("elementId", "siteId", "fieldId");
+
+
+--
+-- TOC entry 4090 (class 2606 OID 17080)
+-- Name: content content_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.content
+    ADD CONSTRAINT content_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4095 (class 2606 OID 17082)
+-- Name: craftidtokens craftidtokens_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.craftidtokens
+    ADD CONSTRAINT craftidtokens_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4097 (class 2606 OID 17084)
+-- Name: deprecationerrors deprecationerrors_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.deprecationerrors
+    ADD CONSTRAINT deprecationerrors_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4100 (class 2606 OID 17086)
+-- Name: drafts drafts_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.drafts
+    ADD CONSTRAINT drafts_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4104 (class 2606 OID 17088)
+-- Name: elementindexsettings elementindexsettings_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.elementindexsettings
+    ADD CONSTRAINT elementindexsettings_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4107 (class 2606 OID 17090)
+-- Name: elements elements_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.elements
+    ADD CONSTRAINT elements_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4115 (class 2606 OID 17092)
+-- Name: elements_sites elements_sites_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.elements_sites
+    ADD CONSTRAINT elements_sites_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4122 (class 2606 OID 17094)
+-- Name: entries entries_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.entries
+    ADD CONSTRAINT entries_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4129 (class 2606 OID 17096)
+-- Name: entrytypes entrytypes_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.entrytypes
+    ADD CONSTRAINT entrytypes_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4136 (class 2606 OID 17098)
+-- Name: fieldgroups fieldgroups_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.fieldgroups
+    ADD CONSTRAINT fieldgroups_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4140 (class 2606 OID 17100)
+-- Name: fieldlayoutfields fieldlayoutfields_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.fieldlayoutfields
+    ADD CONSTRAINT fieldlayoutfields_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4146 (class 2606 OID 17102)
+-- Name: fieldlayouts fieldlayouts_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.fieldlayouts
+    ADD CONSTRAINT fieldlayouts_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4150 (class 2606 OID 17104)
+-- Name: fieldlayouttabs fieldlayouttabs_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.fieldlayouttabs
+    ADD CONSTRAINT fieldlayouttabs_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4154 (class 2606 OID 17106)
+-- Name: fields fields_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.fields
+    ADD CONSTRAINT fields_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4159 (class 2606 OID 17108)
+-- Name: globalsets globalsets_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.globalsets
+    ADD CONSTRAINT globalsets_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4165 (class 2606 OID 17110)
+-- Name: gqlschemas gqlschemas_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.gqlschemas
+    ADD CONSTRAINT gqlschemas_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4167 (class 2606 OID 17112)
+-- Name: gqltokens gqltokens_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.gqltokens
+    ADD CONSTRAINT gqltokens_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4171 (class 2606 OID 17114)
+-- Name: info info_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.info
+    ADD CONSTRAINT info_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4177 (class 2606 OID 17116)
+-- Name: matrixblocks matrixblocks_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.matrixblocks
+    ADD CONSTRAINT matrixblocks_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4183 (class 2606 OID 17118)
+-- Name: matrixblocktypes matrixblocktypes_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.matrixblocktypes
+    ADD CONSTRAINT matrixblocktypes_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4186 (class 2606 OID 17120)
+-- Name: matrixcontent_factscontentblocks matrixcontent_factscontentblocks_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.matrixcontent_factscontentblocks
+    ADD CONSTRAINT matrixcontent_factscontentblocks_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4192 (class 2606 OID 17122)
+-- Name: matrixcontent_poiastroobject matrixcontent_poiastroobject_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.matrixcontent_poiastroobject
+    ADD CONSTRAINT matrixcontent_poiastroobject_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4189 (class 2606 OID 17124)
+-- Name: matrixcontent_introcontentblocks matrixcontent_tourcontent_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.matrixcontent_introcontentblocks
+    ADD CONSTRAINT matrixcontent_tourcontent_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4195 (class 2606 OID 17126)
+-- Name: matrixcontent_tourpois matrixcontent_tourpois_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.matrixcontent_tourpois
+    ADD CONSTRAINT matrixcontent_tourpois_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4198 (class 2606 OID 17128)
+-- Name: migrations migrations_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.migrations
+    ADD CONSTRAINT migrations_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4222 (class 2606 OID 17130)
+-- Name: searchindex pk_lxfgkaypfkbmlezqetvjapqydsjlbjwtrksy; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.searchindex
+    ADD CONSTRAINT pk_lxfgkaypfkbmlezqetvjapqydsjlbjwtrksy PRIMARY KEY ("elementId", attribute, "fieldId", "siteId");
+
+
+--
+-- TOC entry 4201 (class 2606 OID 17132)
+-- Name: plugins plugins_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.plugins
+    ADD CONSTRAINT plugins_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4203 (class 2606 OID 17134)
+-- Name: projectconfig projectconfig_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.projectconfig
+    ADD CONSTRAINT projectconfig_pkey PRIMARY KEY (path);
+
+
+--
+-- TOC entry 4207 (class 2606 OID 17138)
+-- Name: queue queue_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.queue
+    ADD CONSTRAINT queue_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4213 (class 2606 OID 17140)
+-- Name: relations relations_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.relations
+    ADD CONSTRAINT relations_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4215 (class 2606 OID 17142)
+-- Name: resourcepaths resourcepaths_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.resourcepaths
+    ADD CONSTRAINT resourcepaths_pkey PRIMARY KEY (hash);
+
+
+--
+-- TOC entry 4218 (class 2606 OID 17144)
+-- Name: revisions revisions_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.revisions
+    ADD CONSTRAINT revisions_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4228 (class 2606 OID 17146)
+-- Name: sections sections_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sections
+    ADD CONSTRAINT sections_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4232 (class 2606 OID 17148)
+-- Name: sections_sites sections_sites_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sections_sites
+    ADD CONSTRAINT sections_sites_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4234 (class 2606 OID 17150)
+-- Name: sequences sequences_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sequences
+    ADD CONSTRAINT sequences_pkey PRIMARY KEY (name);
+
+
+--
+-- TOC entry 4240 (class 2606 OID 17152)
+-- Name: sessions sessions_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sessions
+    ADD CONSTRAINT sessions_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4243 (class 2606 OID 17154)
+-- Name: shunnedmessages shunnedmessages_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.shunnedmessages
+    ADD CONSTRAINT shunnedmessages_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4246 (class 2606 OID 17156)
+-- Name: sitegroups sitegroups_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sitegroups
+    ADD CONSTRAINT sitegroups_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4251 (class 2606 OID 17158)
+-- Name: sites sites_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sites
+    ADD CONSTRAINT sites_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4259 (class 2606 OID 17160)
+-- Name: structureelements structureelements_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.structureelements
+    ADD CONSTRAINT structureelements_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4262 (class 2606 OID 17162)
+-- Name: structures structures_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.structures
+    ADD CONSTRAINT structures_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4266 (class 2606 OID 17164)
+-- Name: systemmessages systemmessages_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.systemmessages
+    ADD CONSTRAINT systemmessages_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4271 (class 2606 OID 17166)
+-- Name: taggroups taggroups_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.taggroups
+    ADD CONSTRAINT taggroups_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4274 (class 2606 OID 17168)
+-- Name: tags tags_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.tags
+    ADD CONSTRAINT tags_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4278 (class 2606 OID 17170)
+-- Name: templatecacheelements templatecacheelements_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.templatecacheelements
+    ADD CONSTRAINT templatecacheelements_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4282 (class 2606 OID 17172)
+-- Name: templatecachequeries templatecachequeries_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.templatecachequeries
+    ADD CONSTRAINT templatecachequeries_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4287 (class 2606 OID 17174)
+-- Name: templatecaches templatecaches_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.templatecaches
+    ADD CONSTRAINT templatecaches_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4291 (class 2606 OID 17176)
+-- Name: tokens tokens_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.tokens
+    ADD CONSTRAINT tokens_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4295 (class 2606 OID 17178)
+-- Name: usergroups usergroups_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.usergroups
+    ADD CONSTRAINT usergroups_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4299 (class 2606 OID 17180)
+-- Name: usergroups_users usergroups_users_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.usergroups_users
+    ADD CONSTRAINT usergroups_users_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4302 (class 2606 OID 17182)
+-- Name: userpermissions userpermissions_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.userpermissions
+    ADD CONSTRAINT userpermissions_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4306 (class 2606 OID 17184)
+-- Name: userpermissions_usergroups userpermissions_usergroups_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.userpermissions_usergroups
+    ADD CONSTRAINT userpermissions_usergroups_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4310 (class 2606 OID 17186)
+-- Name: userpermissions_users userpermissions_users_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.userpermissions_users
+    ADD CONSTRAINT userpermissions_users_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4312 (class 2606 OID 17188)
+-- Name: userpreferences userpreferences_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.userpreferences
+    ADD CONSTRAINT userpreferences_pkey PRIMARY KEY ("userId");
+
+
+--
+-- TOC entry 4318 (class 2606 OID 17190)
+-- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.users
+    ADD CONSTRAINT users_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4323 (class 2606 OID 17192)
+-- Name: volumefolders volumefolders_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.volumefolders
+    ADD CONSTRAINT volumefolders_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4329 (class 2606 OID 17194)
+-- Name: volumes volumes_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.volumes
+    ADD CONSTRAINT volumes_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4332 (class 2606 OID 17196)
+-- Name: widgets widgets_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.widgets
+    ADD CONSTRAINT widgets_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4155 (class 1259 OID 17197)
+-- Name: idx_aibvszhglagfecfikfbsmqtnvuapcwrqvcab; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_aibvszhglagfecfikfbsmqtnvuapcwrqvcab ON public.fields USING btree (context);
+
+
+--
+-- TOC entry 4292 (class 1259 OID 17198)
+-- Name: idx_akczfxbpvrqogoubxmhpsshuiumiomrtbrdf; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_akczfxbpvrqogoubxmhpsshuiumiomrtbrdf ON public.usergroups USING btree (name);
+
+
+--
+-- TOC entry 4081 (class 1259 OID 17199)
+-- Name: idx_algqvqvwjlroryfjykwybcgqiwhqgntlipes; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_algqvqvwjlroryfjykwybcgqiwhqgntlipes ON public.categorygroups_sites USING btree ("siteId");
+
+
+--
+-- TOC entry 4196 (class 1259 OID 17201)
+-- Name: idx_awhozleetinzjdkbcjzxoljutdayfqbsotlp; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX idx_awhozleetinzjdkbcjzxoljutdayfqbsotlp ON public.migrations USING btree (track, name);
+
+
+--
+-- TOC entry 4108 (class 1259 OID 17202)
+-- Name: idx_axfpcqicozeksdqwxanvhaigfnidigynadfj; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_axfpcqicozeksdqwxanvhaigfnidigynadfj ON public.elements USING btree ("fieldLayoutId");
+
+
+--
+-- TOC entry 4123 (class 1259 OID 17203)
+-- Name: idx_aywjsrxhznfumtuaqcnfnisrndoyxqxyqelu; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_aywjsrxhznfumtuaqcnfnisrndoyxqxyqelu ON public.entries USING btree ("sectionId");
+
+
+--
+-- TOC entry 4160 (class 1259 OID 17204)
+-- Name: idx_bfbcsmslvamqcysctsvrgkyonfsmiueduylv; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_bfbcsmslvamqcysctsvrgkyonfsmiueduylv ON public.globalsets USING btree (name);
+
+
+--
+-- TOC entry 4330 (class 1259 OID 17205)
+-- Name: idx_bfmwmtoctdvvupebqhfagygayolmhzlnfemt; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_bfmwmtoctdvvupebqhfagygayolmhzlnfemt ON public.widgets USING btree ("userId");
+
+
+--
+-- TOC entry 4141 (class 1259 OID 17206)
+-- Name: idx_bghhvycgfmhyggeagfixijirnhbznjqqfjrx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_bghhvycgfmhyggeagfixijirnhbznjqqfjrx ON public.fieldlayoutfields USING btree ("tabId");
+
+
+--
+-- TOC entry 4137 (class 1259 OID 17207)
+-- Name: idx_bhpgeezebucqwzvpsupdxvgqzpabspsytnxs; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_bhpgeezebucqwzvpsupdxvgqzpabspsytnxs ON public.fieldgroups USING btree (name);
+
+
+--
+-- TOC entry 4168 (class 1259 OID 17208)
+-- Name: idx_bjssnpzxdbgoakkblkmfnmutukpmawykusml; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX idx_bjssnpzxdbgoakkblkmfnmutukpmawykusml ON public.gqltokens USING btree (name);
+
+
+--
+-- TOC entry 4208 (class 1259 OID 17209)
+-- Name: idx_brlliucjsjmqrwcwsgnqodychkslautofkqa; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_brlliucjsjmqrwcwsgnqodychkslautofkqa ON public.relations USING btree ("sourceSiteId");
+
+
+--
+-- TOC entry 4204 (class 1259 OID 17210)
+-- Name: idx_bscvmgytpkjixuhlqquefekhokzykbuxtdwy; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_bscvmgytpkjixuhlqquefekhokzykbuxtdwy ON public.queue USING btree (channel, fail, "timeUpdated", "timePushed");
+
+
+--
+-- TOC entry 4172 (class 1259 OID 17211)
+-- Name: idx_bviglcmlytlingcnqsnxfketurjehjwjwldz; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_bviglcmlytlingcnqsnxfketurjehjwjwldz ON public.matrixblocks USING btree ("ownerId");
+
+
+--
+-- TOC entry 4085 (class 1259 OID 17212)
+-- Name: idx_bwwmprokloqchpvqysxisopcetejuzyzupwr; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_bwwmprokloqchpvqysxisopcetejuzyzupwr ON public.changedattributes USING btree ("elementId", "siteId", "dateUpdated");
+
+
+--
+-- TOC entry 4293 (class 1259 OID 17213)
+-- Name: idx_ccagxxmwawdxcnmxwcurpeyntziysrqrzcpz; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_ccagxxmwawdxcnmxwcurpeyntziysrqrzcpz ON public.usergroups USING btree (handle);
+
+
+--
+-- TOC entry 4209 (class 1259 OID 17214)
+-- Name: idx_cdkqbsnfahbjmvtzcatpmuxbvvoqynexmsqg; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_cdkqbsnfahbjmvtzcatpmuxbvvoqynexmsqg ON public.relations USING btree ("targetId");
+
+
+--
+-- TOC entry 4275 (class 1259 OID 17215)
+-- Name: idx_cdttticbvkoslbgksuepwlvsyhtczuugtyrb; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_cdttticbvkoslbgksuepwlvsyhtczuugtyrb ON public.templatecacheelements USING btree ("elementId");
+
+
+--
+-- TOC entry 4130 (class 1259 OID 17216)
+-- Name: idx_cfsoakqbmwalizuunryofycpykdbqgqndxxd; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_cfsoakqbmwalizuunryofycpykdbqgqndxxd ON public.entrytypes USING btree ("fieldLayoutId");
+
+
+--
+-- TOC entry 4124 (class 1259 OID 17217)
+-- Name: idx_cjuyyrpdlfwkmusstdcesomsirnoqvnyqpqj; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_cjuyyrpdlfwkmusstdcesomsirnoqvnyqpqj ON public.entries USING btree ("authorId");
+
+
+--
+-- TOC entry 4319 (class 1259 OID 17218)
+-- Name: idx_clkdwfcohiejtslimqsybwsngwectagegknb; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_clkdwfcohiejtslimqsybwsngwectagegknb ON public.volumefolders USING btree ("parentId");
+
+
+--
+-- TOC entry 4138 (class 1259 OID 17219)
+-- Name: idx_cnpzflbqudzwjxxvsznxqgrssibrwjbnneer; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_cnpzflbqudzwjxxvsznxqgrssibrwjbnneer ON public.fieldgroups USING btree ("dateDeleted", name);
+
+
+--
+-- TOC entry 4074 (class 1259 OID 17220)
+-- Name: idx_crfiycgffgjafkdwnawltzmpfxkfhnnvcxtb; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_crfiycgffgjafkdwnawltzmpfxkfhnnvcxtb ON public.categorygroups USING btree (handle);
+
+
+--
+-- TOC entry 4055 (class 1259 OID 17221)
+-- Name: idx_ctaszbolxbztbtzprhhuhdxejyjfznvyulqe; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_ctaszbolxbztbtzprhhuhdxejyjfznvyulqe ON public.assetindexdata USING btree ("sessionId", "volumeId");
+
+
+--
+-- TOC entry 4335 (class 1259 OID 18003)
+-- Name: idx_dbghsbpgoikbjrymprdhprpigshuqktzhxfs; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_dbghsbpgoikbjrymprdhprpigshuqktzhxfs ON public.announcements USING btree ("userId", unread, "dateRead", "dateCreated");
+
+
+--
+-- TOC entry 4131 (class 1259 OID 17222)
+-- Name: idx_dfalodovprinwkniorhrxpcdqihwixuaifjf; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_dfalodovprinwkniorhrxpcdqihwixuaifjf ON public.entrytypes USING btree ("dateDeleted");
+
+
+--
+-- TOC entry 4173 (class 1259 OID 17223)
+-- Name: idx_dicisttfktbpuugyjynbzqxdjjnclaridqma; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_dicisttfktbpuugyjynbzqxdjjnclaridqma ON public.matrixblocks USING btree ("typeId");
+
+
+--
+-- TOC entry 4296 (class 1259 OID 17224)
+-- Name: idx_digsuhzentnvowzcjiajuujcqfytgkxwbgnh; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX idx_digsuhzentnvowzcjiajuujcqfytgkxwbgnh ON public.usergroups_users USING btree ("groupId", "userId");
+
+
+--
+-- TOC entry 4174 (class 1259 OID 17225)
+-- Name: idx_dlyoewgvggsaokpraelqlgsrpwhgdwffuohj; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_dlyoewgvggsaokpraelqlgsrpwhgdwffuohj ON public.matrixblocks USING btree ("sortOrder");
+
+
+--
+-- TOC entry 4223 (class 1259 OID 17226)
+-- Name: idx_dsmjrvkozsqliisdwfucenifiorfesqvqyht; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_dsmjrvkozsqliisdwfucenifiorfesqvqyht ON public.sections USING btree (name);
+
+
+--
+-- TOC entry 4071 (class 1259 OID 17227)
+-- Name: idx_dzadiotbdrmrxknlkmscakdwxvluhstcdoqm; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_dzadiotbdrmrxknlkmscakdwxvluhstcdoqm ON public.categories USING btree ("groupId");
+
+
+--
+-- TOC entry 4267 (class 1259 OID 17228)
+-- Name: idx_ehecjefsyolrdvuiwbntylhdhctsckrjokiw; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_ehecjefsyolrdvuiwbntylhdhctsckrjokiw ON public.taggroups USING btree (handle);
+
+
+--
+-- TOC entry 4313 (class 1259 OID 17229)
+-- Name: idx_ehepbjqeqphmjxgclpmmxmwienrzyxkvjfva; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_ehepbjqeqphmjxgclpmmxmwienrzyxkvjfva ON public.users USING btree ("verificationCode");
+
+
+--
+-- TOC entry 4161 (class 1259 OID 17230)
+-- Name: idx_ehtthrejpzodhyduxbqagnpvnpexfufrndbz; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_ehtthrejpzodhyduxbqagnpvnpexfufrndbz ON public.globalsets USING btree ("fieldLayoutId");
+
+
+--
+-- TOC entry 4247 (class 1259 OID 17231)
+-- Name: idx_enbhxbbkiwapcanipnsrramikokfqgrjresx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_enbhxbbkiwapcanipnsrramikokfqgrjresx ON public.sites USING btree ("dateDeleted");
+
+
+--
+-- TOC entry 4205 (class 1259 OID 17232)
+-- Name: idx_enzejhlkulsuinjeplfmijgjszkpsoepynkk; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_enzejhlkulsuinjeplfmijgjszkpsoepynkk ON public.queue USING btree (channel, fail, "timeUpdated", delay);
+
+
+--
+-- TOC entry 4283 (class 1259 OID 17233)
+-- Name: idx_eorssjrepsdyhmerukmsjovvmmmpnloajmvd; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_eorssjrepsdyhmerukmsjovvmmmpnloajmvd ON public.templatecaches USING btree ("siteId");
+
+
+--
+-- TOC entry 4235 (class 1259 OID 17234)
+-- Name: idx_esejseinmaiyuvummbilzzfwqenrsmoyhfty; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_esejseinmaiyuvummbilzzfwqenrsmoyhfty ON public.sessions USING btree ("userId");
+
+
+--
+-- TOC entry 4075 (class 1259 OID 17235)
+-- Name: idx_ewuqzbedrkcttgsmndhjeyoyiejfgfcjnjkl; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_ewuqzbedrkcttgsmndhjeyoyiejfgfcjnjkl ON public.categorygroups USING btree ("dateDeleted");
+
+
+--
+-- TOC entry 4279 (class 1259 OID 17236)
+-- Name: idx_eyugiickbncgkcldyfbsxntpkcpbifhttvov; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_eyugiickbncgkcldyfbsxntpkcpbifhttvov ON public.templatecachequeries USING btree ("cacheId");
+
+
+--
+-- TOC entry 4303 (class 1259 OID 17237)
+-- Name: idx_fbpuehfsjjagfdlqiaxuzlcdfhrmxvxmjbjp; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_fbpuehfsjjagfdlqiaxuzlcdfhrmxvxmjbjp ON public.userpermissions_usergroups USING btree ("groupId");
+
+
+--
+-- TOC entry 4263 (class 1259 OID 17238)
+-- Name: idx_fedwtexeakktsjlurghohpjdcvnoeajqzwli; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_fedwtexeakktsjlurghohpjdcvnoeajqzwli ON public.systemmessages USING btree (language);
+
+
+--
+-- TOC entry 4064 (class 1259 OID 17239)
+-- Name: idx_fumezaiflrfozsojqiezdhrpdbltwmteywmv; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_fumezaiflrfozsojqiezdhrpdbltwmteywmv ON public.assettransformindex USING btree ("volumeId", "assetId", location);
+
+
+--
+-- TOC entry 4147 (class 1259 OID 17240)
+-- Name: idx_fxpbopwlgdqteycqtwsycqopycilqmffcgfk; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_fxpbopwlgdqteycqtwsycqopycilqmffcgfk ON public.fieldlayouts USING btree (type);
+
+
+--
+-- TOC entry 4098 (class 1259 OID 17241)
+-- Name: idx_fxpizzrhvufyitaecmqjeriygvybexnukcjz; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX idx_fxpizzrhvufyitaecmqjeriygvybexnukcjz ON public.deprecationerrors USING btree (key, fingerprint);
+
+
+--
+-- TOC entry 4175 (class 1259 OID 17242)
+-- Name: idx_gacfibtuowsanbmeqfcmeklkzeiyriuvwqqw; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_gacfibtuowsanbmeqfcmeklkzeiyriuvwqqw ON public.matrixblocks USING btree ("fieldId");
+
+
+--
+-- TOC entry 4224 (class 1259 OID 17243)
+-- Name: idx_gbzwzqkmedeynftktegqiyworxunctqhvtzw; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_gbzwzqkmedeynftktegqiyworxunctqhvtzw ON public.sections USING btree ("dateDeleted");
+
+
+--
+-- TOC entry 4284 (class 1259 OID 17244)
+-- Name: idx_ggwalfquahfsgvhzdqfrvmxpxjdwhfkditdy; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_ggwalfquahfsgvhzdqfrvmxpxjdwhfkditdy ON public.templatecaches USING btree ("cacheKey", "siteId", "expiryDate", path);
+
+
+--
+-- TOC entry 4236 (class 1259 OID 17245)
+-- Name: idx_gksboxtdnwodiuiupoicfpxiuyacrsnsrerm; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_gksboxtdnwodiuiupoicfpxiuyacrsnsrerm ON public.sessions USING btree ("dateUpdated");
+
+
+--
+-- TOC entry 4116 (class 1259 OID 17246)
+-- Name: idx_gnvaxsdbapattxwadeynexxuexmvpzgvlcob; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX idx_gnvaxsdbapattxwadeynexxuexmvpzgvlcob ON public.elements_sites USING btree ("elementId", "siteId");
+
+
+--
+-- TOC entry 4076 (class 1259 OID 17247)
+-- Name: idx_gompunhsmjqdsfuzzspaaegknwshhongvjqy; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_gompunhsmjqdsfuzzspaaegknwshhongvjqy ON public.categorygroups USING btree ("fieldLayoutId");
+
+
+--
+-- TOC entry 4101 (class 1259 OID 17985)
+-- Name: idx_gsncbjjkzrdmknstiutqhlfspddmsobgjzqs; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_gsncbjjkzrdmknstiutqhlfspddmsobgjzqs ON public.drafts USING btree ("creatorId", provisional);
+
+
+--
+-- TOC entry 4148 (class 1259 OID 17248)
+-- Name: idx_hlffxdhxhqusafcctzzfjtheambbyncgfbyx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_hlffxdhxhqusafcctzzfjtheambbyncgfbyx ON public.fieldlayouts USING btree ("dateDeleted");
+
+
+--
+-- TOC entry 4142 (class 1259 OID 17249)
+-- Name: idx_ikmufzsvdltyjzuxfhbmctmefaaplccjfenp; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_ikmufzsvdltyjzuxfhbmctmefaaplccjfenp ON public.fieldlayoutfields USING btree ("fieldId");
+
+
+--
+-- TOC entry 4088 (class 1259 OID 17250)
+-- Name: idx_innyzhysxpaasctawligntkzucepxtoiqcdd; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_innyzhysxpaasctawligntkzucepxtoiqcdd ON public.changedfields USING btree ("elementId", "siteId", "dateUpdated");
+
+
+--
+-- TOC entry 4187 (class 1259 OID 17251)
+-- Name: idx_jktluwxgmojcngujcsprshnwowqqbkgnjjzy; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX idx_jktluwxgmojcngujcsprshnwowqqbkgnjjzy ON public.matrixcontent_introcontentblocks USING btree ("elementId", "siteId");
+
+
+--
+-- TOC entry 4125 (class 1259 OID 17252)
+-- Name: idx_jnpjrmqrmmrbsendjuyxcsvppgkefwfdcdbb; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_jnpjrmqrmmrbsendjuyxcsvppgkefwfdcdbb ON public.entries USING btree ("typeId");
+
+
+--
+-- TOC entry 4059 (class 1259 OID 17253)
+-- Name: idx_kadqgpvmkcmvfuaudcczydeoudsqanlnmxqq; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_kadqgpvmkcmvfuaudcczydeoudsqanlnmxqq ON public.assets USING btree ("folderId");
+
+
+--
+-- TOC entry 4091 (class 1259 OID 17254)
+-- Name: idx_klycdbxfjkgrhfoktklzgpflanntdubizshw; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_klycdbxfjkgrhfoktklzgpflanntdubizshw ON public.content USING btree (title);
+
+
+--
+-- TOC entry 4276 (class 1259 OID 17255)
+-- Name: idx_kshifhmuqvgpjydcoxjkgslplehlkmegbscs; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_kshifhmuqvgpjydcoxjkgslplehlkmegbscs ON public.templatecacheelements USING btree ("cacheId");
+
+
+--
+-- TOC entry 4307 (class 1259 OID 17256)
+-- Name: idx_kusdxabnuybytvoqpqynsctniohsjrjdgnxz; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_kusdxabnuybytvoqpqynsctniohsjrjdgnxz ON public.userpermissions_users USING btree ("userId");
+
+
+--
+-- TOC entry 4314 (class 1259 OID 17257)
+-- Name: idx_kvmmgwsoowryueksxnnfhauffnmqaajsqoce; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_kvmmgwsoowryueksxnnfhauffnmqaajsqoce ON public.users USING btree (lower((email)::text));
+
+
+--
+-- TOC entry 4126 (class 1259 OID 17258)
+-- Name: idx_kvvoxurgpnjojsmstchtfzxprowqobagonla; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_kvvoxurgpnjojsmstchtfzxprowqobagonla ON public.entries USING btree ("expiryDate");
+
+
+--
+-- TOC entry 4297 (class 1259 OID 17259)
+-- Name: idx_kxhqocactthunplyzmkfdujxaibrtfhdbeig; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_kxhqocactthunplyzmkfdujxaibrtfhdbeig ON public.usergroups_users USING btree ("userId");
+
+
+--
+-- TOC entry 4193 (class 1259 OID 17260)
+-- Name: idx_kyomllkbybcoswefoifehqeuxftyacknduvt; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX idx_kyomllkbybcoswefoifehqeuxftyacknduvt ON public.matrixcontent_tourpois USING btree ("elementId", "siteId");
+
+
+--
+-- TOC entry 4109 (class 1259 OID 26124)
+-- Name: idx_lfidzehkdfpwpdepwiuytsdreguxmfauvxcg; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_lfidzehkdfpwpdepwiuytsdreguxmfauvxcg ON public.elements USING btree (archived, "dateDeleted", "draftId", "revisionId", "canonicalId");
+
+
+--
+-- TOC entry 4132 (class 1259 OID 17261)
+-- Name: idx_lfkszeaczqeuukacvkqepjxpraqpoyptansj; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_lfkszeaczqeuukacvkqepjxpraqpoyptansj ON public.entrytypes USING btree ("sectionId");
+
+
+--
+-- TOC entry 4225 (class 1259 OID 17262)
+-- Name: idx_lqeaodofyzagtpgrwenumtsxonjsojkznifz; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_lqeaodofyzagtpgrwenumtsxonjsojkznifz ON public.sections USING btree ("structureId");
+
+
+--
+-- TOC entry 4300 (class 1259 OID 17263)
+-- Name: idx_lqsfxhxwmkqosblnviciymxkqnvxbfusbtjy; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX idx_lqsfxhxwmkqosblnviciymxkqnvxbfusbtjy ON public.userpermissions USING btree (name);
+
+
+--
+-- TOC entry 4133 (class 1259 OID 17264)
+-- Name: idx_lrypalgtkudwbhhsczxghxsbqvrckuznhzww; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_lrypalgtkudwbhhsczxghxsbqvrckuznhzww ON public.entrytypes USING btree (handle, "sectionId");
+
+
+--
+-- TOC entry 4178 (class 1259 OID 17265)
+-- Name: idx_lwbpeawpsxxvdhvvzixckuzhrbudfdzppqni; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_lwbpeawpsxxvdhvvzixckuzhrbudfdzppqni ON public.matrixblocktypes USING btree ("fieldId");
+
+
+--
+-- TOC entry 4241 (class 1259 OID 17266)
+-- Name: idx_mdpfppuruvsemeisbpwcsxsoygvvjxzdagle; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX idx_mdpfppuruvsemeisbpwcsxsoygvvjxzdagle ON public.shunnedmessages USING btree ("userId", message);
+
+
+--
+-- TOC entry 4308 (class 1259 OID 17267)
+-- Name: idx_mewmjrwtloapupmfkmitakpmfekwhsqcnbhe; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX idx_mewmjrwtloapupmfkmitakpmfekwhsqcnbhe ON public.userpermissions_users USING btree ("permissionId", "userId");
+
+
+--
+-- TOC entry 4117 (class 1259 OID 17268)
+-- Name: idx_mhufqbryfvlnymhzimkqrsltadxfjswhbcda; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_mhufqbryfvlnymhzimkqrsltadxfjswhbcda ON public.elements_sites USING btree ("siteId");
+
+
+--
+-- TOC entry 4264 (class 1259 OID 17269)
+-- Name: idx_molvdyoqbatpezwtmvzrslwfpqxoahhpgrzg; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX idx_molvdyoqbatpezwtmvzrslwfpqxoahhpgrzg ON public.systemmessages USING btree (key, language);
+
+
+--
+-- TOC entry 4156 (class 1259 OID 17270)
+-- Name: idx_mqmligqbbyutclonhejnfasmmdavtiaegtyr; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_mqmligqbbyutclonhejnfasmmdavtiaegtyr ON public.fields USING btree (handle, context);
+
+
+--
+-- TOC entry 4324 (class 1259 OID 17271)
+-- Name: idx_mtxyzqiblpxnkptlvngobzhvkzhcnfpgfxza; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_mtxyzqiblpxnkptlvngobzhvkzhcnfpgfxza ON public.volumes USING btree ("fieldLayoutId");
+
+
+--
+-- TOC entry 4118 (class 1259 OID 17272)
+-- Name: idx_mtzclsstwkywflzowjodzgxzhjrqmkoltpnf; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_mtzclsstwkywflzowjodzgxzhjrqmkoltpnf ON public.elements_sites USING btree (slug, "siteId");
+
+
+--
+-- TOC entry 4237 (class 1259 OID 17273)
+-- Name: idx_naceylbsdjafrhifxzefxcclmuvxeraieuij; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_naceylbsdjafrhifxzefxcclmuvxeraieuij ON public.sessions USING btree (uid);
+
+
+--
+-- TOC entry 4315 (class 1259 OID 17274)
+-- Name: idx_nfcvuhvuyihgvffqaorndyextbsehocgrrif; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_nfcvuhvuyihgvffqaorndyextbsehocgrrif ON public.users USING btree (lower((username)::text));
+
+
+--
+-- TOC entry 4219 (class 1259 OID 17275)
+-- Name: idx_ngapqmosuzkrwmizkphenmuxdwxfyvnrqqju; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_ngapqmosuzkrwmizkphenmuxdwxfyvnrqqju ON public.searchindex USING btree (keywords);
+
+
+--
+-- TOC entry 4151 (class 1259 OID 17276)
+-- Name: idx_ngttnoentmqqqjpjfpfxnjwqhrkiymeuurdc; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_ngttnoentmqqqjpjfpfxnjwqhrkiymeuurdc ON public.fieldlayouttabs USING btree ("layoutId");
+
+
+--
+-- TOC entry 4285 (class 1259 OID 17277)
+-- Name: idx_nitbxxodacivlpxiudtembhpmcfiixwwazxp; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_nitbxxodacivlpxiudtembhpmcfiixwwazxp ON public.templatecaches USING btree ("cacheKey", "siteId", "expiryDate");
+
+
+--
+-- TOC entry 4184 (class 1259 OID 17278)
+-- Name: idx_nmzznfhminijiihshczxoyxdienswbikzbnq; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX idx_nmzznfhminijiihshczxoyxdienswbikzbnq ON public.matrixcontent_factscontentblocks USING btree ("elementId", "siteId");
+
+
+--
+-- TOC entry 4077 (class 1259 OID 17279)
+-- Name: idx_nunxmdrpvwxaododzhytzhghnvpetyducgrb; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_nunxmdrpvwxaododzhytzhghnvpetyducgrb ON public.categorygroups USING btree ("structureId");
+
+
+--
+-- TOC entry 4102 (class 1259 OID 17280)
+-- Name: idx_odpihnhdhqitcbbcbaggkxexsswmujfesisi; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_odpihnhdhqitcbbcbaggkxexsswmujfesisi ON public.drafts USING btree (saved);
+
+
+--
+-- TOC entry 4288 (class 1259 OID 17281)
+-- Name: idx_ofvqhwjoofgywybnttmigawptysxawrbbgfm; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX idx_ofvqhwjoofgywybnttmigawptysxawrbbgfm ON public.tokens USING btree (token);
+
+
+--
+-- TOC entry 4280 (class 1259 OID 17282)
+-- Name: idx_oqmmeyljxxjipeptaywrfmajncyxnhatlbai; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_oqmmeyljxxjipeptaywrfmajncyxnhatlbai ON public.templatecachequeries USING btree (type);
+
+
+--
+-- TOC entry 4272 (class 1259 OID 17283)
+-- Name: idx_ozvnjluwhaxftfjffqkmcizeojcqlqoexdst; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_ozvnjluwhaxftfjffqkmcizeojcqlqoexdst ON public.tags USING btree ("groupId");
+
+
+--
+-- TOC entry 4143 (class 1259 OID 17284)
+-- Name: idx_pdxnhcznrgxsjdkowroebghgruaweneeopsl; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_pdxnhcznrgxsjdkowroebghgruaweneeopsl ON public.fieldlayoutfields USING btree ("sortOrder");
+
+
+--
+-- TOC entry 4110 (class 1259 OID 17285)
+-- Name: idx_pfdrctzhuvmlijxplhokrgwuxxhpnttzhmvo; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_pfdrctzhuvmlijxplhokrgwuxxhpnttzhmvo ON public.elements USING btree (type);
+
+
+--
+-- TOC entry 4119 (class 1259 OID 17286)
+-- Name: idx_pqegcqoexvbdcgdgnmsyvmpcitdeoesfvnrc; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_pqegcqoexvbdcgdgnmsyvmpcitdeoesfvnrc ON public.elements_sites USING btree (enabled);
+
+
+--
+-- TOC entry 4060 (class 1259 OID 17287)
+-- Name: idx_pzsvwjjhpzfvzxfhvftgwlglemrfckixenfr; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_pzsvwjjhpzfvzxfhvftgwlglemrfckixenfr ON public.assets USING btree ("volumeId");
+
+
+--
+-- TOC entry 4248 (class 1259 OID 17288)
+-- Name: idx_qcojqnkqasrzepyvzuihctalasbusfbmqxlu; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_qcojqnkqasrzepyvzuihctalasbusfbmqxlu ON public.sites USING btree (handle);
+
+
+--
+-- TOC entry 4127 (class 1259 OID 17289)
+-- Name: idx_qhdvlwuacpsgfdwfhfsddanozcemgfsnicwr; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_qhdvlwuacpsgfdwfhfsddanozcemgfsnicwr ON public.entries USING btree ("postDate");
+
+
+--
+-- TOC entry 4134 (class 1259 OID 17290)
+-- Name: idx_qsjubbhvxnrrxglpqxrdlcmxmmzpserdjvhd; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_qsjubbhvxnrrxglpqxrdlcmxmmzpserdjvhd ON public.entrytypes USING btree (name, "sectionId");
+
+
+--
+-- TOC entry 4162 (class 1259 OID 17291)
+-- Name: idx_quoqtowoigtgjyvjafneylwttvfkbluvfjvf; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_quoqtowoigtgjyvjafneylwttvfkbluvfjvf ON public.globalsets USING btree (handle);
+
+
+--
+-- TOC entry 4325 (class 1259 OID 17292)
+-- Name: idx_raxapfrkooshohqwnsttqzbmjmneaubrjywp; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_raxapfrkooshohqwnsttqzbmjmneaubrjywp ON public.volumes USING btree (name);
+
+
+--
+-- TOC entry 4229 (class 1259 OID 17293)
+-- Name: idx_rdanlqdzozimxsvbdkdwebcutvlwnvokphvv; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_rdanlqdzozimxsvbdkdwebcutvlwnvokphvv ON public.sections_sites USING btree ("siteId");
+
+
+--
+-- TOC entry 4230 (class 1259 OID 17294)
+-- Name: idx_rfwgzjbbybxgobvzcthuaynttiylycwcqbpr; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX idx_rfwgzjbbybxgobvzcthuaynttiylycwcqbpr ON public.sections_sites USING btree ("sectionId", "siteId");
+
+
+--
+-- TOC entry 4252 (class 1259 OID 17295)
+-- Name: idx_rhijawpoyksyqnzcdofjzckuaohzotlmjwls; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_rhijawpoyksyqnzcdofjzckuaohzotlmjwls ON public.structureelements USING btree (lft);
+
+
+--
+-- TOC entry 4092 (class 1259 OID 17296)
+-- Name: idx_rpnbljhhzohrjzbwtxaszvxwlyaktwgatkes; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_rpnbljhhzohrjzbwtxaszvxwlyaktwgatkes ON public.content USING btree ("siteId");
+
+
+--
+-- TOC entry 4304 (class 1259 OID 17297)
+-- Name: idx_rpxsxevuykubuyidwnxyvsphjonxgxvwshlu; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX idx_rpxsxevuykubuyidwnxyvsphjonxgxvwshlu ON public.userpermissions_usergroups USING btree ("permissionId", "groupId");
+
+
+--
+-- TOC entry 4163 (class 1259 OID 17990)
+-- Name: idx_seeyqjpnheychuiwutselxsxfaequbbbwcns; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_seeyqjpnheychuiwutselxsxfaequbbbwcns ON public.globalsets USING btree ("sortOrder");
+
+
+--
+-- TOC entry 4111 (class 1259 OID 17298)
+-- Name: idx_sfqvyfdoxlbwdtlckzohzcbofhcrymxnibao; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_sfqvyfdoxlbwdtlckzohzcbofhcrymxnibao ON public.elements USING btree ("dateDeleted");
+
+
+--
+-- TOC entry 4112 (class 1259 OID 17299)
+-- Name: idx_shyasyalysnodnfacqievotxdybtwxloxtjn; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_shyasyalysnodnfacqievotxdybtwxloxtjn ON public.elements USING btree (archived, "dateCreated");
+
+
+--
+-- TOC entry 4226 (class 1259 OID 17300)
+-- Name: idx_sqaybshkxvjzciecdlmbvxxkqhcevisxrstr; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_sqaybshkxvjzciecdlmbvxxkqhcevisxrstr ON public.sections USING btree (handle);
+
+
+--
+-- TOC entry 4061 (class 1259 OID 17301)
+-- Name: idx_sucfqgpljyauzkaercsyxfbbuihgqgejravw; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_sucfqgpljyauzkaercsyxfbbuihgqgejravw ON public.assets USING btree (filename, "folderId");
+
+
+--
+-- TOC entry 4244 (class 1259 OID 17302)
+-- Name: idx_swbdhkcyldrymmimnyyzhoruusqzieqzqkoj; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_swbdhkcyldrymmimnyyzhoruusqzieqzqkoj ON public.sitegroups USING btree (name);
+
+
+--
+-- TOC entry 4144 (class 1259 OID 17303)
+-- Name: idx_sxmmpdncyboznlkdhwiqqhogqjfugcljetcv; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX idx_sxmmpdncyboznlkdhwiqqhogqjfugcljetcv ON public.fieldlayoutfields USING btree ("layoutId", "fieldId");
+
+
+--
+-- TOC entry 4253 (class 1259 OID 17304)
+-- Name: idx_tibckudppxjixabnwitmstncmonzyfcljxwp; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_tibckudppxjixabnwitmstncmonzyfcljxwp ON public.structureelements USING btree ("elementId");
+
+
+--
+-- TOC entry 4268 (class 1259 OID 17305)
+-- Name: idx_tisltfobstngapxhxwhgjmyrcgncfowhbumi; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_tisltfobstngapxhxwhgjmyrcgncfowhbumi ON public.taggroups USING btree (name);
+
+
+--
+-- TOC entry 4078 (class 1259 OID 17306)
+-- Name: idx_tkhgjlhpsahimpdzkdespdvitrlqmbbzinfs; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_tkhgjlhpsahimpdzkdespdvitrlqmbbzinfs ON public.categorygroups USING btree (name);
+
+
+--
+-- TOC entry 4199 (class 1259 OID 17307)
+-- Name: idx_tutojnrimafslbculxiyhtqlhmtjxsdycodm; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX idx_tutojnrimafslbculxiyhtqlhmtjxsdycodm ON public.plugins USING btree (handle);
+
+
+--
+-- TOC entry 4056 (class 1259 OID 17308)
+-- Name: idx_tyxwtvkxmivthgakhwfzpfusqhfpoqpefwjh; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_tyxwtvkxmivthgakhwfzpfusqhfpoqpefwjh ON public.assetindexdata USING btree ("volumeId");
+
+
+--
+-- TOC entry 4120 (class 1259 OID 17309)
+-- Name: idx_ubeonauvklsmksdrviihehxaebkdfwstmftt; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_ubeonauvklsmksdrviihehxaebkdfwstmftt ON public.elements_sites USING btree (lower((uri)::text), "siteId");
+
+
+--
+-- TOC entry 4326 (class 1259 OID 17310)
+-- Name: idx_ueluuquebchhwfpsjenjoefhomovbdbpovor; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_ueluuquebchhwfpsjenjoefhomovbdbpovor ON public.volumes USING btree (handle);
+
+
+--
+-- TOC entry 4269 (class 1259 OID 17311)
+-- Name: idx_ugmrktthadekhnyawajexhfslnvlugbcpgay; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_ugmrktthadekhnyawajexhfslnvlugbcpgay ON public.taggroups USING btree ("dateDeleted");
+
+
+--
+-- TOC entry 4254 (class 1259 OID 17312)
+-- Name: idx_ujlortvoloqawkvpyhqxoxrvinmrqebqciqr; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_ujlortvoloqawkvpyhqxoxrvinmrqebqciqr ON public.structureelements USING btree (level);
+
+
+--
+-- TOC entry 4327 (class 1259 OID 17313)
+-- Name: idx_unwswmwqqllvbixmraomayyygydxsnxhkutm; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_unwswmwqqllvbixmraomayyygydxsnxhkutm ON public.volumes USING btree ("dateDeleted");
+
+
+--
+-- TOC entry 4220 (class 1259 OID 17314)
+-- Name: idx_uxfqbahutggwjubvwsfvkoegeluazksytkju; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_uxfqbahutggwjubvwsfvkoegeluazksytkju ON public.searchindex USING gin (keywords_vector) WITH (fastupdate=yes);
+
+
+--
+-- TOC entry 4190 (class 1259 OID 17315)
+-- Name: idx_vcwwquzxaartpfiiknmxwsyuuheifzpqptgx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX idx_vcwwquzxaartpfiiknmxwsyuuheifzpqptgx ON public.matrixcontent_poiastroobject USING btree ("elementId", "siteId");
+
+
+--
+-- TOC entry 4179 (class 1259 OID 17316)
+-- Name: idx_vewziwqascthqjmxznvqfjhcsxhndhyzaxpj; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_vewziwqascthqjmxznvqfjhcsxhndhyzaxpj ON public.matrixblocktypes USING btree ("fieldLayoutId");
+
+
+--
+-- TOC entry 4320 (class 1259 OID 17317)
+-- Name: idx_vkbtvweombmisfvayfkzzkdirurvlcvlsztu; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX idx_vkbtvweombmisfvayfkzzkdirurvlcvlsztu ON public.volumefolders USING btree (name, "parentId", "volumeId");
+
+
+--
+-- TOC entry 4260 (class 1259 OID 17318)
+-- Name: idx_vkdnqkhzdlykulcvnzghtithnsbrrqecubyf; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_vkdnqkhzdlykulcvnzghtithnsbrrqecubyf ON public.structures USING btree ("dateDeleted");
+
+
+--
+-- TOC entry 4316 (class 1259 OID 17319)
+-- Name: idx_vohwgrkpnvinjzeftawuztuhkminmupepvvu; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_vohwgrkpnvinjzeftawuztuhkminmupepvvu ON public.users USING btree (uid);
+
+
+--
+-- TOC entry 4067 (class 1259 OID 17320)
+-- Name: idx_vqrexmlapffadgvlkjxrfypkgijshndffhft; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_vqrexmlapffadgvlkjxrfypkgijshndffhft ON public.assettransforms USING btree (name);
+
+
+--
+-- TOC entry 4068 (class 1259 OID 17321)
+-- Name: idx_vxholinzobnlbwtgyaluqutqngzetijhtwfe; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_vxholinzobnlbwtgyaluqutqngzetijhtwfe ON public.assettransforms USING btree (handle);
+
+
+--
+-- TOC entry 4216 (class 1259 OID 17322)
+-- Name: idx_warcvjhvekwsfazlbslnlhhwyvmvhxdombgu; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX idx_warcvjhvekwsfazlbslnlhhwyvmvhxdombgu ON public.revisions USING btree ("sourceId", num);
+
+
+--
+-- TOC entry 4180 (class 1259 OID 17323)
+-- Name: idx_wasqfkxrvoapoopfusuhwkswbwaloqfxuqrz; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_wasqfkxrvoapoopfusuhwkswbwaloqfxuqrz ON public.matrixblocktypes USING btree (handle, "fieldId");
+
+
+--
+-- TOC entry 4152 (class 1259 OID 17324)
+-- Name: idx_wbilfpsakocknvryuoqlsjavvbbhocdcqvpn; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_wbilfpsakocknvryuoqlsjavvbbhocdcqvpn ON public.fieldlayouttabs USING btree ("sortOrder");
+
+
+--
+-- TOC entry 4336 (class 1259 OID 18004)
+-- Name: idx_wihtlvghkxxamqiqronpcjkayntcikintgeq; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_wihtlvghkxxamqiqronpcjkayntcikintgeq ON public.announcements USING btree ("dateRead");
+
+
+--
+-- TOC entry 4289 (class 1259 OID 17325)
+-- Name: idx_wysyhamnxufkthhfmeffcdduvwpirckxiwra; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_wysyhamnxufkthhfmeffcdduvwpirckxiwra ON public.tokens USING btree ("expiryDate");
+
+
+--
+-- TOC entry 4093 (class 1259 OID 17326)
+-- Name: idx_xcvciijipsangbimzlvroajksznflvorwpmm; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX idx_xcvciijipsangbimzlvroajksznflvorwpmm ON public.content USING btree ("elementId", "siteId");
+
+
+--
+-- TOC entry 4113 (class 1259 OID 17327)
+-- Name: idx_xjimybbwkmpbcsdoxftapqumcsksaaayxgdc; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_xjimybbwkmpbcsdoxftapqumcsksaaayxgdc ON public.elements USING btree (enabled);
+
+
+--
+-- TOC entry 4255 (class 1259 OID 17328)
+-- Name: idx_xlpmulmmghjebuqfpgrgcwgljbauuhmzkxer; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_xlpmulmmghjebuqfpgrgcwgljbauuhmzkxer ON public.structureelements USING btree (root);
+
+
+--
+-- TOC entry 4181 (class 1259 OID 17329)
+-- Name: idx_xqxdgmprxluthfbnbckshsdnhtkyygvbspyv; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_xqxdgmprxluthfbnbckshsdnhtkyygvbspyv ON public.matrixblocktypes USING btree (name, "fieldId");
+
+
+--
+-- TOC entry 4210 (class 1259 OID 17330)
+-- Name: idx_xuqowaqrrvgqlistluqihtadujctqwakdxwu; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX idx_xuqowaqrrvgqlistluqihtadujctqwakdxwu ON public.relations USING btree ("fieldId", "sourceId", "sourceSiteId", "targetId");
+
+
+--
+-- TOC entry 4082 (class 1259 OID 17331)
+-- Name: idx_ybksgjflahutfceyqeaflvbcopvvytdonfaf; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX idx_ybksgjflahutfceyqeaflvbcopvvytdonfaf ON public.categorygroups_sites USING btree ("groupId", "siteId");
+
+
+--
+-- TOC entry 4249 (class 1259 OID 17332)
+-- Name: idx_yrxftlnxpsmciukckimyjfeqwzntvcqipqxi; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_yrxftlnxpsmciukckimyjfeqwzntvcqipqxi ON public.sites USING btree ("sortOrder");
+
+
+--
+-- TOC entry 4238 (class 1259 OID 17333)
+-- Name: idx_zasfvpoahplcfxeumgzgnzxbgcpfagpnvndo; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_zasfvpoahplcfxeumgzgnzxbgcpfagpnvndo ON public.sessions USING btree (token);
+
+
+--
+-- TOC entry 4256 (class 1259 OID 17334)
+-- Name: idx_zdndeeuuwcedatjtgftdnsmwlhxglvgpxaus; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_zdndeeuuwcedatjtgftdnsmwlhxglvgpxaus ON public.structureelements USING btree (rgt);
+
+
+--
+-- TOC entry 4105 (class 1259 OID 17335)
+-- Name: idx_zgcnapihnimdsbybbsupdjvrptppmwvrzqzs; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX idx_zgcnapihnimdsbybbsupdjvrptppmwvrzqzs ON public.elementindexsettings USING btree (type);
+
+
+--
+-- TOC entry 4257 (class 1259 OID 17336)
+-- Name: idx_ziqrgwirypwcmgbhxholppoirzukpgviiyty; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX idx_ziqrgwirypwcmgbhxholppoirzukpgviiyty ON public.structureelements USING btree ("structureId", "elementId");
+
+
+--
+-- TOC entry 4211 (class 1259 OID 17337)
+-- Name: idx_zjokdikzipkpbjrzpcjhbyklqfsupadfszkh; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_zjokdikzipkpbjrzpcjhbyklqfsupadfszkh ON public.relations USING btree ("sourceId");
+
+
+--
+-- TOC entry 4157 (class 1259 OID 17338)
+-- Name: idx_zjsqazfrdnpaauhxyufuqlbskizitghwlcwz; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_zjsqazfrdnpaauhxyufuqlbskizitghwlcwz ON public.fields USING btree ("groupId");
+
+
+--
+-- TOC entry 4169 (class 1259 OID 17339)
+-- Name: idx_zjyrvkmarmvzgtgqxshnjxhzdpbkpgnxvdxv; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX idx_zjyrvkmarmvzgtgqxshnjxhzdpbkpgnxvdxv ON public.gqltokens USING btree ("accessToken");
+
+
+--
+-- TOC entry 4321 (class 1259 OID 17340)
+-- Name: idx_zmsizsccwslchutbplrheudfbqrwmdrlppah; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_zmsizsccwslchutbplrheudfbqrwmdrlppah ON public.volumefolders USING btree ("volumeId");
+
+
+--
+-- TOC entry 4405 (class 2606 OID 17341)
+-- Name: sessions fk_acapcwrtxkcbfpvcrircmxmzajykqkdrapda; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sessions
+    ADD CONSTRAINT fk_acapcwrtxkcbfpvcrircmxmzajykqkdrapda FOREIGN KEY ("userId") REFERENCES public.users(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4358 (class 2606 OID 17346)
+-- Name: craftidtokens fk_anncddwkkgbeknhwdmqtunlpmekxuhzfvrzs; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.craftidtokens
+    ADD CONSTRAINT fk_anncddwkkgbeknhwdmqtunlpmekxuhzfvrzs FOREIGN KEY ("userId") REFERENCES public.users(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4381 (class 2606 OID 17351)
+-- Name: gqltokens fk_aourqrpugkkibrapdozivhaolxpylahiwfug; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.gqltokens
+    ADD CONSTRAINT fk_aourqrpugkkibrapdozivhaolxpylahiwfug FOREIGN KEY ("schemaId") REFERENCES public.gqlschemas(id) ON DELETE SET NULL;
+
+
+--
+-- TOC entry 4382 (class 2606 OID 17356)
+-- Name: matrixblocks fk_araaqeavsmgffynlfsrtyibkfmwmqmrispuc; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.matrixblocks
+    ADD CONSTRAINT fk_araaqeavsmgffynlfsrtyibkfmwmqmrispuc FOREIGN KEY ("fieldId") REFERENCES public.fields(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4424 (class 2606 OID 17361)
+-- Name: users fk_avooeanabxpkxyponktscntoanrcdfcxgpbg; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.users
+    ADD CONSTRAINT fk_avooeanabxpkxyponktscntoanrcdfcxgpbg FOREIGN KEY (id) REFERENCES public.elements(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4352 (class 2606 OID 17366)
+-- Name: changedfields fk_azzkhjytfotjfwabxpvccgbnxcthgdecdysu; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.changedfields
+    ADD CONSTRAINT fk_azzkhjytfotjfwabxpvccgbnxcthgdecdysu FOREIGN KEY ("fieldId") REFERENCES public.fields(id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4365 (class 2606 OID 17371)
+-- Name: elements_sites fk_baalghwvkgkaubibaxabpxeogzvepwrhrujt; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.elements_sites
+    ADD CONSTRAINT fk_baalghwvkgkaubibaxabpxeogzvepwrhrujt FOREIGN KEY ("elementId") REFERENCES public.elements(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4396 (class 2606 OID 17376)
+-- Name: relations fk_bcyfwivvzyxxvobykfcknsaxnsevrvztdnxz; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.relations
+    ADD CONSTRAINT fk_bcyfwivvzyxxvobykfcknsaxnsevrvztdnxz FOREIGN KEY ("targetId") REFERENCES public.elements(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4342 (class 2606 OID 17381)
+-- Name: categories fk_bhtscovzuwfwndtvugsyrvumfhcwmpikdaui; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.categories
+    ADD CONSTRAINT fk_bhtscovzuwfwndtvugsyrvumfhcwmpikdaui FOREIGN KEY ("groupId") REFERENCES public.categorygroups(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4338 (class 2606 OID 17386)
+-- Name: assets fk_blxwfdyggrimtvtcesmrepbcrsfwytlcszyi; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.assets
+    ADD CONSTRAINT fk_blxwfdyggrimtvtcesmrepbcrsfwytlcszyi FOREIGN KEY (id) REFERENCES public.elements(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4372 (class 2606 OID 17391)
+-- Name: entrytypes fk_btbdzklkalrnmahnydzzgqhidmiwvlhfgmzv; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.entrytypes
+    ADD CONSTRAINT fk_btbdzklkalrnmahnydzzgqhidmiwvlhfgmzv FOREIGN KEY ("fieldLayoutId") REFERENCES public.fieldlayouts(id) ON DELETE SET NULL;
+
+
+--
+-- TOC entry 4349 (class 2606 OID 17396)
+-- Name: changedattributes fk_bvrqiovnqfjapcrgbzfvzsjsccrxbkaerazr; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.changedattributes
+    ADD CONSTRAINT fk_bvrqiovnqfjapcrgbzfvzsjsccrxbkaerazr FOREIGN KEY ("siteId") REFERENCES public.sites(id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4390 (class 2606 OID 17401)
+-- Name: matrixcontent_introcontentblocks fk_bwfyjnywrrlkdokpeclsrjaqlkjwmtlqunvr; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.matrixcontent_introcontentblocks
+    ADD CONSTRAINT fk_bwfyjnywrrlkdokpeclsrjaqlkjwmtlqunvr FOREIGN KEY ("elementId") REFERENCES public.elements(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4361 (class 2606 OID 17406)
+-- Name: elements fk_clpcbyoxvqwzfofatabglgbebvompowgcyfp; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.elements
+    ADD CONSTRAINT fk_clpcbyoxvqwzfofatabglgbebvompowgcyfp FOREIGN KEY ("revisionId") REFERENCES public.revisions(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4373 (class 2606 OID 17411)
+-- Name: entrytypes fk_cqgvrielnebilxqkzjnvoaadnocaqyobztpc; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.entrytypes
+    ADD CONSTRAINT fk_cqgvrielnebilxqkzjnvoaadnocaqyobztpc FOREIGN KEY ("sectionId") REFERENCES public.sections(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4364 (class 2606 OID 17979)
+-- Name: elements fk_csvtrxvubinilymfxjefmenbslssivcaywgv; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.elements
+    ADD CONSTRAINT fk_csvtrxvubinilymfxjefmenbslssivcaywgv FOREIGN KEY ("canonicalId") REFERENCES public.elements(id) ON DELETE SET NULL;
+
+
+--
+-- TOC entry 4421 (class 2606 OID 17416)
+-- Name: userpermissions_users fk_dphsfwlqyruxsalrsiivumtnscxrbormhyok; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.userpermissions_users
+    ADD CONSTRAINT fk_dphsfwlqyruxsalrsiivumtnscxrbormhyok FOREIGN KEY ("permissionId") REFERENCES public.userpermissions(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4343 (class 2606 OID 17421)
+-- Name: categories fk_dppvwxstbmhlmphrljswdkuyytaqhbdfanzi; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.categories
+    ADD CONSTRAINT fk_dppvwxstbmhlmphrljswdkuyytaqhbdfanzi FOREIGN KEY (id) REFERENCES public.elements(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4345 (class 2606 OID 17426)
+-- Name: categorygroups fk_dqbnjjtzjzmidwljrscnqjpehqxekfqldqtl; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.categorygroups
+    ADD CONSTRAINT fk_dqbnjjtzjzmidwljrscnqjpehqxekfqldqtl FOREIGN KEY ("structureId") REFERENCES public.structures(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4386 (class 2606 OID 17431)
+-- Name: matrixblocktypes fk_dskhmacthjwrlinugyolppexvwweuqjkurrx; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.matrixblocktypes
+    ADD CONSTRAINT fk_dskhmacthjwrlinugyolppexvwweuqjkurrx FOREIGN KEY ("fieldLayoutId") REFERENCES public.fieldlayouts(id) ON DELETE SET NULL;
+
+
+--
+-- TOC entry 4367 (class 2606 OID 17436)
+-- Name: entries fk_dsklafpetxkeadsfrvihyvjmpohxjcidjiqr; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.entries
+    ADD CONSTRAINT fk_dsklafpetxkeadsfrvihyvjmpohxjcidjiqr FOREIGN KEY ("typeId") REFERENCES public.entrytypes(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4378 (class 2606 OID 17441)
+-- Name: fields fk_dveexxlnibjkmyeakcgoteribufsqfwajafq; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.fields
+    ADD CONSTRAINT fk_dveexxlnibjkmyeakcgoteribufsqfwajafq FOREIGN KEY ("groupId") REFERENCES public.fieldgroups(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4359 (class 2606 OID 17446)
+-- Name: drafts fk_dxcryxmtajlhgoprjbiuxkuwpzwxxnwuzjwe; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.drafts
+    ADD CONSTRAINT fk_dxcryxmtajlhgoprjbiuxkuwpzwxxnwuzjwe FOREIGN KEY ("creatorId") REFERENCES public.users(id) ON DELETE SET NULL;
+
+
+--
+-- TOC entry 4397 (class 2606 OID 17451)
+-- Name: relations fk_ebqmmgphfynuftwxcalphnjofzflasbyaasn; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.relations
+    ADD CONSTRAINT fk_ebqmmgphfynuftwxcalphnjofzflasbyaasn FOREIGN KEY ("fieldId") REFERENCES public.fields(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4411 (class 2606 OID 17456)
+-- Name: tags fk_ewbidcsefcwzbbeanwrnwrfgihcqnamsbvrp; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.tags
+    ADD CONSTRAINT fk_ewbidcsefcwzbbeanwrnwrfgihcqnamsbvrp FOREIGN KEY (id) REFERENCES public.elements(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4362 (class 2606 OID 17461)
+-- Name: elements fk_ewtmyjcqvkqrfytglpijzwcfhmcapqwzgpsc; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.elements
+    ADD CONSTRAINT fk_ewtmyjcqvkqrfytglpijzwcfhmcapqwzgpsc FOREIGN KEY ("fieldLayoutId") REFERENCES public.fieldlayouts(id) ON DELETE SET NULL;
+
+
+--
+-- TOC entry 4400 (class 2606 OID 17466)
+-- Name: revisions fk_eyetqcrufhfxelkkjlzuvrdbjmzkjlapelim; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.revisions
+    ADD CONSTRAINT fk_eyetqcrufhfxelkkjlzuvrdbjmzkjlapelim FOREIGN KEY ("sourceId") REFERENCES public.elements(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4353 (class 2606 OID 17471)
+-- Name: changedfields fk_fdkqndlqpvzklxzwtbhfzokomgabwgzturby; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.changedfields
+    ADD CONSTRAINT fk_fdkqndlqpvzklxzwtbhfzokomgabwgzturby FOREIGN KEY ("userId") REFERENCES public.users(id) ON UPDATE CASCADE ON DELETE SET NULL;
+
+
+--
+-- TOC entry 4394 (class 2606 OID 17476)
+-- Name: matrixcontent_tourpois fk_fmqrxondapetavjrkcsajkyqjkufqioqxvry; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.matrixcontent_tourpois
+    ADD CONSTRAINT fk_fmqrxondapetavjrkcsajkyqjkufqioqxvry FOREIGN KEY ("elementId") REFERENCES public.elements(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4407 (class 2606 OID 17481)
+-- Name: sites fk_fqnltiqgnuduvdksbrxdswgpicwjtqfyxllw; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sites
+    ADD CONSTRAINT fk_fqnltiqgnuduvdksbrxdswgpicwjtqfyxllw FOREIGN KEY ("groupId") REFERENCES public.sitegroups(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4413 (class 2606 OID 17486)
+-- Name: templatecacheelements fk_frhrwzpyrjzxdgeednauxfbdgbuvwpwqmpjz; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.templatecacheelements
+    ADD CONSTRAINT fk_frhrwzpyrjzxdgeednauxfbdgbuvwpwqmpjz FOREIGN KEY ("elementId") REFERENCES public.elements(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4377 (class 2606 OID 17491)
+-- Name: fieldlayouttabs fk_fykpcumxtmiiccsyqftpyihmtixchdfeylxy; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.fieldlayouttabs
+    ADD CONSTRAINT fk_fykpcumxtmiiccsyqftpyihmtixchdfeylxy FOREIGN KEY ("layoutId") REFERENCES public.fieldlayouts(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4419 (class 2606 OID 17496)
+-- Name: userpermissions_usergroups fk_gadsjqcmbnfuxubomxqkpuwdynuktnkplxpf; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.userpermissions_usergroups
+    ADD CONSTRAINT fk_gadsjqcmbnfuxubomxqkpuwdynuktnkplxpf FOREIGN KEY ("permissionId") REFERENCES public.userpermissions(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4422 (class 2606 OID 17501)
+-- Name: userpermissions_users fk_gifjhtsudjlgnzhuylqngacpwbftnykqczym; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.userpermissions_users
+    ADD CONSTRAINT fk_gifjhtsudjlgnzhuylqngacpwbftnykqczym FOREIGN KEY ("userId") REFERENCES public.users(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4374 (class 2606 OID 17506)
+-- Name: fieldlayoutfields fk_gpddbfuvkqhnliuceyxowviqxdcjujfkbrkv; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.fieldlayoutfields
+    ADD CONSTRAINT fk_gpddbfuvkqhnliuceyxowviqxdcjujfkbrkv FOREIGN KEY ("fieldId") REFERENCES public.fields(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4347 (class 2606 OID 17511)
+-- Name: categorygroups_sites fk_gqjmczlxxqtogtausixmprwqdgdofeyqjqvt; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.categorygroups_sites
+    ADD CONSTRAINT fk_gqjmczlxxqtogtausixmprwqdgdofeyqjqvt FOREIGN KEY ("groupId") REFERENCES public.categorygroups(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4350 (class 2606 OID 17516)
+-- Name: changedattributes fk_gulsscrjmelxhtibudradswtohnzktpddpjy; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.changedattributes
+    ADD CONSTRAINT fk_gulsscrjmelxhtibudradswtohnzktpddpjy FOREIGN KEY ("userId") REFERENCES public.users(id) ON UPDATE CASCADE ON DELETE SET NULL;
+
+
+--
+-- TOC entry 4348 (class 2606 OID 17521)
+-- Name: categorygroups_sites fk_hcqydxndhjvqlhqwancewqwyeeizsxigtmwb; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.categorygroups_sites
+    ADD CONSTRAINT fk_hcqydxndhjvqlhqwancewqwyeeizsxigtmwb FOREIGN KEY ("siteId") REFERENCES public.sites(id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4346 (class 2606 OID 17526)
+-- Name: categorygroups fk_hlcsoqhdgxfwvuykndjycdpzovgyhffgtqne; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.categorygroups
+    ADD CONSTRAINT fk_hlcsoqhdgxfwvuykndjycdpzovgyhffgtqne FOREIGN KEY ("fieldLayoutId") REFERENCES public.fieldlayouts(id) ON DELETE SET NULL;
+
+
+--
+-- TOC entry 4356 (class 2606 OID 17531)
+-- Name: content fk_hlmvwoxokzqvetfzwpkqhqqufgvdixthcjym; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.content
+    ADD CONSTRAINT fk_hlmvwoxokzqvetfzwpkqhqqufgvdixthcjym FOREIGN KEY ("siteId") REFERENCES public.sites(id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4417 (class 2606 OID 17536)
+-- Name: usergroups_users fk_iajjspnankfmhexucrqruyzntgitzvkdaazc; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.usergroups_users
+    ADD CONSTRAINT fk_iajjspnankfmhexucrqruyzntgitzvkdaazc FOREIGN KEY ("userId") REFERENCES public.users(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4383 (class 2606 OID 17541)
+-- Name: matrixblocks fk_ibajiagocgofbtckkfshgiiklubaxtouyelc; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.matrixblocks
+    ADD CONSTRAINT fk_ibajiagocgofbtckkfshgiiklubaxtouyelc FOREIGN KEY ("ownerId") REFERENCES public.elements(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4388 (class 2606 OID 17546)
+-- Name: matrixcontent_factscontentblocks fk_ielkpgacqtzajgjgvakfteyegepwybqugvxk; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.matrixcontent_factscontentblocks
+    ADD CONSTRAINT fk_ielkpgacqtzajgjgvakfteyegepwybqugvxk FOREIGN KEY ("siteId") REFERENCES public.sites(id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4428 (class 2606 OID 17551)
+-- Name: volumes fk_ijeqltjxlgxltsrdrygzzqgiaekdglzayjba; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.volumes
+    ADD CONSTRAINT fk_ijeqltjxlgxltsrdrygzzqgiaekdglzayjba FOREIGN KEY ("fieldLayoutId") REFERENCES public.fieldlayouts(id) ON DELETE SET NULL;
+
+
+--
+-- TOC entry 4398 (class 2606 OID 17556)
+-- Name: relations fk_jfeksulqfdslnpmddungigupphrvuvdmrsfn; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.relations
+    ADD CONSTRAINT fk_jfeksulqfdslnpmddungigupphrvuvdmrsfn FOREIGN KEY ("sourceSiteId") REFERENCES public.sites(id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4403 (class 2606 OID 17561)
+-- Name: sections_sites fk_kamsfgleoyuhjndbtdhvxvjbcokmtlglmawn; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sections_sites
+    ADD CONSTRAINT fk_kamsfgleoyuhjndbtdhvxvjbcokmtlglmawn FOREIGN KEY ("sectionId") REFERENCES public.sections(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4412 (class 2606 OID 17566)
+-- Name: tags fk_kcxjvsbicqxkkxdcowaoroysdhwapfwxgkpj; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.tags
+    ADD CONSTRAINT fk_kcxjvsbicqxkkxdcowaoroysdhwapfwxgkpj FOREIGN KEY ("groupId") REFERENCES public.taggroups(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4410 (class 2606 OID 17571)
+-- Name: taggroups fk_keoxpzseiorfxllgseuxgxmwslhbayembhrk; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.taggroups
+    ADD CONSTRAINT fk_keoxpzseiorfxllgseuxgxmwslhbayembhrk FOREIGN KEY ("fieldLayoutId") REFERENCES public.fieldlayouts(id) ON DELETE SET NULL;
+
+
+--
+-- TOC entry 4368 (class 2606 OID 17576)
+-- Name: entries fk_kgjjbfilryyjpgxwthrszqubszgzvcvcucgx; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.entries
+    ADD CONSTRAINT fk_kgjjbfilryyjpgxwthrszqubszgzvcvcucgx FOREIGN KEY ("sectionId") REFERENCES public.sections(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4369 (class 2606 OID 17581)
+-- Name: entries fk_kgtgxhxbkvczpdevtbyliplsvzbddesrjwhj; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.entries
+    ADD CONSTRAINT fk_kgtgxhxbkvczpdevtbyliplsvzbddesrjwhj FOREIGN KEY (id) REFERENCES public.elements(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4389 (class 2606 OID 17586)
+-- Name: matrixcontent_factscontentblocks fk_kmikzgvgqcnylulchxpnollbmrshetncnczf; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.matrixcontent_factscontentblocks
+    ADD CONSTRAINT fk_kmikzgvgqcnylulchxpnollbmrshetncnczf FOREIGN KEY ("elementId") REFERENCES public.elements(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4351 (class 2606 OID 17591)
+-- Name: changedattributes fk_kqdcmaygxrbqenaibrsxifpblthmdvtoddhy; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.changedattributes
+    ADD CONSTRAINT fk_kqdcmaygxrbqenaibrsxifpblthmdvtoddhy FOREIGN KEY ("elementId") REFERENCES public.elements(id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4392 (class 2606 OID 17596)
+-- Name: matrixcontent_poiastroobject fk_kvruazwauxpzaxvgjhmfdfzjxtqxyldmfkgi; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.matrixcontent_poiastroobject
+    ADD CONSTRAINT fk_kvruazwauxpzaxvgjhmfdfzjxtqxyldmfkgi FOREIGN KEY ("siteId") REFERENCES public.sites(id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4370 (class 2606 OID 17601)
+-- Name: entries fk_myepbwawycrfseryfoeenlelcjjrabboeiba; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.entries
+    ADD CONSTRAINT fk_myepbwawycrfseryfoeenlelcjjrabboeiba FOREIGN KEY ("authorId") REFERENCES public.users(id) ON DELETE SET NULL;
+
+
+--
+-- TOC entry 4430 (class 2606 OID 18010)
+-- Name: announcements fk_nmnmaxjxbowmfbljuxfmjvumizvpeivrjygn; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.announcements
+    ADD CONSTRAINT fk_nmnmaxjxbowmfbljuxfmjvumizvpeivrjygn FOREIGN KEY ("pluginId") REFERENCES public.plugins(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4423 (class 2606 OID 17606)
+-- Name: userpreferences fk_nvdnlrjoxgtibyniomlscxndfzgrofhhwkyk; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.userpreferences
+    ADD CONSTRAINT fk_nvdnlrjoxgtibyniomlscxndfzgrofhhwkyk FOREIGN KEY ("userId") REFERENCES public.users(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4425 (class 2606 OID 17611)
+-- Name: users fk_nxffqauqqwhrrhjnespsyofevqqlwpnnplfq; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.users
+    ADD CONSTRAINT fk_nxffqauqqwhrrhjnespsyofevqqlwpnnplfq FOREIGN KEY ("photoId") REFERENCES public.assets(id) ON DELETE SET NULL;
+
+
+--
+-- TOC entry 4387 (class 2606 OID 17616)
+-- Name: matrixblocktypes fk_nxpjahxiyspjualpicbxjriyfvzbpdcpthkz; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.matrixblocktypes
+    ADD CONSTRAINT fk_nxpjahxiyspjualpicbxjriyfvzbpdcpthkz FOREIGN KEY ("fieldId") REFERENCES public.fields(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4379 (class 2606 OID 17621)
+-- Name: globalsets fk_nzuzfxncmaojysjehxlkexofdflkltwpxiks; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.globalsets
+    ADD CONSTRAINT fk_nzuzfxncmaojysjehxlkexofdflkltwpxiks FOREIGN KEY ("fieldLayoutId") REFERENCES public.fieldlayouts(id) ON DELETE SET NULL;
+
+
+--
+-- TOC entry 4408 (class 2606 OID 17626)
+-- Name: structureelements fk_oglcfvchxbliovjeouunigqnewaetyviilqa; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.structureelements
+    ADD CONSTRAINT fk_oglcfvchxbliovjeouunigqnewaetyviilqa FOREIGN KEY ("structureId") REFERENCES public.structures(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4384 (class 2606 OID 17631)
+-- Name: matrixblocks fk_pevbofdckhgqybzjjbfmnoiamgjbaknilpjx; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.matrixblocks
+    ADD CONSTRAINT fk_pevbofdckhgqybzjjbfmnoiamgjbaknilpjx FOREIGN KEY (id) REFERENCES public.elements(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4339 (class 2606 OID 17636)
+-- Name: assets fk_pliaqhtmpxdcobtmuemgeczinaylamcmsjnw; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.assets
+    ADD CONSTRAINT fk_pliaqhtmpxdcobtmuemgeczinaylamcmsjnw FOREIGN KEY ("folderId") REFERENCES public.volumefolders(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4375 (class 2606 OID 17641)
+-- Name: fieldlayoutfields fk_prwczdkhxoskdsmjmuuikwkkcxoxdkqqzpei; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.fieldlayoutfields
+    ADD CONSTRAINT fk_prwczdkhxoskdsmjmuuikwkkcxoxdkqqzpei FOREIGN KEY ("tabId") REFERENCES public.fieldlayouttabs(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4426 (class 2606 OID 17646)
+-- Name: volumefolders fk_qifhwkhhqhjvptudynzkavzfxuwcexqxsfjr; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.volumefolders
+    ADD CONSTRAINT fk_qifhwkhhqhjvptudynzkavzfxuwcexqxsfjr FOREIGN KEY ("volumeId") REFERENCES public.volumes(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4416 (class 2606 OID 17651)
+-- Name: templatecaches fk_qmbduzqhpbnsalyrmsejnulqgtscakxaepqm; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.templatecaches
+    ADD CONSTRAINT fk_qmbduzqhpbnsalyrmsejnulqgtscakxaepqm FOREIGN KEY ("siteId") REFERENCES public.sites(id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4366 (class 2606 OID 17656)
+-- Name: elements_sites fk_qulxgorjhbrrkxryqiydqoszksyyhmapfclm; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.elements_sites
+    ADD CONSTRAINT fk_qulxgorjhbrrkxryqiydqoszksyyhmapfclm FOREIGN KEY ("siteId") REFERENCES public.sites(id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4427 (class 2606 OID 17661)
+-- Name: volumefolders fk_qwnetumldqouglypoexfxvvqecnqdtltdenw; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.volumefolders
+    ADD CONSTRAINT fk_qwnetumldqouglypoexfxvvqecnqdtltdenw FOREIGN KEY ("parentId") REFERENCES public.volumefolders(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4415 (class 2606 OID 17666)
+-- Name: templatecachequeries fk_rssrrjnxgojeloqdytmgqqjpbzkyekvdmgtu; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.templatecachequeries
+    ADD CONSTRAINT fk_rssrrjnxgojeloqdytmgqqjpbzkyekvdmgtu FOREIGN KEY ("cacheId") REFERENCES public.templatecaches(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4406 (class 2606 OID 17671)
+-- Name: shunnedmessages fk_salqvlhiukuadtjrkdpoqpadgxyxwfgswbvp; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.shunnedmessages
+    ADD CONSTRAINT fk_salqvlhiukuadtjrkdpoqpadgxyxwfgswbvp FOREIGN KEY ("userId") REFERENCES public.users(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4404 (class 2606 OID 17676)
+-- Name: sections_sites fk_sapdvsolxaeqxpjsofzhhbhhsinkwfebvrke; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sections_sites
+    ADD CONSTRAINT fk_sapdvsolxaeqxpjsofzhhbhhsinkwfebvrke FOREIGN KEY ("siteId") REFERENCES public.sites(id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4429 (class 2606 OID 17681)
+-- Name: widgets fk_ssooxbzzpxuzcksmvdzdewhxtdzevncbfnnb; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.widgets
+    ADD CONSTRAINT fk_ssooxbzzpxuzcksmvdzdewhxtdzevncbfnnb FOREIGN KEY ("userId") REFERENCES public.users(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4409 (class 2606 OID 17686)
+-- Name: structureelements fk_tcrgzpgjihvbacgyeifolwlpmmicfcadjdxk; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.structureelements
+    ADD CONSTRAINT fk_tcrgzpgjihvbacgyeifolwlpmmicfcadjdxk FOREIGN KEY ("elementId") REFERENCES public.elements(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4354 (class 2606 OID 17691)
+-- Name: changedfields fk_ttzvlzzvlpywtkzakiotqbvtbaedcohjpwzc; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.changedfields
+    ADD CONSTRAINT fk_ttzvlzzvlpywtkzakiotqbvtbaedcohjpwzc FOREIGN KEY ("siteId") REFERENCES public.sites(id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4393 (class 2606 OID 17696)
+-- Name: matrixcontent_poiastroobject fk_udxciptpcidijvsffsmncslrhqjdhhikftah; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.matrixcontent_poiastroobject
+    ADD CONSTRAINT fk_udxciptpcidijvsffsmncslrhqjdhhikftah FOREIGN KEY ("elementId") REFERENCES public.elements(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4357 (class 2606 OID 17701)
+-- Name: content fk_uhpbzxedulgcilqpceuecavtiiirrtbvhcsq; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.content
+    ADD CONSTRAINT fk_uhpbzxedulgcilqpceuecavtiiirrtbvhcsq FOREIGN KEY ("elementId") REFERENCES public.elements(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4395 (class 2606 OID 17706)
+-- Name: matrixcontent_tourpois fk_usleqcymxjqtvhiuvkjkojxmoiketyntmcjo; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.matrixcontent_tourpois
+    ADD CONSTRAINT fk_usleqcymxjqtvhiuvkjkojxmoiketyntmcjo FOREIGN KEY ("siteId") REFERENCES public.sites(id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4420 (class 2606 OID 17711)
+-- Name: userpermissions_usergroups fk_uvipnepqohqvckydpoffratpsojuevuglwks; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.userpermissions_usergroups
+    ADD CONSTRAINT fk_uvipnepqohqvckydpoffratpsojuevuglwks FOREIGN KEY ("groupId") REFERENCES public.usergroups(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4363 (class 2606 OID 17716)
+-- Name: elements fk_uxksfnwvglvkmkhhombxfrqazqkjgectxhvc; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.elements
+    ADD CONSTRAINT fk_uxksfnwvglvkmkhhombxfrqazqkjgectxhvc FOREIGN KEY ("draftId") REFERENCES public.drafts(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4414 (class 2606 OID 17721)
+-- Name: templatecacheelements fk_vbjbessmrosfylraudllwxtufzehmjhhudbj; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.templatecacheelements
+    ADD CONSTRAINT fk_vbjbessmrosfylraudllwxtufzehmjhhudbj FOREIGN KEY ("cacheId") REFERENCES public.templatecaches(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4371 (class 2606 OID 17726)
+-- Name: entries fk_vfdogasytasksaavoaupnedeivxvzdyjrfbg; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.entries
+    ADD CONSTRAINT fk_vfdogasytasksaavoaupnedeivxvzdyjrfbg FOREIGN KEY ("parentId") REFERENCES public.entries(id) ON DELETE SET NULL;
+
+
+--
+-- TOC entry 4344 (class 2606 OID 17731)
+-- Name: categories fk_vogfdrxhlwzawqhxmlipsoaepvqlbboaweoi; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.categories
+    ADD CONSTRAINT fk_vogfdrxhlwzawqhxmlipsoaepvqlbboaweoi FOREIGN KEY ("parentId") REFERENCES public.categories(id) ON DELETE SET NULL;
+
+
+--
+-- TOC entry 4340 (class 2606 OID 17736)
+-- Name: assets fk_vqvjysrngzlhivsudijmrbnnlxvjrvbwsklv; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.assets
+    ADD CONSTRAINT fk_vqvjysrngzlhivsudijmrbnnlxvjrvbwsklv FOREIGN KEY ("volumeId") REFERENCES public.volumes(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4380 (class 2606 OID 17741)
+-- Name: globalsets fk_vtlhnmgkgflbatxapriuhfjhczeqesirbqam; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.globalsets
+    ADD CONSTRAINT fk_vtlhnmgkgflbatxapriuhfjhczeqesirbqam FOREIGN KEY (id) REFERENCES public.elements(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4360 (class 2606 OID 17746)
+-- Name: drafts fk_wgkdcxubcosrjalbbrbcbtjzvkqlzkvlcnwg; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.drafts
+    ADD CONSTRAINT fk_wgkdcxubcosrjalbbrbcbtjzvkqlzkvlcnwg FOREIGN KEY ("sourceId") REFERENCES public.elements(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4431 (class 2606 OID 18005)
+-- Name: announcements fk_wkstljofyoqxsexdnxzjpllgthcapeztsnbd; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.announcements
+    ADD CONSTRAINT fk_wkstljofyoqxsexdnxzjpllgthcapeztsnbd FOREIGN KEY ("userId") REFERENCES public.users(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4355 (class 2606 OID 17751)
+-- Name: changedfields fk_wwecvotqkkkvetdmsqkoeisqdtoilmutjmok; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.changedfields
+    ADD CONSTRAINT fk_wwecvotqkkkvetdmsqkoeisqdtoilmutjmok FOREIGN KEY ("elementId") REFERENCES public.elements(id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4341 (class 2606 OID 17756)
+-- Name: assets fk_wxxpowhecgzxdomankczvkhvlpkiqxmcpgnm; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.assets
+    ADD CONSTRAINT fk_wxxpowhecgzxdomankczvkhvlpkiqxmcpgnm FOREIGN KEY ("uploaderId") REFERENCES public.users(id) ON DELETE SET NULL;
+
+
+--
+-- TOC entry 4391 (class 2606 OID 17761)
+-- Name: matrixcontent_introcontentblocks fk_xgdhevoybwjapvtavhnddtdzajxmbbncevlj; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.matrixcontent_introcontentblocks
+    ADD CONSTRAINT fk_xgdhevoybwjapvtavhnddtdzajxmbbncevlj FOREIGN KEY ("siteId") REFERENCES public.sites(id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4399 (class 2606 OID 17766)
+-- Name: relations fk_xsxmugogqbsskvakqzkeoyrwtnzibejqchky; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.relations
+    ADD CONSTRAINT fk_xsxmugogqbsskvakqzkeoyrwtnzibejqchky FOREIGN KEY ("sourceId") REFERENCES public.elements(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4402 (class 2606 OID 17771)
+-- Name: sections fk_yfwjnmvmyksxuiylfyystjetqpyjrijaosbl; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sections
+    ADD CONSTRAINT fk_yfwjnmvmyksxuiylfyystjetqpyjrijaosbl FOREIGN KEY ("structureId") REFERENCES public.structures(id) ON DELETE SET NULL;
+
+
+--
+-- TOC entry 4376 (class 2606 OID 17776)
+-- Name: fieldlayoutfields fk_yretsbatlsvddfusomhjctpsiqticzuqhqjr; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.fieldlayoutfields
+    ADD CONSTRAINT fk_yretsbatlsvddfusomhjctpsiqticzuqhqjr FOREIGN KEY ("layoutId") REFERENCES public.fieldlayouts(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4337 (class 2606 OID 17781)
+-- Name: assetindexdata fk_yrnoyuydmxlmlydmcxmwcqwrsqmreeeiywtq; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.assetindexdata
+    ADD CONSTRAINT fk_yrnoyuydmxlmlydmcxmwcqwrsqmreeeiywtq FOREIGN KEY ("volumeId") REFERENCES public.volumes(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4401 (class 2606 OID 17786)
+-- Name: revisions fk_ysabcqjrntaviyfxmufksdighinpjuplkgvs; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.revisions
+    ADD CONSTRAINT fk_ysabcqjrntaviyfxmufksdighinpjuplkgvs FOREIGN KEY ("creatorId") REFERENCES public.users(id) ON DELETE SET NULL;
+
+
+--
+-- TOC entry 4418 (class 2606 OID 17791)
+-- Name: usergroups_users fk_ywabfwubrrvwmfqkbtqdntpssdsrndpbgfkh; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.usergroups_users
+    ADD CONSTRAINT fk_ywabfwubrrvwmfqkbtqdntpssdsrndpbgfkh FOREIGN KEY ("groupId") REFERENCES public.usergroups(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4385 (class 2606 OID 17796)
+-- Name: matrixblocks fk_ziuwxjfdaktbzbjffckkspykcokzjsvtezpt; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.matrixblocks
+    ADD CONSTRAINT fk_ziuwxjfdaktbzbjffckkspykcokzjsvtezpt FOREIGN KEY ("typeId") REFERENCES public.matrixblocktypes(id) ON DELETE CASCADE;
+
+
+-- Completed on 2021-10-27 16:08:11 MST
 
 --
 -- PostgreSQL database dump complete
