@@ -62,14 +62,23 @@ jobs:
         tag: ${{ github.head_ref }}
         region: us-central1
 
-    - name: Post the URL to the PR
+    # Create or update a comment with the URL
+    - name: Find Comment
+      uses: peter-evans/find-comment@v1
+      id: fc
+      with:
+        issue-number: ${{ github.event.pull_request.number }}
+        comment-author: 'github-actions[bot]'
+        body-includes: A preview of this PR
+
+    - name: Create or update a comment with the URL to the PR
       uses: peter-evans/create-or-update-comment@v1
       with:
+        comment-id: ${{ steps.fc.outputs.comment-id }}
         issue-number: ${{ github.event.pull_request.number }}
         body: |
           A preview of this PR will be available at ${{ steps.deploy.outputs.url }} until the request is closed.
         reactions: '+1'
-
 
   remove-tag:
     name: 'Remove branch tag'
