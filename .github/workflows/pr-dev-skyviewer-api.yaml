@@ -56,7 +56,7 @@ jobs:
     # Deploy to Cloud Run.
     - name: Deploy a tagged version to Cloud Run without redirecting traffic
       run: |-
-        gcloud beta run deploy skyviewer-api \
+        gcloud beta run deploy skyviewer-api --quiet \
         --image=gcr.io/${{ secrets.SV_PROJ_NAME }}/skyviewer-api:${{ github.sha }} \
         --vpc-connector=${{ env.vpc_connector }} \
         --region=us-central1 \
