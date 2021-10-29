@@ -53,4 +53,4 @@ jobs:
         --region=us-central1
 
     - name: Redirect traffic to new revision
-      run: gcloud run services update-traffic skyviewer-api --to-latest
+      run: gcloud run services update-traffic skyviewer-api --region=us-central1 --to-latest
