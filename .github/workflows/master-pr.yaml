@@ -50,17 +50,18 @@ jobs:
       run: |-
         docker push "gcr.io/epo-integration-0e42/skyviewer-api:${{ github.sha }}"
 
+    - name: Get VPC connector name
+      run: echo "vpc_connector=$(gcloud compute networks vpc-access connectors list --region=us-central1 --limit=1 --format='value(name)')" >> $GITHUB_ENV
+
     # Deploy to Cloud Run.
     - name: Deploy a tagged version to Cloud Run without redirecting traffic
-      id: deploy
-      uses: google-github-actions/deploy-cloudrun@main
-      with:
-        service: skyviewer-api
-        image: gcr.io/epo-integration-0e42/skyviewer-api:${{ github.sha }}    
-        credentials: ${{ secrets.SKYVIEWER_INT_SERVICE_ACCOUNT }}
-        no_traffic: true
-        tag: ${{ github.head_ref }}
-        region: us-central1
+      run: |-
+        gcloud run deploy skyviewer-api --quiet \
+        --image=gcr.io/epo-integration-0e42/skyviewer-api:${{ github.sha }} \
+        --vpc-connector=${{ env.vpc_connector }} \
+        --region=us-central1 \
+        --tag=${{ github.head_ref }} \
+        --no-traffic
 
     # Create or update a comment with the URL
     - name: Find Comment
