@@ -39,18 +39,14 @@ jobs:
       run: |-
         docker push "gcr.io/epo-integration-0e42/skyviewer-api:${{ github.sha }}"
 
+    - name: Get VPC connector name
+      run: echo "vpc_connector=$(gcloud compute networks vpc-access connectors list --region=us-central1 --limit=1 --format='value(name)')" >> $GITHUB_ENV
+
     # Deploy to Cloud Run.
     - name: Deploy to Cloud Run
       id: deploy
-      uses: google-github-actions/deploy-cloudrun@main
-      with:
-        service: skyviewer-api
-        image: gcr.io/epo-integration-0e42/skyviewer-api:${{ github.sha }}    
-        credentials: ${{ secrets.GCP_SA_KEY }}
-        region: us-central1
-
-    # Ensure that traffic is directed to the latest revision. This is necessary because
-    # the deploy-cloudrun action above is not capable of both deploying and redirecting
-    # traffic in the same operation
-    - name: Redirect traffic to the latest revision
-      run: gcloud run services update-traffic skyviewer-api --platform managed --region us-central1 --to-revisions LATEST=100
+      run: |-
+        gcloud run deploy skyviewer-api \
+        --image=gcr.io/epo-integration-0e42/skyviewer-api:${{ github.sha }} \
+        --vpc-connector=${{ env.vpc_connector }} \
+        --region=us-central1
