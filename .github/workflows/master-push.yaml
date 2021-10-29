@@ -50,3 +50,6 @@ jobs:
         --image=gcr.io/epo-integration-0e42/skyviewer-api:${{ github.sha }} \
         --vpc-connector=${{ env.vpc_connector }} \
         --region=us-central1
+
+    - name: Redirect traffic to new revision
+      run: gcloud run service update-traffic skyviewer-api --to-latest
