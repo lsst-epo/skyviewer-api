@@ -80,6 +80,7 @@ jobs:
         body: |
           A preview of this PR will be available at https://${{ github.head_ref }}---skyviewer-api-e3g4rcii3q-uc.a.run.app until the request is closed.
         reactions: '+1'
+        edit-mode: replace
 
   remove-tag:
     name: 'Remove branch tag'
