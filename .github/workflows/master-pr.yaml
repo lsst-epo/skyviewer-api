@@ -79,6 +79,7 @@ jobs:
         body: |
           A preview of this PR will be available at ${{ steps.deploy.outputs.url }} until the request is closed.
         reactions: '+1'
+        edit-mode: replace
 
   remove-tag:
     name: 'Remove branch tag'
