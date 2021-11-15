@@ -52,6 +52,22 @@ The local development DB will be created from the `local-db/skyviewer.sql` on th
 
 2. Go to <http://localhost:8080/admin> to test that it loads
 
+#### Copying a DB from Cloud SQL
+
+It may occassinally be necessary to replace the local db with a copy of the development db from Cloud SQL. This is achieved by taking an export of the database from a Cloud SQL instance then then downloading the export locally and importing it to the local database.
+
+1. Create a DB export in Cloud SQL.
+
+   ```bash
+   gcloud sql export sql --project skyviewer skyviewer-replica gs://skyviewer/skyviewer-export.sql --database=skyviewer
+   ```
+
+2. Download the export
+
+   ```bash
+   gsutil cp gs://skyviewer/skyviewer-export.sql ./local-db/skyviewer.sql
+   ```
+
 ### Volume
 
 The `docker-compose.yml` mounts the CraftCMS `web` folder as a volume for the Craft and Nginx container. This means that you will be able to make changes to the files within the `/craftcms/web` folder and the changes will be instantly reflected in the running container. However, this also means that the containers are no longer ephemeral - which is the intent.
