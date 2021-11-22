@@ -31,7 +31,7 @@ jobs:
       uses: google-github-actions/setup-gcloud@master
       with:
         service_account_key: ${{ secrets.SKYVIEWER_INT_SERVICE_ACCOUNT }}
-        project_id: epo-integration-0e42
+        project_id: edc-int-6c5e
         export_default_credentials: true
 
      # Configure Docker to use the gcloud command-line tool as a credential
@@ -43,12 +43,12 @@ jobs:
     - name: Build Docker image
       run: |-
         docker build \
-          --tag "gcr.io/epo-integration-0e42/skyviewer-api:${{ github.sha }}" .
+          --tag "gcr.io/edc-int-6c5e/skyviewer-api:${{ github.sha }}" .
 
     # Push the Docker image to Google Container Registry
     - name: Publish image to GCR
       run: |-
-        docker push "gcr.io/epo-integration-0e42/skyviewer-api:${{ github.sha }}"
+        docker push "gcr.io/edc-int-6c5e/skyviewer-api:${{ github.sha }}"
 
     - name: Get VPC connector name
       run: echo "vpc_connector=$(gcloud compute networks vpc-access connectors list --region=us-central1 --limit=1 --format='value(name)')" >> $GITHUB_ENV
@@ -56,8 +56,8 @@ jobs:
     # Deploy to Cloud Run.
     - name: Deploy a tagged version to Cloud Run without redirecting traffic
       run: |-
-        gcloud run deploy skyviewer-api --quiet \
-        --image=gcr.io/epo-integration-0e42/skyviewer-api:${{ github.sha }} \
+        gcloud run deploy skyviewer-api-int --quiet \
+        --image=gcr.io/edc-int-6c5e/skyviewer-api:${{ github.sha }} \
         --vpc-connector=${{ env.vpc_connector }} \
         --region=us-central1 \
         --tag=${{ github.head_ref }} \
@@ -93,9 +93,9 @@ jobs:
       uses: google-github-actions/setup-gcloud@master
       with:
         service_account_key: ${{ secrets.SKYVIEWER_INT_SERVICE_ACCOUNT }}
-        project_id: epo-integration-0e42
+        project_id: edc-int-6c5e
         export_default_credentials: true
 
       # Remove the branch tag when the PR is closed
     - name: Remove branch tag
-      run: gcloud run services update-traffic skyviewer-api --remove-tags=${{ github.head_ref }} --region=us-central1
+      run: gcloud run services update-traffic skyviewer-api-int --remove-tags=${{ github.head_ref }} --region=us-central1

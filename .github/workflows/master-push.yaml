@@ -21,7 +21,7 @@ jobs:
       uses: google-github-actions/setup-gcloud@master
       with:
         service_account_key: ${{ secrets.SKYVIEWER_INT_SERVICE_ACCOUNT }}
-        project_id: epo-integration-0e42
+        project_id: edc-int-6c5e
         export_default_credentials: true
 
      # Configure Docker to use the gcloud command-line tool as a credential
@@ -32,12 +32,12 @@ jobs:
     - name: Build Docker image
       run: |-
         docker build . \
-          --tag "gcr.io/epo-integration-0e42/skyviewer-api:${{ github.sha }}"
+          --tag "gcr.io/edc-int-6c5e/skyviewer-api:${{ github.sha }}"
 
     # Push the Docker image to Google Container Registry
     - name: Publish image to GCR
       run: |-
-        docker push "gcr.io/epo-integration-0e42/skyviewer-api:${{ github.sha }}"
+        docker push "gcr.io/edc-int-6c5e/skyviewer-api:${{ github.sha }}"
 
     - name: Get VPC connector name
       run: echo "vpc_connector=$(gcloud compute networks vpc-access connectors list --region=us-central1 --limit=1 --format='value(name)')" >> $GITHUB_ENV
@@ -46,10 +46,10 @@ jobs:
     - name: Deploy to Cloud Run
       id: deploy
       run: |-
-        gcloud run deploy skyviewer-api \
-        --image=gcr.io/epo-integration-0e42/skyviewer-api:${{ github.sha }} \
+        gcloud run deploy skyviewer-api-int \
+        --image=gcr.io/edc-int-6c5e/skyviewer-api:${{ github.sha }} \
         --vpc-connector=${{ env.vpc_connector }} \
         --region=us-central1
 
     - name: Redirect traffic to new revision
-      run: gcloud run services update-traffic skyviewer-api --region=us-central1 --to-latest
+      run: gcloud run services update-traffic skyviewer-api-int --region=us-central1 --to-latest
