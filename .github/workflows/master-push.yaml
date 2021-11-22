@@ -49,6 +49,7 @@ jobs:
         gcloud run deploy skyviewer-api-int \
         --image=gcr.io/edc-int-6c5e/skyviewer-api:${{ github.sha }} \
         --vpc-connector=${{ env.vpc_connector }} \
+        --service-account=project-service-account@edc-int-6c5e.iam.gserviceaccount.com \
         --region=us-central1
 
     - name: Redirect traffic to new revision
