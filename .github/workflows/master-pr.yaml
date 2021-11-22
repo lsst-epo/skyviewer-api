@@ -22,10 +22,6 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    - name: Print GitHub event action
-      run: |
-        echo "${{ github.event.action }}"
-
     # gcloud CLI setup
     - name: Login to GCP
       uses: google-github-actions/setup-gcloud@master
@@ -61,6 +57,7 @@ jobs:
         --vpc-connector=${{ env.vpc_connector }} \
         --region=us-central1 \
         --tag=${{ github.head_ref }} \
+        --service-account=project-service-account@edc-int-6c5e.iam.gserviceaccount.com \
         --no-traffic
 
     # Create or update a comment with the URL
