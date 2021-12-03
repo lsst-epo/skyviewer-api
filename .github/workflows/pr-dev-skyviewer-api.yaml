@@ -78,7 +78,7 @@ jobs:
         comment-id: ${{ steps.fc.outputs.comment-id }}
         issue-number: ${{ github.event.pull_request.number }}
         body: |
-          A preview of this PR will be available at https://${{ github.head_ref }}---skyviewer-api-e3g4rcii3q-uc.a.run.app until the request is closed.
+          A preview of this PR will be available at https://${{ github.head_ref }}---skyviewer-api-int-2eici5myiq-uc.a.run.app until the request is closed.
         reactions: '+1'
         edit-mode: replace
 
