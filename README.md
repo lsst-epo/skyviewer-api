@@ -32,8 +32,16 @@ available if needed.
 
    Note that it make take 1 or 2 restarts of the craft container before the SSH tunnel is up and Craft is able to launch. The Craft container is configured to auto-restart if the initial database connection fails.
 
+    *To connect to the development database*:
+
     ```bash
     docker-compose up --build
+    ```
+
+    *To connect to the integration database*:
+
+    ```bash
+    docker-compose -f docker-compose.yml -f integration.yml up
     ```
 
 3. Go to <http://localhost:8080/admin> to test that it loads
