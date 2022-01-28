@@ -18,6 +18,6 @@ COPY custom-plugins/ /custom-plugins
 RUN [ -d /var/www/html/storage ] || mkdir /var/www/html/storage
 
 # Make sure the www-data user has the correct directory ownership
-RUN chown -R www-data:www-data /var/www /run /var/lib/nginx /var/log/nginx
+RUN chown -R www-data:www-data /var/www
 
 USER www-data
