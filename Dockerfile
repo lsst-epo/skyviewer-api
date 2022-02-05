@@ -6,7 +6,7 @@ COPY custom-plugins/ ../custom-plugins/
 RUN composer install --ignore-platform-reqs --no-interaction --prefer-dist --classmap-authoritative
 
 # Runtime container
-FROM us-central1-docker.pkg.dev/skyviewer/public-images/craft-base-image:latest
+FROM us-central1-docker.pkg.dev/skyviewer/public-images/craft-base-image@sha256:2ff13d039e1245c172210d5c609dd17c85a5e9bb197e3db055b2e1291a35acd1
 
 USER root 
 
