@@ -7,6 +7,7 @@ RUN composer install --ignore-platform-reqs --no-interaction --prefer-dist --cla
 
 # Runtime container
 FROM us-central1-docker.pkg.dev/skyviewer/public-images/craft-base-image:latest
+#FROM erosas/craft-base-image:latest
 
 USER root 
 
@@ -15,6 +16,7 @@ WORKDIR /var/www/html
 COPY --chown=www-data:www-data craftcms/ ./
 COPY --from=vendor --chown=www-data:www-data /app/vendor /var/www/html/vendor
 COPY custom-plugins/ /custom-plugins
+COPY ./php/php.ini /usr/local/etc/php/php.ini
 RUN [ -d /var/www/html/storage ] || mkdir /var/www/html/storage
 
 # Make sure the www-data user has the correct directory ownership
