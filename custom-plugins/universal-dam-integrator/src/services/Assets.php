@@ -1,9 +1,11 @@
 <?php
 namespace rosas\dam\services;
 
+use \Datetime;
 use Craft;
 use yii\base\Component;
 use craft\elements\Asset;
+//use rosas\dam\elements\Asset;
 use rosas\dam\services\Elements;
 use craft\helpers\Json;
 use craft\events\GetAssetThumbUrlEvent;
@@ -104,23 +106,30 @@ class Assets extends Component
         // $filename = "test";
 
         //$newAsset->filename = $this->assetMetadata["name"];
+        Craft::info("maddie - width : " . $this->assetMetadata["width"], "rosas");
+        Craft::info("maddie - height : " . $this->assetMetadata["height"], "rosas");
         $newAsset->filename = str_replace("https://rubin.canto.com/direct/", "", $filename);
         // $newAsset->setWidth(100);
-        $newAsset->width = $this->assetMetadata["width"] ;
-        $newAsset->height = $this->assetMetadata["height"] ;
+        // $newAsset->setWidth($this->assetMetadata["width"]);
+        // $newAsset->setHeight($this->assetMetadata["height"]);
+        $newAsset->kind = "image";
+        $newAsset->setHeight($this->assetMetadata["height"]);
+        $newAsset->setWidth($this->assetMetadata["width"]);
         $newAsset->size = $this->assetMetadata["metadata"]["Asset Data Size (Long)"];
         $newAsset->folderId = 17;
-        $newAsset->setVolumeId(5); 
+        // $newAsset->setVolumeId(5); 
         //$newAsset->kind = "extImage({$this->assetMetadata["id"]})";
-        $newAsset->kind = "image";
+        // $newAsset->kind = "image";
         $newAsset->firstSave = true;
         $newAsset->propagateAll = false; //changed from true for debugging purposes
-
+        $now = new DateTime();
+        $newAsset->dateModified = $now->format('Y-m-d H:i:s');
 
 
 
         $elements = new Elements();
-        $success = $elements->saveElement($newAsset, false, true, false);
+        //$success = $elements->saveElement($newAsset, false, true, false);
+        $success = $elements->saveElement($newAsset, false, true, true);
         return $success;
         //return null; // temp 
     }
@@ -138,9 +147,14 @@ class Assets extends Component
         Craft::beginProfile('handleGetAssetThumbUrlEvent', __METHOD__);
         $url = $event->url;
         $asset = $event->asset;
-        if(substr($asset->kind, 0, 3) == "ext") {
-            $parsedKey = substr($asset->kind, 9);
-            $parsedKey = str_replace(")", "", $parsedKey);
+        
+        
+        $settingsVolID = Craft::$app->getVolumes()->getVolumeByHandle($getAssetMetadataEndpoint = \rosas\dam\Plugin::getInstance()->getSettings()->damVolume)["id"];
+        if($asset->getVolumeId() == $settingsVolID) {
+            Craft::info("schnoodle - inside of the eval!!!!", "rosas");
+        //if(substr($asset->kind, 0, 3) == "ext") {
+            // $parsedKey = substr($asset->kind, 9);
+            // $parsedKey = str_replace(")", "", $parsedKey);
 
             $this->authToken = $this->getAuthToken();
             $client = Craft::createGuzzleClient();
@@ -257,10 +271,10 @@ class Assets extends Component
      * @return string
      * @throws NotSupportedException if the asset can't have a thumbnail, and $fallbackToIcon is `false`
      */
-    public function getThumbUrl(Asset $asset, int $width, int $height = null, bool $generate = false, bool $fallbackToIcon = true): string
-    {
-        Craft::info("platypus - hoo ha!!!!!!", "rosas");
-        return "";
+    // public function getThumbUrl(Asset $asset, int $width, int $height = null, bool $generate = false, bool $fallbackToIcon = true): string
+    // {
+    //     Craft::info("platypus - hoo ha!!!!!!", "rosas");
+    //     return "";
         // if ($height === null) {
         //     $height = $width;
         // }
@@ -289,7 +303,7 @@ class Assets extends Component
         //     'height' => $height,
         //     'v' => $asset->dateModified->getTimestamp(),
         // ], null, false);
-    }
+    // }
 
        /**
      * Returns the element’s full URL.
