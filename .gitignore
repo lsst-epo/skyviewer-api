@@ -10,3 +10,6 @@ vendor/
 /log
 /logs
 /ignore
+
+# Ignore "app.yaml" because it's stored as a secret in GCPSM
+app.yaml
