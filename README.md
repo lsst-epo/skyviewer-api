@@ -86,6 +86,12 @@ It may occassinally be necessary to replace the local db with a copy of the deve
    gsutil cp gs://skyviewer/skyviewer-export.sql ./local-db/skyviewer.sql
    ```
 
+3. Modify the top of the sql dump file to include the command to create the DB:
+```
+CREATE DATABASE skyviewer;
+\c skyviewer
+```
+
 ### Volume
 
 The `docker-compose.yml` mounts the CraftCMS `web` folder as a volume for the Craft and Nginx container. This means that you will be able to make changes to the files within the `/craftcms/web` folder and the changes will be instantly reflected in the running container. However, this also means that the containers are no longer ephemeral - which is the intent.

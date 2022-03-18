@@ -13,3 +13,6 @@ vendor/
 
 # Ignore "app.yaml" because it's stored as a secret in GCPSM
 app.yaml
+
+# DB stuff
+/local-db/*
