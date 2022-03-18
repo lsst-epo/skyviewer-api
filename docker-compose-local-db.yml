@@ -1,28 +1,29 @@
 version: "3.9"
 
 services:
-    cache:
-        image: memcached
-        ports:
-        - "11211:11211"
-    db:
-        build: ./local-db
-        ports:
-        - "5432:5432"
-        environment: 
-        - POSTGRES_USER=skyviewer
-        - POSTGRES_DB=postgres
-        - POSTGRES_PASSWORD=zkyvi3w3r
-    craft:
-        build: ./
-        depends_on:
-        - cache
-        - db
-        ports:
-        - "8080:8080"
-        volumes:
-        - "./craftcms/web:/var/www/html/web"
-        - ".env:/var/secrets/.env"
-        environment:
-        - PORT=8080
-        restart: always
+  cache:
+    image: memcached
+    ports:
+    - "11211:11211"
+  db:
+    restart: always
+    build: ./local-db
+    ports:
+    - "5432:5432"
+    environment: 
+    - POSTGRES_USER=skyviewer
+    - POSTGRES_DB=postgres
+    - POSTGRES_PASSWORD=zkyvi3w3r
+  craft:
+    build: ./
+    depends_on:
+    - cache
+    - db
+    ports:
+    - "8080:8080"
+    volumes:
+    - "./craftcms/web:/var/www/html/web"
+    - ".env:/var/secrets/.env"
+    environment:
+    - PORT=8080
+    restart: always
