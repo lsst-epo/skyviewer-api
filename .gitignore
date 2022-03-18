@@ -16,3 +16,4 @@ app.yaml
 
 # DB stuff
 /local-db/*
+!/local-db/Dockerfile
