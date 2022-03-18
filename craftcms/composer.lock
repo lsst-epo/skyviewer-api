@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a0c779337ea0a174d14bb1f6f0336484",
+    "content-hash": "eba572fe1bdbb6321a58b13a59295f34",
     "packages": [
         {
             "name": "cebe/markdown",
@@ -1254,45 +1254,6 @@
                 "source": "https://github.com/darylldoyle/svg-sanitizer/tree/0.14.1"
             },
             "time": "2021-08-09T23:46:54+00:00"
-        },
-        {
-            "name": "ether/logs",
-            "version": "3.0.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ethercreative/logs.git",
-                "reference": "f1bae26f356d7f36a5d12febd39bda1d421fffd0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ethercreative/logs/zipball/f1bae26f356d7f36a5d12febd39bda1d421fffd0",
-                "reference": "f1bae26f356d7f36a5d12febd39bda1d421fffd0",
-                "shasum": ""
-            },
-            "require": {
-                "craftcms/cms": "^3.0.0-RC1"
-            },
-            "type": "craft-plugin",
-            "extra": {
-                "handle": "logs",
-                "name": "Logs",
-                "developer": "Ether Creative",
-                "developerUrl": "https://ethercreative.co.uk",
-                "class": "ether\\logs\\Logs",
-                "schemaVersion": "3.0.0"
-            },
-            "autoload": {
-                "psr-4": {
-                    "ether\\logs\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "description": "Access logs from the CP",
-            "support": {
-                "issues": "https://github.com/ethercreative/logs",
-                "source": "https://github.com/ethercreative/logs/tree/3.0.4"
-            },
-            "time": "2021-07-09T11:07:11+00:00"
         },
         {
             "name": "ezyang/htmlpurifier",
@@ -6974,5 +6935,5 @@
     "platform-overrides": {
         "php": "7.2.5"
     },
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.2.0"
 }
