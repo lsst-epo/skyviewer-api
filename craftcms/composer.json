@@ -3,17 +3,22 @@
   "prefer-stable": true,
   "repositories": [
     {
-      "type": "path",
-      "url": "../custom-plugins/nested-entry-graphql-queries"
+      "type": "vcs",
+      "url": "https://github.com/lsst-epo/craft3-nested-entries-graphql-queries.git"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/lsst-epo/craft3-universal-dam-integrator.git"
     }
   ],
   "require": {
-    "craftcms/cms": "3.7.17.1", 
+    "craftcms/cms": "3.7.17.1",
     "craftcms/google-cloud": "^1.4",
     "craftcms/redactor": "2.8.8",
     "ether/logs": "3.0.4",
     "google/cloud-storage": "^1.24",
-    "rosas/nested-entries-graphql-queries": "dev-master",
+    "rosas/nested-entries-graphql-queries": "^1.0",
+    "rosas/universal-dam-integrator": "dev-main",
     "vlucas/phpdotenv": "^3.4.0"
   },
   "require-dev": {
