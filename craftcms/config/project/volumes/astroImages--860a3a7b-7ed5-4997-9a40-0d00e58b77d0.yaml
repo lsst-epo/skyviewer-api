@@ -41,9 +41,14 @@ handle: astroImages
 hasUrls: true
 name: 'Astro Images'
 settings:
-  path: '@webroot/assets/astroImages'
+  bucket: $GCS_ASSET_BUCKET
+  bucketSelectionMode: manual
+  expires: '5 minutes'
+  keyFileContents: ''
+  projectId: $GCP_PROJECT_ID
+  subfolder: astro
 sortOrder: 0
 titleTranslationKeyFormat: null
 titleTranslationMethod: site
-type: craft\volumes\Local
-url: /astroImages
+type: craft\googlecloud\Volume
+url: '@gcsBucketUrl'

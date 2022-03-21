@@ -10,7 +10,7 @@ scope:
   - 'sections.b22ca822-e7e2-4f8c-8be5-d3b0fcab1c9f:read' # Tours
   - 'entrytypes.52d4af2b-ae9b-4f2f-a90b-5c4b5ce23eb9:read' # Tour
   - 'volumes.a469a047-d19a-421e-97f8-c58f1bda27d7:read' # Tour Images
-  - 'volumes.85d34514-ec13-4850-a272-a3ab1bc790ef:read' # Icons
+  - 'volumes.85d34514-ec13-4850-a272-a3ab1bc790ef:read'
   - 'volumes.860a3a7b-7ed5-4997-9a40-0d00e58b77d0:read' # Astro Images
   - 'globalsets.ea689411-d03e-48f0-8841-3318c457eee1:read' # Site Info
   - 'categorygroups.40780a9f-1ee7-4c59-aaaf-159094330220:read' # Tour Theme
