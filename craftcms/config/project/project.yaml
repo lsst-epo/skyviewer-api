@@ -1,4 +1,4 @@
-dateModified: 1629914918
+dateModified: 1647879922
 email:
   fromEmail: erosas@lsst.org
   fromName: 'Skyviewer API'
@@ -43,6 +43,7 @@ meta:
     93cdcbba-f59d-41f1-ac65-5d9b0f83ef62: Duration # Duration
     763c0189-f6eb-419c-9ca2-2574a743768a: EN # EN
     774bddd7-f968-4015-957b-e33bc6dd5a7c: Admins # Admins
+    0848c204-7e47-4aa0-8da1-5a4538481bce: 'Canto DAM' # Canto DAM
     860a3a7b-7ed5-4997-9a40-0d00e58b77d0: 'Astro Images' # Astro Images
     31806af1-7467-49ea-9638-01ecf1c546cd: 'Intro Subheading' # Intro Subheading
     40780a9f-1ee7-4c59-aaaf-159094330220: 'Tour Theme' # Tour Theme
@@ -81,10 +82,22 @@ meta:
     fe74f2bf-6416-4c77-a05d-1ef924e575a8: Image # Image
     fe1835fb-8bd0-4e5a-b637-0e94330568ac: Description # Description
 plugins:
+  google-cloud:
+    edition: standard
+    enabled: true
+    schemaVersion: '1.1'
+  nested-entries-graphql-queries:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
   redactor:
     edition: standard
     enabled: true
     schemaVersion: 2.3.0
+  universal-dam-integrator:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
 system:
   edition: pro
   live: true
