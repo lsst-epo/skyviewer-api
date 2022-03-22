@@ -3520,12 +3520,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/lsst-epo/craft3-universal-dam-integrator.git",
-                "reference": "f4724dd761c44dcd7376d6119e0ebd029be0e1c4"
+                "reference": "87b311f91d05b5bc3fa1e2a289d08050c09c7cbe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/lsst-epo/craft3-universal-dam-integrator/zipball/f4724dd761c44dcd7376d6119e0ebd029be0e1c4",
-                "reference": "f4724dd761c44dcd7376d6119e0ebd029be0e1c4",
+                "url": "https://api.github.com/repos/lsst-epo/craft3-universal-dam-integrator/zipball/87b311f91d05b5bc3fa1e2a289d08050c09c7cbe",
+                "reference": "87b311f91d05b5bc3fa1e2a289d08050c09c7cbe",
                 "shasum": ""
             },
             "require": {

@@ -1,4 +1,4 @@
-dateModified: 1647879922
+dateModified: 1647977804
 email:
   fromEmail: erosas@lsst.org
   fromName: 'Skyviewer API'
@@ -33,13 +33,11 @@ meta:
     25d2c2a6-169a-461c-b67d-54294c7d22d7: 'Object Id' # Object Id
     32b433c2-8fa2-439b-9678-d48e4f929b88: Catalogs # Catalogs
     36cb7208-d072-48ac-af5e-c034035afdfd: 'Variety Handle' # Variety Handle
-    42fe85e3-1e91-4f99-9751-ed6ed734f7aa: 'Test Google Cloud Storage' # Test Google Cloud Storage
     48d995fe-6d24-48f6-904a-c54f64964387: 'Intro Content Block' # Intro Content Block
     52d4af2b-ae9b-4f2f-a90b-5c4b5ce23eb9: Tour # Tour
     62b4e157-411a-433c-bdc0-dcd42a2d7ca4: 'Points of Interest' # Points of Interest
     82d2c4d7-37f1-458a-8a56-3cc1dcec6a0c: poiAstroObject # poiAstroObject
     84e9fa1d-8aed-40e1-a0e9-cb13152ea782: 'Astro Object' # Astro Object
-    85d34514-ec13-4850-a272-a3ab1bc790ef: Icons # Icons
     93cdcbba-f59d-41f1-ac65-5d9b0f83ef62: Duration # Duration
     763c0189-f6eb-419c-9ca2-2574a743768a: EN # EN
     774bddd7-f968-4015-957b-e33bc6dd5a7c: Admins # Admins
@@ -86,6 +84,10 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: '1.1'
+  logs:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.0.0
   nested-entries-graphql-queries:
     edition: standard
     enabled: true
@@ -98,6 +100,12 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
+    settings:
+      appId: $CANTO_APP_ID
+      authEndpoint: $CANTO_AUTH_ENDPOINT
+      damVolume: cantoDam
+      retrieveAssetMetadataEndpoint: $CANTO_ASSET_ENDPOINT
+      secretKey: $CANTO_SECRET_KEY
 system:
   edition: pro
   live: true

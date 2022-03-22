@@ -32,9 +32,9 @@ handle: cantoDam
 hasUrls: true
 name: 'Canto DAM'
 settings:
-  quickTest: eric
+  dummySetting: ''
 sortOrder: 2
 titleTranslationKeyFormat: null
 titleTranslationMethod: site
 type: rosas\dam\volumes\DAMVolume
-url: '@cantoAssetBaseUrl'
+url: $CANTO_ASSET_BASEURL
