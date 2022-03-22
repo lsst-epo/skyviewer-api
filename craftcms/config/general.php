@@ -12,6 +12,7 @@ use craft\helpers\App;
 
 $isDev = App::env('ENVIRONMENT') === 'dev';
 $isProd = App::env('ENVIRONMENT') === 'production';
+$gcsBucketPathFormat = 'https://storage.googleapis.com/%s/';
 
 return [
     '*' => [
@@ -37,8 +38,18 @@ return [
         'headlessMode' => true,
 
         'aliases' => [
+            '@previewUrlFormat' => App::env('ALIAS_PREVIEW_URL_FORMAT'),
             '@webBaseUrl' => App::env('WEB_BASE_URL'),
-            '@iconBucketUrl' => App::env('GCS_ASSET_BUCKET')
+            '@gcsBucketUrl' => sprintf(
+                $gcsBucketPathFormat,
+                App::env('GCS_ASSET_BUCKET')
+            ),
+            '@cantoAppId' => App::env('CANTO_APP_ID'),
+            '@cantoSecretKey' => App::env('CANTO_SECRET_KEY'),
+            '@cantoAuthEndpoint' => App::env('CANTO_AUTH_ENDPOINT'),
+            '@cantoAssetEndpoint' => App::env('CANTO_ASSET_ENDPOINT'),
+            '@cantoAssetBaseUrl' => App::env('CANTO_ASSET_BASEURL'),
+
         ],
 
         // Configured in nginx config for local dev, and needs to be configured in nginx

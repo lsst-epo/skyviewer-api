@@ -50,15 +50,25 @@ This will ensure that the skyviewer-api project will run on your machine.
 
 ### Local Dev DB
 
-The local development DB will be created from the `local-db/skyviewer.sql` on the initial container image build. Thereafter, any updates made will persist only as long as the containter is not deleted (e.g. `docker delete` or `docker-compose down`).
+The local development DB will be created from a database backup hosted in Google Cloud Storage (ask another dev where to look) on the initial container image build. Thereafter, any updates made will persist only as long as the containter is not deleted (e.g. `docker delete` or `docker-compose down`). Copy down the `.sql` dump file from GCS into the `/local-db` folder by following the instructions in the "Coping a DB from Cloud SQL" below, then proceed with the following steps:
 
-1. Bring the docker-compose up. _Note that without the_ `-f docker-compose-local-db.yml` _option you will connect to the Cloud SQL database instead of a local DB_:
+1. EPO-developed Craft plugins need to be installed from Github, which requires for you to create an OAuth token and store it in `~/.composer/auth.json`. Go to `https://github.com/settings/tokens/` in your browser and create a new token. NOTE: You will only be have the chance to copy the token once after you create it, you will need to generate a new token should you need to copy/paste the token again if you navigate away from this page. Copy the token value and paste the following in to `~/.composer/auth.json`:
+
+```json
+{
+    "github-oauth": {
+        "github.com": "<token value>"
+    }
+}
+```
+
+2. Bring the docker-compose up. _Note that without the_ `-f docker-compose-local-db.yml` _option you will connect to the Cloud SQL database instead of a local DB_:
 
     ```bash
     docker-compose -f docker-compose-local-db.yml up
     ```
 
-2. Go to <http://localhost:8080/admin> to test that it loads
+3. Go to <http://localhost:8080/admin> to test that it loads
 
 #### Copying a DB from Cloud SQL
 
@@ -75,6 +85,12 @@ It may occassinally be necessary to replace the local db with a copy of the deve
    ```bash
    gsutil cp gs://skyviewer/skyviewer-export.sql ./local-db/skyviewer.sql
    ```
+
+3. Modify the top of the sql dump file to include the command to create the DB:
+```
+CREATE DATABASE skyviewer;
+\c skyviewer
+```
 
 ### Volume
 

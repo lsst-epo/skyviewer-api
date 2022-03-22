@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8b51722245fd5b75b013ef365099950f",
+    "content-hash": "eba572fe1bdbb6321a58b13a59295f34",
     "packages": [
         {
             "name": "cebe/markdown",
@@ -1254,45 +1254,6 @@
                 "source": "https://github.com/darylldoyle/svg-sanitizer/tree/0.14.1"
             },
             "time": "2021-08-09T23:46:54+00:00"
-        },
-        {
-            "name": "ether/logs",
-            "version": "3.0.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ethercreative/logs.git",
-                "reference": "f1bae26f356d7f36a5d12febd39bda1d421fffd0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ethercreative/logs/zipball/f1bae26f356d7f36a5d12febd39bda1d421fffd0",
-                "reference": "f1bae26f356d7f36a5d12febd39bda1d421fffd0",
-                "shasum": ""
-            },
-            "require": {
-                "craftcms/cms": "^3.0.0-RC1"
-            },
-            "type": "craft-plugin",
-            "extra": {
-                "handle": "logs",
-                "name": "Logs",
-                "developer": "Ether Creative",
-                "developerUrl": "https://ethercreative.co.uk",
-                "class": "ether\\logs\\Logs",
-                "schemaVersion": "3.0.0"
-            },
-            "autoload": {
-                "psr-4": {
-                    "ether\\logs\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "description": "Access logs from the CP",
-            "support": {
-                "issues": "https://github.com/ethercreative/logs",
-                "source": "https://github.com/ethercreative/logs/tree/3.0.4"
-            },
-            "time": "2021-07-09T11:07:11+00:00"
         },
         {
             "name": "ezyang/htmlpurifier",
@@ -3505,14 +3466,20 @@
         },
         {
             "name": "rosas/nested-entries-graphql-queries",
-            "version": "dev-develop",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lsst-epo/craft3-nested-entries-graphql-queries.git",
+                "reference": "6bd48a262b686107d3abf67356d48c4ff45a0cd2"
+            },
             "dist": {
-                "type": "path",
-                "url": "../custom-plugins/nested-entry-graphql-queries",
-                "reference": "aa1cf2e9da37bee9191beec56ea8ee16b6926d99"
+                "type": "zip",
+                "url": "https://api.github.com/repos/lsst-epo/craft3-nested-entries-graphql-queries/zipball/6bd48a262b686107d3abf67356d48c4ff45a0cd2",
+                "reference": "6bd48a262b686107d3abf67356d48c4ff45a0cd2",
+                "shasum": ""
             },
             "require": {
-                "craftcms/cms": "^3.1.0"
+                "craftcms/cms": "^3.0.0"
             },
             "type": "craft-plugin",
             "extra": {
@@ -3530,7 +3497,7 @@
             "authors": [
                 {
                     "name": "Eric Rosas",
-                    "homepage": "https://github.com/lsst-epo/"
+                    "homepage": "https://github.com/lsst-epo/craft3-nested-entries-graphql-queries"
                 }
             ],
             "description": "Perform queries that match on entries-as-fields and return the whole entry.",
@@ -3541,13 +3508,63 @@
             ],
             "support": {
                 "email": "erosas@lsst.org",
-                "issues": "https://github.com/developer/repo/issues?state=open",
-                "source": "https://github.com/developer/repo",
-                "docs": "https://github.com/developer/repo/blob/master/README.md"
+                "issues": "https://github.com/lsst-epo/craft3-nested-entries-graphql-queries/issues?state=open",
+                "source": "https://github.com/lsst-epo/craft3-nested-entries-graphql-queries",
+                "docs": "https://github.com/lsst-epo/craft3-nested-entries-graphql-queries/blob/master/README.md"
             },
-            "transport-options": {
-                "relative": true
-            }
+            "time": "2021-08-31T22:14:49+00:00"
+        },
+        {
+            "name": "rosas/universal-dam-integrator",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lsst-epo/craft3-universal-dam-integrator.git",
+                "reference": "87b311f91d05b5bc3fa1e2a289d08050c09c7cbe"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lsst-epo/craft3-universal-dam-integrator/zipball/87b311f91d05b5bc3fa1e2a289d08050c09c7cbe",
+                "reference": "87b311f91d05b5bc3fa1e2a289d08050c09c7cbe",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.1.5"
+            },
+            "default-branch": true,
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Universal DAM Integrator",
+                "handle": "universal-dam-integrator"
+            },
+            "autoload": {
+                "psr-4": {
+                    "rosas\\dam\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Eric Rosas",
+                    "homepage": "https://github.com/lsst-epo/craft3-universal-dam-integrator"
+                }
+            ],
+            "description": "This plugin is intended to be vendor agnostic, but with enough customizability to work across a broad range of vendors.",
+            "keywords": [
+                "asset",
+                "dam",
+                "digital",
+                "manager"
+            ],
+            "support": {
+                "email": "erosas@lsst.org",
+                "issues": "https://github.com/lsst-epo/craft3-universal-dam-integrator/issues",
+                "source": "https://github.com/lsst-epo/craft3-universal-dam-integrator",
+                "docs": "https://github.com/lsst-epo/craft3-universal-dam-integrator/blob/main/README.md"
+            },
+            "time": "2022-03-17T23:25:07+00:00"
         },
         {
             "name": "seld/cli-prompt",
@@ -6909,7 +6926,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "rosas/nested-entries-graphql-queries": 20
+        "rosas/universal-dam-integrator": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
@@ -6918,5 +6935,5 @@
     "platform-overrides": {
         "php": "7.2.5"
     },
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.2.0"
 }
