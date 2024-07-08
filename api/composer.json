@@ -18,7 +18,8 @@
     "google/cloud-storage": "^1.24",
     "rosas/nested-entries-graphql-queries": "^1.0",
     "rosas/universal-dam-integrator": "dev-main",
-    "vlucas/phpdotenv": "^3.4.0"
+    "vlucas/phpdotenv": "^3.4.0",
+    "yiisoft/yii2-redis": "^2.0"
   },
   "require-dev": {
     "yiisoft/yii2-shell": "^2.0.3"

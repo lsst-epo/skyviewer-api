@@ -15,5 +15,5 @@ vendor/
 app.yaml
 
 # DB stuff
-/local-db/*
-!/local-db/Dockerfile
+/db/*.sql
+!/db/Dockerfile
