@@ -17,3 +17,4 @@ app.yaml
 # DB stuff
 /db/*.sql
 !/db/Dockerfile
+docker-compose-local-db.yml
