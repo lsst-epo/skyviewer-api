@@ -1,5 +1,4 @@
-# Builds, pushes, and deploys the Skyviewer API container
-name: 'Deploy Skyviewer API to Dev'
+name: 'Deploy to Dev'
 
 on:
   push:
@@ -8,8 +7,9 @@ on:
 
 jobs:
   build-push-deploy:
-    name: 'Build, Publish, and Deploy'
+    name: 'Build and Deploy to Development'
     runs-on: ubuntu-latest
+    if: ${{ github.event.action != 'closed'}}
 
     # Checkout the repository to the GitHub Actions runner
     steps:
@@ -27,7 +27,13 @@ jobs:
     - name: Get app.yaml
       run: gcloud secrets versions access latest --secret=skyviewer-api-appyaml > app.yaml
 
+    - name: Format version name
+      id: version_name
+      run: echo "version_name=$(echo \"${{ github.head_ref }}\" | sed 's/[_.,\/]/-/g' | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
+
     - name: Deploy to App Engine
-      run: |-
+      env:
+        BRANCH_NAME: ${{ env.version_name }}
+      run: |
         gcloud app deploy app.yaml \
-        --promote
+          --promote
