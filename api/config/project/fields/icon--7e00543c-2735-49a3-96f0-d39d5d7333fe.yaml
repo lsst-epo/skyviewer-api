@@ -1,3 +1,4 @@
+columnSuffix: null
 contentColumnType: string
 fieldGroup: a3b0cf34-24af-41fe-8047-b1e5b65d5bd0 # Catalog
 handle: icon
@@ -8,7 +9,7 @@ settings:
   allowSelfRelations: false
   allowUploads: true
   allowedKinds: null
-  defaultUploadLocationSource: 'volume:85d34514-ec13-4850-a272-a3ab1bc790ef'
+  defaultUploadLocationSource: 'volume:82bbf6f6-1ae1-4f42-b9de-913e0cc027fc' # Icons
   defaultUploadLocationSubpath: ''
   limit: '1'
   localizeRelations: false
@@ -18,10 +19,11 @@ settings:
   showSiteMenu: false
   showUnpermittedFiles: false
   showUnpermittedVolumes: false
-  singleUploadLocationSource: 'volume:85d34514-ec13-4850-a272-a3ab1bc790ef'
+  singleUploadLocationSource: 'volume:a469a047-d19a-421e-97f8-c58f1bda27d7' # Tour Images
   singleUploadLocationSubpath: ''
   source: null
-  sources: '*'
+  sources:
+    - 'volume:82bbf6f6-1ae1-4f42-b9de-913e0cc027fc' # Icons
   targetSiteId: null
   useSingleFolder: false
   validateRelatedElements: false
