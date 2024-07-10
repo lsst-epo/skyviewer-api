@@ -20,3 +20,5 @@ RUN mkdir /var/secrets && [ -d /var/www/html/storage ] || mkdir /var/www/html/st
 RUN chown -R www-data:www-data /var/www
 
 USER www-data
+
+CMD ["supervisord"]
