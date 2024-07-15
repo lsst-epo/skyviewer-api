@@ -1,8 +1,18 @@
-dateModified: 1647977804
+dateModified: 1721084087
 email:
-  fromEmail: erosas@lsst.org
-  fromName: 'Skyviewer API'
-  transportType: craft\mail\transportadapters\Sendmail
+  fromEmail: $EMAIL_FROM_ADDRESS
+  fromName: $EMAIL_SENDER_NAME
+  replyToEmail: $EMAIL_REPLY_TO_ADDRESS
+  template: $EMAIL_HTML_EMAIL_TEMPLATE
+  transportSettings:
+    encryptionMethod: ''
+    host: $EMAIL_SMTP_HOST_NAME
+    password: $EMAIL_SMTP_PASSWORD
+    port: $EMAIL_SMTP_PORT
+    timeout: '10'
+    useAuthentication: '1'
+    username: $EMAIL_SMTP_USERNAME
+  transportType: craft\mail\transportadapters\Smtp
 meta:
   __names__:
     0ecf9feb-ab77-470b-a2de-eb396a3a4682: Survey # Survey
