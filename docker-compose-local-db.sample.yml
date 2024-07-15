@@ -1,0 +1,54 @@
+services:
+  redis:
+    image: redis
+    ports:
+      - 6378:6378
+  postgres:
+    build: ./db
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER:
+      POSTGRES_DB:
+      POSTGRES_PASSWORD:
+    volumes:
+      - ./db/skyviewer.sql:/skyviewer.sql
+    healthcheck:
+      test: [ "CMD-SHELL", "export PGPASSWORD=$${POSTGRES_PASSWORD}; pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER}" ]
+      interval: 30s
+      timeout: 60s
+      retries: 5
+      start_period: 80s
+  craft:
+    build: ./
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./api:/var/www/html
+      - .env:/var/secrets/.env
+    environment:
+      REDIS_HOSTNAME:
+      REDIS_PORT:
+      PORT:
+      APP_ID:
+      CP_TRIGGER:
+      DB_DRIVER:
+      DB_SERVER:
+      DB_PORT:
+      DB_DATABASE:
+      DB_USER:
+      DB_PASSWORD:
+      DB_SCHEMA:
+      ENVIRONMENT:
+      GCP_PROJECT_ID:
+      GCS_ASSET_BUCKET:
+      PRIMARY_SITE_URL:
+      SECURITY_KEY:
+      DAM_APP_ID:
+      DAM_SECRET_KEY:
+      DAM_AUTH_ENDPOINT:
+      DAM_RETRIEVE_ASSET_ENDPOINT:
+    restart: always

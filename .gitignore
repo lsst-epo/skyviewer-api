@@ -10,3 +10,11 @@ vendor/
 /log
 /logs
 /ignore
+
+# Ignore "app.yaml" because it's stored as a secret in GCPSM
+app.yaml
+
+# DB stuff
+/db/*.sql
+!/db/Dockerfile
+docker-compose-local-db.yml

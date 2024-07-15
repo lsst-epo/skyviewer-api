@@ -1,0 +1,49 @@
+{
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/lsst-epo/craft3-nested-entries-graphql-queries.git"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/lsst-epo/craft3-universal-dam-integrator.git"
+    }
+  ],
+  "require": {
+    "craftcms/cms": "3.7.17.1",
+    "craftcms/google-cloud": "^1.4",
+    "craftcms/redactor": "2.8.8",
+    "google/cloud-storage": "^1.24",
+    "rosas/nested-entries-graphql-queries": "^1.0",
+    "rosas/universal-dam-integrator": "dev-main",
+    "vlucas/phpdotenv": "^3.4.0",
+    "yiisoft/yii2-redis": "^2.0"
+  },
+  "require-dev": {
+    "yiisoft/yii2-shell": "^2.0.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "modules\\": "modules/",
+      "rosas\\": "modules/eric"
+    }
+  },
+  "config": {
+    "sort-packages": true,
+    "optimize-autoloader": true,
+    "platform": {
+      "php": "7.2.5"
+    },
+    "allow-plugins": {
+      "yiisoft/yii2-composer": true,
+      "craftcms/plugin-installer": true
+    }
+  },
+  "scripts": {
+    "post-root-package-install": [
+      "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+    ]
+  }
+}
