@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e8cc9621674423aa890271109651c38f",
+    "content-hash": "e22c8cd5f0af7b616a4a4c4b78efac00",
     "packages": [
         {
             "name": "brick/math",
@@ -3165,6 +3165,67 @@
                 }
             ],
             "time": "2024-01-28T23:22:08+00:00"
+        },
+        {
+            "name": "lsst-epo/craft-next-js-builds",
+            "version": "1.2.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lsst-epo/craft-next-js-builds.git",
+                "reference": "485d638da850a57a546ff8a63a79daa2881c8a31"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lsst-epo/craft-next-js-builds/zipball/485d638da850a57a546ff8a63a79daa2881c8a31",
+                "reference": "485d638da850a57a546ff8a63a79daa2881c8a31",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^4.0.0"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Craft Next.js Builds",
+                "handle": "next-builds",
+                "documentationUrl": "???",
+                "changelogUrl": "???",
+                "components": {
+                    "request": "lsst\\nextbuilds\\services\\Request"
+                },
+                "class": "lsst\\nextbuilds\\NextBuilds"
+            },
+            "autoload": {
+                "psr-4": {
+                    "lsst\\nextbuilds\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "LSST EPO",
+                    "homepage": "https://github.com/lsst-epo"
+                },
+                {
+                    "name": "Cast Iron Coding",
+                    "homepage": "https://castironcoding.com/"
+                }
+            ],
+            "description": "Invoke Next.js page builds from Craft.",
+            "keywords": [
+                "cms",
+                "craft",
+                "craft-plugin",
+                "craftcms",
+                "next builds"
+            ],
+            "support": {
+                "docs": "???",
+                "issues": "???",
+                "source": "https://github.com/lsst-epo/craft-next-js-builds/tree/1.2.3"
+            },
+            "time": "2024-07-24T23:18:04+00:00"
         },
         {
             "name": "mikehaertl/php-shellcommand",
