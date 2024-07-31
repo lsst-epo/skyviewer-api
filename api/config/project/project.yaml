@@ -1,4 +1,4 @@
-dateModified: 1721084087
+dateModified: 1722446993
 email:
   fromEmail: $EMAIL_FROM_ADDRESS
   fromName: $EMAIL_SENDER_NAME
@@ -13,6 +13,45 @@ email:
     useAuthentication: '1'
     username: $EMAIL_SMTP_USERNAME
   transportType: craft\mail\transportadapters\Smtp
+fs:
+  astroImages:
+    hasUrls: true
+    name: 'Astro Images'
+    settings:
+      bucket: $GCS_ASSET_BUCKET
+      bucketSelectionMode: manual
+      expires: '5 minutes'
+      keyFileContents: ''
+      projectId: $GCP_PROJECT_ID
+      subfolder: astro
+    type: craft\googlecloud\Fs
+    url: '@gcsBucketUrl'
+  cantoDam:
+    hasUrls: true
+    name: 'Canto DAM'
+    settings:
+      dummySetting: ''
+    type: rosas\dam\volumes\DAMVolume
+    url: $CANTO_ASSET_BASEURL
+  icons:
+    hasUrls: true
+    name: Icons
+    settings:
+      path: '@webroot/assets/icons'
+    type: craft\fs\Local
+    url: /icons
+  tourImages:
+    hasUrls: true
+    name: 'Tour Images'
+    settings:
+      bucket: $GCS_ASSET_BUCKET
+      bucketSelectionMode: manual
+      expires: '5 minutes'
+      keyFileContents: ''
+      projectId: $GCP_PROJECT_ID
+      subfolder: tours
+    type: craft\googlecloud\Fs
+    url: '@gcsBucketUrl'
 meta:
   __names__:
     0ecf9feb-ab77-470b-a2de-eb396a3a4682: Survey # Survey
@@ -95,7 +134,7 @@ plugins:
   google-cloud:
     edition: standard
     enabled: true
-    schemaVersion: '1.1'
+    schemaVersion: '2.0'
   logs:
     edition: standard
     enabled: true
@@ -122,5 +161,5 @@ system:
   edition: pro
   live: true
   name: 'Skyviewer API'
-  schemaVersion: 3.7.8
+  schemaVersion: 4.5.3.0
   timeZone: America/Los_Angeles

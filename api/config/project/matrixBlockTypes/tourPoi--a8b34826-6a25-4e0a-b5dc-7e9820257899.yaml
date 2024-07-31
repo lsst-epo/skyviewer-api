@@ -35,6 +35,7 @@ fieldLayouts:
         sortOrder: 1
 fields:
   4a676166-cd4f-4c4e-a7ee-afca5c68fc2d: # astroObject
+    columnSuffix: null
     contentColumnType: string
     fieldGroup: null
     handle: astroObject
@@ -57,6 +58,7 @@ fields:
     translationMethod: site
     type: craft\fields\Entries
   d6f8219d-2a83-4ee6-967e-10720dec037b: # FOV
+    columnSuffix: null
     contentColumnType: integer(10)
     fieldGroup: null
     handle: fov
@@ -77,6 +79,7 @@ fields:
     translationMethod: none
     type: craft\fields\Number
   fe1835fb-8bd0-4e5a-b637-0e94330568ac: # Description
+    columnSuffix: null
     contentColumnType: text
     fieldGroup: null
     handle: description
