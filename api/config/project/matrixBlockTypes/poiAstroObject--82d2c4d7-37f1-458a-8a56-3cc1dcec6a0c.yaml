@@ -17,6 +17,7 @@ fieldLayouts:
         sortOrder: 1
 fields:
   84e9fa1d-8aed-40e1-a0e9-cb13152ea782: # Astro Object
+    columnSuffix: null
     contentColumnType: string
     fieldGroup: null
     handle: astroObject

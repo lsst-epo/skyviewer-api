@@ -18,3 +18,4 @@ app.yaml
 /db/*.sql
 !/db/Dockerfile
 docker-compose-local-db.yml
+api/supervisor.log

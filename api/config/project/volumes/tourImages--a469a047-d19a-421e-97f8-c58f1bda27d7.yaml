@@ -23,7 +23,7 @@ fieldLayouts:
             step: null
             tip: null
             title: null
-            type: craft\fieldlayoutelements\AssetTitleField
+            type: craft\fieldlayoutelements\assets\AssetTitleField
             warning: null
             width: 100
           -
@@ -37,18 +37,11 @@ fieldLayouts:
             width: 100
         name: Content
         sortOrder: 1
+fs: tourImages
 handle: tourImages
 hasUrls: true
 name: 'Tour Images'
-settings:
-  bucket: $GCS_ASSET_BUCKET
-  bucketSelectionMode: manual
-  expires: '5 minutes'
-  keyFileContents: ''
-  projectId: $GCP_PROJECT_ID
-  subfolder: tours
 sortOrder: 0
 titleTranslationKeyFormat: null
 titleTranslationMethod: site
-type: craft\googlecloud\Volume
 url: '@gcsBucketUrl'

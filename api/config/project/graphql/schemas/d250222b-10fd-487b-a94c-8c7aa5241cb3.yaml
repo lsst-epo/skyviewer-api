@@ -15,3 +15,5 @@ scope:
   - 'globalsets.ea689411-d03e-48f0-8841-3318c457eee1:read' # Site Info
   - 'categorygroups.40780a9f-1ee7-4c59-aaaf-159094330220:read' # Tour Theme
   - 'categorygroups.aa3e2ce5-e67a-4378-8a44-c660690cbcc3:read' # Tour Variety
+  - 'sites.763c0189-f6eb-419c-9ca2-2574a743768a:read' # EN
+  - 'sites.a6b28fea-2f0c-49a2-b82c-fd16c51d9511:read' # ES
