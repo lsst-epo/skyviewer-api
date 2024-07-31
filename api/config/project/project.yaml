@@ -1,4 +1,4 @@
-dateModified: 1722446993
+dateModified: 1722466321
 email:
   fromEmail: $EMAIL_FROM_ADDRESS
   fromName: $EMAIL_SENDER_NAME
@@ -143,6 +143,27 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
+  next-builds:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+    settings:
+      activeSections:
+        __assoc__:
+          -
+            - astroObjects
+            - ''
+          -
+            - catalogs
+            - ''
+          -
+            - surveys
+            - ''
+          -
+            - tours
+            - ''
+      nextApiBaseUrl: $NEXT_API_BASE_URL
+      nextSecretToken: $NEXT_REVALIDATE_SECRET_TOKEN
   redactor:
     edition: standard
     enabled: true
