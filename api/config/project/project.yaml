@@ -1,4 +1,4 @@
-dateModified: 1722466321
+dateModified: 1722468170
 email:
   fromEmail: $EMAIL_FROM_ADDRESS
   fromName: $EMAIL_SENDER_NAME
@@ -131,6 +131,16 @@ meta:
     fe74f2bf-6416-4c77-a05d-1ef924e575a8: Image # Image
     fe1835fb-8bd0-4e5a-b637-0e94330568ac: Description # Description
 plugins:
+  _canto-dam-assets:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.1
+    settings:
+      appId: $CANTO_APP_ID
+      authEndpoint: $CANTO_AUTH_ENDPOINT
+      secretKey: $CANTO_SECRET_KEY
+      tenantHostName: $CANTO_HOSTNAME
+      webhookSecureToken: $CANTO_WEBHOOK_TOKEN
   google-cloud:
     edition: standard
     enabled: true
