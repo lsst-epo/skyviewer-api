@@ -1,0 +1,118 @@
+fieldLayouts:
+  4023bfc9-7e58-4487-a47d-02d781dfcd05:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            elementCondition: null
+            id: null
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: aac534cf-fa0c-4005-891a-1b4e62d28cee
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            heading: 'Starting Position'
+            type: craft\fieldlayoutelements\Heading
+            uid: 1af6fe65-ae44-46b7-a7fd-b1723ca89116
+            userCondition: null
+          -
+            elementCondition: null
+            fieldUid: 0732995e-10da-4be7-944b-51b1135d12eb # Field of Vision (FOV) Minimum Value
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 10a1354b-c0f6-4556-8972-cd490215eb9a
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            elementCondition: null
+            fieldUid: 455216e8-f949-4521-911f-d50895102cd4 # Field of Vision (FOV) Maximum Value
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 0543a19a-4031-49da-ba52-ca6fc6fc72e7
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            elementCondition: null
+            fieldUid: a0521bda-0df4-4937-9d6e-1534dfb98b58 # Field of Vision (FOV) Initial Value
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ada6d7fd-a60c-4b63-8f25-da85acc415d3
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            elementCondition: null
+            fieldUid: b3f50442-f90e-42e6-986e-b2426abedaca # Target
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f41c7051-1c6f-499f-a41c-880a4f9cbbe6
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            type: craft\fieldlayoutelements\HorizontalRule
+            uid: 90e14992-c0f2-4a54-a5d3-647cc4c03d80
+            userCondition: null
+          -
+            elementCondition: null
+            fieldUid: e87bfbdf-5fad-46b9-9794-4e88c012e6af # Tour
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 43312a52-0426-479c-9224-13bbd530fafe
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 6b511a71-67ad-4b0e-96c2-bc410a5c6b4e
+        userCondition: null
+handle: default
+hasTitleField: true
+name: Default
+section: 44655b7b-c692-468f-984a-f1b147b3c9de # Embedded Views
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: none
+sortOrder: 1
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

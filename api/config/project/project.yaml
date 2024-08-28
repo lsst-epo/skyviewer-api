@@ -1,4 +1,4 @@
-dateModified: 1722468170
+dateModified: 1724188972
 email:
   fromEmail: $EMAIL_FROM_ADDRESS
   fromName: $EMAIL_SENDER_NAME
@@ -57,7 +57,7 @@ meta:
     0ecf9feb-ab77-470b-a2de-eb396a3a4682: Survey # Survey
     1f5ddbcd-4f3f-495c-95d9-dcd6af9e3f6f: 'Astro Object' # Astro Object
     2c43566d-87e9-47af-b1e3-87577b58f06f: Variety # Variety
-    02e3155f-23cf-4f36-a734-a3f447d04e85: Surveys # Surveys
+    02e3155f-23cf-4f36-a734-a3f447d04e85: Survey # Survey
     3c645133-6daf-4632-a842-13662885ad1b: 'Background Image' # Background Image
     4a676166-cd4f-4c4e-a7ee-afca5c68fc2d: astroObject # astroObject
     4accd3e5-dd7d-4464-9f19-db2009adda71: Globals # Globals
@@ -95,6 +95,7 @@ meta:
     860a3a7b-7ed5-4997-9a40-0d00e58b77d0: 'Astro Images' # Astro Images
     31806af1-7467-49ea-9638-01ecf1c546cd: 'Intro Subheading' # Intro Subheading
     40780a9f-1ee7-4c59-aaaf-159094330220: 'Tour Theme' # Tour Theme
+    44655b7b-c692-468f-984a-f1b147b3c9de: 'Embedded Views' # Embedded Views
     45720ab9-15e3-4cdc-8103-9c0495d2c1d2: 'Site Title' # Site Title
     82510efa-cd7e-4f64-bfaa-1da05df2f53a: 'Source Size' # Source Size
     455216e8-f949-4521-911f-d50895102cd4: 'Field of Vision (FOV) Maximum Value' # Field of Vision (FOV) Maximum Value
@@ -114,6 +115,7 @@ meta:
     b67e6d47-49f6-4385-85c7-ada70ffcf67e: 'POI Astro Object' # POI Astro Object
     bae3d86b-064a-47c2-9af4-736639f79b7b: Survey # Survey
     c1f0a2ee-3b87-486c-96ed-7e2d25fc952f: 'Skyviewer API' # Skyviewer API
+    c7df9bc2-a3e9-4a90-be92-014eda7b1d4d: Default # Default
     c8a76131-a217-46f6-9b2a-88d4f2a2f7de: Dec # Dec
     ccd123b4-00ff-4cdb-87e0-20be70c5f8f3: Body # Body
     cd879179-0c4d-47a3-90e9-61fdb3516cc4: Image # Image
@@ -125,6 +127,7 @@ meta:
     d250222b-10fd-487b-a94c-8c7aa5241cb3: 'Public Schema' # Public Schema
     e2eb2e80-8e02-4a68-aa81-3d488f80543d: 'Astro Object' # Astro Object
     e76c2c25-ca53-4f4c-bd93-a5af52ebb72c: Characteristics # Characteristics
+    e87bfbdf-5fad-46b9-9794-4e88c012e6af: Tour # Tour
     e4521605-ff3a-4876-8c3c-cde0ffe5deaa: 'Astro Objects' # Astro Objects
     ea689411-d03e-48f0-8841-3318c457eee1: 'Site Info' # Site Info
     fe3ef1fd-33fa-4aeb-9ed2-9e74f6694377: Path # Path
@@ -167,8 +170,11 @@ plugins:
             - catalogs
             - ''
           -
+            - embeddedViews
+            - '1'
+          -
             - surveys
-            - ''
+            - '1'
           -
             - tours
             - ''

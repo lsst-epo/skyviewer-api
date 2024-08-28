@@ -2,16 +2,16 @@ columnSuffix: null
 contentColumnType: 'decimal(12,2)'
 fieldGroup: 0ecf9feb-ab77-470b-a2de-eb396a3a4682 # Survey
 handle: fovMax
-instructions: 'An integer greater than 0 and also greater than the FOV min'
+instructions: 'A number greater than 0 and also greater than the FOV min'
 name: 'Field of Vision (FOV) Maximum Value'
 searchable: false
 settings:
-  decimals: '2'
+  decimals: 2
   defaultValue: null
   max: null
-  min: '0'
+  min: 0
   prefix: null
-  previewCurrency: ''
+  previewCurrency: null
   previewFormat: decimal
   size: null
   suffix: null
