@@ -1,7 +1,7 @@
 defaultPlacement: end
 enableVersioning: true
-handle: surveys
-name: Survey
+handle: embeddedViews
+name: 'Embedded Views'
 previewTargets:
   -
     __assoc__:
@@ -18,12 +18,12 @@ propagationMethod: all
 siteSettings:
   763c0189-f6eb-419c-9ca2-2574a743768a: # EN
     enabledByDefault: true
-    hasUrls: false
+    hasUrls: true
     template: null
-    uriFormat: null
+    uriFormat: 'embed/{slug}'
   a6b28fea-2f0c-49a2-b82c-fd16c51d9511: # ES
     enabledByDefault: true
-    hasUrls: false
+    hasUrls: true
     template: null
-    uriFormat: null
-type: single
+    uriFormat: 'embed/{slug}'
+type: channel
