@@ -1,6 +1,7 @@
+defaultPlacement: end
 enableVersioning: true
 handle: surveys
-name: Surveys
+name: Survey
 previewTargets:
   -
     __assoc__:
@@ -17,15 +18,15 @@ propagationMethod: all
 siteSettings:
   763c0189-f6eb-419c-9ca2-2574a743768a: # EN
     enabledByDefault: true
-    hasUrls: true
+    hasUrls: false
     template: null
-    uriFormat: 'explorer/{slug}'
+    uriFormat: null
   a6b28fea-2f0c-49a2-b82c-fd16c51d9511: # ES
     enabledByDefault: true
-    hasUrls: true
+    hasUrls: false
     template: null
-    uriFormat: 'explorer/{slug}'
+    uriFormat: null
 structure:
   maxLevels: null
-  uid: 505d6993-ce17-4b37-aa55-28a180963d52
+  uid: 7c04ca48-2e2c-415c-9dfb-214942b3e320
 type: structure

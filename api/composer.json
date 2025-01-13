@@ -4,20 +4,25 @@
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/lsst-epo/craft3-nested-entries-graphql-queries.git"
+      "url": "https://github.com/lsst-epo/craft-next-js-builds.git"
     },
     {
       "type": "vcs",
-      "url": "https://github.com/lsst-epo/craft3-universal-dam-integrator.git"
+      "url": "https://github.com/lsst-epo/canto-dam-assets.git"
+    },
+    {
+      "type": "composer",
+      "url": "https://composer.craftcms.com",
+      "canonical": false
     }
   ],
   "require": {
-    "craftcms/cms": "3.7.17.1",
-    "craftcms/google-cloud": "^1.4",
-    "craftcms/redactor": "2.8.8",
+    "craftcms/cms": "^4.0.0",
+    "craftcms/google-cloud": "2.1.0",
+    "craftcms/redactor": "3.0.4",
     "google/cloud-storage": "^1.24",
-    "rosas/nested-entries-graphql-queries": "^1.0",
-    "rosas/universal-dam-integrator": "dev-main",
+    "lsst-epo/canto-dam-assets": "^4.3",
+    "lsst-epo/craft-next-js-builds": "^1.2",
     "vlucas/phpdotenv": "^3.4.0",
     "yiisoft/yii2-redis": "^2.0"
   },
@@ -34,7 +39,7 @@
     "sort-packages": true,
     "optimize-autoloader": true,
     "platform": {
-      "php": "7.2.5"
+      "php": "8.1.10"
     },
     "allow-plugins": {
       "yiisoft/yii2-composer": true,

@@ -16,6 +16,10 @@ $gcsBucketPathFormat = 'https://storage.googleapis.com/%s/';
 
 return [
     '*' => [
+        // Disable automatic running of queue jobs upon page loads in CP, which causes queue jobs to fail
+        // Supervisord now handles running queue jobs
+        'runQueueAutomatically' => false,
+
         // Default Week Start Day (0 = Sunday, 1 = Monday...)
         'defaultWeekStartDay' => 1,
 
@@ -27,13 +31,6 @@ return [
 
         // The secure key Craft will use for hashing and encrypting data
         'securityKey' => App::env('SECURITY_KEY'),
-
-        // Temp fix for login bug:
-        //'requireUserAgentAndIpForSession' => false,
-
-        // Whether to save the project config out to config/project.yaml
-        // (see https://docs.craftcms.com/v3/project-config.html)
-        'useProjectConfigFile' => true,
 
         'headlessMode' => true,
 
