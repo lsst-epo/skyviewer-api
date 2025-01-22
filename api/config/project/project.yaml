@@ -1,4 +1,4 @@
-dateModified: 1734654531
+dateModified: 1737566142
 email:
   fromEmail: $EMAIL_FROM_ADDRESS
   fromName: $EMAIL_SENDER_NAME
@@ -177,7 +177,7 @@ plugins:
             - '1'
           -
             - tours
-            - ''
+            - '1'
       nextApiBaseUrl: $NEXT_API_BASE_URL
       nextSecretToken: $NEXT_REVALIDATE_SECRET_TOKEN
   redactor:

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b6adcbb30abe7c7518371ffb5c3f22a3",
+    "content-hash": "b5deebd3d638f8031c2d49738e8c4c6d",
     "packages": [
         {
             "name": "brick/math",
@@ -3234,16 +3234,16 @@
         },
         {
             "name": "lsst-epo/craft-next-js-builds",
-            "version": "1.2.3",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/lsst-epo/craft-next-js-builds.git",
-                "reference": "485d638da850a57a546ff8a63a79daa2881c8a31"
+                "reference": "e510cf9b2adbd268680f8ea8f73f2a1bf0da032b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/lsst-epo/craft-next-js-builds/zipball/485d638da850a57a546ff8a63a79daa2881c8a31",
-                "reference": "485d638da850a57a546ff8a63a79daa2881c8a31",
+                "url": "https://api.github.com/repos/lsst-epo/craft-next-js-builds/zipball/e510cf9b2adbd268680f8ea8f73f2a1bf0da032b",
+                "reference": "e510cf9b2adbd268680f8ea8f73f2a1bf0da032b",
                 "shasum": ""
             },
             "require": {
@@ -3289,9 +3289,9 @@
             "support": {
                 "docs": "???",
                 "issues": "???",
-                "source": "https://github.com/lsst-epo/craft-next-js-builds/tree/1.2.3"
+                "source": "https://github.com/lsst-epo/craft-next-js-builds/tree/2.0.0"
             },
-            "time": "2024-07-24T23:18:04+00:00"
+            "time": "2024-10-24T16:55:43+00:00"
         },
         {
             "name": "mikehaertl/php-shellcommand",
@@ -8734,5 +8734,5 @@
     "platform-overrides": {
         "php": "8.1.10"
     },
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.6.0"
 }

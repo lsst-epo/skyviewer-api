@@ -22,7 +22,7 @@
     "craftcms/redactor": "3.0.4",
     "google/cloud-storage": "^1.24",
     "lsst-epo/canto-dam-assets": "^4.3",
-    "lsst-epo/craft-next-js-builds": "^1.2",
+    "lsst-epo/craft-next-js-builds": "2.0.0",
     "vlucas/phpdotenv": "^3.4.0",
     "yiisoft/yii2-redis": "^2.0"
   },
