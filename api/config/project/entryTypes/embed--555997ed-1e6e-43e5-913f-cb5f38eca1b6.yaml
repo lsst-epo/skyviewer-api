@@ -1,0 +1,59 @@
+fieldLayouts:
+  36a5fbb3-87df-436e-a0bf-7ae644adbef5:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            elementCondition: null
+            id: null
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 2c68cfde-1981-4b81-bba6-258b4f054e25
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 24cba937-e963-4113-b0e4-afd8d83bc2d8 # Entry - Survey
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 7539408d-99cb-45f6-9b93-5f3d3267e49f
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 519c88d7-4d0e-4b80-98f7-5f86ff3da645
+        userCondition: null
+handle: embed
+hasTitleField: false
+name: Embed
+section: b469eb7b-2830-4cc1-b7b3-b55d9e8c9b96 # Embed
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: none
+sortOrder: 1
+titleFormat: '{section.name|raw}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

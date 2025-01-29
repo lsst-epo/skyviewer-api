@@ -1,7 +1,7 @@
 defaultPlacement: end
 enableVersioning: true
-handle: embeddedViews
-name: 'Embedded Views'
+handle: embed
+name: Embed
 previewTargets:
   -
     __assoc__:
@@ -20,10 +20,10 @@ siteSettings:
     enabledByDefault: true
     hasUrls: true
     template: null
-    uriFormat: 'embed/{slug}'
+    uriFormat: embed
   a6b28fea-2f0c-49a2-b82c-fd16c51d9511: # ES
     enabledByDefault: true
     hasUrls: true
     template: null
-    uriFormat: 'embed/{slug}'
-type: channel
+    uriFormat: embed
+type: single
