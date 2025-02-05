@@ -1,17 +1,18 @@
+columnSuffix: null
 contentColumnType: text
 fieldGroup: 0ecf9feb-ab77-470b-a2de-eb396a3a4682 # Survey
 handle: target
-instructions: 'The RA and DEC that the Skyviewer Explorer will focus on during page load, type RA first followed by a space and then DEC: <RA> <DEC>'
+instructions: 'The starting position of the Skyviewer, can either be RA and DEC in decimal degrees, separated by a space, or an object''s catalog name.'
 name: Target
 searchable: false
 settings:
   byteLimit: null
   charLimit: null
-  code: ''
+  code: true
   columnType: null
-  initialRows: '4'
-  multiline: ''
-  placeholder: 'Ex: 267.0208333333 -24.7800000000'
+  initialRows: 4
+  multiline: false
+  placeholder: 'ex: 6.1608333 20.4875000, or NGC 2175'
   uiMode: normal
 translationKeyFormat: null
 translationMethod: none

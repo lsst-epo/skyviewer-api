@@ -1,11 +1,17 @@
 isPublic: true
 name: 'Public Schema'
 scope:
+  - 'sites.763c0189-f6eb-419c-9ca2-2574a743768a:read' # EN
+  - 'sites.a6b28fea-2f0c-49a2-b82c-fd16c51d9511:read' # ES
   - 'sections.e2eb2e80-8e02-4a68-aa81-3d488f80543d:read' # Astro Object
   - 'entrytypes.16b1feef-a5aa-449f-b011-919a9d6075ed:read' # Astro Object
   - 'sections.32b433c2-8fa2-439b-9678-d48e4f929b88:read' # Catalogs
   - 'entrytypes.9d2a5fce-1549-4e9f-8205-f1527f5064b2:read' # Catalog
-  - 'sections.02e3155f-23cf-4f36-a734-a3f447d04e85:read' # Surveys
+  - 'sections.b469eb7b-2830-4cc1-b7b3-b55d9e8c9b96:read' # Embed
+  - 'entrytypes.555997ed-1e6e-43e5-913f-cb5f38eca1b6:read' # Embed
+  - 'sections.d30ed1ce-5b90-4cb7-98b2-45e45e560d64:read' # Explorer
+  - 'entrytypes.46c6493e-366b-43f9-8591-b03f4ec9dfdf:read' # Explorer
+  - 'sections.02e3155f-23cf-4f36-a734-a3f447d04e85:read' # Survey
   - 'entrytypes.bae3d86b-064a-47c2-9af4-736639f79b7b:read' # Survey
   - 'sections.b22ca822-e7e2-4f8c-8be5-d3b0fcab1c9f:read' # Tours
   - 'entrytypes.52d4af2b-ae9b-4f2f-a90b-5c4b5ce23eb9:read' # Tour

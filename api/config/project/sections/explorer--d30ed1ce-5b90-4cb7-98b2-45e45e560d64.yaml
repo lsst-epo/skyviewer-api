@@ -1,7 +1,7 @@
 defaultPlacement: end
 enableVersioning: true
-handle: tours
-name: Tours
+handle: explorer
+name: Explorer
 previewTargets:
   -
     __assoc__:
@@ -20,13 +20,10 @@ siteSettings:
     enabledByDefault: true
     hasUrls: true
     template: null
-    uriFormat: 'tours/{slug}'
+    uriFormat: explorer
   a6b28fea-2f0c-49a2-b82c-fd16c51d9511: # ES
     enabledByDefault: true
     hasUrls: true
     template: null
-    uriFormat: 'tours/{slug}'
-structure:
-  maxLevels: null
-  uid: 2529bf86-1708-4969-b27e-0df6979598b4
-type: structure
+    uriFormat: explorer
+type: single
