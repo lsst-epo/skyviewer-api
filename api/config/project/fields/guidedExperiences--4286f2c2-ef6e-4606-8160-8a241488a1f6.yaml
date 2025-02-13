@@ -1,0 +1,16 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: 8d6803f5-ca34-46d8-a8d5-869896e34b65 # Tour
+handle: guidedExperiences
+instructions: null
+name: 'Guided Experiences'
+searchable: false
+settings:
+  contentTable: '{{%matrixcontent_guidedexperiences}}'
+  maxBlocks: 2
+  minBlocks: 1
+  propagationKeyFormat: null
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

@@ -1,0 +1,51 @@
+defaultPlacement: end
+fieldLayouts:
+  0f7247f1-3d42-4f9e-885f-53fecdbf3095:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            elementCondition: null
+            id: null
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\TitleField
+            uid: e34a24ac-f4f8-4688-8300-e022bb6beb04
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: f2ad9012-817b-4b64-98d2-7dc49b39b20d
+        userCondition: null
+handle: guidedExperienceType
+name: 'Guided Experience Type'
+siteSettings:
+  763c0189-f6eb-419c-9ca2-2574a743768a: # EN
+    hasUrls: true
+    template: null
+    uriFormat: '{slug}'
+  a6b28fea-2f0c-49a2-b82c-fd16c51d9511: # ES
+    hasUrls: true
+    template: null
+    uriFormat: '{slug}'
+structure:
+  maxLevels: null
+  uid: e1bd70bb-b7f2-4a0c-9ce1-edcf3bdaac7f

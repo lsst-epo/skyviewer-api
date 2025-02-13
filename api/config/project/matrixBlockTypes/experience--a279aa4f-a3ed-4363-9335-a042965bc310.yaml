@@ -1,0 +1,79 @@
+field: 4286f2c2-ef6e-4606-8160-8a241488a1f6 # Guided Experiences
+fieldLayouts:
+  8b35b484-c747-45e2-8861-acc3ae694adc:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: b9b34be4-0861-4bc6-8707-e9752c6407d8 # Experience Category
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ed6a3ae6-6d88-4a87-914e-304e2cc769f9
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 4161f47d-ffa7-48f7-a373-113eb8dce3b3 # Preview Image
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f65f7aa8-e91c-49d8-8208-87229ca7dc8a
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 0b7fd7c5-84cc-468a-b1eb-2a0439aedd34
+        userCondition: null
+fields:
+  4161f47d-ffa7-48f7-a373-113eb8dce3b3: # Preview Image
+    columnSuffix: ypmmmjhn
+    contentColumnType:
+      - 'cantoId:string'
+      - 'cantoAlbumId:string'
+      - 'cantoAssetData:json'
+      - 'cantoAlbumData:json'
+    fieldGroup: null
+    handle: previewImage
+    instructions: null
+    name: 'Preview Image'
+    searchable: false
+    settings:
+      cantoAssetPickerType: singleImagePicker
+    translationKeyFormat: null
+    translationMethod: site
+    type: lsst\cantodamassets\fields\CantoDamAsset
+  b9b34be4-0861-4bc6-8707-e9752c6407d8: # Experience Category
+    columnSuffix: elqbydqj
+    contentColumnType: string
+    fieldGroup: null
+    handle: experienceCategory
+    instructions: null
+    name: 'Experience Category'
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      branchLimit: null
+      localizeRelations: false
+      maintainHierarchy: false
+      maxRelations: 1
+      minRelations: 1
+      selectionLabel: null
+      showSiteMenu: false
+      source: 'group:928bd2d5-bb58-4e0f-9c81-f805fcc1e135' # Guided Experience Type
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Categories
+handle: experience
+name: Experience
+sortOrder: 1
