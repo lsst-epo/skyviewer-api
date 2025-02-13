@@ -2,6 +2,7 @@ fieldLayouts:
   05e3e818-d66c-4f2d-99ef-52fe1ee8904e:
     tabs:
       -
+        elementCondition: null
         elements:
           -
             autocapitalize: true
@@ -9,7 +10,9 @@ fieldLayouts:
             autocorrect: true
             class: null
             disabled: false
+            elementCondition: null
             id: null
+            inputType: null
             instructions: null
             label: null
             max: null
@@ -24,134 +27,204 @@ fieldLayouts:
             tip: null
             title: null
             type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 09f660a4-a9de-4215-8454-2da15aa67d88
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: 2c43566d-87e9-47af-b1e3-87577b58f06f # Variety
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: fdf30245-257b-4a30-891c-e46345eafe77
+            userCondition: null
             warning: null
-            width: 100
+            width: 50
           -
+            elementCondition: null
             fieldUid: 4b8d140e-8cb8-489e-9a89-0c30c4717e30 # Tour Theme
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: c1aba0be-1835-4135-b2f0-0427a37b7180
+            userCondition: null
             warning: null
-            width: 100
+            width: 50
           -
-            fieldUid: 93cdcbba-f59d-41f1-ac65-5d9b0f83ef62 # Duration
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 100
+            elementCondition: null
+            type: craft\fieldlayoutelements\HorizontalRule
+            uid: b5302b02-c7d4-4f43-9f50-8e3ce5db1d3d
+            userCondition: null
           -
-            fieldUid: d4c658d8-0938-43f0-9ce0-0515d09ca162 # Complexity
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 100
-          -
+            elementCondition: null
             fieldUid: 7f01b564-7d49-4139-be9d-07d369fd3408 # Thumbnail Image
             instructions: null
             label: null
-            required: false
+            required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 1a30ee71-794b-48cb-93a4-e3c1e7fe6e3b
+            userCondition: null
             warning: null
-            width: 100
+            width: 50
           -
+            elementCondition: null
             fieldUid: 3c645133-6daf-4632-a842-13662885ad1b # Background Image
+            instructions: 'Image shown as a backdrop on the tour''s landing page. The image will be slightly blurred and translucent so this image does not have to be high resolution, a well optimized image will provided a better loading experience to users.'
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: bc59bdc1-ec96-471c-b074-a77ddc0c65e0
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            elementCondition: null
+            type: craft\fieldlayoutelements\HorizontalRule
+            uid: 02d24126-bb97-4b51-ada5-6e1d75989031
+            userCondition: null
+          -
+            elementCondition: null
+            fieldUid: 93cdcbba-f59d-41f1-ac65-5d9b0f83ef62 # Duration
             instructions: null
             label: null
-            required: false
+            required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: abeac43c-f7cb-47a9-aa9f-e71047b2f918
+            userCondition: null
             warning: null
-            width: 100
+            width: 50
+          -
+            elementCondition: null
+            fieldUid: d4c658d8-0938-43f0-9ce0-0515d09ca162 # Complexity
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 640d7eca-73ce-491c-b1f6-8cfe2643717a
+            userCondition: null
+            warning: null
+            width: 50
         name: Content
-        sortOrder: 1
+        uid: 68fa49f6-ff4a-449d-bb0d-ec7cf77390f8
+        userCondition: null
       -
+        elementCondition: null
         elements:
           -
+            elementCondition: null
             fieldUid: a715351e-d465-4446-81f8-c9a15b3d1298 # Intro Heading
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: d9ca3c33-9093-483f-aa92-6eb21dc7e11d
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: 31806af1-7467-49ea-9638-01ecf1c546cd # Intro Subheading
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 0ae72689-a9e8-4bbd-a15b-a82d98031728
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: 008cb5a3-a777-476f-8410-4f2bf13ac492 # Intro Content Blocks
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 0a3f7af6-4683-421c-836f-1c11bc6af22e
+            userCondition: null
             warning: null
             width: 100
         name: Intro
-        sortOrder: 2
+        uid: 8b439683-9a19-4df4-9d8c-9a99a7c935bb
+        userCondition: null
       -
+        elementCondition: null
         elements:
           -
+            elementCondition: null
             fieldUid: 18a685a4-2ce7-4ae8-b717-0154cff390c1 # Fun Facts Heading
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 7343d45e-64e0-452f-ad0e-c1659a6a8cff
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: 04fc1a9d-6240-4e69-ad81-2e02190a7e8d # Fun Facts Content Blocks
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 92eb9031-8a9d-42a3-9d67-26757bb194e4
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 219e25fd-9ccf-4627-be3e-cd82a6742ce7
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f577df95-52a3-4ddc-af67-7b8ff64a4cf2
+            userCondition: null
             warning: null
             width: 100
         name: Facts
-        sortOrder: 3
+        uid: 550652cb-e90b-424a-b4b8-57dc07022d53
+        userCondition: null
       -
+        elementCondition: null
         elements:
           -
+            elementCondition: null
             fieldUid: 8fd439fe-660f-4cac-8ddf-b71b8ad6276f # Tour POIs
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: d2a2a4ca-ac47-4826-9e9e-e7d79ecda77d
+            userCondition: null
             warning: null
             width: 100
         name: POI
-        sortOrder: 4
+        uid: 90ff9f01-0db9-454f-b4a3-5cc6438f8554
+        userCondition: null
 handle: tour
 hasTitleField: true
 name: Tour
 section: b22ca822-e7e2-4f8c-8be5-d3b0fcab1c9f # Tours
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: none
 sortOrder: 1
 titleFormat: null
 titleTranslationKeyFormat: null

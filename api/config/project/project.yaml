@@ -1,4 +1,4 @@
-dateModified: 1738168381
+dateModified: 1739378807
 email:
   fromEmail: $EMAIL_FROM_ADDRESS
   fromName: $EMAIL_SENDER_NAME
@@ -55,6 +55,7 @@ fs:
 meta:
   __names__:
     0ecf9feb-ab77-470b-a2de-eb396a3a4682: Survey # Survey
+    1f01e823-4dbb-4804-92e9-39007bcb2667: 'Guided Experiences' # Guided Experiences
     1f5ddbcd-4f3f-495c-95d9-dcd6af9e3f6f: 'Astro Object' # Astro Object
     2c43566d-87e9-47af-b1e3-87577b58f06f: Variety # Variety
     02e3155f-23cf-4f36-a734-a3f447d04e85: Survey # Survey
@@ -95,6 +96,10 @@ meta:
     774bddd7-f968-4015-957b-e33bc6dd5a7c: Admins # Admins
     0848c204-7e47-4aa0-8da1-5a4538481bce: 'Canto DAM' # Canto DAM
     860a3a7b-7ed5-4997-9a40-0d00e58b77d0: 'Astro Images' # Astro Images
+    928bd2d5-bb58-4e0f-9c81-f805fcc1e135: 'Guided Experience Type' # Guided Experience Type
+    1846dfb1-7917-4243-b91d-4eb084d1462b: 'Guided Experiences' # Guided Experiences
+    4161f47d-ffa7-48f7-a373-113eb8dce3b3: 'Preview Image' # Preview Image
+    4286f2c2-ef6e-4606-8160-8a241488a1f6: 'Guided Experiences' # Guided Experiences
     31806af1-7467-49ea-9638-01ecf1c546cd: 'Intro Subheading' # Intro Subheading
     40780a9f-1ee7-4c59-aaaf-159094330220: 'Tour Theme' # Tour Theme
     45720ab9-15e3-4cdc-8103-9c0495d2c1d2: 'Site Title' # Site Title
@@ -109,10 +114,12 @@ meta:
     a3b0cf34-24af-41fe-8047-b1e5b65d5bd0: Catalog # Catalog
     a6b28fea-2f0c-49a2-b82c-fd16c51d9511: ES # ES
     a8b34826-6a25-4e0a-b5dc-7e9820257899: 'Tour POI' # Tour POI
+    a279aa4f-a3ed-4363-9335-a042965bc310: Experience # Experience
     a469a047-d19a-421e-97f8-c58f1bda27d7: 'Tour Images' # Tour Images
     a715351e-d465-4446-81f8-c9a15b3d1298: 'Intro Heading' # Intro Heading
     aa3e2ce5-e67a-4378-8a44-c660690cbcc3: 'Tour Variety' # Tour Variety
     b3f50442-f90e-42e6-986e-b2426abedaca: Target # Target
+    b9b34be4-0861-4bc6-8707-e9752c6407d8: 'Experience Category' # Experience Category
     b22ca822-e7e2-4f8c-8be5-d3b0fcab1c9f: Tours # Tours
     b67e6d47-49f6-4385-85c7-ada70ffcf67e: 'POI Astro Object' # POI Astro Object
     b469eb7b-2830-4cc1-b7b3-b55d9e8c9b96: Embed # Embed
@@ -177,6 +184,9 @@ plugins:
             - '1'
           -
             - explorer
+            - '1'
+          -
+            - guidedExperiences
             - '1'
           -
             - surveys
