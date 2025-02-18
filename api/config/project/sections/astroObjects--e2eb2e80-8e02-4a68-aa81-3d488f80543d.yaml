@@ -18,14 +18,14 @@ propagationMethod: all
 siteSettings:
   763c0189-f6eb-419c-9ca2-2574a743768a: # EN
     enabledByDefault: true
-    hasUrls: true
+    hasUrls: false
     template: null
-    uriFormat: 'astro-object/{slug}'
+    uriFormat: null
   a6b28fea-2f0c-49a2-b82c-fd16c51d9511: # ES
     enabledByDefault: true
-    hasUrls: true
+    hasUrls: false
     template: null
-    uriFormat: 'astro-object/{slug}'
+    uriFormat: null
 structure:
   maxLevels: null
   uid: 84555b8e-d323-4457-8ba6-645d9ec367fc
