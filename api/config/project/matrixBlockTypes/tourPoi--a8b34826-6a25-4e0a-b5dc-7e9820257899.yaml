@@ -3,52 +3,65 @@ fieldLayouts:
   1b720c1b-b66f-4f5c-bd7d-a64b1bd32367:
     tabs:
       -
+        elementCondition: null
         elements:
           -
+            elementCondition: null
             fieldUid: fe1835fb-8bd0-4e5a-b637-0e94330568ac # Description
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 326815f2-00b3-460f-bd49-bbc6159f015e
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: d6f8219d-2a83-4ee6-967e-10720dec037b # FOV
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 357e9018-33df-4199-b8b3-77c81b9bad20
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: 4a676166-cd4f-4c4e-a7ee-afca5c68fc2d # astroObject
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: b3272191-3ca1-43fb-b7f7-5ff431f1d9f0
+            userCondition: null
             warning: null
             width: 100
         name: Content
-        sortOrder: 1
+        uid: 9e973a7f-2421-499d-ad1b-39e7b44f5384
+        userCondition: null
 fields:
   4a676166-cd4f-4c4e-a7ee-afca5c68fc2d: # astroObject
     columnSuffix: null
     contentColumnType: string
     fieldGroup: null
     handle: astroObject
-    instructions: ''
+    instructions: null
     name: astroObject
     searchable: false
     settings:
       allowSelfRelations: false
-      limit: '1'
+      branchLimit: null
       localizeRelations: false
-      selectionLabel: ''
+      maintainHierarchy: false
+      maxRelations: 1
+      minRelations: null
+      selectionLabel: null
       showSiteMenu: false
-      source: null
       sources:
         - 'section:e2eb2e80-8e02-4a68-aa81-3d488f80543d' # Astro Object
       targetSiteId: null
@@ -59,19 +72,19 @@ fields:
     type: craft\fields\Entries
   d6f8219d-2a83-4ee6-967e-10720dec037b: # FOV
     columnSuffix: null
-    contentColumnType: integer(10)
+    contentColumnType: 'decimal(16,6)'
     fieldGroup: null
     handle: fov
-    instructions: ''
+    instructions: null
     name: FOV
     searchable: false
     settings:
-      decimals: 0
-      defaultValue: '20'
+      decimals: 6
+      defaultValue: 20
       max: null
-      min: '0'
+      min: 0
       prefix: null
-      previewCurrency: ''
+      previewCurrency: null
       previewFormat: decimal
       size: null
       suffix: null
@@ -83,24 +96,23 @@ fields:
     contentColumnType: text
     fieldGroup: null
     handle: description
-    instructions: ''
+    instructions: null
     name: Description
     searchable: true
     settings:
-      availableTransforms: '*'
+      availableTransforms: ''
       availableVolumes: ''
-      cleanupHtml: true
       columnType: text
       configSelectionMode: choose
       defaultTransform: ''
       manualConfig: ''
-      purifierConfig: ''
-      purifyHtml: '1'
-      redactorConfig: ''
-      removeEmptyTags: '1'
-      removeInlineStyles: '1'
-      removeNbsp: '1'
-      showHtmlButtonForNonAdmins: ''
+      purifierConfig: null
+      purifyHtml: true
+      redactorConfig: null
+      removeEmptyTags: true
+      removeInlineStyles: true
+      removeNbsp: true
+      showHtmlButtonForNonAdmins: false
       showUnpermittedFiles: false
       showUnpermittedVolumes: false
       uiMode: enlarged

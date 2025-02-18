@@ -1,17 +1,17 @@
 columnSuffix: null
-contentColumnType: integer(10)
+contentColumnType: 'decimal(8,6)'
 fieldGroup: 8d6803f5-ca34-46d8-a8d5-869896e34b65 # Tour
 handle: dec
 instructions: Declination
 name: Dec
 searchable: false
 settings:
-  decimals: 0
+  decimals: 6
   defaultValue: null
-  max: null
-  min: '0'
+  max: 90
+  min: -90
   prefix: null
-  previewCurrency: ''
+  previewCurrency: null
   previewFormat: decimal
   size: null
   suffix: null

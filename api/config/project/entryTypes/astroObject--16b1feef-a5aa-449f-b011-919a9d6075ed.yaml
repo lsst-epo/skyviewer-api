@@ -2,6 +2,7 @@ fieldLayouts:
   1172933d-d14c-443e-a972-e0e3dae6d4f7:
     tabs:
       -
+        elementCondition: null
         elements:
           -
             autocapitalize: true
@@ -9,9 +10,11 @@ fieldLayouts:
             autocorrect: true
             class: null
             disabled: false
+            elementCondition: null
             id: null
-            instructions: ''
-            label: ''
+            inputType: null
+            instructions: null
+            label: null
             max: null
             min: null
             name: null
@@ -24,59 +27,80 @@ fieldLayouts:
             tip: null
             title: null
             type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 67984270-b4f7-401d-afab-a75fbc4a08f9
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: 25d2c2a6-169a-461c-b67d-54294c7d22d7 # Object Id
             instructions: null
             label: null
-            required: false
+            required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: b6e2c445-38bc-4017-bbd1-4656bc63ad3a
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: 8a653768-6c25-44d4-815e-182cd324b043 # Ra
             instructions: null
             label: null
-            required: false
+            required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: e8fa1e43-1cca-427c-9ae0-cf8b3395286b
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: c8a76131-a217-46f6-9b2a-88d4f2a2f7de # Dec
             instructions: null
             label: null
-            required: false
+            required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 86c953ec-3059-443a-972a-76cb0c1f7d57
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: fe74f2bf-6416-4c77-a05d-1ef924e575a8 # Image
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 442d218e-b2e8-445b-a4ea-7f70b358439c
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: e76c2c25-ca53-4f4c-bd93-a5af52ebb72c # Characteristics
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: e1ba88d6-582f-4634-a873-5340b868f026
+            userCondition: null
             warning: null
             width: 100
         name: Content
-        sortOrder: 1
+        uid: f86a6319-581b-4887-af6f-3ccca79e3e93
+        userCondition: null
 handle: astroObject
 hasTitleField: true
 name: 'Astro Object'
 section: e2eb2e80-8e02-4a68-aa81-3d488f80543d # Astro Object
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: none
 sortOrder: 1
 titleFormat: null
 titleTranslationKeyFormat: null
