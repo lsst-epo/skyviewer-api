@@ -1,17 +1,17 @@
 columnSuffix: null
-contentColumnType: integer(10)
+contentColumnType: 'decimal(15,5)'
 fieldGroup: 7d09d2f0-5c11-4a45-a805-a6d39128319e # Common
 handle: fov
 instructions: 'An integer indicating the initial Zoom level'
 name: 'Field of Vision (FOV) Initial Value'
 searchable: false
 settings:
-  decimals: 0
+  decimals: 5
   defaultValue: null
   max: null
-  min: '0'
+  min: 0
   prefix: null
-  previewCurrency: ''
+  previewCurrency: null
   previewFormat: decimal
   size: null
   suffix: null
