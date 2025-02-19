@@ -2,6 +2,7 @@ fieldLayouts:
   ab781cc4-81d9-4138-958a-fd7a2609cbda:
     tabs:
       -
+        elementCondition: null
         elements:
           -
             autocapitalize: true
@@ -9,7 +10,9 @@ fieldLayouts:
             autocorrect: true
             class: null
             disabled: false
+            elementCondition: null
             id: null
+            inputType: null
             instructions: null
             label: null
             max: null
@@ -24,32 +27,44 @@ fieldLayouts:
             tip: null
             title: null
             type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: c9cee29e-bec6-429b-beb3-b820cce0caa2
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: fe3ef1fd-33fa-4aeb-9ed2-9e74f6694377 # Path
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: cce40666-a046-4691-9385-d76f6558150d
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: 7e00543c-2735-49a3-96f0-d39d5d7333fe # Icon
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 15ead2e5-9250-403c-a35f-83e78841cf60
+            userCondition: null
             warning: null
             width: 100
         name: Content
-        sortOrder: 1
+        uid: 6d929f1d-d14b-4cbd-8260-f0de5c807897
+        userCondition: null
 handle: catalog
 hasTitleField: true
 name: Catalog
 section: 32b433c2-8fa2-439b-9678-d48e4f929b88 # Catalogs
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: none
 sortOrder: 1
 titleFormat: null
 titleTranslationKeyFormat: null
