@@ -7,10 +7,34 @@ fieldLayouts:
         elements:
           -
             elementCondition: null
+            fieldUid: 4a676166-cd4f-4c4e-a7ee-afca5c68fc2d # Astro Object
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b3272191-3ca1-43fb-b7f7-5ff431f1d9f0
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            elementCondition: null
+            fieldUid: d6f8219d-2a83-4ee6-967e-10720dec037b # FOV
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 357e9018-33df-4199-b8b3-77c81b9bad20
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            elementCondition: null
             fieldUid: fe1835fb-8bd0-4e5a-b637-0e94330568ac # Description
             instructions: null
             label: null
-            required: false
+            required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: 326815f2-00b3-460f-bd49-bbc6159f015e
@@ -19,25 +43,49 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            fieldUid: d6f8219d-2a83-4ee6-967e-10720dec037b # FOV
+            fieldUid: 9acbaaa2-a8e8-4f68-a495-98b3e2d8ed13 # Zoom Out Time
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 357e9018-33df-4199-b8b3-77c81b9bad20
+            uid: e733cf0d-5f59-4f8d-87f1-efdeae771fc5
             userCondition: null
             warning: null
-            width: 100
+            width: 25
           -
             elementCondition: null
-            fieldUid: 4a676166-cd4f-4c4e-a7ee-afca5c68fc2d # astroObject
+            fieldUid: f179ae9d-f7cc-4d51-824b-393c7ab4879d # Zoom Out FOV
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: b3272191-3ca1-43fb-b7f7-5ff431f1d9f0
+            uid: 3f954046-ce9a-48b6-b70b-aca6792a5ba1
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            elementCondition: null
+            fieldUid: a946a572-4818-4836-be34-95b4395d603a # Pan Time
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f2b50372-4952-4e30-a67e-5104674c497e
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            elementCondition: null
+            fieldUid: 51928716-cd54-492b-8292-3e1dea11aa9f # Zoom In Time
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 1467247f-0793-4572-baa1-df58e083fc0c
             userCondition: null
             warning: null
             width: 100
@@ -45,13 +93,13 @@ fieldLayouts:
         uid: 9e973a7f-2421-499d-ad1b-39e7b44f5384
         userCondition: null
 fields:
-  4a676166-cd4f-4c4e-a7ee-afca5c68fc2d: # astroObject
+  4a676166-cd4f-4c4e-a7ee-afca5c68fc2d: # Astro Object
     columnSuffix: null
     contentColumnType: string
     fieldGroup: null
     handle: astroObject
     instructions: null
-    name: astroObject
+    name: 'Astro Object'
     searchable: false
     settings:
       allowSelfRelations: false
@@ -70,6 +118,69 @@ fields:
     translationKeyFormat: null
     translationMethod: site
     type: craft\fields\Entries
+  9acbaaa2-a8e8-4f68-a495-98b3e2d8ed13: # Zoom Out Time
+    columnSuffix: szjpwegf
+    contentColumnType: 'decimal(11,1)'
+    fieldGroup: null
+    handle: zoomOutTime
+    instructions: 'Time to zoom out after this POI'
+    name: 'Zoom Out Time'
+    searchable: false
+    settings:
+      decimals: 1
+      defaultValue: null
+      max: null
+      min: 0
+      prefix: null
+      previewCurrency: null
+      previewFormat: decimal
+      size: null
+      suffix: seconds
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Number
+  51928716-cd54-492b-8292-3e1dea11aa9f: # Zoom In Time
+    columnSuffix: xjnnebcz
+    contentColumnType: 'decimal(11,1)'
+    fieldGroup: null
+    handle: zoomInTime
+    instructions: 'Time to zoom in to the next POI after this POI'
+    name: 'Zoom In Time'
+    searchable: false
+    settings:
+      decimals: 1
+      defaultValue: null
+      max: null
+      min: 0
+      prefix: null
+      previewCurrency: null
+      previewFormat: decimal
+      size: null
+      suffix: seconds
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Number
+  a946a572-4818-4836-be34-95b4395d603a: # Pan Time
+    columnSuffix: kuiphvxs
+    contentColumnType: 'decimal(11,1)'
+    fieldGroup: null
+    handle: panTime
+    instructions: 'Time to pan to the next POI after this POI'
+    name: 'Pan Time'
+    searchable: false
+    settings:
+      decimals: 1
+      defaultValue: null
+      max: null
+      min: 0
+      prefix: null
+      previewCurrency: null
+      previewFormat: decimal
+      size: null
+      suffix: seconds
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Number
   d6f8219d-2a83-4ee6-967e-10720dec037b: # FOV
     columnSuffix: null
     contentColumnType: 'decimal(16,6)'
@@ -87,7 +198,28 @@ fields:
       previewCurrency: null
       previewFormat: decimal
       size: null
-      suffix: null
+      suffix: degrees
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Number
+  f179ae9d-f7cc-4d51-824b-393c7ab4879d: # Zoom Out FOV
+    columnSuffix: zhzwhfbf
+    contentColumnType: 'decimal(16,6)'
+    fieldGroup: null
+    handle: zoomOutFov
+    instructions: 'FOV to zoom out to after this POI'
+    name: 'Zoom Out FOV'
+    searchable: false
+    settings:
+      decimals: 6
+      defaultValue: null
+      max: null
+      min: 0
+      prefix: null
+      previewCurrency: null
+      previewFormat: decimal
+      size: null
+      suffix: degrees
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Number
