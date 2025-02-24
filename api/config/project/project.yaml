@@ -1,4 +1,4 @@
-dateModified: 1739977922
+dateModified: 1740424842
 email:
   fromEmail: $EMAIL_FROM_ADDRESS
   fromName: $EMAIL_SENDER_NAME
@@ -60,7 +60,7 @@ meta:
     2c43566d-87e9-47af-b1e3-87577b58f06f: Variety # Variety
     02e3155f-23cf-4f36-a734-a3f447d04e85: Survey # Survey
     3c645133-6daf-4632-a842-13662885ad1b: 'Background Image' # Background Image
-    4a676166-cd4f-4c4e-a7ee-afca5c68fc2d: astroObject # astroObject
+    4a676166-cd4f-4c4e-a7ee-afca5c68fc2d: 'Astro Object' # Astro Object
     4accd3e5-dd7d-4464-9f19-db2009adda71: Globals # Globals
     4b8d140e-8cb8-489e-9a89-0c30c4717e30: 'Tour Theme' # Tour Theme
     04fc1a9d-6240-4e69-ad81-2e02190a7e8d: 'Fun Facts Content Blocks' # Fun Facts Content Blocks
@@ -76,6 +76,7 @@ meta:
     008cb5a3-a777-476f-8410-4f2bf13ac492: 'Intro Content Blocks' # Intro Content Blocks
     8d6803f5-ca34-46d8-a8d5-869896e34b65: Tour # Tour
     8fd439fe-660f-4cac-8ddf-b71b8ad6276f: 'Tour POIs' # Tour POIs
+    9acbaaa2-a8e8-4f68-a495-98b3e2d8ed13: 'Zoom Out Time' # Zoom Out Time
     9d2a5fce-1549-4e9f-8205-f1527f5064b2: Catalog # Catalog
     9d28ee9c-bac6-404e-a24f-afde8a75ad1b: 'Point of Interest' # Point of Interest
     16b1feef-a5aa-449f-b011-919a9d6075ed: 'Astro Object' # Astro Object
@@ -109,6 +110,7 @@ meta:
     0732995e-10da-4be7-944b-51b1135d12eb: 'Field of Vision (FOV) Minimum Value' # Field of Vision (FOV) Minimum Value
     5244042f-c1bd-4262-8aa8-4cb92e5f2ea4: Description # Description
     8944198c-ff53-4323-ad48-976efeb3f56e: 'Facts Content Block' # Facts Content Block
+    51928716-cd54-492b-8292-3e1dea11aa9f: 'Zoom In Time' # Zoom In Time
     99900237-7b20-49d9-ae09-b70c06489be7: Heading # Heading
     a0521bda-0df4-4937-9d6e-1534dfb98b58: 'Field of Vision (FOV) Initial Value' # Field of Vision (FOV) Initial Value
     a3b0cf34-24af-41fe-8047-b1e5b65d5bd0: Catalog # Catalog
@@ -116,6 +118,7 @@ meta:
     a8b34826-6a25-4e0a-b5dc-7e9820257899: 'Tour POI' # Tour POI
     a279aa4f-a3ed-4363-9335-a042965bc310: Experience # Experience
     a469a047-d19a-421e-97f8-c58f1bda27d7: 'Tour Images' # Tour Images
+    a946a572-4818-4836-be34-95b4395d603a: 'Pan Time' # Pan Time
     a715351e-d465-4446-81f8-c9a15b3d1298: 'Intro Heading' # Intro Heading
     aa3e2ce5-e67a-4378-8a44-c660690cbcc3: 'Tour Variety' # Tour Variety
     b3f50442-f90e-42e6-986e-b2426abedaca: Target # Target
@@ -140,6 +143,7 @@ meta:
     e87bfbdf-5fad-46b9-9794-4e88c012e6af: Tour # Tour
     e4521605-ff3a-4876-8c3c-cde0ffe5deaa: 'Astro Objects' # Astro Objects
     ea689411-d03e-48f0-8841-3318c457eee1: 'Site Info' # Site Info
+    f179ae9d-f7cc-4d51-824b-393c7ab4879d: 'Zoom Out FOV' # Zoom Out FOV
     fe3ef1fd-33fa-4aeb-9ed2-9e74f6694377: Path # Path
     fe74f2bf-6416-4c77-a05d-1ef924e575a8: Image # Image
     fe1835fb-8bd0-4e5a-b637-0e94330568ac: Description # Description
