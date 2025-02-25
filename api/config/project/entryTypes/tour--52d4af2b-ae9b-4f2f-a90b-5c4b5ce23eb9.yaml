@@ -33,28 +33,16 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            fieldUid: 2c43566d-87e9-47af-b1e3-87577b58f06f # Variety
+            fieldUid: 24cba937-e963-4113-b0e4-afd8d83bc2d8 # Entry - Survey
             instructions: null
             label: null
-            required: false
+            required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: fdf30245-257b-4a30-891c-e46345eafe77
+            uid: 924b96eb-9bc9-457b-8166-ba37b23bd273
             userCondition: null
             warning: null
-            width: 50
-          -
-            elementCondition: null
-            fieldUid: 4b8d140e-8cb8-489e-9a89-0c30c4717e30 # Tour Theme
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: c1aba0be-1835-4135-b2f0-0427a37b7180
-            userCondition: null
-            warning: null
-            width: 50
+            width: 100
           -
             elementCondition: null
             type: craft\fieldlayoutelements\HorizontalRule
@@ -182,18 +170,6 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: 92eb9031-8a9d-42a3-9d67-26757bb194e4
-            userCondition: null
-            warning: null
-            width: 100
-          -
-            elementCondition: null
-            fieldUid: 219e25fd-9ccf-4627-be3e-cd82a6742ce7
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: f577df95-52a3-4ddc-af67-7b8ff64a4cf2
             userCondition: null
             warning: null
             width: 100
