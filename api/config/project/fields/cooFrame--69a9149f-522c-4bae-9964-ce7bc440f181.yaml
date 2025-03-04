@@ -1,0 +1,79 @@
+columnSuffix: jlivibcz
+contentColumnType: string(10)
+fieldGroup: 0ecf9feb-ab77-470b-a2de-eb396a3a4682 # Survey
+handle: cooFrame
+instructions: 'Coordinate frame of the survey tiles'
+name: 'Coordinate Frame'
+searchable: false
+settings:
+  columnType: null
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - J2000
+        -
+          - value
+          - j2000
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - Equatorial
+        -
+          - value
+          - equatorial
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'International Celestial Reference System'
+        -
+          - value
+          - ICRS
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'International Celestial Reference System (decimal)'
+        -
+          - value
+          - ICRSd
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - gal
+        -
+          - value
+          - gal
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Galactic
+        -
+          - value
+          - galactic
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown
