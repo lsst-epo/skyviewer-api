@@ -26,7 +26,4 @@ siteSettings:
     hasUrls: true
     template: null
     uriFormat: 'tours/{slug}'
-structure:
-  maxLevels: null
-  uid: 2529bf86-1708-4969-b27e-0df6979598b4
-type: structure
+type: channel
