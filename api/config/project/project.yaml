@@ -1,4 +1,4 @@
-dateModified: 1740518791
+dateModified: 1741121209
 email:
   fromEmail: $EMAIL_FROM_ADDRESS
   fromName: $EMAIL_SENDER_NAME
@@ -105,14 +105,14 @@ meta:
     40780a9f-1ee7-4c59-aaaf-159094330220: 'Tour Theme' # Tour Theme
     45720ab9-15e3-4cdc-8103-9c0495d2c1d2: 'Site Title' # Site Title
     82510efa-cd7e-4f64-bfaa-1da05df2f53a: 'Source Size' # Source Size
-    455216e8-f949-4521-911f-d50895102cd4: 'Field of Vision (FOV) Maximum Value' # Field of Vision (FOV) Maximum Value
+    455216e8-f949-4521-911f-d50895102cd4: 'Field of View (FOV) Maximum' # Field of View (FOV) Maximum
     555997ed-1e6e-43e5-913f-cb5f38eca1b6: Embed # Embed
-    0732995e-10da-4be7-944b-51b1135d12eb: 'Field of Vision (FOV) Minimum Value' # Field of Vision (FOV) Minimum Value
+    0732995e-10da-4be7-944b-51b1135d12eb: 'Field of View (FOV) Minimum' # Field of View (FOV) Minimum
     5244042f-c1bd-4262-8aa8-4cb92e5f2ea4: Description # Description
     8944198c-ff53-4323-ad48-976efeb3f56e: 'Facts Content Block' # Facts Content Block
     51928716-cd54-492b-8292-3e1dea11aa9f: 'Zoom In Time' # Zoom In Time
     99900237-7b20-49d9-ae09-b70c06489be7: Heading # Heading
-    a0521bda-0df4-4937-9d6e-1534dfb98b58: 'Field of Vision (FOV) Initial Value' # Field of Vision (FOV) Initial Value
+    a0521bda-0df4-4937-9d6e-1534dfb98b58: 'Field of View (FOV) Initial' # Field of View (FOV) Initial
     a3b0cf34-24af-41fe-8047-b1e5b65d5bd0: Catalog # Catalog
     a6b28fea-2f0c-49a2-b82c-fd16c51d9511: ES # ES
     a8b34826-6a25-4e0a-b5dc-7e9820257899: 'Tour POI' # Tour POI
