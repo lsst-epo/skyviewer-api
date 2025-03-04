@@ -2,8 +2,8 @@ columnSuffix: null
 contentColumnType: 'decimal(15,5)'
 fieldGroup: 7d09d2f0-5c11-4a45-a805-a6d39128319e # Common
 handle: fov
-instructions: 'An integer indicating the initial Zoom level'
-name: 'Field of Vision (FOV) Initial Value'
+instructions: 'A number indicating the initial zoom level'
+name: 'Field of View (FOV) Initial'
 searchable: false
 settings:
   decimals: 5
@@ -14,7 +14,7 @@ settings:
   previewCurrency: null
   previewFormat: decimal
   size: null
-  suffix: null
+  suffix: °
 translationKeyFormat: null
 translationMethod: none
 type: craft\fields\Number

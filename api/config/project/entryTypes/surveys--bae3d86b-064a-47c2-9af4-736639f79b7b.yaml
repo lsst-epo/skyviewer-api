@@ -57,7 +57,7 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            fieldUid: 0732995e-10da-4be7-944b-51b1135d12eb # Field of Vision (FOV) Minimum Value
+            fieldUid: 0732995e-10da-4be7-944b-51b1135d12eb # Field of View (FOV) Minimum
             instructions: null
             label: null
             required: false
@@ -66,10 +66,10 @@ fieldLayouts:
             uid: bf66f2ea-3517-42d4-b599-24719ca37373
             userCondition: null
             warning: null
-            width: 100
+            width: 50
           -
             elementCondition: null
-            fieldUid: 455216e8-f949-4521-911f-d50895102cd4 # Field of Vision (FOV) Maximum Value
+            fieldUid: 455216e8-f949-4521-911f-d50895102cd4 # Field of View (FOV) Maximum
             instructions: null
             label: null
             required: false
@@ -78,10 +78,10 @@ fieldLayouts:
             uid: 3722993c-b3ad-4043-bf70-b7168bf6f03a
             userCondition: null
             warning: null
-            width: 100
+            width: 50
           -
             elementCondition: null
-            fieldUid: a0521bda-0df4-4937-9d6e-1534dfb98b58 # Field of Vision (FOV) Initial Value
+            fieldUid: a0521bda-0df4-4937-9d6e-1534dfb98b58 # Field of View (FOV) Initial
             instructions: null
             label: null
             required: false
