@@ -93,6 +93,12 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
+            heading: 'HiPS Properties'
+            type: craft\fieldlayoutelements\Heading
+            uid: 048996e0-308c-497b-bee7-1efcfde93ef2
+            userCondition: null
+          -
+            elementCondition: null
             fieldUid: d43d64da-ee7e-4be7-bdf7-7a4af1994dad # Image Format
             instructions: null
             label: null
@@ -102,7 +108,43 @@ fieldLayouts:
             uid: 36b01bc0-2c4a-43e8-b7f1-ac7025748ea7
             userCondition: null
             warning: null
-            width: 100
+            width: 25
+          -
+            elementCondition: null
+            fieldUid: 3ea0147c-d31c-48ca-b25c-e361191e8b8b # Max Order
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ed2ea434-c9ba-4924-a356-793a70cf4573
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            elementCondition: null
+            fieldUid: 47737e5d-6fd7-42dd-95c3-e2c69caa42d5 # Tile Size
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 6b5ed8cc-9885-40b5-967d-cffa348a14e9
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            elementCondition: null
+            fieldUid: 69a9149f-522c-4bae-9964-ce7bc440f181 # Coordinate Frame
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e38b1f64-0026-4b1c-a4b0-b3665727faa7
+            userCondition: null
+            warning: null
+            width: 25
         name: Content
         uid: 3d8bf9a8-2d81-487b-b46a-6f791f933930
         userCondition: null

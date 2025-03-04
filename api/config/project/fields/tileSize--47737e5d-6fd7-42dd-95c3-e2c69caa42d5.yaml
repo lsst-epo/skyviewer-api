@@ -1,9 +1,9 @@
-columnSuffix: xahhgebz
-contentColumnType: string(4)
+columnSuffix: slrwdgrx
+contentColumnType: string(3)
 fieldGroup: 0ecf9feb-ab77-470b-a2de-eb396a3a4682 # Survey
-handle: imgFormat
-instructions: 'Formats accepted ''webp'', ''png'', ''jpeg'' or ''fits''. Will raise an error if the HiPS does not contain tiles in this format'
-name: 'Image Format'
+handle: tileSize
+instructions: 'The width of the HEALPix tile images. Mostly 512 pixels but can be 256, 128, 64, 32'
+name: 'Tile Size'
 searchable: false
 settings:
   columnType: null
@@ -12,10 +12,10 @@ settings:
       __assoc__:
         -
           - label
-          - PNG
+          - 512x512
         -
           - value
-          - png
+          - '512'
         -
           - default
           - '1'
@@ -23,10 +23,10 @@ settings:
       __assoc__:
         -
           - label
-          - WebP
+          - 256x256
         -
           - value
-          - webp
+          - '256'
         -
           - default
           - ''
@@ -34,10 +34,10 @@ settings:
       __assoc__:
         -
           - label
-          - JPEG
+          - 128x128
         -
           - value
-          - jpeg
+          - '128'
         -
           - default
           - ''
@@ -45,10 +45,21 @@ settings:
       __assoc__:
         -
           - label
-          - FITS
+          - 64x64
         -
           - value
-          - fits
+          - '64'
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 32x32
+        -
+          - value
+          - '32'
         -
           - default
           - ''
