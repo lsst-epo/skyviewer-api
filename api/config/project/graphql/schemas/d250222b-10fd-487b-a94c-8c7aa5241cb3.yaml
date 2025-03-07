@@ -19,6 +19,7 @@ scope:
   - 'entrytypes.52d4af2b-ae9b-4f2f-a90b-5c4b5ce23eb9:read' # Tour
   - 'volumes.a469a047-d19a-421e-97f8-c58f1bda27d7:read' # Tour Images
   - 'volumes.860a3a7b-7ed5-4997-9a40-0d00e58b77d0:read' # Astro Images
+  - 'volumes.0848c204-7e47-4aa0-8da1-5a4538481bce:read' # Canto DAM
   - 'volumes.82bbf6f6-1ae1-4f42-b9de-913e0cc027fc:read' # Icons
   - 'globalsets.ea689411-d03e-48f0-8841-3318c457eee1:read' # Site Info
   - 'categorygroups.928bd2d5-bb58-4e0f-9c81-f805fcc1e135:read' # Guided Experience Type
