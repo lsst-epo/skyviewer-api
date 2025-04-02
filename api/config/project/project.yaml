@@ -1,4 +1,4 @@
-dateModified: 1741185273
+dateModified: 1743625007
 email:
   fromEmail: $EMAIL_FROM_ADDRESS
   fromName: $EMAIL_SENDER_NAME
@@ -96,6 +96,7 @@ meta:
     82d2c4d7-37f1-458a-8a56-3cc1dcec6a0c: poiAstroObject # poiAstroObject
     84e9fa1d-8aed-40e1-a0e9-cb13152ea782: 'Astro Object' # Astro Object
     93cdcbba-f59d-41f1-ac65-5d9b0f83ef62: Duration # Duration
+    754ae3b5-3a92-4012-8660-9d106bdc3e69: 'Include in feed' # Include in feed
     763c0189-f6eb-419c-9ca2-2574a743768a: EN # EN
     774bddd7-f968-4015-957b-e33bc6dd5a7c: Admins # Admins
     0848c204-7e47-4aa0-8da1-5a4538481bce: 'Canto DAM' # Canto DAM
