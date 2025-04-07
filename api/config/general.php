@@ -35,7 +35,7 @@ return [
         'headlessMode' => true,
 
         'aliases' => [
-            '@previewUrlFormat' => App::env('ALIAS_PREVIEW_URL_FORMAT'),
+            '@previewUrlFormat' => App::env('ALIAS_PREVIEW_URL_FORMAT') . '&secret=' . App::env('NEXT_SECRET_TOKEN'),
             '@webBaseUrl' => App::env('WEB_BASE_URL'),
             '@gcsBucketUrl' => sprintf(
                 $gcsBucketPathFormat,
