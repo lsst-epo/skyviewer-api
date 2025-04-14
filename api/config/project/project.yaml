@@ -1,4 +1,4 @@
-dateModified: 1744048416
+dateModified: 1744645602
 email:
   fromEmail: $EMAIL_FROM_ADDRESS
   fromName: $EMAIL_SENDER_NAME
@@ -55,13 +55,14 @@ fs:
 meta:
   __names__:
     0ecf9feb-ab77-470b-a2de-eb396a3a4682: Survey # Survey
+    1b6d6c52-1663-44df-a699-c12283451818: Title # Title
     1f01e823-4dbb-4804-92e9-39007bcb2667: 'Guided Experiences' # Guided Experiences
     1f5ddbcd-4f3f-495c-95d9-dcd6af9e3f6f: 'Astro Object' # Astro Object
     2c43566d-87e9-47af-b1e3-87577b58f06f: Variety # Variety
     02e3155f-23cf-4f36-a734-a3f447d04e85: Survey # Survey
     3c645133-6daf-4632-a842-13662885ad1b: 'Background Image' # Background Image
+    3d01dd7e-2f06-4225-9857-951e921377ff: Dec # Dec
     3ea0147c-d31c-48ca-b25c-e361191e8b8b: 'Max Order' # Max Order
-    4a676166-cd4f-4c4e-a7ee-afca5c68fc2d: 'Astro Object' # Astro Object
     4accd3e5-dd7d-4464-9f19-db2009adda71: Globals # Globals
     4b8d140e-8cb8-489e-9a89-0c30c4717e30: 'Tour Theme' # Tour Theme
     04fc1a9d-6240-4e69-ad81-2e02190a7e8d: 'Fun Facts Content Blocks' # Fun Facts Content Blocks
@@ -95,6 +96,7 @@ meta:
     82bbf6f6-1ae1-4f42-b9de-913e0cc027fc: Icons # Icons
     82d2c4d7-37f1-458a-8a56-3cc1dcec6a0c: poiAstroObject # poiAstroObject
     84e9fa1d-8aed-40e1-a0e9-cb13152ea782: 'Astro Object' # Astro Object
+    88ca9249-075f-4535-9997-6dbf45a0582b: RA # RA
     93cdcbba-f59d-41f1-ac65-5d9b0f83ef62: Duration # Duration
     754ae3b5-3a92-4012-8660-9d106bdc3e69: 'Include in feed' # Include in feed
     763c0189-f6eb-419c-9ca2-2574a743768a: EN # EN

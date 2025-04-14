@@ -7,28 +7,16 @@ fieldLayouts:
         elements:
           -
             elementCondition: null
-            fieldUid: 4a676166-cd4f-4c4e-a7ee-afca5c68fc2d # Astro Object
+            fieldUid: 1b6d6c52-1663-44df-a699-c12283451818 # Title
             instructions: null
             label: null
             required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: b3272191-3ca1-43fb-b7f7-5ff431f1d9f0
+            uid: 4c3b193e-863e-433a-bcd8-37542548ca75
             userCondition: null
             warning: null
-            width: 50
-          -
-            elementCondition: null
-            fieldUid: d6f8219d-2a83-4ee6-967e-10720dec037b # FOV
-            instructions: null
-            label: null
-            required: true
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: 357e9018-33df-4199-b8b3-77c81b9bad20
-            userCondition: null
-            warning: null
-            width: 50
+            width: 100
           -
             elementCondition: null
             fieldUid: fe1835fb-8bd0-4e5a-b637-0e94330568ac # Description
@@ -41,6 +29,42 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 100
+          -
+            elementCondition: null
+            fieldUid: 88ca9249-075f-4535-9997-6dbf45a0582b # RA
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 43416df3-26e7-4566-ae42-dee22be5dc78
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            elementCondition: null
+            fieldUid: 3d01dd7e-2f06-4225-9857-951e921377ff # Dec
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c14c7ea0-3d4c-4778-a93f-de361f997b3b
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            elementCondition: null
+            fieldUid: d6f8219d-2a83-4ee6-967e-10720dec037b # FOV
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 357e9018-33df-4199-b8b3-77c81b9bad20
+            userCondition: null
+            warning: null
+            width: 25
           -
             elementCondition: null
             fieldUid: 6e1a5aaf-7bc6-457d-b979-4f3b9d4ce4c0 # Audio
@@ -105,31 +129,47 @@ fieldLayouts:
         uid: 9e973a7f-2421-499d-ad1b-39e7b44f5384
         userCondition: null
 fields:
-  4a676166-cd4f-4c4e-a7ee-afca5c68fc2d: # Astro Object
-    columnSuffix: null
-    contentColumnType: string
+  1b6d6c52-1663-44df-a699-c12283451818: # Title
+    columnSuffix: nkdhgxop
+    contentColumnType: text
     fieldGroup: null
-    handle: astroObject
+    handle: poiTitle
     instructions: null
-    name: 'Astro Object'
+    name: Title
     searchable: false
     settings:
-      allowSelfRelations: false
-      branchLimit: null
-      localizeRelations: false
-      maintainHierarchy: false
-      maxRelations: 1
-      minRelations: null
-      selectionLabel: null
-      showSiteMenu: false
-      sources:
-        - 'section:e2eb2e80-8e02-4a68-aa81-3d488f80543d' # Astro Object
-      targetSiteId: null
-      validateRelatedElements: false
-      viewMode: null
+      byteLimit: null
+      charLimit: null
+      code: false
+      columnType: null
+      initialRows: 4
+      multiline: false
+      placeholder: null
+      uiMode: normal
     translationKeyFormat: null
     translationMethod: site
-    type: craft\fields\Entries
+    type: craft\fields\PlainText
+  3d01dd7e-2f06-4225-9857-951e921377ff: # Dec
+    columnSuffix: klgmoxyx
+    contentColumnType: 'decimal(8,6)'
+    fieldGroup: null
+    handle: dec
+    instructions: null
+    name: Dec
+    searchable: false
+    settings:
+      decimals: 6
+      defaultValue: null
+      max: 90
+      min: -90
+      prefix: null
+      previewCurrency: null
+      previewFormat: decimal
+      size: null
+      suffix: °
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Number
   6e1a5aaf-7bc6-457d-b979-4f3b9d4ce4c0: # Audio
     columnSuffix: dblnzfer
     contentColumnType:
@@ -157,7 +197,7 @@ fields:
     searchable: false
     settings:
       decimals: 1
-      defaultValue: null
+      defaultValue: 1
       max: null
       min: 0
       prefix: null
@@ -165,6 +205,27 @@ fields:
       previewFormat: decimal
       size: null
       suffix: seconds
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Number
+  88ca9249-075f-4535-9997-6dbf45a0582b: # RA
+    columnSuffix: czjnlfzv
+    contentColumnType: 'decimal(9,6)'
+    fieldGroup: null
+    handle: ra
+    instructions: null
+    name: RA
+    searchable: false
+    settings:
+      decimals: 6
+      defaultValue: null
+      max: 360
+      min: 0
+      prefix: null
+      previewCurrency: null
+      previewFormat: decimal
+      size: null
+      suffix: °
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Number
@@ -178,7 +239,7 @@ fields:
     searchable: false
     settings:
       decimals: 1
-      defaultValue: null
+      defaultValue: 1
       max: null
       min: 0
       prefix: null
@@ -199,7 +260,7 @@ fields:
     searchable: false
     settings:
       decimals: 1
-      defaultValue: null
+      defaultValue: 2
       max: null
       min: 0
       prefix: null
@@ -227,7 +288,7 @@ fields:
       previewCurrency: null
       previewFormat: decimal
       size: null
-      suffix: degrees
+      suffix: °
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Number
@@ -241,7 +302,7 @@ fields:
     searchable: false
     settings:
       decimals: 6
-      defaultValue: null
+      defaultValue: 10
       max: null
       min: 0
       prefix: null
