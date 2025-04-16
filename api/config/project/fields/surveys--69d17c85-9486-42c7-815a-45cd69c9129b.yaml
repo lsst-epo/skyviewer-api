@@ -1,0 +1,16 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: 0ecf9feb-ab77-470b-a2de-eb396a3a4682 # Survey
+handle: surveys
+instructions: 'Layered surveys, surveys will be displayed in the order they are shown, with the first survey on top.'
+name: Surveys
+searchable: false
+settings:
+  contentTable: '{{%matrixcontent_surveys}}'
+  maxBlocks: null
+  minBlocks: null
+  propagationKeyFormat: null
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

@@ -1,0 +1,84 @@
+field: 69d17c85-9486-42c7-815a-45cd69c9129b # Surveys
+fieldLayouts:
+  6d6c4538-30d5-4537-8b2c-5b193a76969c:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: a6c53977-ddbd-479a-8b8a-8754d051cac7 # Survey
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: bb2f0b63-5bd1-43b2-ae04-e8ecb3f83619
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            elementCondition: null
+            fieldUid: 98fa9f36-d1d1-4fa0-86c9-70ead1ecbe05 # Opacity
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 6a607852-3ef4-4a00-9e2a-cffe50bc8e4e
+            userCondition: null
+            warning: null
+            width: 25
+        name: Content
+        uid: 9fa3b490-0817-4128-8081-9fb0b00457fa
+        userCondition: null
+fields:
+  98fa9f36-d1d1-4fa0-86c9-70ead1ecbe05: # Opacity
+    columnSuffix: oqppzrdi
+    contentColumnType: 'decimal(3,2)'
+    fieldGroup: null
+    handle: opacity
+    instructions: null
+    name: Opacity
+    searchable: false
+    settings:
+      decimals: 2
+      defaultValue: 1
+      max: 1
+      min: 0
+      prefix: null
+      previewCurrency: null
+      previewFormat: decimal
+      size: null
+      suffix: null
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Number
+  a6c53977-ddbd-479a-8b8a-8754d051cac7: # Survey
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: survey
+    instructions: null
+    name: Survey
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      branchLimit: null
+      localizeRelations: false
+      maintainHierarchy: false
+      maxRelations: 1
+      minRelations: 1
+      selectionLabel: null
+      showSiteMenu: false
+      sources:
+        - 'section:02e3155f-23cf-4f36-a734-a3f447d04e85' # Survey
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Entries
+handle: layer
+name: Layer
+sortOrder: 1
