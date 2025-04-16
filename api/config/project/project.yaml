@@ -1,4 +1,4 @@
-dateModified: 1744645602
+dateModified: 1744834530
 email:
   fromEmail: $EMAIL_FROM_ADDRESS
   fromName: $EMAIL_SENDER_NAME
@@ -83,6 +83,7 @@ meta:
     9d2a5fce-1549-4e9f-8205-f1527f5064b2: Catalog # Catalog
     9d28ee9c-bac6-404e-a24f-afde8a75ad1b: 'Point of Interest' # Point of Interest
     16b1feef-a5aa-449f-b011-919a9d6075ed: 'Astro Object' # Astro Object
+    17a7d431-1c2c-4a2a-a3f3-c872d55e4696: Layer # Layer
     18a685a4-2ce7-4ae8-b717-0154cff390c1: 'Fun Facts Heading' # Fun Facts Heading
     24cba937-e963-4113-b0e4-afd8d83bc2d8: 'Entry - Survey' # Entry - Survey
     25d2c2a6-169a-461c-b67d-54294c7d22d7: 'Object Id' # Object Id
@@ -93,11 +94,13 @@ meta:
     52d4af2b-ae9b-4f2f-a90b-5c4b5ce23eb9: Tour # Tour
     62b4e157-411a-433c-bdc0-dcd42a2d7ca4: 'Points of Interest' # Points of Interest
     69a9149f-522c-4bae-9964-ce7bc440f181: 'Coordinate Frame' # Coordinate Frame
+    69d17c85-9486-42c7-815a-45cd69c9129b: Surveys # Surveys
     82bbf6f6-1ae1-4f42-b9de-913e0cc027fc: Icons # Icons
     82d2c4d7-37f1-458a-8a56-3cc1dcec6a0c: poiAstroObject # poiAstroObject
     84e9fa1d-8aed-40e1-a0e9-cb13152ea782: 'Astro Object' # Astro Object
     88ca9249-075f-4535-9997-6dbf45a0582b: RA # RA
     93cdcbba-f59d-41f1-ac65-5d9b0f83ef62: Duration # Duration
+    98fa9f36-d1d1-4fa0-86c9-70ead1ecbe05: Opacity # Opacity
     754ae3b5-3a92-4012-8660-9d106bdc3e69: 'Include in feed' # Include in feed
     763c0189-f6eb-419c-9ca2-2574a743768a: EN # EN
     774bddd7-f968-4015-957b-e33bc6dd5a7c: Admins # Admins
@@ -122,6 +125,7 @@ meta:
     a0521bda-0df4-4937-9d6e-1534dfb98b58: 'Field of View (FOV) Initial' # Field of View (FOV) Initial
     a3b0cf34-24af-41fe-8047-b1e5b65d5bd0: Catalog # Catalog
     a6b28fea-2f0c-49a2-b82c-fd16c51d9511: ES # ES
+    a6c53977-ddbd-479a-8b8a-8754d051cac7: Survey # Survey
     a8b34826-6a25-4e0a-b5dc-7e9820257899: 'Tour POI' # Tour POI
     a279aa4f-a3ed-4363-9335-a042965bc310: Experience # Experience
     a469a047-d19a-421e-97f8-c58f1bda27d7: 'Tour Images' # Tour Images

@@ -42,19 +42,19 @@ fieldLayouts:
             uid: f72393a6-d090-43b6-a561-c6bee0c2d3bb
             userCondition: null
             warning: null
-            width: 25
+            width: 100
           -
             elementCondition: null
-            fieldUid: 24cba937-e963-4113-b0e4-afd8d83bc2d8 # Entry - Survey
+            fieldUid: 69d17c85-9486-42c7-815a-45cd69c9129b # Surveys
             instructions: null
             label: null
             required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 924b96eb-9bc9-457b-8166-ba37b23bd273
+            uid: c9b5f6e3-60e1-46ae-b9b5-b47871ef6f02
             userCondition: null
             warning: null
-            width: 25
+            width: 100
           -
             elementCondition: null
             type: craft\fieldlayoutelements\HorizontalRule
