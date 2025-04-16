@@ -33,13 +33,83 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            fieldUid: 24cba937-e963-4113-b0e4-afd8d83bc2d8 # Entry - Survey
+            fieldUid: 8a653768-6c25-44d4-815e-182cd324b043 # Ra
             instructions: null
             label: null
             required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 7539408d-99cb-45f6-9b93-5f3d3267e49f
+            uid: ea2ca699-0286-4064-9933-af17489b378a
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            elementCondition: null
+            fieldUid: c8a76131-a217-46f6-9b2a-88d4f2a2f7de # Dec
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b64e602d-acff-445d-9063-5688d5dabae7
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            elementCondition: null
+            fieldUid: a0521bda-0df4-4937-9d6e-1534dfb98b58 # Field of View (FOV) Initial
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 1781ec8e-ee1b-48b9-8640-1b2a89f89773
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            type: craft\fieldlayoutelements\LineBreak
+            uid: d1257b55-c9bf-4030-b50a-a92b57de8bbb
+            userCondition: null
+          -
+            elementCondition: null
+            fieldUid: 0732995e-10da-4be7-944b-51b1135d12eb # Field of View (FOV) Minimum
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d306912b-f265-43a5-b185-1f184964705d
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            elementCondition: null
+            fieldUid: 455216e8-f949-4521-911f-d50895102cd4 # Field of View (FOV) Maximum
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c858715d-1a1d-48d0-a8fe-fb062cfbaf57
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            elementCondition: null
+            type: craft\fieldlayoutelements\HorizontalRule
+            uid: 31601758-8a6d-481d-aa6f-8ba4a9a98b78
+            userCondition: null
+          -
+            elementCondition: null
+            fieldUid: 69d17c85-9486-42c7-815a-45cd69c9129b # Surveys
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e521e05a-c0b4-4322-95f6-cb2e4ab003e3
             userCondition: null
             warning: null
             width: 100
