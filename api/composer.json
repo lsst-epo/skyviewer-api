@@ -17,7 +17,7 @@
     }
   ],
   "require": {
-    "craftcms/cms": "^4.0.0",
+    "craftcms/cms": "4.15.0.2",
     "craftcms/google-cloud": "2.1.0",
     "craftcms/redactor": "3.0.4",
     "google/cloud-storage": "^1.24",
