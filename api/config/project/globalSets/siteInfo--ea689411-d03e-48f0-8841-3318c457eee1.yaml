@@ -2,27 +2,53 @@ fieldLayouts:
   3aff80ee-9ac7-4a11-8a1b-ed7f358711b6:
     tabs:
       -
+        elementCondition: null
         elements:
           -
+            elementCondition: null
             fieldUid: 45720ab9-15e3-4cdc-8103-9c0495d2c1d2 # Site Title
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 2e647acd-fc8e-4a45-86e5-055088e655d1
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: d2cd37c9-0e8a-4bbb-aff0-13584d58279b # Site Description
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 394b3f4b-6ae7-42cc-91f4-d21566d036bc
+            userCondition: null
             warning: null
             width: 100
         name: Metadata
-        sortOrder: 1
+        uid: 3461e6e3-f867-46ae-9e48-c10ebad40811
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: 9941f3bb-7093-4c12-b727-a3a5227cc6f5 # About Menu Content
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 1d4595dd-c9b1-4898-a0ab-4fe92635ea06
+            userCondition: null
+            warning: null
+            width: 100
+        name: 'Menu Content'
+        uid: 71765052-cc9c-49cd-8832-6e1bae67d984
+        userCondition: null
 handle: siteInfo
 name: 'Site Info'
 sortOrder: 1
