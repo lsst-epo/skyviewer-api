@@ -1,4 +1,4 @@
-dateModified: 1744834530
+dateModified: 1746109844
 email:
   fromEmail: $EMAIL_FROM_ADDRESS
   fromName: $EMAIL_SENDER_NAME
@@ -110,6 +110,7 @@ meta:
     1846dfb1-7917-4243-b91d-4eb084d1462b: 'Guided Experiences' # Guided Experiences
     4161f47d-ffa7-48f7-a373-113eb8dce3b3: 'Preview Image' # Preview Image
     4286f2c2-ef6e-4606-8160-8a241488a1f6: 'Guided Experiences' # Guided Experiences
+    9941f3bb-7093-4c12-b727-a3a5227cc6f5: 'About Menu Content' # About Menu Content
     31806af1-7467-49ea-9638-01ecf1c546cd: 'Intro Subheading' # Intro Subheading
     40780a9f-1ee7-4c59-aaaf-159094330220: 'Tour Theme' # Tour Theme
     45720ab9-15e3-4cdc-8103-9c0495d2c1d2: 'Site Title' # Site Title
@@ -229,5 +230,5 @@ system:
   edition: pro
   live: true
   name: 'Skyviewer API'
-  schemaVersion: 4.5.3.0
+  schemaVersion: 4.15.0.0
   timeZone: America/Los_Angeles
