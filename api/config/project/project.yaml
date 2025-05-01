@@ -5,157 +5,158 @@ email:
   replyToEmail: $EMAIL_REPLY_TO_ADDRESS
   template: $EMAIL_HTML_EMAIL_TEMPLATE
   transportSettings:
-    encryptionMethod: ''
+    encryptionMethod: ""
     host: $EMAIL_SMTP_HOST_NAME
     password: $EMAIL_SMTP_PASSWORD
     port: $EMAIL_SMTP_PORT
-    timeout: '10'
-    useAuthentication: '1'
+    timeout: "10"
+    useAuthentication: "1"
     username: $EMAIL_SMTP_USERNAME
   transportType: craft\mail\transportadapters\Smtp
 fs:
   astroImages:
     hasUrls: true
-    name: 'Astro Images'
+    name: "Astro Images"
     settings:
       bucket: $GCS_ASSET_BUCKET
       bucketSelectionMode: manual
-      expires: '5 minutes'
-      keyFileContents: ''
+      expires: "5 minutes"
+      keyFileContents: ""
       projectId: $GCP_PROJECT_ID
       subfolder: astro
     type: craft\googlecloud\Fs
-    url: '@gcsBucketUrl'
+    url: "@gcsBucketUrl"
   cantoDam:
     hasUrls: true
-    name: 'Canto DAM'
+    name: "Canto DAM"
     settings:
-      dummySetting: ''
+      dummySetting: ""
     type: rosas\dam\volumes\DAMVolume
     url: $CANTO_ASSET_BASEURL
   icons:
     hasUrls: true
     name: Icons
     settings:
-      path: '@webroot/assets/icons'
+      path: "@webroot/assets/icons"
     type: craft\fs\Local
     url: /icons
   tourImages:
     hasUrls: true
-    name: 'Tour Images'
+    name: "Tour Images"
     settings:
       bucket: $GCS_ASSET_BUCKET
       bucketSelectionMode: manual
-      expires: '5 minutes'
-      keyFileContents: ''
+      expires: "5 minutes"
+      keyFileContents: ""
       projectId: $GCP_PROJECT_ID
       subfolder: tours
     type: craft\googlecloud\Fs
-    url: '@gcsBucketUrl'
+    url: "@gcsBucketUrl"
 meta:
   __names__:
     0ecf9feb-ab77-470b-a2de-eb396a3a4682: Survey # Survey
     1b6d6c52-1663-44df-a699-c12283451818: Title # Title
-    1f01e823-4dbb-4804-92e9-39007bcb2667: 'Guided Experiences' # Guided Experiences
-    1f5ddbcd-4f3f-495c-95d9-dcd6af9e3f6f: 'Astro Object' # Astro Object
+    1f01e823-4dbb-4804-92e9-39007bcb2667: "Guided Experiences" # Guided Experiences
+    1f5ddbcd-4f3f-495c-95d9-dcd6af9e3f6f: "Astro Object" # Astro Object
     2c43566d-87e9-47af-b1e3-87577b58f06f: Variety # Variety
     02e3155f-23cf-4f36-a734-a3f447d04e85: Survey # Survey
-    3c645133-6daf-4632-a842-13662885ad1b: 'Background Image' # Background Image
+    3c645133-6daf-4632-a842-13662885ad1b: "Background Image" # Background Image
     3d01dd7e-2f06-4225-9857-951e921377ff: Dec # Dec
-    3ea0147c-d31c-48ca-b25c-e361191e8b8b: 'Max Order' # Max Order
+    3ea0147c-d31c-48ca-b25c-e361191e8b8b: "Max Order" # Max Order
     4accd3e5-dd7d-4464-9f19-db2009adda71: Globals # Globals
-    4b8d140e-8cb8-489e-9a89-0c30c4717e30: 'Tour Theme' # Tour Theme
-    04fc1a9d-6240-4e69-ad81-2e02190a7e8d: 'Fun Facts Content Blocks' # Fun Facts Content Blocks
-    5ef8f422-6773-4891-99b9-f56cdb8bced4: 'Alternate Text' # Alternate Text
-    5fefc9c3-999f-4d02-988d-5a1738812936: 'Variety Name' # Variety Name
+    4b8d140e-8cb8-489e-9a89-0c30c4717e30: "Tour Theme" # Tour Theme
+    04fc1a9d-6240-4e69-ad81-2e02190a7e8d: "Fun Facts Content Blocks" # Fun Facts Content Blocks
+    5ef8f422-6773-4891-99b9-f56cdb8bced4: "Alternate Text" # Alternate Text
+    5fefc9c3-999f-4d02-988d-5a1738812936: "Variety Name" # Variety Name
     6ae58874-f4e1-4216-82c0-7af4094fdc0c: Subheading # Subheading
-    6bca6d0b-7e18-41d5-a7c2-2c684e9af3a5: 'Site Image' # Site Image
+    6bca6d0b-7e18-41d5-a7c2-2c684e9af3a5: "Site Image" # Site Image
     6e1a5aaf-7bc6-457d-b979-4f3b9d4ce4c0: Audio # Audio
     6f7c799f-429a-486c-bde4-a5bd5ece3a78: Body # Body
     7d09d2f0-5c11-4a45-a805-a6d39128319e: Common # Common
     7e00543c-2735-49a3-96f0-d39d5d7333fe: Icon # Icon
-    7f01b564-7d49-4139-be9d-07d369fd3408: 'Thumbnail Image' # Thumbnail Image
+    7f01b564-7d49-4139-be9d-07d369fd3408: "Thumbnail Image" # Thumbnail Image
     8a653768-6c25-44d4-815e-182cd324b043: Ra # Ra
-    008cb5a3-a777-476f-8410-4f2bf13ac492: 'Intro Content Blocks' # Intro Content Blocks
+    008cb5a3-a777-476f-8410-4f2bf13ac492: "Intro Content Blocks" # Intro Content Blocks
     8d6803f5-ca34-46d8-a8d5-869896e34b65: Tour # Tour
-    8fd439fe-660f-4cac-8ddf-b71b8ad6276f: 'Tour POIs' # Tour POIs
-    9acbaaa2-a8e8-4f68-a495-98b3e2d8ed13: 'Zoom Out Time' # Zoom Out Time
+    8fd439fe-660f-4cac-8ddf-b71b8ad6276f: "Tour POIs" # Tour POIs
+    9acbaaa2-a8e8-4f68-a495-98b3e2d8ed13: "Zoom Out Time" # Zoom Out Time
     9d2a5fce-1549-4e9f-8205-f1527f5064b2: Catalog # Catalog
-    9d28ee9c-bac6-404e-a24f-afde8a75ad1b: 'Point of Interest' # Point of Interest
-    16b1feef-a5aa-449f-b011-919a9d6075ed: 'Astro Object' # Astro Object
+    9d28ee9c-bac6-404e-a24f-afde8a75ad1b: "Point of Interest" # Point of Interest
+    16b1feef-a5aa-449f-b011-919a9d6075ed: "Astro Object" # Astro Object
     17a7d431-1c2c-4a2a-a3f3-c872d55e4696: Layer # Layer
-    18a685a4-2ce7-4ae8-b717-0154cff390c1: 'Fun Facts Heading' # Fun Facts Heading
-    24cba937-e963-4113-b0e4-afd8d83bc2d8: 'Entry - Survey' # Entry - Survey
-    25d2c2a6-169a-461c-b67d-54294c7d22d7: 'Object Id' # Object Id
+    18a685a4-2ce7-4ae8-b717-0154cff390c1: "Fun Facts Heading" # Fun Facts Heading
+    24cba937-e963-4113-b0e4-afd8d83bc2d8: "Entry - Survey" # Entry - Survey
+    25d2c2a6-169a-461c-b67d-54294c7d22d7: "Object Id" # Object Id
     32b433c2-8fa2-439b-9678-d48e4f929b88: Catalogs # Catalogs
-    36cb7208-d072-48ac-af5e-c034035afdfd: 'Variety Handle' # Variety Handle
+    36cb7208-d072-48ac-af5e-c034035afdfd: "Variety Handle" # Variety Handle
     46c6493e-366b-43f9-8591-b03f4ec9dfdf: Explorer # Explorer
-    48d995fe-6d24-48f6-904a-c54f64964387: 'Intro Content Block' # Intro Content Block
+    48d995fe-6d24-48f6-904a-c54f64964387: "Intro Content Block" # Intro Content Block
     52d4af2b-ae9b-4f2f-a90b-5c4b5ce23eb9: Tour # Tour
-    62b4e157-411a-433c-bdc0-dcd42a2d7ca4: 'Points of Interest' # Points of Interest
-    69a9149f-522c-4bae-9964-ce7bc440f181: 'Coordinate Frame' # Coordinate Frame
+    62b4e157-411a-433c-bdc0-dcd42a2d7ca4: "Points of Interest" # Points of Interest
+    69a9149f-522c-4bae-9964-ce7bc440f181: "Coordinate Frame" # Coordinate Frame
     69d17c85-9486-42c7-815a-45cd69c9129b: Surveys # Surveys
     82bbf6f6-1ae1-4f42-b9de-913e0cc027fc: Icons # Icons
     82d2c4d7-37f1-458a-8a56-3cc1dcec6a0c: poiAstroObject # poiAstroObject
-    84e9fa1d-8aed-40e1-a0e9-cb13152ea782: 'Astro Object' # Astro Object
+    84e9fa1d-8aed-40e1-a0e9-cb13152ea782: "Astro Object" # Astro Object
     88ca9249-075f-4535-9997-6dbf45a0582b: RA # RA
     93cdcbba-f59d-41f1-ac65-5d9b0f83ef62: Duration # Duration
     98fa9f36-d1d1-4fa0-86c9-70ead1ecbe05: Opacity # Opacity
-    754ae3b5-3a92-4012-8660-9d106bdc3e69: 'Include in feed' # Include in feed
+    754ae3b5-3a92-4012-8660-9d106bdc3e69: "Include in feed" # Include in feed
     763c0189-f6eb-419c-9ca2-2574a743768a: EN # EN
     774bddd7-f968-4015-957b-e33bc6dd5a7c: Admins # Admins
-    0848c204-7e47-4aa0-8da1-5a4538481bce: 'Canto DAM' # Canto DAM
-    860a3a7b-7ed5-4997-9a40-0d00e58b77d0: 'Astro Images' # Astro Images
-    928bd2d5-bb58-4e0f-9c81-f805fcc1e135: 'Guided Experience Type' # Guided Experience Type
-    1846dfb1-7917-4243-b91d-4eb084d1462b: 'Guided Experiences' # Guided Experiences
-    4161f47d-ffa7-48f7-a373-113eb8dce3b3: 'Preview Image' # Preview Image
-    4286f2c2-ef6e-4606-8160-8a241488a1f6: 'Guided Experiences' # Guided Experiences
-    31806af1-7467-49ea-9638-01ecf1c546cd: 'Intro Subheading' # Intro Subheading
-    40780a9f-1ee7-4c59-aaaf-159094330220: 'Tour Theme' # Tour Theme
-    45720ab9-15e3-4cdc-8103-9c0495d2c1d2: 'Site Title' # Site Title
-    47737e5d-6fd7-42dd-95c3-e2c69caa42d5: 'Tile Size' # Tile Size
-    82510efa-cd7e-4f64-bfaa-1da05df2f53a: 'Source Size' # Source Size
-    455216e8-f949-4521-911f-d50895102cd4: 'Field of View (FOV) Maximum' # Field of View (FOV) Maximum
+    0848c204-7e47-4aa0-8da1-5a4538481bce: "Canto DAM" # Canto DAM
+    860a3a7b-7ed5-4997-9a40-0d00e58b77d0: "Astro Images" # Astro Images
+    928bd2d5-bb58-4e0f-9c81-f805fcc1e135: "Guided Experience Type" # Guided Experience Type
+    1846dfb1-7917-4243-b91d-4eb084d1462b: "Guided Experiences" # Guided Experiences
+    4161f47d-ffa7-48f7-a373-113eb8dce3b3: "Preview Image" # Preview Image
+    4286f2c2-ef6e-4606-8160-8a241488a1f6: "Guided Experiences" # Guided Experiences
+    9941f3bb-7093-4c12-b727-a3a5227cc6f5: "About Menu Content" # About Menu Content
+    31806af1-7467-49ea-9638-01ecf1c546cd: "Intro Subheading" # Intro Subheading
+    40780a9f-1ee7-4c59-aaaf-159094330220: "Tour Theme" # Tour Theme
+    45720ab9-15e3-4cdc-8103-9c0495d2c1d2: "Site Title" # Site Title
+    47737e5d-6fd7-42dd-95c3-e2c69caa42d5: "Tile Size" # Tile Size
+    82510efa-cd7e-4f64-bfaa-1da05df2f53a: "Source Size" # Source Size
+    455216e8-f949-4521-911f-d50895102cd4: "Field of View (FOV) Maximum" # Field of View (FOV) Maximum
     555997ed-1e6e-43e5-913f-cb5f38eca1b6: Embed # Embed
-    0732995e-10da-4be7-944b-51b1135d12eb: 'Field of View (FOV) Minimum' # Field of View (FOV) Minimum
+    0732995e-10da-4be7-944b-51b1135d12eb: "Field of View (FOV) Minimum" # Field of View (FOV) Minimum
     5244042f-c1bd-4262-8aa8-4cb92e5f2ea4: Description # Description
-    8944198c-ff53-4323-ad48-976efeb3f56e: 'Facts Content Block' # Facts Content Block
-    51928716-cd54-492b-8292-3e1dea11aa9f: 'Zoom In Time' # Zoom In Time
+    8944198c-ff53-4323-ad48-976efeb3f56e: "Facts Content Block" # Facts Content Block
+    51928716-cd54-492b-8292-3e1dea11aa9f: "Zoom In Time" # Zoom In Time
     99900237-7b20-49d9-ae09-b70c06489be7: Heading # Heading
-    a0521bda-0df4-4937-9d6e-1534dfb98b58: 'Field of View (FOV) Initial' # Field of View (FOV) Initial
+    a0521bda-0df4-4937-9d6e-1534dfb98b58: "Field of View (FOV) Initial" # Field of View (FOV) Initial
     a3b0cf34-24af-41fe-8047-b1e5b65d5bd0: Catalog # Catalog
     a6b28fea-2f0c-49a2-b82c-fd16c51d9511: ES # ES
     a6c53977-ddbd-479a-8b8a-8754d051cac7: Survey # Survey
-    a8b34826-6a25-4e0a-b5dc-7e9820257899: 'Tour POI' # Tour POI
+    a8b34826-6a25-4e0a-b5dc-7e9820257899: "Tour POI" # Tour POI
     a279aa4f-a3ed-4363-9335-a042965bc310: Experience # Experience
-    a469a047-d19a-421e-97f8-c58f1bda27d7: 'Tour Images' # Tour Images
-    a946a572-4818-4836-be34-95b4395d603a: 'Pan Time' # Pan Time
-    a715351e-d465-4446-81f8-c9a15b3d1298: 'Intro Heading' # Intro Heading
-    aa3e2ce5-e67a-4378-8a44-c660690cbcc3: 'Tour Variety' # Tour Variety
+    a469a047-d19a-421e-97f8-c58f1bda27d7: "Tour Images" # Tour Images
+    a946a572-4818-4836-be34-95b4395d603a: "Pan Time" # Pan Time
+    a715351e-d465-4446-81f8-c9a15b3d1298: "Intro Heading" # Intro Heading
+    aa3e2ce5-e67a-4378-8a44-c660690cbcc3: "Tour Variety" # Tour Variety
     b3f50442-f90e-42e6-986e-b2426abedaca: Target # Target
-    b9b34be4-0861-4bc6-8707-e9752c6407d8: 'Experience Category' # Experience Category
+    b9b34be4-0861-4bc6-8707-e9752c6407d8: "Experience Category" # Experience Category
     b22ca822-e7e2-4f8c-8be5-d3b0fcab1c9f: Tours # Tours
-    b67e6d47-49f6-4385-85c7-ada70ffcf67e: 'POI Astro Object' # POI Astro Object
+    b67e6d47-49f6-4385-85c7-ada70ffcf67e: "POI Astro Object" # POI Astro Object
     b469eb7b-2830-4cc1-b7b3-b55d9e8c9b96: Embed # Embed
     bae3d86b-064a-47c2-9af4-736639f79b7b: Survey # Survey
-    c1f0a2ee-3b87-486c-96ed-7e2d25fc952f: 'Skyviewer API' # Skyviewer API
+    c1f0a2ee-3b87-486c-96ed-7e2d25fc952f: "Skyviewer API" # Skyviewer API
     c8a76131-a217-46f6-9b2a-88d4f2a2f7de: Dec # Dec
     ccd123b4-00ff-4cdb-87e0-20be70c5f8f3: Body # Body
     cd879179-0c4d-47a3-90e9-61fdb3516cc4: Image # Image
-    d2cd37c9-0e8a-4bbb-aff0-13584d58279b: 'Site Description' # Site Description
+    d2cd37c9-0e8a-4bbb-aff0-13584d58279b: "Site Description" # Site Description
     d4c658d8-0938-43f0-9ce0-0515d09ca162: Complexity # Complexity
     d6f8219d-2a83-4ee6-967e-10720dec037b: FOV # FOV
     d7e99ce5-1dc7-4bac-94c6-91f86a5882e0: Variety # Variety
     d30ed1ce-5b90-4cb7-98b2-45e45e560d64: Explorer # Explorer
-    d43d64da-ee7e-4be7-bdf7-7a4af1994dad: 'Image Format' # Image Format
-    d250222b-10fd-487b-a94c-8c7aa5241cb3: 'Public Schema' # Public Schema
+    d43d64da-ee7e-4be7-bdf7-7a4af1994dad: "Image Format" # Image Format
+    d250222b-10fd-487b-a94c-8c7aa5241cb3: "Public Schema" # Public Schema
     db0c1775-4a14-47cf-b9c8-747314234fde: Survey # Survey
-    e2eb2e80-8e02-4a68-aa81-3d488f80543d: 'Astro Object' # Astro Object
+    e2eb2e80-8e02-4a68-aa81-3d488f80543d: "Astro Object" # Astro Object
     e76c2c25-ca53-4f4c-bd93-a5af52ebb72c: Characteristics # Characteristics
     e87bfbdf-5fad-46b9-9794-4e88c012e6af: Tour # Tour
-    e4521605-ff3a-4876-8c3c-cde0ffe5deaa: 'Astro Objects' # Astro Objects
-    ea689411-d03e-48f0-8841-3318c457eee1: 'Site Info' # Site Info
-    f179ae9d-f7cc-4d51-824b-393c7ab4879d: 'Zoom Out FOV' # Zoom Out FOV
+    e4521605-ff3a-4876-8c3c-cde0ffe5deaa: "Astro Objects" # Astro Objects
+    ea689411-d03e-48f0-8841-3318c457eee1: "Site Info" # Site Info
+    f179ae9d-f7cc-4d51-824b-393c7ab4879d: "Zoom Out FOV" # Zoom Out FOV
     fe3ef1fd-33fa-4aeb-9ed2-9e74f6694377: Path # Path
     fe74f2bf-6416-4c77-a05d-1ef924e575a8: Image # Image
     fe1835fb-8bd0-4e5a-b637-0e94330568ac: Description # Description
@@ -173,7 +174,7 @@ plugins:
   google-cloud:
     edition: standard
     enabled: true
-    schemaVersion: '2.0'
+    schemaVersion: "2.0"
   logs:
     edition: standard
     enabled: true
@@ -189,27 +190,20 @@ plugins:
     settings:
       activeSections:
         __assoc__:
-          -
-            - astroObjects
-            - ''
-          -
-            - catalogs
-            - ''
-          -
-            - embed
-            - '1'
-          -
-            - explorer
-            - '1'
-          -
-            - guidedExperiences
-            - '1'
-          -
-            - surveys
-            - '1'
-          -
-            - tours
-            - '1'
+          - - astroObjects
+            - ""
+          - - catalogs
+            - ""
+          - - embed
+            - "1"
+          - - explorer
+            - "1"
+          - - guidedExperiences
+            - "1"
+          - - surveys
+            - "1"
+          - - tours
+            - "1"
       nextApiBaseUrl: $NEXT_API_BASE_URL
       nextSecretToken: $NEXT_REVALIDATE_SECRET_TOKEN
   redactor:
@@ -229,6 +223,6 @@ plugins:
 system:
   edition: pro
   live: true
-  name: 'Skyviewer API'
+  name: "Skyviewer API"
   schemaVersion: 4.15.0.0
   timeZone: America/Los_Angeles
