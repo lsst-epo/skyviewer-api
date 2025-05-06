@@ -76,7 +76,19 @@ fieldLayouts:
             uid: 9621155e-de08-4228-9aa2-5a65b75fd725
             userCondition: null
             warning: null
-            width: 100
+            width: 50
+          -
+            elementCondition: null
+            fieldUid: db0c1775-4a14-47cf-b9c8-747314234fde # Survey
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b1c71684-9be5-4195-a943-a7d6566d74f8
+            userCondition: null
+            warning: null
+            width: 50
           -
             elementCondition: null
             fieldUid: 9acbaaa2-a8e8-4f68-a495-98b3e2d8ed13 # Zoom Out Time
@@ -292,6 +304,31 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Number
+  db0c1775-4a14-47cf-b9c8-747314234fde: # Survey
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: survey
+    instructions: 'A survey to be shown on this tour step'
+    name: Survey
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      branchLimit: null
+      localizeRelations: false
+      maintainHierarchy: false
+      maxRelations: 1
+      minRelations: null
+      selectionLabel: null
+      showSiteMenu: false
+      sources:
+        - 'section:02e3155f-23cf-4f36-a734-a3f447d04e85' # Survey
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Entries
   f179ae9d-f7cc-4d51-824b-393c7ab4879d: # Zoom Out FOV
     columnSuffix: zhzwhfbf
     contentColumnType: 'decimal(16,6)'
