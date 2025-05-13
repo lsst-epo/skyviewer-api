@@ -18,15 +18,9 @@ Headless Craft CMS backend for the Skyviewer web app.
 
 ### Set up
 1. Clone the repo
-2. At the root level of the project, create a copy of `docker-compose-local-db.sample.yaml` and name it `docker-compose-local-db.yaml`
-3. Ask someone on the team for:
-    - A database dump file to go in the `./db/` folder
-        - Ex. “skyviewer.sql” or “skyviewer_db.sql”
-    - The values to fill in the `docker-compose-local.db.yaml`, which should include:
-        - The proper user and database values for the Postgres environment
-        - The proper user and database values for the Craft environment 
-        - A bind mount to map your local database dump file to your Docker container for persistent storage
-            - The filename in this mapping must match the filename of your dump file in `./db`
+2. Ask someone on the team to point you to the cloud-managed secret containing Docker configs for database provisioning. Copy the contents of the secret and paste into a new file called `docker-compose-local-db.yaml` at the root of the project.
+3. Ask someone on the team for database dump file named `skyviewer.sql` to go in the `./db/` folder 
+    - The filename of this dump file in __must__ match the filename in the bind mount mapping in `docker-compose-local-db.yaml` under `postgres` > `volumes`
 4. Provision your local database
     1. Bring up the postgres container: 
         ```
