@@ -1,21 +1,45 @@
 # Database Configuration
 
-## Provisioning Your Local Database
-1. Bring up the postgres container: 
+## Provisioning A Local Database
+### Starting From Scratch
+If you'd like to build a new database and have no need for any old/existing ones:
+1. Aquire the dump file for the new database you'd like to build. You can retrieve this from someone else on the team or from Google Cloud.
+2. In `./db/`, swap out your old `skyviewer.sql` dump file for the new one. Make sure the new one is named `skyviewer.sql` if it was named something else initially.
+2. Clean up your existing volumes:
+    ```
+    docker volume prune
+    ```
+
+3. Spin up the Docker orchestration as usual: 
+    ```
+    docker-compose -f docker-compose-local-db.yml up --build
+    ```
+As long as the filename is correct and matches the bind mount in your `docker-compose-local-db.yaml`, Docker will automatically ingest it. 
+
+### Without Starting from Scratch
+There may be times when you'll want to provision a new local database without starting from scratch. To do this:
+
+1. Aquire the dump file for the new database you'd like to build. You can retrieve this from someone else on the team or from Google Cloud. Place the dump file in `./db/`.
+2. Bring up the postgres container: 
     ```
     docker-compose -f docker-compose-local-db.yml up --build postgres
     ```
-2. To create a local DB from a dump file located within `./db/`: 
+3. Create the new local DB: 
     ```
     make local-db dbname={my_new_local_db} dbfile={my_dump_file.sql}
     ```
     - The argument `dbfile` is required and should be the name of the DB dump file which will be run. This file _must_ be in the `./db/` folder
     - The argument `dbname` is required and will be the name of the newly created database. This can be whatever you choose.
-    - Ex. If your dump file is named `skyviewer.sql`, you could run...
+    - Ex. If your dump file is named `newest-skyviewer-db.sql` and you're creating this local database instance on January 30 2025, you could run:
         ```
-        make local-db dbname=skyviewer_{mmddyyyy} dbfile=skyviewer.sql
+        make local-db dbname=skyviewer_db_01302025 dbfile=newest-skyviewer-db.sql
         ```
-        ...where `mmddyy` corresponds to the current date. 
+4. Add a bind mount to the `docker-compose-local-db.yml` file under `postgres` > `volumes`
+    - Ex. Going off of the example in the previous step, the mapping you would add would look like: `./db/skyviewer_db_01302025.sql:/skyviewer_db_01302025.sql`
+
+5. Spin up the Docker orchestration as usual: 
+    ```
+    docker-compose -f docker-compose-local-db.yml up --build
 
 ## Listing Existing Databases
 - To list the local databases:
