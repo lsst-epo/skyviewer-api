@@ -20,29 +20,13 @@ Headless Craft CMS backend for the Skyviewer web app.
 1. Clone the repo
 2. Ask someone on the team to point you to the cloud-managed secret containing Docker configs for database provisioning. Copy the contents of the secret and paste into a new file called `docker-compose-local-db.yaml` at the root of the project.
 3. Ask someone on the team for database dump file named `skyviewer.sql` to go in the `./db/` folder 
-    - The filename of this dump file in __must__ match the filename in the bind mount mapping in `docker-compose-local-db.yaml` under `postgres` > `volumes`
-4. Provision your local database
-    1. Bring up the postgres container: 
-        ```
-        docker-compose -f docker-compose-local-db.yml up --build postgres
-        ```
-    2. To create a local DB from a dump file located within `./db/`: 
-        ```
-        make local-db dbname={my_new_local_db} dbfile={my_dump_file.sql}
-        ```
-        - The argument `dbfile` is required and should be the name of the DB dump file which will be run. This file _must_ be in the `./db/` folder
-        - The argument `dbname` is required and will be the name of the newly created database. This can be whatever you choose.
-        - Ex. If your dump file is named `skyviewer.sql`, you could run...
-            ```
-            make local-db dbname=skyviewer_{mmddyyyy} dbfile=skyviewer.sql
-            ```
-            ...where `mmddyy` corresponds to the current date. 
-
-5. Once your Postgres setup is complete, we can set up Craft. Navigate to the `/api` folder: 
+    - The filename of this dump file in __must__ match the filename in the bind mount mapping in `docker-compose-local-db.yaml` under `postgres` > `volumes`. This enables Docker to automatically ingest the dump file and build the database.
+    - (Optional) Check out `./db/README` for more context about provisioning databases
+4. Once your Postgres setup is complete, we can set up Craft. Navigate to the `/api` folder: 
     ```
     cd api
     ```
-6. Install required dependencies:
+5. Install required dependencies:
     ```
     composer install
     ```
@@ -63,7 +47,8 @@ Headless Craft CMS backend for the Skyviewer web app.
         ```
         make local-db dbname={my_new_local_db} dbfile={my_dump_file.sql}
         ```
-- If you see craft errors saying craft was unable to find or open something from the /vendor folder: 
+    - Check out `./db/README` for more context about provisioning databases
+- If you see craft errors saying craft was unable to find or open something from the `/vendor` folder: 
     - The `/vendor` folder is where all your Composer dependencies are. If there’s been an update to which dependencies are required, or a change to their versions, it may be the source of this error. 
     - To fix it, you’ll want to rebuild your dependencies:
         ```
