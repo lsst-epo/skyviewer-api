@@ -33,6 +33,18 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
+            fieldUid: 5244042f-c1bd-4262-8aa8-4cb92e5f2ea4 # Description
+            instructions: 'Short description that will be shown in the survey toggle menu'
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 2949db41-1c68-4c8e-b482-60a21978b4e7
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
             fieldUid: fe3ef1fd-33fa-4aeb-9ed2-9e74f6694377 # Path
             instructions: null
             label: null
