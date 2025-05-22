@@ -1,4 +1,4 @@
-dateModified: 1747753167
+dateModified: 1747927099
 email:
   fromEmail: $EMAIL_FROM_ADDRESS
   fromName: $EMAIL_SENDER_NAME
@@ -137,6 +137,7 @@ meta:
     b9b34be4-0861-4bc6-8707-e9752c6407d8: 'Experience Category' # Experience Category
     b22ca822-e7e2-4f8c-8be5-d3b0fcab1c9f: Tours # Tours
     b67e6d47-49f6-4385-85c7-ada70ffcf67e: 'POI Astro Object' # POI Astro Object
+    b69ada0a-2f45-4073-a69a-fe085762b89c: Logo # Logo
     b469eb7b-2830-4cc1-b7b3-b55d9e8c9b96: Embed # Embed
     bae3d86b-064a-47c2-9af4-736639f79b7b: Survey # Survey
     c1f0a2ee-3b87-486c-96ed-7e2d25fc952f: 'Skyviewer API' # Skyviewer API
