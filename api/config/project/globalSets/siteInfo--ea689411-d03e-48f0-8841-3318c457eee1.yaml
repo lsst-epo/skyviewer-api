@@ -28,6 +28,18 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 100
+          -
+            elementCondition: null
+            fieldUid: b69ada0a-2f45-4073-a69a-fe085762b89c # Logo
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ff891b49-27c8-42cc-bb1d-1ee925089b73
+            userCondition: null
+            warning: null
+            width: 100
         name: Metadata
         uid: 3461e6e3-f867-46ae-9e48-c10ebad40811
         userCondition: null

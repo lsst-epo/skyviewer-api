@@ -1,0 +1,16 @@
+columnSuffix: ohupemjy
+contentColumnType:
+  - 'cantoId:string'
+  - 'cantoAlbumId:string'
+  - 'cantoAssetData:json'
+  - 'cantoAlbumData:json'
+fieldGroup: 4accd3e5-dd7d-4464-9f19-db2009adda71 # Globals
+handle: logo
+instructions: 'Logo that will be shown on the landing page of the Skyviewer'
+name: Logo
+searchable: false
+settings:
+  cantoAssetPickerType: singleImagePicker
+translationKeyFormat: null
+translationMethod: none
+type: lsst\cantodamassets\fields\CantoDamAsset
