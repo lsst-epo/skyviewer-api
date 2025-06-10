@@ -13,6 +13,8 @@ scope:
   - 'entrytypes.46c6493e-366b-43f9-8591-b03f4ec9dfdf:read' # Explorer
   - 'sections.1846dfb1-7917-4243-b91d-4eb084d1462b:read' # Guided Experiences
   - 'entrytypes.1f01e823-4dbb-4804-92e9-39007bcb2667:read' # Guided Experiences
+  - 'sections.d53d9e9e-bc1b-43dc-87eb-d0e6d1323238:read' # SkySynth
+  - 'entrytypes.a0c261e6-18f1-4a33-98f4-caf7ad970310:read' # SkySynth
   - 'sections.02e3155f-23cf-4f36-a734-a3f447d04e85:read' # Survey
   - 'entrytypes.bae3d86b-064a-47c2-9af4-736639f79b7b:read' # Survey
   - 'sections.b22ca822-e7e2-4f8c-8be5-d3b0fcab1c9f:read' # Tours
