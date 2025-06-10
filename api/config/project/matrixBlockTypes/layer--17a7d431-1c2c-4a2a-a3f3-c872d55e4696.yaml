@@ -19,6 +19,18 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
+            fieldUid: 8e8d03a0-cafa-424e-9fc5-7f2ee7f5c063 # Show on load
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 51fa2a90-d14f-4a83-ba68-f373cff7b1fa
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            elementCondition: null
             fieldUid: 98fa9f36-d1d1-4fa0-86c9-70ead1ecbe05 # Opacity
             instructions: null
             label: null
@@ -33,6 +45,21 @@ fieldLayouts:
         uid: 9fa3b490-0817-4128-8081-9fb0b00457fa
         userCondition: null
 fields:
+  8e8d03a0-cafa-424e-9fc5-7f2ee7f5c063: # Show on load
+    columnSuffix: zepofzjx
+    contentColumnType: boolean
+    fieldGroup: null
+    handle: showOnLoad
+    instructions: null
+    name: 'Show on load'
+    searchable: false
+    settings:
+      default: true
+      offLabel: null
+      onLabel: null
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Lightswitch
   98fa9f36-d1d1-4fa0-86c9-70ead1ecbe05: # Opacity
     columnSuffix: oqppzrdi
     contentColumnType: 'decimal(3,2)'

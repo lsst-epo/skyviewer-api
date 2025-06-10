@@ -1,4 +1,4 @@
-dateModified: 1747927099
+dateModified: 1749581721
 email:
   fromEmail: $EMAIL_FROM_ADDRESS
   fromName: $EMAIL_SENDER_NAME
@@ -78,6 +78,7 @@ meta:
     8a653768-6c25-44d4-815e-182cd324b043: Ra # Ra
     008cb5a3-a777-476f-8410-4f2bf13ac492: 'Intro Content Blocks' # Intro Content Blocks
     8d6803f5-ca34-46d8-a8d5-869896e34b65: Tour # Tour
+    8e8d03a0-cafa-424e-9fc5-7f2ee7f5c063: 'Show on load' # Show on load
     8fd439fe-660f-4cac-8ddf-b71b8ad6276f: 'Tour POIs' # Tour POIs
     9acbaaa2-a8e8-4f68-a495-98b3e2d8ed13: 'Zoom Out Time' # Zoom Out Time
     9d2a5fce-1549-4e9f-8205-f1527f5064b2: Catalog # Catalog
