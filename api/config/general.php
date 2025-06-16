@@ -53,7 +53,8 @@ return [
         // on staging / production, too. It's not easy to get Craft to serve CORS headers
         // for both GraphQL and non-Graphql requests (eg, the contact form), so we went
         // with this approach.
-        'allowedGraphqlOrigins' => false
+        'allowedGraphqlOrigins' => false,
+        'enableGraphqlCaching' => App::env('ENABLE_GQL_CACHING'),
     ],
 
     // Dev environment settings
