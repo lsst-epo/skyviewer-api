@@ -40,6 +40,10 @@ siteSettings:
     hasUrls: true
     template: null
     uriFormat: 'tour-theme/{slug}'
+  e747e6c7-90f7-4e80-adce-3b5032b9b427: # JA
+    hasUrls: true
+    template: null
+    uriFormat: 'tour-theme/{slug}'
 structure:
   maxLevels: 1
   uid: 729d74a0-ce22-4244-baeb-d1f7752c6877

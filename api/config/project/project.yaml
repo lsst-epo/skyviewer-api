@@ -1,4 +1,4 @@
-dateModified: 1750201247
+dateModified: 1751038799
 email:
   fromEmail: $EMAIL_FROM_ADDRESS
   fromName: $EMAIL_SENDER_NAME
@@ -100,6 +100,7 @@ meta:
     82d2c4d7-37f1-458a-8a56-3cc1dcec6a0c: poiAstroObject # poiAstroObject
     84e9fa1d-8aed-40e1-a0e9-cb13152ea782: 'Astro Object' # Astro Object
     88ca9249-075f-4535-9997-6dbf45a0582b: RA # RA
+    92cbd69c-4936-4221-bfbb-bc2b345b5a8b: Translators # Translators
     93cdcbba-f59d-41f1-ac65-5d9b0f83ef62: Duration # Duration
     98fa9f36-d1d1-4fa0-86c9-70ead1ecbe05: Opacity # Opacity
     754ae3b5-3a92-4012-8660-9d106bdc3e69: 'Include in feed' # Include in feed
@@ -158,6 +159,7 @@ meta:
     e2eb2e80-8e02-4a68-aa81-3d488f80543d: 'Astro Object' # Astro Object
     e76c2c25-ca53-4f4c-bd93-a5af52ebb72c: Characteristics # Characteristics
     e87bfbdf-5fad-46b9-9794-4e88c012e6af: Tour # Tour
+    e747e6c7-90f7-4e80-adce-3b5032b9b427: JA # JA
     e4521605-ff3a-4876-8c3c-cde0ffe5deaa: 'Astro Objects' # Astro Objects
     ea689411-d03e-48f0-8841-3318c457eee1: 'Site Info' # Site Info
     f179ae9d-f7cc-4d51-824b-393c7ab4879d: 'Zoom Out FOV' # Zoom Out FOV

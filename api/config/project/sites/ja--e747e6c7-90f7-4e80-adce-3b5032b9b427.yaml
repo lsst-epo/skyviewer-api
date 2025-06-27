@@ -1,0 +1,9 @@
+baseUrl: $PRIMARY_SITE_URL/ja
+enabled: '1'
+handle: ja
+hasUrls: true
+language: ja-JP
+name: JA
+primary: false
+siteGroup: c1f0a2ee-3b87-486c-96ed-7e2d25fc952f # Skyviewer API
+sortOrder: 3
