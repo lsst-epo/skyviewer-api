@@ -1,0 +1,92 @@
+description: null
+handle: translators
+name: Translators
+permissions:
+  - accesscp
+  - accessplugin-_canto-dam-assets
+  - 'createfolders:0848c204-7e47-4aa0-8da1-5a4538481bce' # Canto DAM
+  - 'deleteassets:0848c204-7e47-4aa0-8da1-5a4538481bce' # Canto DAM
+  - 'deletecategories:40780a9f-1ee7-4c59-aaaf-159094330220' # Tour Theme
+  - 'deletecategories:928bd2d5-bb58-4e0f-9c81-f805fcc1e135' # Guided Experience Type
+  - 'deletecategories:aa3e2ce5-e67a-4378-8a44-c660690cbcc3' # Tour Variety
+  - 'deleteentries:02e3155f-23cf-4f36-a734-a3f447d04e85' # Survey
+  - 'deleteentries:32b433c2-8fa2-439b-9678-d48e4f929b88' # Catalogs
+  - 'deleteentries:b22ca822-e7e2-4f8c-8be5-d3b0fcab1c9f' # Tours
+  - 'deleteentries:e2eb2e80-8e02-4a68-aa81-3d488f80543d' # Astro Object
+  - 'deletepeerassets:0848c204-7e47-4aa0-8da1-5a4538481bce' # Canto DAM
+  - 'deletepeercategorydrafts:40780a9f-1ee7-4c59-aaaf-159094330220' # Tour Theme
+  - 'deletepeercategorydrafts:928bd2d5-bb58-4e0f-9c81-f805fcc1e135' # Guided Experience Type
+  - 'deletepeercategorydrafts:aa3e2ce5-e67a-4378-8a44-c660690cbcc3' # Tour Variety
+  - 'deletepeerentries:02e3155f-23cf-4f36-a734-a3f447d04e85' # Survey
+  - 'deletepeerentries:32b433c2-8fa2-439b-9678-d48e4f929b88' # Catalogs
+  - 'deletepeerentries:b22ca822-e7e2-4f8c-8be5-d3b0fcab1c9f' # Tours
+  - 'deletepeerentries:e2eb2e80-8e02-4a68-aa81-3d488f80543d' # Astro Object
+  - 'deletepeerentrydrafts:02e3155f-23cf-4f36-a734-a3f447d04e85' # Survey
+  - 'deletepeerentrydrafts:1846dfb1-7917-4243-b91d-4eb084d1462b' # Guided Experiences
+  - 'deletepeerentrydrafts:32b433c2-8fa2-439b-9678-d48e4f929b88' # Catalogs
+  - 'deletepeerentrydrafts:b22ca822-e7e2-4f8c-8be5-d3b0fcab1c9f' # Tours
+  - 'deletepeerentrydrafts:b469eb7b-2830-4cc1-b7b3-b55d9e8c9b96' # Embed
+  - 'deletepeerentrydrafts:d30ed1ce-5b90-4cb7-98b2-45e45e560d64' # Explorer
+  - 'deletepeerentrydrafts:d53d9e9e-bc1b-43dc-87eb-d0e6d1323238' # SkySynth
+  - 'deletepeerentrydrafts:e2eb2e80-8e02-4a68-aa81-3d488f80543d' # Astro Object
+  - 'editglobalset:ea689411-d03e-48f0-8841-3318c457eee1' # Site Info
+  - 'editimages:0848c204-7e47-4aa0-8da1-5a4538481bce' # Canto DAM
+  - 'editpeerimages:0848c204-7e47-4aa0-8da1-5a4538481bce' # Canto DAM
+  - 'replacefiles:0848c204-7e47-4aa0-8da1-5a4538481bce' # Canto DAM
+  - 'replacepeerfiles:0848c204-7e47-4aa0-8da1-5a4538481bce' # Canto DAM
+  - 'saveassets:0848c204-7e47-4aa0-8da1-5a4538481bce' # Canto DAM
+  - 'savecategories:40780a9f-1ee7-4c59-aaaf-159094330220' # Tour Theme
+  - 'savecategories:928bd2d5-bb58-4e0f-9c81-f805fcc1e135' # Guided Experience Type
+  - 'savecategories:aa3e2ce5-e67a-4378-8a44-c660690cbcc3' # Tour Variety
+  - 'saveentries:02e3155f-23cf-4f36-a734-a3f447d04e85' # Survey
+  - 'saveentries:1846dfb1-7917-4243-b91d-4eb084d1462b' # Guided Experiences
+  - 'saveentries:32b433c2-8fa2-439b-9678-d48e4f929b88' # Catalogs
+  - 'saveentries:b22ca822-e7e2-4f8c-8be5-d3b0fcab1c9f' # Tours
+  - 'saveentries:b469eb7b-2830-4cc1-b7b3-b55d9e8c9b96' # Embed
+  - 'saveentries:d30ed1ce-5b90-4cb7-98b2-45e45e560d64' # Explorer
+  - 'saveentries:d53d9e9e-bc1b-43dc-87eb-d0e6d1323238' # SkySynth
+  - 'saveentries:e2eb2e80-8e02-4a68-aa81-3d488f80543d' # Astro Object
+  - 'savepeerassets:0848c204-7e47-4aa0-8da1-5a4538481bce' # Canto DAM
+  - 'savepeercategorydrafts:40780a9f-1ee7-4c59-aaaf-159094330220' # Tour Theme
+  - 'savepeercategorydrafts:928bd2d5-bb58-4e0f-9c81-f805fcc1e135' # Guided Experience Type
+  - 'savepeercategorydrafts:aa3e2ce5-e67a-4378-8a44-c660690cbcc3' # Tour Variety
+  - 'savepeerentries:02e3155f-23cf-4f36-a734-a3f447d04e85' # Survey
+  - 'savepeerentries:32b433c2-8fa2-439b-9678-d48e4f929b88' # Catalogs
+  - 'savepeerentries:b22ca822-e7e2-4f8c-8be5-d3b0fcab1c9f' # Tours
+  - 'savepeerentries:e2eb2e80-8e02-4a68-aa81-3d488f80543d' # Astro Object
+  - 'savepeerentrydrafts:02e3155f-23cf-4f36-a734-a3f447d04e85' # Survey
+  - 'savepeerentrydrafts:1846dfb1-7917-4243-b91d-4eb084d1462b' # Guided Experiences
+  - 'savepeerentrydrafts:32b433c2-8fa2-439b-9678-d48e4f929b88' # Catalogs
+  - 'savepeerentrydrafts:b22ca822-e7e2-4f8c-8be5-d3b0fcab1c9f' # Tours
+  - 'savepeerentrydrafts:b469eb7b-2830-4cc1-b7b3-b55d9e8c9b96' # Embed
+  - 'savepeerentrydrafts:d30ed1ce-5b90-4cb7-98b2-45e45e560d64' # Explorer
+  - 'savepeerentrydrafts:d53d9e9e-bc1b-43dc-87eb-d0e6d1323238' # SkySynth
+  - 'savepeerentrydrafts:e2eb2e80-8e02-4a68-aa81-3d488f80543d' # Astro Object
+  - 'viewassets:0848c204-7e47-4aa0-8da1-5a4538481bce' # Canto DAM
+  - 'viewcategories:40780a9f-1ee7-4c59-aaaf-159094330220' # Tour Theme
+  - 'viewcategories:928bd2d5-bb58-4e0f-9c81-f805fcc1e135' # Guided Experience Type
+  - 'viewcategories:aa3e2ce5-e67a-4378-8a44-c660690cbcc3' # Tour Variety
+  - 'viewentries:02e3155f-23cf-4f36-a734-a3f447d04e85' # Survey
+  - 'viewentries:1846dfb1-7917-4243-b91d-4eb084d1462b' # Guided Experiences
+  - 'viewentries:32b433c2-8fa2-439b-9678-d48e4f929b88' # Catalogs
+  - 'viewentries:b22ca822-e7e2-4f8c-8be5-d3b0fcab1c9f' # Tours
+  - 'viewentries:b469eb7b-2830-4cc1-b7b3-b55d9e8c9b96' # Embed
+  - 'viewentries:d30ed1ce-5b90-4cb7-98b2-45e45e560d64' # Explorer
+  - 'viewentries:d53d9e9e-bc1b-43dc-87eb-d0e6d1323238' # SkySynth
+  - 'viewentries:e2eb2e80-8e02-4a68-aa81-3d488f80543d' # Astro Object
+  - 'viewpeerassets:0848c204-7e47-4aa0-8da1-5a4538481bce' # Canto DAM
+  - 'viewpeercategorydrafts:40780a9f-1ee7-4c59-aaaf-159094330220' # Tour Theme
+  - 'viewpeercategorydrafts:928bd2d5-bb58-4e0f-9c81-f805fcc1e135' # Guided Experience Type
+  - 'viewpeercategorydrafts:aa3e2ce5-e67a-4378-8a44-c660690cbcc3' # Tour Variety
+  - 'viewpeerentries:02e3155f-23cf-4f36-a734-a3f447d04e85' # Survey
+  - 'viewpeerentries:32b433c2-8fa2-439b-9678-d48e4f929b88' # Catalogs
+  - 'viewpeerentries:b22ca822-e7e2-4f8c-8be5-d3b0fcab1c9f' # Tours
+  - 'viewpeerentries:e2eb2e80-8e02-4a68-aa81-3d488f80543d' # Astro Object
+  - 'viewpeerentrydrafts:02e3155f-23cf-4f36-a734-a3f447d04e85' # Survey
+  - 'viewpeerentrydrafts:1846dfb1-7917-4243-b91d-4eb084d1462b' # Guided Experiences
+  - 'viewpeerentrydrafts:32b433c2-8fa2-439b-9678-d48e4f929b88' # Catalogs
+  - 'viewpeerentrydrafts:b22ca822-e7e2-4f8c-8be5-d3b0fcab1c9f' # Tours
+  - 'viewpeerentrydrafts:b469eb7b-2830-4cc1-b7b3-b55d9e8c9b96' # Embed
+  - 'viewpeerentrydrafts:d30ed1ce-5b90-4cb7-98b2-45e45e560d64' # Explorer
+  - 'viewpeerentrydrafts:d53d9e9e-bc1b-43dc-87eb-d0e6d1323238' # SkySynth
+  - 'viewpeerentrydrafts:e2eb2e80-8e02-4a68-aa81-3d488f80543d' # Astro Object

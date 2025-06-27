@@ -58,6 +58,10 @@ siteSettings:
     hasUrls: true
     template: null
     uriFormat: 'tour-variety/{slug}'
+  e747e6c7-90f7-4e80-adce-3b5032b9b427: # JA
+    hasUrls: true
+    template: null
+    uriFormat: 'tour-variety/{slug}'
 structure:
   maxLevels: 1
   uid: 8df90f53-f24a-42e0-81aa-44869bab2bd1

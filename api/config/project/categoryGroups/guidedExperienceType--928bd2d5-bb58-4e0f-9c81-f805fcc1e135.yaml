@@ -46,6 +46,10 @@ siteSettings:
     hasUrls: true
     template: null
     uriFormat: '{slug}'
+  e747e6c7-90f7-4e80-adce-3b5032b9b427: # JA
+    hasUrls: true
+    template: null
+    uriFormat: '{slug}'
 structure:
   maxLevels: null
   uid: e1bd70bb-b7f2-4a0c-9ce1-edcf3bdaac7f
