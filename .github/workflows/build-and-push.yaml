@@ -160,7 +160,7 @@ jobs:
           workflow-inputs: ${{ steps.payload.outputs.data }}
           discover: true
       - name: Await Run ID ${{ steps.dispatch.outputs.run-id }}
-        uses: Codex-/await-remote-run@v1.12.2
+        uses: Codex-/await-remote-run@v1.13.0
         with:
           token: ${{ secrets.EDC_DEPLOY_GITHUB_TOKEN_FOR_REST_API }}
           repo: edc-deploy
