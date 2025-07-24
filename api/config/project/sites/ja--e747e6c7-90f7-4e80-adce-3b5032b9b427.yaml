@@ -1,4 +1,4 @@
-baseUrl: $PRIMARY_SITE_URL/ja
+baseUrl: '@web/ja'
 enabled: '1'
 handle: ja
 hasUrls: true
