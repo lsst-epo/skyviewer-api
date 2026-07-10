@@ -58,6 +58,18 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 100
+          -
+            elementCondition: null
+            fieldUid: 31800b2d-c666-43ac-a69b-a18e3b5ce117 # FAQ Menu Content
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 3a891d10-d44f-4b02-bbfa-a62efd4f4488
+            userCondition: null
+            warning: null
+            width: 100
         name: 'Menu Content'
         uid: 71765052-cc9c-49cd-8832-6e1bae67d984
         userCondition: null
