@@ -1,4 +1,4 @@
-dateModified: 1783621307
+dateModified: 1786740124
 email:
   fromEmail: $EMAIL_FROM_ADDRESS
   fromName: $EMAIL_SENDER_NAME
@@ -55,6 +55,7 @@ fs:
 meta:
   __names__:
     0ecf9feb-ab77-470b-a2de-eb396a3a4682: Survey # Survey
+    01b2b4ae-023f-4268-b748-fcf1f5fdd323: Description # Description
     1b6d6c52-1663-44df-a699-c12283451818: Title # Title
     1f01e823-4dbb-4804-92e9-39007bcb2667: 'Guided Experiences' # Guided Experiences
     1f5ddbcd-4f3f-495c-95d9-dcd6af9e3f6f: 'Astro Object' # Astro Object
@@ -79,6 +80,7 @@ meta:
     008cb5a3-a777-476f-8410-4f2bf13ac492: 'Intro Content Blocks' # Intro Content Blocks
     8d6803f5-ca34-46d8-a8d5-869896e34b65: Tour # Tour
     8e8d03a0-cafa-424e-9fc5-7f2ee7f5c063: 'Show on load' # Show on load
+    8f5baa08-7c5c-4225-ad13-dc0108246364: RA # RA
     8fd439fe-660f-4cac-8ddf-b71b8ad6276f: 'Tour POIs' # Tour POIs
     9acbaaa2-a8e8-4f68-a495-98b3e2d8ed13: 'Zoom Out Time' # Zoom Out Time
     9d2a5fce-1549-4e9f-8205-f1527f5064b2: Catalog # Catalog
@@ -91,8 +93,10 @@ meta:
     32b433c2-8fa2-439b-9678-d48e4f929b88: Catalogs # Catalogs
     33a76ab8-0b56-4bd5-915a-7f46d739fb82: 'Optional Layer' # Optional Layer
     36cb7208-d072-48ac-af5e-c034035afdfd: 'Variety Handle' # Variety Handle
+    37d5b767-8af8-4f11-8965-f515cc8cae08: 'Enabled In Navigation' # Enabled In Navigation
     46c6493e-366b-43f9-8591-b03f4ec9dfdf: Explorer # Explorer
     48d995fe-6d24-48f6-904a-c54f64964387: 'Intro Content Block' # Intro Content Block
+    51bbc9fe-bdb1-456b-aaa5-45bfe6820318: 'Navigation POI' # Navigation POI
     52d4af2b-ae9b-4f2f-a90b-5c4b5ce23eb9: Tour # Tour
     62b4e157-411a-433c-bdc0-dcd42a2d7ca4: 'Points of Interest' # Points of Interest
     69a9149f-522c-4bae-9964-ce7bc440f181: 'Coordinate Frame' # Coordinate Frame
@@ -163,7 +167,10 @@ meta:
     e87bfbdf-5fad-46b9-9794-4e88c012e6af: Tour # Tour
     e747e6c7-90f7-4e80-adce-3b5032b9b427: JA # JA
     e4521605-ff3a-4876-8c3c-cde0ffe5deaa: 'Astro Objects' # Astro Objects
+    e9441363-c5ac-4eb2-a5e5-cc35db329875: Title # Title
     ea689411-d03e-48f0-8841-3318c457eee1: 'Site Info' # Site Info
+    f3a52b7e-2810-40d7-b764-53587ea2d5ee: 'Navigation POIs' # Navigation POIs
+    f9a48157-da5d-4b25-b542-6f0579783eb2: Dec # Dec
     f179ae9d-f7cc-4d51-824b-393c7ab4879d: 'Zoom Out FOV' # Zoom Out FOV
     fe3ef1fd-33fa-4aeb-9ed2-9e74f6694377: Path # Path
     fe74f2bf-6416-4c77-a05d-1ef924e575a8: Image # Image
