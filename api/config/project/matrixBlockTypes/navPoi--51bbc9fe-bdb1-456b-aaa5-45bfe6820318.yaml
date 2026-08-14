@@ -1,0 +1,171 @@
+field: f3a52b7e-2810-40d7-b764-53587ea2d5ee # Navigation POIs
+fieldLayouts:
+  c6387dc0-8916-4a05-89f0-286a3e25e010:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: e9441363-c5ac-4eb2-a5e5-cc35db329875 # Title
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 2e50d28d-8d70-4401-a63f-242ed3662b8e
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 01b2b4ae-023f-4268-b748-fcf1f5fdd323 # Description
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 7230cb20-d9f6-4c7d-bc7d-5c17b046fc7c
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 8f5baa08-7c5c-4225-ad13-dc0108246364 # RA
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 7987c074-fc3f-4ccc-a8ac-4200a8a49a56
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: f9a48157-da5d-4b25-b542-6f0579783eb2 # Dec
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: accb7c03-3aae-456c-8916-e7ec96f29caf
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 37d5b767-8af8-4f11-8965-f515cc8cae08 # Enabled In Navigation
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 741d1a15-6589-461d-a311-77dcc9ed844b
+            userCondition: null
+            warning: null
+            width: 50
+        name: Content
+        uid: cab110f9-4dd5-4558-b1c7-61e9eb2ed93a
+        userCondition: null
+fields:
+  01b2b4ae-023f-4268-b748-fcf1f5fdd323: # Description
+    columnSuffix: gfsxjgrb
+    contentColumnType: text
+    fieldGroup: null
+    handle: navPoiDescription
+    instructions: null
+    name: Description
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: false
+      columnType: null
+      initialRows: 4
+      multiline: true
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\PlainText
+  8f5baa08-7c5c-4225-ad13-dc0108246364: # RA
+    columnSuffix: mrsdxggp
+    contentColumnType: 'decimal(9,6)'
+    fieldGroup: null
+    handle: ra
+    instructions: null
+    name: RA
+    searchable: false
+    settings:
+      decimals: 6
+      defaultValue: null
+      max: 360
+      min: 0
+      prefix: null
+      previewCurrency: null
+      previewFormat: decimal
+      size: null
+      suffix: °
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Number
+  37d5b767-8af8-4f11-8965-f515cc8cae08: # Enabled In Navigation
+    columnSuffix: cujndbuf
+    contentColumnType: boolean
+    fieldGroup: null
+    handle: enabledInNavigation
+    instructions: 'Add or remove this item from the nav menu without needing to delete it'
+    name: 'Enabled In Navigation'
+    searchable: false
+    settings:
+      default: false
+      offLabel: Disabled
+      onLabel: Enabled
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Lightswitch
+  e9441363-c5ac-4eb2-a5e5-cc35db329875: # Title
+    columnSuffix: hpgtztez
+    contentColumnType: text
+    fieldGroup: null
+    handle: navPoiTitle
+    instructions: null
+    name: Title
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: false
+      columnType: null
+      initialRows: 4
+      multiline: false
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\PlainText
+  f9a48157-da5d-4b25-b542-6f0579783eb2: # Dec
+    columnSuffix: eazfzcdr
+    contentColumnType: 'decimal(8,6)'
+    fieldGroup: null
+    handle: dec
+    instructions: null
+    name: Dec
+    searchable: false
+    settings:
+      decimals: 6
+      defaultValue: null
+      max: 90
+      min: -90
+      prefix: null
+      previewCurrency: null
+      previewFormat: decimal
+      size: null
+      suffix: °
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Number
+handle: navPoi
+name: 'Navigation POI'
+sortOrder: 1
