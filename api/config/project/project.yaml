@@ -1,4 +1,4 @@
-dateModified: 1787084696
+dateModified: 1787589320
 email:
   fromEmail: $EMAIL_FROM_ADDRESS
   fromName: $EMAIL_SENDER_NAME
@@ -94,6 +94,7 @@ meta:
     33a76ab8-0b56-4bd5-915a-7f46d739fb82: 'Optional Layer' # Optional Layer
     36cb7208-d072-48ac-af5e-c034035afdfd: 'Variety Handle' # Variety Handle
     37d5b767-8af8-4f11-8965-f515cc8cae08: 'Enabled In Navigation' # Enabled In Navigation
+    36dddc84-e655-4ee6-a769-486f28437fc8: 'Tour Category' # Tour Category
     46c6493e-366b-43f9-8591-b03f4ec9dfdf: Explorer # Explorer
     48d995fe-6d24-48f6-904a-c54f64964387: 'Intro Content Block' # Intro Content Block
     51bbc9fe-bdb1-456b-aaa5-45bfe6820318: 'Navigation POI' # Navigation POI

@@ -20,15 +20,15 @@ siteSettings:
     enabledByDefault: true
     hasUrls: true
     template: null
-    uriFormat: 'tours/{slug}'
+    uriFormat: '{slug}'
   a6b28fea-2f0c-49a2-b82c-fd16c51d9511: # ES
     enabledByDefault: true
     hasUrls: true
     template: null
-    uriFormat: 'tours/{slug}'
+    uriFormat: '{slug}'
   e747e6c7-90f7-4e80-adce-3b5032b9b427: # JA
     enabledByDefault: true
     hasUrls: true
     template: null
-    uriFormat: 'tours/{slug}'
+    uriFormat: '{slug}'
 type: channel

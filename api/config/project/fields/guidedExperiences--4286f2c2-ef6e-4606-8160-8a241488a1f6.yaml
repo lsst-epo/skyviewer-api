@@ -7,7 +7,7 @@ name: 'Guided Experiences'
 searchable: false
 settings:
   contentTable: '{{%matrixcontent_guidedexperiences}}'
-  maxBlocks: 2
+  maxBlocks: null
   minBlocks: 1
   propagationKeyFormat: null
   propagationMethod: all
