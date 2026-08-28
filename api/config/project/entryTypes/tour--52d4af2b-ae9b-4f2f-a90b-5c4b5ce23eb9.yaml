@@ -33,6 +33,18 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
+            fieldUid: 36dddc84-e655-4ee6-a769-486f28437fc8 # Tour Category
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ea9ca0c2-7eaa-4da6-9e4b-3b39de0f4b5c
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
             fieldUid: 754ae3b5-3a92-4012-8660-9d106bdc3e69 # Include in feed
             instructions: null
             label: null
