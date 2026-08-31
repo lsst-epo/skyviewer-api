@@ -1,0 +1,27 @@
+columnSuffix: zrkqauza
+contentColumnType: text
+fieldGroup: 4accd3e5-dd7d-4464-9f19-db2009adda71 # Globals
+handle: surveyMetaData
+instructions: 'Text that will display in the Survey Data section at the bottom of the "About" menu when opened'
+name: 'Survey Meta Data'
+searchable: false
+settings:
+  availableTransforms: ''
+  availableVolumes: ''
+  columnType: text
+  configSelectionMode: choose
+  defaultTransform: ''
+  manualConfig: ''
+  purifierConfig: null
+  purifyHtml: true
+  redactorConfig: null
+  removeEmptyTags: false
+  removeInlineStyles: false
+  removeNbsp: false
+  showHtmlButtonForNonAdmins: false
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: false
+  uiMode: enlarged
+translationKeyFormat: null
+translationMethod: site
+type: craft\redactor\Field
