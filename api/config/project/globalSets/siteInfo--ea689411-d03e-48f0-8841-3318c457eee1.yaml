@@ -70,6 +70,18 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 100
+          -
+            elementCondition: null
+            fieldUid: 89f6c416-dc69-4d2c-882f-be3e6170f8cf # Survey Meta Data
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: bcbad931-9f36-48a6-bf23-9a025476a4a3
+            userCondition: null
+            warning: null
+            width: 100
         name: 'Menu Content'
         uid: 71765052-cc9c-49cd-8832-6e1bae67d984
         userCondition: null
