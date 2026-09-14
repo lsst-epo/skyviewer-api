@@ -28,3 +28,5 @@ scope:
   - 'categorygroups.928bd2d5-bb58-4e0f-9c81-f805fcc1e135:read' # Guided Experience Type
   - 'categorygroups.40780a9f-1ee7-4c59-aaaf-159094330220:read' # Tour Theme
   - 'categorygroups.aa3e2ce5-e67a-4378-8a44-c660690cbcc3:read' # Tour Variety
+  - 'directive:parseRefs'
+  - 'directive:transform'

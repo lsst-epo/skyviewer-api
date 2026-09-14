@@ -7,11 +7,11 @@ name: 'Source Size'
 searchable: false
 settings:
   decimals: 0
-  defaultValue: '20'
+  defaultValue: 20
   max: null
-  min: '0'
+  min: 0
   prefix: null
-  previewCurrency: ''
+  previewCurrency: null
   previewFormat: none
   size: null
   suffix: null

@@ -1,4 +1,4 @@
-dateModified: 1789074256
+dateModified: 1790185561
 email:
   fromEmail: $EMAIL_FROM_ADDRESS
   fromName: $EMAIL_SENDER_NAME
@@ -24,14 +24,21 @@ fs:
       keyFileContents: ''
       projectId: $GCP_PROJECT_ID
       subfolder: astro
+      visibility: null
     type: craft\googlecloud\Fs
     url: '@gcsBucketUrl'
   cantoDam:
     hasUrls: true
     name: 'Canto DAM'
     settings:
-      dummySetting: ''
-    type: rosas\dam\volumes\DAMVolume
+      errorMessage: 'Unable to find component class ''rosas\dam\volumes\DAMVolume''.'
+      expectedType: rosas\dam\volumes\DAMVolume
+      settings:
+        __assoc__:
+          -
+            - dummySetting
+            - ''
+    type: craft\fs\MissingFs
     url: $CANTO_ASSET_BASEURL
   icons:
     hasUrls: true
@@ -50,6 +57,7 @@ fs:
       keyFileContents: ''
       projectId: $GCP_PROJECT_ID
       subfolder: tours
+      visibility: null
     type: craft\googlecloud\Fs
     url: '@gcsBucketUrl'
 meta:
@@ -58,7 +66,6 @@ meta:
     01b2b4ae-023f-4268-b748-fcf1f5fdd323: Description # Description
     1b6d6c52-1663-44df-a699-c12283451818: Title # Title
     1f01e823-4dbb-4804-92e9-39007bcb2667: 'Guided Experiences' # Guided Experiences
-    1f5ddbcd-4f3f-495c-95d9-dcd6af9e3f6f: 'Astro Object' # Astro Object
     2c43566d-87e9-47af-b1e3-87577b58f06f: Variety # Variety
     02e3155f-23cf-4f36-a734-a3f447d04e85: Survey # Survey
     3c645133-6daf-4632-a842-13662885ad1b: 'Background Image' # Background Image
@@ -84,7 +91,6 @@ meta:
     8fd439fe-660f-4cac-8ddf-b71b8ad6276f: 'Tour POIs' # Tour POIs
     9acbaaa2-a8e8-4f68-a495-98b3e2d8ed13: 'Zoom Out Time' # Zoom Out Time
     9d2a5fce-1549-4e9f-8205-f1527f5064b2: Catalog # Catalog
-    9d28ee9c-bac6-404e-a24f-afde8a75ad1b: 'Point of Interest' # Point of Interest
     16b1feef-a5aa-449f-b011-919a9d6075ed: 'Astro Object' # Astro Object
     17a7d431-1c2c-4a2a-a3f3-c872d55e4696: Layer # Layer
     18a685a4-2ce7-4ae8-b717-0154cff390c1: 'Fun Facts Heading' # Fun Facts Heading
@@ -112,7 +118,6 @@ meta:
     98fa9f36-d1d1-4fa0-86c9-70ead1ecbe05: Opacity # Opacity
     754ae3b5-3a92-4012-8660-9d106bdc3e69: 'Include in feed' # Include in feed
     763c0189-f6eb-419c-9ca2-2574a743768a: EN # EN
-    774bddd7-f968-4015-957b-e33bc6dd5a7c: Admins # Admins
     0848c204-7e47-4aa0-8da1-5a4538481bce: 'Canto DAM' # Canto DAM
     860a3a7b-7ed5-4997-9a40-0d00e58b77d0: 'Astro Images' # Astro Images
     928bd2d5-bb58-4e0f-9c81-f805fcc1e135: 'Guided Experience Type' # Guided Experience Type
@@ -251,5 +256,5 @@ system:
   edition: pro
   live: true
   name: 'Skyviewer API'
-  schemaVersion: 4.15.0.0
+  schemaVersion: 4.17.0.3
   timeZone: America/Los_Angeles

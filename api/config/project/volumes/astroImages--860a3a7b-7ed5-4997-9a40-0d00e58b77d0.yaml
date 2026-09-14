@@ -2,6 +2,7 @@ fieldLayouts:
   f69d7e12-9845-48c1-8dd1-59b7d13fef81:
     tabs:
       -
+        elementCondition: null
         elements:
           -
             autocapitalize: true
@@ -9,7 +10,9 @@ fieldLayouts:
             autocorrect: true
             class: null
             disabled: false
+            elementCondition: null
             id: null
+            inputType: null
             instructions: null
             label: null
             max: null
@@ -24,24 +27,30 @@ fieldLayouts:
             tip: null
             title: null
             type: craft\fieldlayoutelements\assets\AssetTitleField
+            uid: 50d25fca-f205-4351-967a-c60d5f528901
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: 5ef8f422-6773-4891-99b9-f56cdb8bced4 # Alternate Text
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: e5c246a4-86fd-451f-b607-f1f0f45d523c
+            userCondition: null
             warning: null
             width: 100
         name: Content
-        sortOrder: 1
+        uid: e26cf44f-753b-4a8e-9746-ea79e80aa2d3
+        userCondition: null
 fs: astroImages
 handle: astroImages
-hasUrls: true
 name: 'Astro Images'
 sortOrder: 0
 titleTranslationKeyFormat: null
 titleTranslationMethod: site
-url: '@gcsBucketUrl'
+transformFs: null
+transformSubpath: ''

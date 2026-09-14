@@ -2,6 +2,7 @@ fieldLayouts:
   ab7474e7-fb73-455c-a412-040560a3da56:
     tabs:
       -
+        elementCondition: null
         elements:
           -
             autocapitalize: true
@@ -9,7 +10,9 @@ fieldLayouts:
             autocorrect: true
             class: null
             disabled: false
+            elementCondition: null
             id: null
+            inputType: null
             instructions: null
             label: null
             max: null
@@ -24,15 +27,18 @@ fieldLayouts:
             tip: null
             title: null
             type: craft\fieldlayoutelements\assets\AssetTitleField
+            uid: 00331ce6-64cd-46ee-8bec-6a860b2d859d
+            userCondition: null
             warning: null
             width: 100
         name: Content
-        sortOrder: 1
+        uid: 83b1c287-84a9-4826-abc3-e6e29f6e7ca1
+        userCondition: null
 fs: cantoDam
 handle: cantoDam
-hasUrls: true
 name: 'Canto DAM'
 sortOrder: 2
 titleTranslationKeyFormat: null
 titleTranslationMethod: site
-url: $CANTO_ASSET_BASEURL
+transformFs: null
+transformSubpath: ''

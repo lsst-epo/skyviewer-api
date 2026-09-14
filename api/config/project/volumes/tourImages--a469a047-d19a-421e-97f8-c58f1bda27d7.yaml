@@ -2,6 +2,7 @@ fieldLayouts:
   3bbfc7cd-6a6b-4534-bd52-9b7566850e2a:
     tabs:
       -
+        elementCondition: null
         elements:
           -
             autocapitalize: true
@@ -9,7 +10,9 @@ fieldLayouts:
             autocorrect: true
             class: null
             disabled: false
+            elementCondition: null
             id: null
+            inputType: null
             instructions: null
             label: null
             max: null
@@ -24,24 +27,30 @@ fieldLayouts:
             tip: null
             title: null
             type: craft\fieldlayoutelements\assets\AssetTitleField
+            uid: ebbfb0f7-b817-4d98-8029-da2af142b5dc
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: 5ef8f422-6773-4891-99b9-f56cdb8bced4 # Alternate Text
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: f57a0d4d-6628-481e-a716-47ac540eb4be
+            userCondition: null
             warning: null
             width: 100
         name: Content
-        sortOrder: 1
+        uid: 380375a1-4931-4342-ba85-ff1eb5312f5c
+        userCondition: null
 fs: tourImages
 handle: tourImages
-hasUrls: true
 name: 'Tour Images'
 sortOrder: 0
 titleTranslationKeyFormat: null
 titleTranslationMethod: site
-url: '@gcsBucketUrl'
+transformFs: null
+transformSubpath: ''

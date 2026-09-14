@@ -3,6 +3,7 @@ fieldLayouts:
   1bd45809-7be7-4083-bdbc-bceb5876fdc8:
     tabs:
       -
+        elementCondition: null
         elements:
           -
             autocapitalize: true
@@ -10,7 +11,9 @@ fieldLayouts:
             autocorrect: true
             class: null
             disabled: false
+            elementCondition: null
             id: null
+            inputType: null
             instructions: null
             label: null
             max: null
@@ -25,28 +28,37 @@ fieldLayouts:
             tip: null
             title: null
             type: craft\fieldlayoutelements\TitleField
+            uid: c4486433-f711-44f6-96aa-aed44338fa94
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: 36cb7208-d072-48ac-af5e-c034035afdfd # Variety Handle
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 06615fe5-33be-450c-86ab-639858905633
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: 7f01b564-7d49-4139-be9d-07d369fd3408 # Thumbnail Image
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 2c9cde04-a2cb-4473-88a6-e90990df3014
+            userCondition: null
             warning: null
             width: 100
         name: Content
-        sortOrder: 1
+        uid: 7a2483e2-0921-4c5e-b48f-09e25e3a2594
+        userCondition: null
 handle: tourVariety
 name: 'Tour Variety'
 siteSettings:

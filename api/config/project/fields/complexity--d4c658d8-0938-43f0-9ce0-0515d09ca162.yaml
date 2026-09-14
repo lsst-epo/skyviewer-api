@@ -8,10 +8,10 @@ searchable: false
 settings:
   decimals: 0
   defaultValue: null
-  max: '5'
-  min: '1'
+  max: 5
+  min: 1
   prefix: null
-  previewCurrency: ''
+  previewCurrency: null
   previewFormat: decimal
   size: null
   suffix: null

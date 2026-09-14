@@ -3,6 +3,7 @@ fieldLayouts:
   80e1cd37-ef90-4e3b-817f-776176d2d5b2:
     tabs:
       -
+        elementCondition: null
         elements:
           -
             autocapitalize: true
@@ -10,7 +11,9 @@ fieldLayouts:
             autocorrect: true
             class: null
             disabled: false
+            elementCondition: null
             id: null
+            inputType: null
             instructions: null
             label: null
             max: null
@@ -25,10 +28,13 @@ fieldLayouts:
             tip: null
             title: null
             type: craft\fieldlayoutelements\TitleField
+            uid: fbfa1da3-eb0c-4a3c-a4d9-f893f3fbf905
+            userCondition: null
             warning: null
             width: 100
         name: Content
-        sortOrder: 1
+        uid: 957dc87b-7a88-4bab-9001-fe28ce1f07c2
+        userCondition: null
 handle: tourTheme
 name: 'Tour Theme'
 siteSettings:
