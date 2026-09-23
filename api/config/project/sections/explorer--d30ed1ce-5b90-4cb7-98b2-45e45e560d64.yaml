@@ -1,6 +1,10 @@
 defaultPlacement: end
 enableVersioning: true
+entryTypes:
+  -
+    uid: 46c6493e-366b-43f9-8591-b03f4ec9dfdf # Explorer
 handle: explorer
+maxAuthors: 1
 name: Explorer
 previewTargets:
   -

@@ -1,6 +1,5 @@
 columnSuffix: slrwdgrx
 contentColumnType: string(3)
-fieldGroup: 0ecf9feb-ab77-470b-a2de-eb396a3a4682 # Survey
 handle: tileSize
 instructions: 'The width of the HEALPix tile images. Mostly 512 pixels but can be 256, 128, 64, 32'
 name: 'Tile Size'

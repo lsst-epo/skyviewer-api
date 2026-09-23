@@ -1,6 +1,10 @@
 defaultPlacement: end
 enableVersioning: true
+entryTypes:
+  -
+    uid: 52d4af2b-ae9b-4f2f-a90b-5c4b5ce23eb9 # Tour
 handle: tours
+maxAuthors: 1
 name: Tours
 previewTargets:
   -

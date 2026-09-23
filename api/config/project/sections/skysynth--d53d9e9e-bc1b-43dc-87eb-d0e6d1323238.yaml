@@ -1,6 +1,10 @@
 defaultPlacement: end
 enableVersioning: true
+entryTypes:
+  -
+    uid: a0c261e6-18f1-4a33-98f4-caf7ad970310 # SkySynth
 handle: skysynth
+maxAuthors: 1
 name: SkySynth
 previewTargets:
   -

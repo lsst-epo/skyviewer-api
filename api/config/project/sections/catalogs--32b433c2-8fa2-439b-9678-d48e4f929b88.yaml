@@ -1,6 +1,10 @@
 defaultPlacement: end
 enableVersioning: true
+entryTypes:
+  -
+    uid: 9d2a5fce-1549-4e9f-8205-f1527f5064b2 # Catalog
 handle: catalogs
+maxAuthors: 1
 name: Catalogs
 previewTargets:
   -

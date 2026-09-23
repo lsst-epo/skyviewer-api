@@ -1,6 +1,10 @@
 defaultPlacement: end
 enableVersioning: true
+entryTypes:
+  -
+    uid: 555997ed-1e6e-43e5-913f-cb5f38eca1b6 # Embed
 handle: embed
+maxAuthors: 1
 name: Embed
 previewTargets:
   -

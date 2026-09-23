@@ -189,7 +189,6 @@ fieldLayouts:
 handle: surveys
 hasTitleField: true
 name: Survey
-section: 02e3155f-23cf-4f36-a734-a3f447d04e85 # Survey
 showStatusField: true
 slugTranslationKeyFormat: null
 slugTranslationMethod: none

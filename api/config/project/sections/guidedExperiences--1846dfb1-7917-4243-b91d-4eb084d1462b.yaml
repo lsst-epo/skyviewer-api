@@ -1,6 +1,10 @@
 defaultPlacement: end
 enableVersioning: true
+entryTypes:
+  -
+    uid: 1f01e823-4dbb-4804-92e9-39007bcb2667 # Guided Experiences
 handle: guidedExperiences
+maxAuthors: 1
 name: 'Guided Experiences'
 previewTargets:
   -

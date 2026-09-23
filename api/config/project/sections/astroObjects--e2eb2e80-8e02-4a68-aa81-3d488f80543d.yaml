@@ -1,6 +1,10 @@
 defaultPlacement: end
 enableVersioning: true
+entryTypes:
+  -
+    uid: 16b1feef-a5aa-449f-b011-919a9d6075ed # Astro Object
 handle: astroObjects
+maxAuthors: 1
 name: 'Astro Object'
 previewTargets:
   -

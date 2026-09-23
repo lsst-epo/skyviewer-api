@@ -1,6 +1,10 @@
 defaultPlacement: end
 enableVersioning: true
+entryTypes:
+  -
+    uid: bae3d86b-064a-47c2-9af4-736639f79b7b # Survey
 handle: surveys
+maxAuthors: 1
 name: Survey
 previewTargets:
   -

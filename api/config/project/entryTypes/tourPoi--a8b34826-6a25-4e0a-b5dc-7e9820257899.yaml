@@ -1,0 +1,210 @@
+color: null
+description: null
+fieldLayouts:
+  1b720c1b-b66f-4f5c-bd7d-a64b1bd32367:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            fieldUid: 1b6d6c52-1663-44df-a699-c12283451818
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: Title
+            providesThumbs: false
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4c3b193e-863e-433a-bcd8-37542548ca75
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            fieldUid: fe1835fb-8bd0-4e5a-b637-0e94330568ac
+            handle: description
+            includeInCards: false
+            instructions: null
+            label: Description
+            providesThumbs: false
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 326815f2-00b3-460f-bd49-bbc6159f015e
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            fieldUid: 88ca9249-075f-4535-9997-6dbf45a0582b
+            handle: ra
+            includeInCards: false
+            instructions: null
+            label: RA
+            providesThumbs: false
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 43416df3-26e7-4566-ae42-dee22be5dc78
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            fieldUid: 3d01dd7e-2f06-4225-9857-951e921377ff
+            handle: dec
+            includeInCards: false
+            instructions: null
+            label: Dec
+            providesThumbs: false
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c14c7ea0-3d4c-4778-a93f-de361f997b3b
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            fieldUid: d6f8219d-2a83-4ee6-967e-10720dec037b
+            handle: fov
+            includeInCards: false
+            instructions: null
+            label: FOV
+            providesThumbs: false
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 357e9018-33df-4199-b8b3-77c81b9bad20
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            fieldUid: 6e1a5aaf-7bc6-457d-b979-4f3b9d4ce4c0
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: Audio
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 9621155e-de08-4228-9aa2-5a65b75fd725
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            fieldUid: db0c1775-4a14-47cf-b9c8-747314234fde
+            handle: survey
+            includeInCards: false
+            instructions: null
+            label: Survey
+            providesThumbs: true
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b1c71684-9be5-4195-a943-a7d6566d74f8
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            fieldUid: 9acbaaa2-a8e8-4f68-a495-98b3e2d8ed13
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'Zoom Out Time'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e733cf0d-5f59-4f8d-87f1-efdeae771fc5
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            fieldUid: f179ae9d-f7cc-4d51-824b-393c7ab4879d
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'Zoom Out FOV'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 3f954046-ce9a-48b6-b70b-aca6792a5ba1
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            fieldUid: a946a572-4818-4836-be34-95b4395d603a
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'Pan Time'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f2b50372-4952-4e30-a67e-5104674c497e
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            fieldUid: 51928716-cd54-492b-8292-3e1dea11aa9f
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'Zoom In Time'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 1467247f-0793-4572-baa1-df58e083fc0c
+            userCondition: null
+            warning: null
+            width: 25
+        name: Content
+        uid: 9e973a7f-2421-499d-ad1b-39e7b44f5384
+        userCondition: null
+handle: tourPoi
+hasTitleField: false
+icon: null
+name: 'Tour POI'
+showSlugField: false
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

@@ -1,16 +1,18 @@
 columnSuffix: null
 contentColumnType: string
-fieldGroup: 8d6803f5-ca34-46d8-a8d5-869896e34b65 # Tour
 handle: poiAstroObject
 instructions: null
 name: 'POI Astro Object'
 searchable: true
 settings:
-  contentTable: '{{%matrixcontent_poiastroobject}}'
-  maxBlocks: null
-  minBlocks: null
+  entryTypes:
+    -
+      uid: 82d2c4d7-37f1-458a-8a56-3cc1dcec6a0c
+  maxEntries: null
+  minEntries: null
   propagationKeyFormat: null
   propagationMethod: all
+  viewMode: blocks
 translationKeyFormat: null
 translationMethod: site
 type: craft\fields\Matrix
