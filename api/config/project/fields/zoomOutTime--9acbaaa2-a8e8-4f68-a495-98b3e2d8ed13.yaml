@@ -1,0 +1,19 @@
+columnSuffix: szjpwegf
+handle: zoomOutTime
+instructions: 'Time to zoom out after this POI'
+name: 'Tour POIs - Tour POI - Zoom Out Time'
+searchable: false
+settings:
+  decimals: 1
+  defaultValue: 1
+  max: null
+  min: 0
+  prefix: null
+  previewCurrency: null
+  previewFormat: decimal
+  size: null
+  step: null
+  suffix: seconds
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Number

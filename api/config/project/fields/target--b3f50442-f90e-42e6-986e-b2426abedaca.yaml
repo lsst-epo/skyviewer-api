@@ -1,8 +1,7 @@
 columnSuffix: null
 contentColumnType: text
-fieldGroup: 0ecf9feb-ab77-470b-a2de-eb396a3a4682 # Survey
 handle: target
-instructions: 'The starting position of the Skyviewer, can either be RA and DEC in decimal degrees, separated by a space, or an object''s catalog name.'
+instructions: "The starting position of the Skyviewer, can either be RA and DEC in decimal degrees, separated by a space, or an object's catalog name."
 name: Target
 searchable: false
 settings:

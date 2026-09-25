@@ -1,0 +1,23 @@
+columnSuffix: elqbydqj
+handle: experienceCategory
+instructions: null
+name: 'Guided Experiences - Experience - Experience Category'
+searchable: false
+settings:
+  allowSelfRelations: false
+  branchLimit: null
+  defaultPlacement: end
+  maintainHierarchy: false
+  maxRelations: 1
+  minRelations: 1
+  selectionLabel: null
+  showCardsInGrid: false
+  showSearchInput: true
+  showSiteMenu: false
+  source: 'group:928bd2d5-bb58-4e0f-9c81-f805fcc1e135' # Guided Experience Type
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Categories

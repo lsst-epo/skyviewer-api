@@ -119,7 +119,6 @@ fieldLayouts:
 handle: skysynth
 hasTitleField: false
 name: SkySynth
-section: d53d9e9e-bc1b-43dc-87eb-d0e6d1323238 # SkySynth
 showStatusField: true
 slugTranslationKeyFormat: null
 slugTranslationMethod: site

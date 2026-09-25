@@ -1,0 +1,16 @@
+columnSuffix: nkdhgxop
+handle: poiTitle
+instructions: null
+name: 'Tour POIs - Tour POI - Title'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: false
+  initialRows: 4
+  multiline: false
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\PlainText

@@ -1,0 +1,10 @@
+columnSuffix: dblnzfer
+handle: audio
+instructions: 'Audio that will play during this tour stop'
+name: 'Tour POIs - Tour POI - Audio'
+searchable: false
+settings:
+  cantoAssetPickerType: singleImagePicker
+translationKeyFormat: null
+translationMethod: site
+type: lsst\cantodamassets\fields\CantoDamAsset

@@ -1,0 +1,19 @@
+columnSuffix: zhzwhfbf
+handle: zoomOutFov
+instructions: 'FOV to zoom out to after this POI'
+name: 'Tour POIs - Tour POI - Zoom Out FOV'
+searchable: false
+settings:
+  decimals: 6
+  defaultValue: 10
+  max: null
+  min: 0
+  prefix: null
+  previewCurrency: null
+  previewFormat: decimal
+  size: null
+  step: null
+  suffix: degrees
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Number

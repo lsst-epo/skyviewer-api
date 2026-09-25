@@ -87,7 +87,7 @@ fieldLayouts:
           -
             elementCondition: null
             fieldUid: 3c645133-6daf-4632-a842-13662885ad1b # Background Image
-            instructions: 'Image shown as a backdrop on the tour''s landing page. The image will be slightly blurred and translucent so this image does not have to be high resolution, a well optimized image will provided a better loading experience to users.'
+            instructions: "Image shown as a backdrop on the tour's landing page. The image will be slightly blurred and translucent so this image does not have to be high resolution, a well optimized image will provided a better loading experience to users."
             label: null
             required: true
             tip: null
@@ -221,7 +221,6 @@ fieldLayouts:
 handle: tour
 hasTitleField: true
 name: Tour
-section: b22ca822-e7e2-4f8c-8be5-d3b0fcab1c9f # Tours
 showStatusField: true
 slugTranslationKeyFormat: null
 slugTranslationMethod: none

@@ -1,0 +1,10 @@
+columnSuffix: ypmmmjhn
+handle: previewImage
+instructions: null
+name: 'Guided Experiences - Experience - Preview Image'
+searchable: false
+settings:
+  cantoAssetPickerType: singleImagePicker
+translationKeyFormat: null
+translationMethod: site
+type: lsst\cantodamassets\fields\CantoDamAsset

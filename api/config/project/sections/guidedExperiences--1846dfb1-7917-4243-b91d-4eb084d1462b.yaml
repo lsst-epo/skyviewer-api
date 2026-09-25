@@ -1,19 +1,16 @@
 defaultPlacement: end
 enableVersioning: true
+entryTypes:
+  -
+    uid: 1f01e823-4dbb-4804-92e9-39007bcb2667 # Guided Experiences
 handle: guidedExperiences
+maxAuthors: 1
 name: 'Guided Experiences'
 previewTargets:
   -
-    __assoc__:
-      -
-        - label
-        - 'Primary entry page'
-      -
-        - urlFormat
-        - '@previewUrlFormat'
-      -
-        - refresh
-        - '1'
+    label: 'Primary entry page'
+    refresh: '1'
+    urlFormat: '@previewUrlFormat'
 propagationMethod: all
 siteSettings:
   763c0189-f6eb-419c-9ca2-2574a743768a: # EN

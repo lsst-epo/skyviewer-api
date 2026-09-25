@@ -1,0 +1,40 @@
+color: null
+description: null
+fieldLayouts:
+  0fc0ae09-e999-401a-94f3-c849d44a6fc0:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            fieldUid: 6f7c799f-429a-486c-bde4-a5bd5ece3a78
+            handle: body
+            includeInCards: true
+            instructions: null
+            label: Body
+            providesThumbs: false
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 6629d637-a437-47fa-97a7-ba2c39f218a8
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: e8dabd2b-0e68-4526-84ac-7b34c968d4bf
+        userCondition: null
+handle: introBlock
+hasTitleField: false
+icon: null
+name: 'Intro Content Block'
+showSlugField: false
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

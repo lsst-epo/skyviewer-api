@@ -1,0 +1,12 @@
+columnSuffix: qjdrfpjm
+handle: optionalLayer
+instructions: 'Allow the user to disable/enable this survey?'
+name: 'Surveys - Layer - Optional Layer'
+searchable: false
+settings:
+  default: true
+  offLabel: null
+  onLabel: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch
