@@ -1,30 +1,33 @@
 columnSuffix: null
 contentColumnType: string
-fieldGroup: 8d6803f5-ca34-46d8-a8d5-869896e34b65 # Tour
 handle: image
-instructions: ''
+instructions: null
 name: Image
 searchable: true
 settings:
   allowSelfRelations: false
+  allowSubfolders: false
   allowUploads: true
   allowedKinds: null
+  branchLimit: null
   defaultUploadLocationSource: 'volume:77fd2a32-cdf7-4a77-8648-d79616eed462'
   defaultUploadLocationSubpath: /web/assets/astro-tours
-  limit: '1'
   localizeRelations: false
+  maintainHierarchy: false
+  maxRelations: 1
+  minRelations: null
   previewMode: full
-  restrictFiles: ''
-  selectionLabel: ''
+  restrictFiles: false
+  restrictLocation: false
+  restrictedDefaultUploadSubpath: null
+  restrictedLocationSource: 'volume:85d34514-ec13-4850-a272-a3ab1bc790ef'
+  restrictedLocationSubpath: null
+  selectionLabel: null
   showSiteMenu: false
   showUnpermittedFiles: false
   showUnpermittedVolumes: false
-  singleUploadLocationSource: 'volume:85d34514-ec13-4850-a272-a3ab1bc790ef'
-  singleUploadLocationSubpath: ''
-  source: null
   sources: '*'
   targetSiteId: null
-  useSingleFolder: false
   validateRelatedElements: false
   viewMode: large
 translationKeyFormat: null

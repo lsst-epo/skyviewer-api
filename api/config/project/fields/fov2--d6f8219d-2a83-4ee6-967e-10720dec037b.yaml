@@ -1,0 +1,19 @@
+columnSuffix: null
+handle: fov2
+instructions: null
+name: 'Tour POIs - Tour POI - FOV'
+searchable: false
+settings:
+  decimals: 6
+  defaultValue: 20
+  max: null
+  min: 0
+  prefix: null
+  previewCurrency: null
+  previewFormat: decimal
+  size: null
+  step: null
+  suffix: °
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Number

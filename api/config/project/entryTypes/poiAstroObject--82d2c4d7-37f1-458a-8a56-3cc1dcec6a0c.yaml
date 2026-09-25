@@ -1,0 +1,40 @@
+color: null
+description: null
+fieldLayouts:
+  ca79027c-e444-43f4-ac18-1a49f21083c6:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            fieldUid: 84e9fa1d-8aed-40e1-a0e9-cb13152ea782
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: 'Astro Object'
+            providesThumbs: true
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 2d707b69-64f7-42eb-9884-b08bce14a0d5
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 8946d455-6524-4858-bfb6-92fbd7fb5672
+        userCondition: null
+handle: poiAstroObject
+hasTitleField: false
+icon: null
+name: poiAstroObject
+showSlugField: false
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

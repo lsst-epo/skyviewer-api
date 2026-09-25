@@ -1,16 +1,18 @@
 columnSuffix: null
 contentColumnType: string
-fieldGroup: 8d6803f5-ca34-46d8-a8d5-869896e34b65 # Tour
 handle: introContentBlocks
-instructions: ''
+instructions: null
 name: 'Intro Content Blocks'
 searchable: true
 settings:
-  contentTable: '{{%matrixcontent_introcontentblocks}}'
-  maxBlocks: ''
-  minBlocks: ''
+  entryTypes:
+    -
+      uid: 48d995fe-6d24-48f6-904a-c54f64964387
+  maxEntries: null
+  minEntries: null
   propagationKeyFormat: null
   propagationMethod: all
+  viewMode: blocks
 translationKeyFormat: null
 translationMethod: site
 type: craft\fields\Matrix

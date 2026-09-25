@@ -119,7 +119,6 @@ fieldLayouts:
 handle: explorer
 hasTitleField: false
 name: Explorer
-section: d30ed1ce-5b90-4cb7-98b2-45e45e560d64 # Explorer
 showStatusField: true
 slugTranslationKeyFormat: null
 slugTranslationMethod: none

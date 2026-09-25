@@ -1,6 +1,5 @@
 columnSuffix: cowhmmqn
 contentColumnType: text
-fieldGroup: 4accd3e5-dd7d-4464-9f19-db2009adda71 # Globals
 handle: faqMenuContent
 instructions: 'Text that will display in the "FAQ" menu when opened'
 name: 'FAQ Menu Content'

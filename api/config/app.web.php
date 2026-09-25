@@ -13,6 +13,7 @@ return [
 
             // Define additional properties:
             $config['redis'] = [
+                'class' => yii\redis\Connection::class,
                 'hostname' => App::env('REDIS_HOSTNAME') ?: 'localhost',
                 'port' => App::env('REDIS_PORT') ?: 6378,
                 'password' => App::env('REDIS_PASSWORD') ?: null,

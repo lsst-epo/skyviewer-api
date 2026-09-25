@@ -1,0 +1,12 @@
+columnSuffix: zepofzjx
+handle: showOnLoad
+instructions: null
+name: 'Surveys - Layer - Show on load'
+searchable: false
+settings:
+  default: true
+  offLabel: null
+  onLabel: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch

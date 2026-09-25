@@ -1,0 +1,57 @@
+color: null
+description: null
+fieldLayouts:
+  8b35b484-c747-45e2-8861-acc3ae694adc:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            fieldUid: b9b34be4-0861-4bc6-8707-e9752c6407d8
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'Experience Category'
+            providesThumbs: true
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ed6a3ae6-6d88-4a87-914e-304e2cc769f9
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            fieldUid: 4161f47d-ffa7-48f7-a373-113eb8dce3b3
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: 'Preview Image'
+            providesThumbs: false
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f65f7aa8-e91c-49d8-8208-87229ca7dc8a
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 0b7fd7c5-84cc-468a-b1eb-2a0439aedd34
+        userCondition: null
+handle: experience
+hasTitleField: false
+icon: null
+name: Experience
+showSlugField: false
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

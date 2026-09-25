@@ -1,6 +1,5 @@
 columnSuffix: tdfctnaf
 contentColumnType: text
-fieldGroup: 4accd3e5-dd7d-4464-9f19-db2009adda71 # Globals
 handle: aboutMenuContent
 instructions: 'Text that will display at the top of the "About" menu when opened'
 name: 'About Menu Content'

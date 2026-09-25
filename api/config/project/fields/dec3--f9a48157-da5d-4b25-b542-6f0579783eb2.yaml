@@ -1,0 +1,19 @@
+columnSuffix: eazfzcdr
+handle: dec3
+instructions: null
+name: 'Navigation POIs - Navigation POI - Dec'
+searchable: false
+settings:
+  decimals: 6
+  defaultValue: null
+  max: 90
+  min: -90
+  prefix: null
+  previewCurrency: null
+  previewFormat: decimal
+  size: null
+  step: null
+  suffix: °
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Number

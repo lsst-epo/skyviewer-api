@@ -1,13 +1,11 @@
 columnSuffix: null
 contentColumnType: string(255)
-fieldGroup: 7d09d2f0-5c11-4a45-a805-a6d39128319e # Common
 handle: path
-instructions: ''
+instructions: null
 name: Path
 searchable: true
 settings:
-  maxLength: '255'
-  placeholder: null
+  maxLength: 255
   types:
     - url
 translationKeyFormat: null
