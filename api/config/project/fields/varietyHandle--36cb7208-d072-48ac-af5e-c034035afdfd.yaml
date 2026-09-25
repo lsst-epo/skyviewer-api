@@ -1,17 +1,16 @@
 columnSuffix: null
 contentColumnType: text
-fieldGroup: 8d6803f5-ca34-46d8-a8d5-869896e34b65 # Tour
 handle: varietyHandle
-instructions: ''
+instructions: null
 name: 'Variety Handle'
 searchable: false
 settings:
   byteLimit: null
   charLimit: null
-  code: ''
+  code: false
   columnType: null
-  initialRows: '4'
-  multiline: ''
+  initialRows: 4
+  multiline: false
   placeholder: null
   uiMode: normal
 translationKeyFormat: null

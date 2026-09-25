@@ -1,0 +1,40 @@
+color: null
+description: null
+fieldLayouts:
+  01e3de18-5422-4982-8793-e0a34948e1d5:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            fieldUid: ccd123b4-00ff-4cdb-87e0-20be70c5f8f3
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: Body
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: fe7e9d62-ea50-45f3-8c9a-e90b33615248
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: a8b9c666-2ae7-4b88-80e2-6cf29062d6d5
+        userCondition: null
+handle: factsContentBlock
+hasTitleField: false
+icon: null
+name: 'Facts Content Block'
+showSlugField: false
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

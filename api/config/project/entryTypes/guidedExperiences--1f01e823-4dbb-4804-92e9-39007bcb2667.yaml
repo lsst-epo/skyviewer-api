@@ -49,7 +49,6 @@ fieldLayouts:
 handle: guidedExperiences
 hasTitleField: true
 name: 'Guided Experiences'
-section: 1846dfb1-7917-4243-b91d-4eb084d1462b # Guided Experiences
 showStatusField: true
 slugTranslationKeyFormat: null
 slugTranslationMethod: none

@@ -1,0 +1,26 @@
+columnSuffix: null
+handle: survey2
+instructions: 'A survey to be shown on this tour step'
+name: 'Tour POIs - Tour POI - Survey'
+searchable: false
+settings:
+  allowSelfRelations: false
+  branchLimit: null
+  defaultPlacement: end
+  maintainHierarchy: false
+  maxRelations: 1
+  minRelations: null
+  selectionLabel: null
+  showCardsInGrid: false
+  showSearchInput: true
+  showSiteMenu: false
+  showUnpermittedEntries: true
+  showUnpermittedSections: true
+  sources:
+    - 'section:02e3155f-23cf-4f36-a734-a3f447d04e85' # Survey
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Entries

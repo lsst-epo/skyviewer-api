@@ -1,5 +1,5 @@
 baseUrl: '@web/es'
-enabled: true
+enabled: '1'
 handle: es
 hasUrls: true
 language: es-CL
