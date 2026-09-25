@@ -119,7 +119,6 @@ fieldLayouts:
 handle: embed
 hasTitleField: false
 name: Embed
-section: b469eb7b-2830-4cc1-b7b3-b55d9e8c9b96 # Embed
 showStatusField: true
 slugTranslationKeyFormat: null
 slugTranslationMethod: none

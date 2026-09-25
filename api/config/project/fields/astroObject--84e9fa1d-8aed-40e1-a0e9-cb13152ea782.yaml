@@ -1,0 +1,26 @@
+columnSuffix: null
+handle: astroObject
+instructions: null
+name: 'POI Astro Object - poiAstroObject - Astro Object'
+searchable: true
+settings:
+  allowSelfRelations: false
+  branchLimit: null
+  defaultPlacement: end
+  maintainHierarchy: false
+  maxRelations: 1
+  minRelations: null
+  selectionLabel: null
+  showCardsInGrid: false
+  showSearchInput: true
+  showSiteMenu: false
+  showUnpermittedEntries: true
+  showUnpermittedSections: true
+  sources:
+    - 'section:e2eb2e80-8e02-4a68-aa81-3d488f80543d' # Astro Object
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Entries

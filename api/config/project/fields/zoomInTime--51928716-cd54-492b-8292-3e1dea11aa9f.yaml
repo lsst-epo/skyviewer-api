@@ -1,0 +1,19 @@
+columnSuffix: xjnnebcz
+handle: zoomInTime
+instructions: 'Time to zoom in to the next POI after this POI'
+name: 'Tour POIs - Tour POI - Zoom In Time'
+searchable: false
+settings:
+  decimals: 1
+  defaultValue: 1
+  max: null
+  min: 0
+  prefix: null
+  previewCurrency: null
+  previewFormat: decimal
+  size: null
+  step: null
+  suffix: seconds
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Number

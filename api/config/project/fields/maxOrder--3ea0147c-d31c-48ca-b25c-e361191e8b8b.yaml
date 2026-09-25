@@ -1,6 +1,5 @@
 columnSuffix: uwwdcchp
 contentColumnType: smallint(2)
-fieldGroup: 0ecf9feb-ab77-470b-a2de-eb396a3a4682 # Survey
 handle: maxOrder
 instructions: 'The maximum HEALPix order of the HiPS, i.e the HEALPix order of the most refined tile images of the HiPS.'
 name: 'Max Order'

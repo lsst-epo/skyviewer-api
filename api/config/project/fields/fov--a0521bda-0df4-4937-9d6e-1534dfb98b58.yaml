@@ -1,6 +1,5 @@
 columnSuffix: null
 contentColumnType: 'decimal(15,5)'
-fieldGroup: 7d09d2f0-5c11-4a45-a805-a6d39128319e # Common
 handle: fov
 instructions: 'A number indicating the initial zoom level'
 name: 'Field of View (FOV) Initial'

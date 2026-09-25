@@ -1,0 +1,12 @@
+columnSuffix: cujndbuf
+handle: enabledInNavigation
+instructions: 'Add or remove this item from the nav menu without needing to delete it'
+name: 'Navigation POIs - Navigation POI - Enabled In Navigation'
+searchable: false
+settings:
+  default: false
+  offLabel: Disabled
+  onLabel: Enabled
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch

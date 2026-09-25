@@ -1,16 +1,18 @@
 columnSuffix: null
 contentColumnType: string
-fieldGroup: 0ecf9feb-ab77-470b-a2de-eb396a3a4682 # Survey
 handle: navPois
 instructions: 'Enter points of interest to be used in navigation menus or options. These can be specific points or a spot to move to in a field (e.g. Virgo, COSMOS, Etc.)'
 name: 'Navigation POIs'
 searchable: true
 settings:
-  contentTable: '{{%matrixcontent_navpois}}'
-  maxBlocks: null
-  minBlocks: null
+  entryTypes:
+    -
+      uid: 51bbc9fe-bdb1-456b-aaa5-45bfe6820318
+  maxEntries: null
+  minEntries: null
   propagationKeyFormat: null
   propagationMethod: all
+  viewMode: blocks
 translationKeyFormat: null
 translationMethod: site
 type: craft\fields\Matrix

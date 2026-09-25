@@ -1,0 +1,19 @@
+columnSuffix: kuiphvxs
+handle: panTime
+instructions: 'Time to pan to the next POI after this POI'
+name: 'Tour POIs - Tour POI - Pan Time'
+searchable: false
+settings:
+  decimals: 1
+  defaultValue: 2
+  max: null
+  min: 0
+  prefix: null
+  previewCurrency: null
+  previewFormat: decimal
+  size: null
+  step: null
+  suffix: seconds
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Number
