@@ -8,24 +8,31 @@ maxAuthors: 1
 name: Tours
 previewTargets:
   -
-    label: 'Primary entry page'
-    refresh: '1'
-    urlFormat: '@previewUrlFormat'
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '@previewUrlFormat'
+      -
+        - refresh
+        - '1'
 propagationMethod: all
 siteSettings:
   763c0189-f6eb-419c-9ca2-2574a743768a: # EN
     enabledByDefault: true
     hasUrls: true
     template: null
-    uriFormat: '{slug}'
+    uriFormat: 'tours/{tourCategory.value}/{slug}'
   a6b28fea-2f0c-49a2-b82c-fd16c51d9511: # ES
     enabledByDefault: true
     hasUrls: true
     template: null
-    uriFormat: '{slug}'
+    uriFormat: 'tours/{tourCategory.value}/{slug}'
   e747e6c7-90f7-4e80-adce-3b5032b9b427: # JA
     enabledByDefault: true
     hasUrls: true
     template: null
-    uriFormat: '{slug}'
+    uriFormat: 'tours/{tourCategory.value}/{slug}'
 type: channel
