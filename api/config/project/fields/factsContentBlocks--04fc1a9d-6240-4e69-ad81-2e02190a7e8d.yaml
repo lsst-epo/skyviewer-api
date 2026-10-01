@@ -7,7 +7,7 @@ searchable: true
 settings:
   entryTypes:
     -
-      uid: 8944198c-ff53-4323-ad48-976efeb3f56e
+      uid: 8944198c-ff53-4323-ad48-976efeb3f56e # Facts Content Block
   maxEntries: null
   minEntries: null
   propagationKeyFormat: null
