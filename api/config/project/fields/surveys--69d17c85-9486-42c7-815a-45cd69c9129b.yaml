@@ -7,7 +7,7 @@ searchable: false
 settings:
   entryTypes:
     -
-      uid: 17a7d431-1c2c-4a2a-a3f3-c872d55e4696
+      uid: 17a7d431-1c2c-4a2a-a3f3-c872d55e4696 # Layer
   maxEntries: null
   minEntries: null
   propagationKeyFormat: null
