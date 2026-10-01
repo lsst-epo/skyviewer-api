@@ -7,7 +7,7 @@ searchable: true
 settings:
   entryTypes:
     -
-      uid: a8b34826-6a25-4e0a-b5dc-7e9820257899
+      uid: a8b34826-6a25-4e0a-b5dc-7e9820257899 # Tour POI
   maxEntries: null
   minEntries: null
   propagationKeyFormat: null

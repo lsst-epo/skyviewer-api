@@ -11,7 +11,7 @@ fieldLayouts:
             dateAdded: null
             editCondition: null
             elementCondition: null
-            fieldUid: e9441363-c5ac-4eb2-a5e5-cc35db329875
+            fieldUid: e9441363-c5ac-4eb2-a5e5-cc35db329875 # Navigation POIs - Navigation POI - Title
             handle: null
             includeInCards: true
             instructions: null
@@ -28,7 +28,7 @@ fieldLayouts:
             dateAdded: null
             editCondition: null
             elementCondition: null
-            fieldUid: 01b2b4ae-023f-4268-b748-fcf1f5fdd323
+            fieldUid: 01b2b4ae-023f-4268-b748-fcf1f5fdd323 # Navigation POIs - Navigation POI - Description
             handle: null
             includeInCards: false
             instructions: null
@@ -45,7 +45,7 @@ fieldLayouts:
             dateAdded: null
             editCondition: null
             elementCondition: null
-            fieldUid: 8f5baa08-7c5c-4225-ad13-dc0108246364
+            fieldUid: 8f5baa08-7c5c-4225-ad13-dc0108246364 # Navigation POIs - Navigation POI - RA
             handle: ra
             includeInCards: false
             instructions: null
@@ -62,7 +62,7 @@ fieldLayouts:
             dateAdded: null
             editCondition: null
             elementCondition: null
-            fieldUid: f9a48157-da5d-4b25-b542-6f0579783eb2
+            fieldUid: f9a48157-da5d-4b25-b542-6f0579783eb2 # Navigation POIs - Navigation POI - Dec
             handle: dec
             includeInCards: false
             instructions: null
@@ -79,7 +79,7 @@ fieldLayouts:
             dateAdded: null
             editCondition: null
             elementCondition: null
-            fieldUid: 37d5b767-8af8-4f11-8965-f515cc8cae08
+            fieldUid: 37d5b767-8af8-4f11-8965-f515cc8cae08 # Navigation POIs - Navigation POI - Enabled In Navigation
             handle: null
             includeInCards: false
             instructions: null
