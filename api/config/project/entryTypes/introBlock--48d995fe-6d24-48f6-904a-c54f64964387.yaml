@@ -11,7 +11,7 @@ fieldLayouts:
             dateAdded: null
             editCondition: null
             elementCondition: null
-            fieldUid: 6f7c799f-429a-486c-bde4-a5bd5ece3a78
+            fieldUid: 6f7c799f-429a-486c-bde4-a5bd5ece3a78 # Intro Content Blocks - Intro Content Block - Body
             handle: body
             includeInCards: true
             instructions: null

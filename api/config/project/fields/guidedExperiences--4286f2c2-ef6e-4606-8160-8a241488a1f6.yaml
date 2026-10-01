@@ -1,17 +1,28 @@
 columnSuffix: null
-contentColumnType: string
 handle: guidedExperiences
 instructions: null
 name: 'Guided Experiences'
 searchable: false
 settings:
+  createButtonLabel: null
+  defaultIndexViewMode: cards
+  enableVersioning: false
   entryTypes:
     -
-      uid: a279aa4f-a3ed-4363-9335-a042965bc310
+      __assoc__:
+        -
+          - uid
+          - a279aa4f-a3ed-4363-9335-a042965bc310 # Experience
+        -
+          - group
+          - General
+  includeTableView: false
   maxEntries: null
   minEntries: 1
+  pageSize: null
   propagationKeyFormat: null
   propagationMethod: all
+  showCardsInGrid: false
   viewMode: blocks
 translationKeyFormat: null
 translationMethod: site

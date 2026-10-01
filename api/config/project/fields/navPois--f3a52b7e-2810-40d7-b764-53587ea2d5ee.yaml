@@ -7,7 +7,7 @@ searchable: true
 settings:
   entryTypes:
     -
-      uid: 51bbc9fe-bdb1-456b-aaa5-45bfe6820318
+      uid: 51bbc9fe-bdb1-456b-aaa5-45bfe6820318 # Navigation POI
   maxEntries: null
   minEntries: null
   propagationKeyFormat: null
