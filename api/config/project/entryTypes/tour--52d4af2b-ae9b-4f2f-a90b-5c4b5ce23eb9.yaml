@@ -1,5 +1,8 @@
+color: null
+description: null
 fieldLayouts:
   05e3e818-d66c-4f2d-99ef-52fe1ee8904e:
+    cardThumbAlignment: end
     tabs:
       -
         elementCondition: null
@@ -9,9 +12,11 @@ fieldLayouts:
             autocomplete: false
             autocorrect: true
             class: null
+            dateAdded: '2026-09-30T21:33:00+00:00'
             disabled: false
             elementCondition: null
             id: null
+            includeInCards: false
             inputType: null
             instructions: null
             label: null
@@ -20,8 +25,9 @@ fieldLayouts:
             name: null
             orientation: null
             placeholder: null
+            providesThumbs: false
             readonly: false
-            requirable: false
+            required: true
             size: null
             step: null
             tip: null
@@ -32,22 +38,32 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: '2026-09-30T21:34:15+00:00'
+            editCondition: null
             elementCondition: null
-            fieldUid: 36dddc84-e655-4ee6-a769-486f28437fc8 # Tour Category
+            fieldUid: bbbb9531-8860-418b-9abf-86d31112ccd2 # Tour Category
+            handle: null
+            includeInCards: false
             instructions: null
             label: null
+            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: ea9ca0c2-7eaa-4da6-9e4b-3b39de0f4b5c
+            uid: 313eae13-1036-46c6-a53b-6268aee1d673
             userCondition: null
             warning: null
             width: 100
           -
+            dateAdded: '2026-09-30T21:33:00+00:00'
+            editCondition: null
             elementCondition: null
             fieldUid: 754ae3b5-3a92-4012-8660-9d106bdc3e69 # Include in feed
+            handle: null
+            includeInCards: false
             instructions: null
             label: null
+            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -56,10 +72,15 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: '2026-09-30T21:33:00+00:00'
+            editCondition: null
             elementCondition: null
             fieldUid: 69d17c85-9486-42c7-815a-45cd69c9129b # Surveys
+            handle: null
+            includeInCards: false
             instructions: null
             label: null
+            providesThumbs: false
             required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -68,15 +89,21 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: '2026-09-30T21:33:00+00:00'
             elementCondition: null
             type: craft\fieldlayoutelements\HorizontalRule
             uid: b5302b02-c7d4-4f43-9f50-8e3ce5db1d3d
             userCondition: null
           -
+            dateAdded: '2026-09-30T21:33:00+00:00'
+            editCondition: null
             elementCondition: null
             fieldUid: 7f01b564-7d49-4139-be9d-07d369fd3408 # Thumbnail Image
+            handle: null
+            includeInCards: false
             instructions: null
             label: null
+            providesThumbs: false
             required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -85,10 +112,15 @@ fieldLayouts:
             warning: null
             width: 50
           -
+            dateAdded: '2026-09-30T21:33:00+00:00'
+            editCondition: null
             elementCondition: null
             fieldUid: 3c645133-6daf-4632-a842-13662885ad1b # Background Image
+            handle: null
+            includeInCards: false
             instructions: "Image shown as a backdrop on the tour's landing page. The image will be slightly blurred and translucent so this image does not have to be high resolution, a well optimized image will provided a better loading experience to users."
             label: null
+            providesThumbs: false
             required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -97,15 +129,21 @@ fieldLayouts:
             warning: null
             width: 50
           -
+            dateAdded: '2026-09-30T21:33:00+00:00'
             elementCondition: null
             type: craft\fieldlayoutelements\HorizontalRule
             uid: 02d24126-bb97-4b51-ada5-6e1d75989031
             userCondition: null
           -
+            dateAdded: '2026-09-30T21:33:00+00:00'
+            editCondition: null
             elementCondition: null
             fieldUid: 93cdcbba-f59d-41f1-ac65-5d9b0f83ef62 # Duration
+            handle: null
+            includeInCards: false
             instructions: null
             label: null
+            providesThumbs: false
             required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -114,10 +152,15 @@ fieldLayouts:
             warning: null
             width: 50
           -
+            dateAdded: '2026-09-30T21:33:00+00:00'
+            editCondition: null
             elementCondition: null
             fieldUid: d4c658d8-0938-43f0-9ce0-0515d09ca162 # Complexity
+            handle: null
+            includeInCards: false
             instructions: null
             label: null
+            providesThumbs: false
             required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -132,10 +175,15 @@ fieldLayouts:
         elementCondition: null
         elements:
           -
+            dateAdded: '2026-09-30T21:33:00+00:00'
+            editCondition: null
             elementCondition: null
             fieldUid: a715351e-d465-4446-81f8-c9a15b3d1298 # Intro Heading
+            handle: null
+            includeInCards: false
             instructions: null
             label: null
+            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -144,10 +192,15 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: '2026-09-30T21:33:00+00:00'
+            editCondition: null
             elementCondition: null
             fieldUid: 31806af1-7467-49ea-9638-01ecf1c546cd # Intro Subheading
+            handle: null
+            includeInCards: false
             instructions: null
             label: null
+            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -156,10 +209,15 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: '2026-09-30T21:33:00+00:00'
+            editCondition: null
             elementCondition: null
             fieldUid: 008cb5a3-a777-476f-8410-4f2bf13ac492 # Intro Content Blocks
+            handle: null
+            includeInCards: false
             instructions: null
             label: null
+            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -174,10 +232,15 @@ fieldLayouts:
         elementCondition: null
         elements:
           -
+            dateAdded: '2026-09-30T21:33:00+00:00'
+            editCondition: null
             elementCondition: null
             fieldUid: 18a685a4-2ce7-4ae8-b717-0154cff390c1 # Fun Facts Heading
+            handle: null
+            includeInCards: false
             instructions: null
             label: null
+            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -186,10 +249,15 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: '2026-09-30T21:33:00+00:00'
+            editCondition: null
             elementCondition: null
             fieldUid: 04fc1a9d-6240-4e69-ad81-2e02190a7e8d # Fun Facts Content Blocks
+            handle: null
+            includeInCards: false
             instructions: null
             label: null
+            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -204,10 +272,15 @@ fieldLayouts:
         elementCondition: null
         elements:
           -
+            dateAdded: '2026-09-30T21:33:00+00:00'
+            editCondition: null
             elementCondition: null
             fieldUid: 8fd439fe-660f-4cac-8ddf-b71b8ad6276f # Tour POIs
+            handle: null
+            includeInCards: false
             instructions: null
             label: null
+            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -220,11 +293,12 @@ fieldLayouts:
         userCondition: null
 handle: tour
 hasTitleField: true
+icon: null
 name: Tour
+showSlugField: true
 showStatusField: true
 slugTranslationKeyFormat: null
 slugTranslationMethod: none
-sortOrder: 1
 titleFormat: null
 titleTranslationKeyFormat: null
 titleTranslationMethod: site

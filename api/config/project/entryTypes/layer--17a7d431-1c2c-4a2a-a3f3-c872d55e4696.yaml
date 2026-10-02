@@ -11,7 +11,7 @@ fieldLayouts:
             dateAdded: null
             editCondition: null
             elementCondition: null
-            fieldUid: a6c53977-ddbd-479a-8b8a-8754d051cac7
+            fieldUid: a6c53977-ddbd-479a-8b8a-8754d051cac7 # Surveys - Layer - Survey
             handle: survey
             includeInCards: false
             instructions: null
@@ -28,7 +28,7 @@ fieldLayouts:
             dateAdded: null
             editCondition: null
             elementCondition: null
-            fieldUid: 8e8d03a0-cafa-424e-9fc5-7f2ee7f5c063
+            fieldUid: 8e8d03a0-cafa-424e-9fc5-7f2ee7f5c063 # Surveys - Layer - Show on load
             handle: null
             includeInCards: true
             instructions: null
@@ -45,7 +45,7 @@ fieldLayouts:
             dateAdded: null
             editCondition: null
             elementCondition: null
-            fieldUid: 98fa9f36-d1d1-4fa0-86c9-70ead1ecbe05
+            fieldUid: 98fa9f36-d1d1-4fa0-86c9-70ead1ecbe05 # Surveys - Layer - Opacity
             handle: null
             includeInCards: false
             instructions: null
@@ -62,7 +62,7 @@ fieldLayouts:
             dateAdded: null
             editCondition: null
             elementCondition: null
-            fieldUid: 33a76ab8-0b56-4bd5-915a-7f46d739fb82
+            fieldUid: 33a76ab8-0b56-4bd5-915a-7f46d739fb82 # Surveys - Layer - Optional Layer
             handle: null
             includeInCards: false
             instructions: null

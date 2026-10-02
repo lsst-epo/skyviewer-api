@@ -7,7 +7,7 @@ searchable: true
 settings:
   entryTypes:
     -
-      uid: 48d995fe-6d24-48f6-904a-c54f64964387
+      uid: 48d995fe-6d24-48f6-904a-c54f64964387 # Intro Content Block
   maxEntries: null
   minEntries: null
   propagationKeyFormat: null
