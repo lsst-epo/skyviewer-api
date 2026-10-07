@@ -1,0 +1,45 @@
+columnSuffix: null
+handle: markerShape
+instructions: 'Set the shape that should be used as the marker. Note: Adding a new shape will require a developer modification to the client codebase to add the new image file and the value-to-image mapping.'
+name: 'Marker Shape'
+searchable: false
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - 'Rubin Circle'
+        -
+          - value
+          - rubinCircle
+        -
+          - icon
+          - ''
+        -
+          - color
+          - ''
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - 'Simple Circle'
+        -
+          - value
+          - galaxy
+        -
+          - icon
+          - ''
+        -
+          - color
+          - ''
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

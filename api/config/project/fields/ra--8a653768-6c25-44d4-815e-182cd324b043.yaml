@@ -1,5 +1,4 @@
 columnSuffix: null
-contentColumnType: 'decimal(9,6)'
 handle: ra
 instructions: 'Right Acension'
 name: Ra
@@ -13,7 +12,8 @@ settings:
   previewCurrency: null
   previewFormat: decimal
   size: null
-  suffix: null
+  step: null
+  suffix: °
 translationKeyFormat: null
 translationMethod: none
 type: craft\fields\Number
