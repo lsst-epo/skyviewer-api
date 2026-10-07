@@ -8,7 +8,7 @@ fieldLayouts:
         elementCondition: null
         elements:
           -
-            dateAdded: null
+            dateAdded: '2026-10-07T18:10:02+00:00'
             editCondition: null
             elementCondition: null
             fieldUid: 1b6d6c52-1663-44df-a699-c12283451818 # Tour POIs - Tour POI - Title
@@ -25,7 +25,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            dateAdded: null
+            dateAdded: '2026-10-07T18:10:02+00:00'
             editCondition: null
             elementCondition: null
             fieldUid: fe1835fb-8bd0-4e5a-b637-0e94330568ac # Tour POIs - Tour POI - Description
@@ -42,7 +42,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            dateAdded: null
+            dateAdded: '2026-10-07T18:10:02+00:00'
             editCondition: null
             elementCondition: null
             fieldUid: 88ca9249-075f-4535-9997-6dbf45a0582b # Tour POIs - Tour POI - RA
@@ -59,7 +59,7 @@ fieldLayouts:
             warning: null
             width: 25
           -
-            dateAdded: null
+            dateAdded: '2026-10-07T18:10:02+00:00'
             editCondition: null
             elementCondition: null
             fieldUid: 3d01dd7e-2f06-4225-9857-951e921377ff # Tour POIs - Tour POI - Dec
@@ -76,7 +76,7 @@ fieldLayouts:
             warning: null
             width: 25
           -
-            dateAdded: null
+            dateAdded: '2026-10-07T18:10:02+00:00'
             editCondition: null
             elementCondition: null
             fieldUid: d6f8219d-2a83-4ee6-967e-10720dec037b # Tour POIs - Tour POI - FOV
@@ -93,7 +93,7 @@ fieldLayouts:
             warning: null
             width: 25
           -
-            dateAdded: null
+            dateAdded: '2026-10-07T18:10:02+00:00'
             editCondition: null
             elementCondition: null
             fieldUid: 6e1a5aaf-7bc6-457d-b979-4f3b9d4ce4c0 # Tour POIs - Tour POI - Audio
@@ -110,7 +110,7 @@ fieldLayouts:
             warning: null
             width: 50
           -
-            dateAdded: null
+            dateAdded: '2026-10-07T18:10:02+00:00'
             editCondition: null
             elementCondition: null
             fieldUid: db0c1775-4a14-47cf-b9c8-747314234fde # Tour POIs - Tour POI - Survey
@@ -127,7 +127,7 @@ fieldLayouts:
             warning: null
             width: 50
           -
-            dateAdded: null
+            dateAdded: '2026-10-07T18:10:02+00:00'
             editCondition: null
             elementCondition: null
             fieldUid: 9acbaaa2-a8e8-4f68-a495-98b3e2d8ed13 # Tour POIs - Tour POI - Zoom Out Time
@@ -144,7 +144,7 @@ fieldLayouts:
             warning: null
             width: 25
           -
-            dateAdded: null
+            dateAdded: '2026-10-07T18:10:02+00:00'
             editCondition: null
             elementCondition: null
             fieldUid: f179ae9d-f7cc-4d51-824b-393c7ab4879d # Tour POIs - Tour POI - Zoom Out FOV
@@ -161,7 +161,7 @@ fieldLayouts:
             warning: null
             width: 25
           -
-            dateAdded: null
+            dateAdded: '2026-10-07T18:10:02+00:00'
             editCondition: null
             elementCondition: null
             fieldUid: a946a572-4818-4836-be34-95b4395d603a # Tour POIs - Tour POI - Pan Time
@@ -178,7 +178,7 @@ fieldLayouts:
             warning: null
             width: 25
           -
-            dateAdded: null
+            dateAdded: '2026-10-07T18:10:02+00:00'
             editCondition: null
             elementCondition: null
             fieldUid: 51928716-cd54-492b-8292-3e1dea11aa9f # Tour POIs - Tour POI - Zoom In Time
@@ -194,6 +194,23 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 25
+          -
+            dateAdded: '2026-10-07T18:27:20+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: c7a932a9-bae4-4b00-88fb-4bd8f9f23549 # Highlight Markers
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 451581d6-0f60-428b-ab6c-d9f9309b89fe
+            userCondition: null
+            warning: null
+            width: 100
         name: Content
         uid: 9e973a7f-2421-499d-ad1b-39e7b44f5384
         userCondition: null

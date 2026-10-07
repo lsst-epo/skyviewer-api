@@ -1,0 +1,19 @@
+columnSuffix: null
+handle: markerSizeFactor
+instructions: "Enter a number between 1 - 100 to control the size of the highlight marker. This indicates to the client how big the marker should be relative to the users screen and the tour stop's field of view."
+name: 'Marker Size Factor'
+searchable: false
+settings:
+  decimals: 1
+  defaultValue: 1
+  max: 100
+  min: 0.1
+  prefix: null
+  previewCurrency: null
+  previewFormat: decimal
+  size: null
+  step: 0.1
+  suffix: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Number
