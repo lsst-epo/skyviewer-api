@@ -1,0 +1,19 @@
+columnSuffix: null
+handle: markerSizeFactor
+instructions: 'Enter a number between 1 - 10 to control the size of the highlight marker. This indicates to the client how big the marker should be relative to the users screen.'
+name: 'Marker Size Factor'
+searchable: false
+settings:
+  decimals: 1
+  defaultValue: null
+  max: 10
+  min: 0
+  prefix: null
+  previewCurrency: null
+  previewFormat: decimal
+  size: null
+  step: 0.1
+  suffix: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Number
