@@ -1,4 +1,4 @@
-dateModified: 1791300045
+dateModified: 1791406493
 email:
   fromEmail: $EMAIL_FROM_ADDRESS
   fromName: $EMAIL_SENDER_NAME
@@ -70,6 +70,7 @@ meta:
     3c645133-6daf-4632-a842-13662885ad1b: 'Background Image' # Background Image
     3d01dd7e-2f06-4225-9857-951e921377ff: 'Tour POIs - Tour POI - Dec' # Tour POIs - Tour POI - Dec
     3ea0147c-d31c-48ca-b25c-e361191e8b8b: 'Max Order' # Max Order
+    3fa76c97-c8df-4084-bf29-b88cefad04a3: 'Highlight Marker' # Highlight Marker
     4b8d140e-8cb8-489e-9a89-0c30c4717e30: 'Tour Theme' # Tour Theme
     04fc1a9d-6240-4e69-ad81-2e02190a7e8d: 'Fun Facts Content Blocks' # Fun Facts Content Blocks
     5ef8f422-6773-4891-99b9-f56cdb8bced4: 'Alternate Text' # Alternate Text
@@ -111,6 +112,7 @@ meta:
     92cbd69c-4936-4221-bfbb-bc2b345b5a8b: Translators # Translators
     93cdcbba-f59d-41f1-ac65-5d9b0f83ef62: Duration # Duration
     98fa9f36-d1d1-4fa0-86c9-70ead1ecbe05: 'Surveys - Layer - Opacity' # Surveys - Layer - Opacity
+    170eff41-a7d4-48c7-92bd-e35b90e3671d: 'Marker Size Factor' # Marker Size Factor
     754ae3b5-3a92-4012-8660-9d106bdc3e69: 'Include in feed' # Include in feed
     763c0189-f6eb-419c-9ca2-2574a743768a: EN # EN
     0848c204-7e47-4aa0-8da1-5a4538481bce: 'Canto DAM' # Canto DAM
@@ -152,6 +154,7 @@ meta:
     bae3d86b-064a-47c2-9af4-736639f79b7b: Survey # Survey
     bbbb9531-8860-418b-9abf-86d31112ccd2: 'Tour Category' # Tour Category
     c1f0a2ee-3b87-486c-96ed-7e2d25fc952f: 'Skyviewer API' # Skyviewer API
+    c7a932a9-bae4-4b00-88fb-4bd8f9f23549: 'Highlight Markers' # Highlight Markers
     c8a76131-a217-46f6-9b2a-88d4f2a2f7de: Dec # Dec
     ccd123b4-00ff-4cdb-87e0-20be70c5f8f3: 'Fun Facts Content Blocks - Facts Content Block - Body' # Fun Facts Content Blocks - Facts Content Block - Body
     cd879179-0c4d-47a3-90e9-61fdb3516cc4: Image # Image
