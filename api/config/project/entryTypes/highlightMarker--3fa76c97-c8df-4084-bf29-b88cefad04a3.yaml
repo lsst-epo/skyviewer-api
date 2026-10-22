@@ -1,0 +1,104 @@
+color: null
+description: null
+fieldLayouts:
+  1aaa3c3d-3adb-4b9d-8dfd-cb3591ec0281:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2026-10-07T18:15:19+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: a9f500c6-6b77-4ba8-b92b-9a46cca040ed
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-10-07T18:26:49+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 8a653768-6c25-44d4-815e-182cd324b043 # Ra
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 2cd3e739-11e6-4979-8b99-6fd417e46b27
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-10-07T18:26:49+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: c8a76131-a217-46f6-9b2a-88d4f2a2f7de # Dec
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: aa1bb5fc-c7eb-49c3-8cc1-1e49eeaf28e2
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-10-07T18:26:49+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 170eff41-a7d4-48c7-92bd-e35b90e3671d # Marker Size Factor
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e74910cf-edba-441b-bc98-4329adb7d93b
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: e54d1b5f-7614-4e63-aeee-921328e3c57e
+        userCondition: null
+handle: highlightMarker
+hasTitleField: true
+icon: null
+name: 'Highlight Marker'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

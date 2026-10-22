@@ -1,5 +1,4 @@
 columnSuffix: null
-contentColumnType: 'decimal(8,6)'
 handle: dec
 instructions: Declination
 name: Dec
@@ -13,7 +12,8 @@ settings:
   previewCurrency: null
   previewFormat: decimal
   size: null
-  suffix: null
+  step: null
+  suffix: °
 translationKeyFormat: null
 translationMethod: none
 type: craft\fields\Number
